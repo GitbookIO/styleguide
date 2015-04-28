@@ -1,0 +1,73 @@
+.button(@mainColor) {
+    text-shadow: none;
+    border-radius: 3px;
+    text-shadow: none;
+    background: linear-gradient(@gb-button-background, darken(@gb-button-background, 6%));
+    border-color: darken(@gb-button-background, 20%);
+    color: @mainColor;
+    .box-shadow(none);
+
+    &:hover, &:focus, &:active, &.dropdown-toggle.open {
+        background: linear-gradient(@gb-button-background, darken(@gb-button-background, 10%));
+        border-color: darken(@gb-button-background, 20%);
+        .box-shadow(none);
+        outline: none;
+    }
+
+    .caret {
+        border-top-color: @mainColor;
+    }
+
+    &.btn-noborder, &.btn-link {
+        text-shadow: none;
+        color: @mainColor;
+        border: none;
+        background: none;
+        .box-shadow(none);
+
+        &:hover, &:focus {
+            color: darken(@mainColor, 12%);
+            outline: none;
+        }
+    }
+
+    &.btn-fill {
+        background: linear-gradient(@mainColor, darken(@mainColor, 10%));
+        border-color: darken(@mainColor, 15%);
+        color: #fff;
+
+        &:hover, &:focus {
+            background: linear-gradient(@mainColor, darken(@mainColor, 15%));
+            border-color: darken(@mainColor, 20%);
+        }
+    }
+}
+
+
+.btn {
+    &.btn-default {
+        .button(#fcfcfc);
+        color: @gb-body-color;
+
+        .caret {
+            border-top-color: @gb-body-color;
+        }
+    }
+
+    &.btn-success {
+        .button(@bg-brand-success);
+    }
+    &.btn-primary {
+        .button(@bg-brand-primary);
+    }
+    &.btn-warning {
+        .button(@bg-brand-warning);
+    }
+    &.btn-danger {
+        .button(@bg-brand-danger);
+    }
+    &.btn-info {
+        .button(@bg-brand-info);
+    }
+}
+

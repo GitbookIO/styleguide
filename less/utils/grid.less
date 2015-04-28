@@ -1,0 +1,60 @@
+.container-fixed(@gutter: @grid-gutter-width) {
+    position: relative;
+    width: 100%;
+    max-width: @container-lg;
+    margin: 0px;
+    padding: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: (@gutter / 2);
+    padding-right: (@gutter / 2);
+    box-sizing: border-box;
+}
+
+
+.generate-columns(@grid-prefif; @container-width; @number-cols; @i: 1) when (@i =< @number-cols) {
+    //@container-width -> 1200px
+    //@number-cols -> 12
+    //@i -> 8
+
+    .col-@{grid-prefix}-@{i} {
+        @single-width: 100% / @number-cols;
+        width: (@i * @single-width);
+        padding-left: (@gb-grid-gutter-width / 2);
+        padding-right: (@gb-grid-gutter-width / 2);
+    }
+
+    .generate-columns(@grid-prefix; @container-width; @number-cols; @i + 1);
+}
+
+.make-grid(@grid-prefix; @container-start; @container-width) {
+    @media(min-width: @container-width) {
+        max-width: @container-width;
+
+        .generate-columns(@grid-prefix, @container-width, @grid-columns);
+    }
+    @media(min-width: @container-start) and (max-width: @container-width) {
+        .visible-@{grid-prefix} {
+            display: block;
+        }
+
+        .hidden-@{grid-prefix} {
+            display: none;
+        }
+    }
+}
+
+.container {
+    .container-fixed();
+
+    [class*='col-'] {
+        float: left;
+        width: 100%;
+    }
+
+    .make-grid(xs, 0, @container-xs);
+    .make-grid(sm, @container-xs, @container-sm);
+    .make-grid(md, @container-sm, @container-md);
+    .make-grid(lg, @container-md, @container-lg);
+}
+

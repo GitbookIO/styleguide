@@ -1,0 +1,71 @@
+// All variables defined here should be prefixed with "@gb-"
+
+///
+/// Fonts
+///
+@gb-font-family-sans-serif:        "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@gb-font-size-base:                14px;
+@gb-font-size-medium:              16px;
+@gb-font-size-large:               18px;
+@gb-font-size-small:               12px;
+
+@gb-font-path:                     "/static/fonts";
+@gb-font-path-raleway:             "@{@gb-font-path}/octicons"
+
+///
+/// Colors
+///
+@gb-palette-black:                 #2d2d2d;
+@gb-palette-gray-light:            #fcfcfc;
+@gb-palette-gray:                  #f5f5f5;
+@gb-palette-gray-outline:          #d4d4d4;
+@gb-palette-gray-dark:             #e5e5e5;
+@gb-palette-gray-darker:           #b3b3b1;
+@gb-palette-darkgray:              #4f4f52;
+@gb-palette-blue:                  #428bca;
+@gb-palette-green:                 #5cb85c;
+@gb-palette-red:                   #dd4b39;
+@gb-palette-logo:                  #4d4d4f;
+@gb-palette-fade:                  30%;
+
+@gb-brand-primary:                 @palette-blue;
+@gb-brand-success:                 @palette-green;
+@gb-brand-warning:                 #f0ad4e;
+@gb-brand-danger:                  @palette-red;
+@gb-brand-info:                    #44b6f1;
+
+///
+/// Body
+///
+@gb-body-background:               #ffffff;
+@gb-body-color:                    #333;
+
+///
+/// Buttons
+///
+@gb-button-background:             @gb-palette-gray-light;
+
+
+///
+/// Grid
+///
+
+//// number of columns in a grid
+@gb-grid-columns:                  12;
+
+//// gutter of grid
+@gb-grid-gutter-width:             20px;
+
+//// Extra small screen / phone
+@gb-container-xs:                  ((480px + @grid-gutter-width));
+
+//// Small screen / tablet
+@gb-container-sm:                  ((720px + @grid-gutter-width));
+
+//// Medium screen / desktop
+@gb-container-md:                  ((940px + @grid-gutter-width));
+
+//// Large screen / wide desktop
+@gb-container-lg:                  ((1140px + @grid-gutter-width));
+
+

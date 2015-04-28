@@ -1,0 +1,8 @@
+{
+    "name": "gitbook-style",
+    "version": "0.0.0",
+    "description": "Less stylesheets for GitBook websites",
+    "dependencies": {
+        "octicons": "2.2.0"
+    }
+}
