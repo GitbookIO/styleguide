@@ -1,7 +1,7 @@
-.container-fixed(@gutter: @grid-gutter-width) {
+.container-fixed(@gutter: @gb-grid-gutter-width) {
     position: relative;
     width: 100%;
-    max-width: @container-lg;
+    max-width: @gb-container-lg;
     margin: 0px;
     padding: 0px;
     margin-right: auto;
@@ -31,7 +31,7 @@
     @media(min-width: @container-width) {
         max-width: @container-width;
 
-        .generate-columns(@grid-prefix, @container-width, @grid-columns);
+        .generate-columns(@grid-prefix, @container-width, @gb-grid-columns);
     }
     @media(min-width: @container-start) and (max-width: @container-width) {
         .visible-@{grid-prefix} {
@@ -52,9 +52,9 @@
         width: 100%;
     }
 
-    .make-grid(xs, 0, @container-xs);
-    .make-grid(sm, @container-xs, @container-sm);
-    .make-grid(md, @container-sm, @container-md);
-    .make-grid(lg, @container-md, @container-lg);
+    .make-grid(xs, 0, @gb-container-xs);
+    .make-grid(sm, @gb-container-xs, @gb-container-sm);
+    .make-grid(md, @gb-container-sm, @gb-container-md);
+    .make-grid(lg, @gb-container-md, @gb-container-lg);
 }
 

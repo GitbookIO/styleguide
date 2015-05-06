@@ -1,5 +1,5 @@
 {
-    "name": "gitbook-style",
+    "name": "gitbook-stylesheet",
     "version": "0.0.0",
     "description": "Less stylesheets for GitBook websites",
     "dependencies": {
