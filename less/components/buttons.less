@@ -1,9 +1,16 @@
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+    padding: @padding-vertical @padding-horizontal;
+    font-size: @font-size;
+    line-height: @line-height;
+    border-radius: @border-radius;
+}
+
 .button(@mainColor) {
     text-shadow: none;
     border-radius: @gb-border-radius-base;
     text-shadow: none;
     background: linear-gradient(@gb-button-background, darken(@gb-button-background, 6%));
-    border-color: darken(@gb-button-background, 20%);
+    border: 1px solid darken(@gb-button-background, 20%);
     color: @mainColor;
     .box-shadow(none);
 
@@ -45,6 +52,24 @@
 
 
 .btn {
+    .button-size(@gb-padding-base-vertical; @gb-padding-base-horizontal;
+        @gb-font-size-base; @gb-line-height-base; @gb-border-radius-base);
+
+    /// Sizes
+    .btn-lg {
+        // line-height: ensure even-numbered height of button next to large input
+        .button-size(@gb-padding-large-vertical; @gb-padding-large-horizontal; @gb-font-size-large; @gb-line-height-large; @gb-border-radius-large);
+    }
+    .btn-sm {
+        // line-height: ensure proper height of button next to small input
+        .button-size(@gb-padding-small-vertical; @gb-padding-small-horizontal; @gb-font-size-small; @gb-line-height-small; @gb-border-radius-small);
+    }
+    .btn-xs {
+        .button-size(@gb-padding-xs-vertical; @gb-padding-xs-horizontal; @gb-font-size-small; @gb-line-height-small; @gb-border-radius-small);
+    }
+
+
+    /// Styles
     &.btn-default {
         .button(#fcfcfc);
         color: @gb-body-color;
