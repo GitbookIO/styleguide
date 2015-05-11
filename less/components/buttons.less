@@ -73,6 +73,17 @@
 
 
     /// Styles
+    &.btn-link {
+        .button(@gb-link-color);
+        color: inherit;
+        background: transparent;
+        border-color: transparent;
+
+        &:hover, &:focus {
+            color: @gb-link-color;
+        }
+    }
+
     &.btn-default {
         .button(#fcfcfc);
         color: @gb-body-color;

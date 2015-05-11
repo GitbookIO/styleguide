@@ -13,20 +13,24 @@
         <link rel="stylesheet" href="{{ site.baseurl }}/docs.css">
     </head>
     <body>
-        <header class="docs-header">
+        <header class="component-header">
             <div class="container">
-                <a href="{{ site.baseurl }}/">
-                    GitBook Stylesheets
+                <a href="{{ site.baseurl }}/" class="logo">
+                    <h1>GitBook Stylesheets</h1>
                 </a>
+
+                <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
             </div>
         </header>
 
-        <div class="container">
-            {{ content }}
+        <div class="docs-body">
+            <div class="container">
+                {{ content }}
 
-            <footer class="docs-footer">
-                Copyright GitBook {{ site.time | date: '%Y' }}.<br>
-            </footer>
+                <footer class="docs-footer">
+                    Copyright GitBook {{ site.time | date: '%Y' }}.<br>
+                </footer>
+            </div>
         </div>
     </body>
 </html>

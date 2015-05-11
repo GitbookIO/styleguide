@@ -24,15 +24,16 @@ Buttons are availables in multiples sizes: Large, Normal, Small and Extra-Small.
 <button class="btn btn-default btn-xs" type="button">Extra Small button</button>
 {% endexample %}
 
-### Colors
+### Styles
 
-Different colors of buttons are available to indicate different kind of actions.
+Different styles of buttons are available to indicate different kind of actions.
 
 {% example html %}
 <button class="btn btn-primary" type="button">Primary button</button>
 <button class="btn btn-success" type="button">Success button</button>
 <button class="btn btn-danger" type="button">Danger button</button>
 <button class="btn btn-warning" type="button">Warning button</button>
+<button class="btn btn-link" type="button">Link button</button>
 {% endexample %}
 
 ### Filled Buttons
