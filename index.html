@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="GitBook">
+
+        <title>Home &middot; GitBook Stylesheets</title>
+
+        <link rel="stylesheet" href="/docs.css">
+    </head>
+    <body>
+        <header class="component-header">
+            <div class="container">
+                <a href="/" class="logo">
+                    <h1>GitBook Stylesheets</h1>
+                </a>
+
+                <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
+            </div>
+        </header>
+
+        <div class="docs-body">
+            <div class="container">
+                <div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+    <div class="list-group">
+        <a href="#guidelines" class="list-group-item">Guidelines</a>
+        <a href="#colors" class="list-group-item">Colors</a>
+        <a href="#icons" class="list-group-item">Icons</a>
+        <a href="#grid-system" class="list-group-item">Grid</a>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>Components</b>
+    </div>
+    <div class="list-group">
+        <a href="#buttons" class="list-group-item">Buttons</a>
+        <a href="#button-groups" class="list-group-item">Button Groups</a>
+        <a href="#panels" class="list-group-item">Panels</a>
+        <a href="#list-groups" class="list-group-item">List Groups</a>
+        <a href="#markdown" class="list-group-item">Markdown</a>
+    </div>
+</div>
+    </div>
+    <div class="col-md-9">
+        <div class="component-markdown">
+            <h1 id="guidelines">Guidelines</h1>
+
+<h3 id="variables">Variables</h3>
+
+<h6 id="format">Format</h6>
+
+<p>Variables should use dash instead of uppercases. For example <code>@gb-hello-world</code> is valid, but <code>@gb-helloWorld</code> is not.</p>
+
+<h6 id="prefix">Prefix</h6>
+
+<p>All variables defined by this module should be prefixed by <code>@gb-</code>.</p>
+
+<h6 id="paths">Paths</h6>
+
+<p>Variables that defined a path should not finish with a slash. For example <code>@gb-static-folder: "/static"</code> is valid.</p>
+
+<h1 id="grid-system">Grid System</h1>
+
+<p>Grid systems are used for creating page layouts through a series of rows and columns that house your content.</p>
+
+<ul>
+  <li>There are 12 columns per row</li>
+  <li>Rows must be placed within a <code>.container</code></li>
+  <li>Use <code>.row</code> to create horizontal groups of columns.</li>
+  <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
+</ul>
+
+<div class="docs-example clearfix"><div class="row">
+    <div class="col-md-8">.col-md-8</div>
+    <div class="col-md-4">.col-md-4</div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>.col-md-8<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<div class="docs-example clearfix"><div class="row">
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-4">.col-md-4</div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<div class="docs-example clearfix"><div class="row">
+    <div class="col-md-6">.col-md-6</div>
+    <div class="col-md-6">.col-md-6</div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>.col-md-6<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>.col-md-6<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="icons">Icons</h1>
+
+<p>Icons from <a href="https://octicons.github.com/">octicons</a> are used for GitBook. You should use <code>&lt;i&gt;</code> tags for icons.</p>
+
+<div class="docs-example clearfix"><i class="octicon octicon-book"></i></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"octicon octicon-book"</span><span class="nt">&gt;&lt;/i&gt;</span></code></pre></div>
+
+<h1 id="buttons">Buttons</h1>
+
+<p>Buttons are used for <strong>actions</strong>, like in forms, while textual hyperlinks are used for <strong>destinations</strong>, or moving from one page to another.</p>
+
+<h3 id="default-buttons">Default buttons</h3>
+
+<p>Use the standard—yet classy—<code>.btn</code> for form actions and primary page actions. These are used extensively around the site.</p>
+
+<p>When using a <code>&lt;button&gt;</code> element, <strong>always specify a <code>type</code></strong>. When using a <code>&lt;a&gt;</code> element, <strong>always add <code>role="button"</code> for accessibility</strong>.</p>
+
+<div class="docs-example clearfix"><button class="btn btn-default" type="button">Button button</button>
+<a class="btn btn-default" href="#" role="button">Link button</a></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span></code></pre></div>
+
+<h3 id="sizes">Sizes</h3>
+
+<p>Buttons are availables in multiples sizes: Large, Normal, Small and Extra-Small.</p>
+
+<div class="docs-example clearfix"><button class="btn btn-default btn-lg" type="button">Large Button</button>
+<button class="btn btn-default" type="button">Button</button>
+<button class="btn btn-default btn-sm" type="button">Small button</button>
+<button class="btn btn-default btn-xs" type="button">Extra Small button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default btn-lg"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Large Button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default btn-sm"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Small button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default btn-xs"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Extra Small button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+<h3 id="styles">Styles</h3>
+
+<p>Different styles of buttons are available to indicate different kind of actions.</p>
+
+<div class="docs-example clearfix"><button class="btn btn-primary" type="button">Primary button</button>
+<button class="btn btn-success" type="button">Success button</button>
+<button class="btn btn-danger" type="button">Danger button</button>
+<button class="btn btn-warning" type="button">Warning button</button>
+<button class="btn btn-link" type="button">Link button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-success"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+<h3 id="filled-buttons">Filled Buttons</h3>
+
+<p>Buttons can be filled to indicate a more important action, using <code>.btn-fill</code>.</p>
+
+<div class="docs-example clearfix"><button class="btn btn-primary btn-fill" type="button">Primary button</button>
+<button class="btn btn-success btn-fill" type="button">Success button</button>
+<button class="btn btn-danger btn-fill" type="button">Danger button</button>
+<button class="btn btn-warning btn-fill" type="button">Warning button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-success btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+<h1 id="button-groups">Button Groups</h1>
+
+<p>Button groups and toolbars are used to group actions together.</p>
+
+<div class="docs-example clearfix"><div class="btn-group">
+    <button class="btn btn-default" type="button">Button button</button>
+    <a class="btn btn-default" href="#" role="button">Link button</a>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>Toolbars can contain multiple group of buttons:</p>
+
+<div class="docs-example clearfix"><div class="btn-toolbar">
+    <div class="btn-group">
+        <button class="btn btn-default" type="button">Button button</button>
+        <a class="btn btn-default" href="#" role="button">Link button</a>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-danger" type="button">Danger button</button>
+        <a class="btn btn-success" href="#" role="button">Success button</a>
+    </div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-toolbar"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-success"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+
+        </div>
+    </div>
+</div>
+
+                <footer class="docs-footer">
+                    Copyright GitBook 2015.<br>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
