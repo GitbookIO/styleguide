@@ -49,7 +49,10 @@ gulp.task('build', function(cb) {
 
 
 gulp.task('default', function(cb) {
-    gulp.watch('less/**/*.less', ['styles']);
+    gulp.watch([
+        'less/**/*.less',
+        'docs/less/**/*.less'
+    ], ['styles']);
     gulp.watch([
         'docs/**/*.md',
         'docs/_layouts/*.html',
