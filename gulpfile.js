@@ -6,6 +6,7 @@ var connect = require('gulp-connect');
 var runSequence = require('gulp-run-sequence');
 var rename = require('gulp-rename');
 var exec = require('child_process').exec;
+var ghPages = require('gulp-gh-pages');
 
 var srcDocs = path.join(__dirname, 'docs');
 var destDocs = path.join(srcDocs, '_site')
@@ -53,6 +54,10 @@ gulp.task('build', function(cb) {
     runSequence('jekyll', 'styles', 'assets', cb);
 });
 
+gulp.task('deploy', function() {
+    return gulp.src('./docs/_site/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('default', function(cb) {
     gulp.watch([

@@ -12,7 +12,8 @@
         "gulp-run-sequence": "0.3.2",
         "gulp-jekyll": "0.0.0",
         "del": "1.1.1",
-        "gulp-connect": "2.2.0"
+        "gulp-connect": "2.2.0",
+        "gulp-gh-pages": "0.5.1"
     },
     "scripts": {
         "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/"
