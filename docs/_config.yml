@@ -1,0 +1,11 @@
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  auto_ids: true
+
+permalink: pretty
+baseurl: ""
+
+github:
+  repo: https://github.com/GitbookIO/stylesheets
