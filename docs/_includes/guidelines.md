@@ -1,10 +1,6 @@
-# GitBook Style
+# Guidelines
 
-This repository contains all stylesheets for GitBook websites branding.
-
-### Guidelines
-
-##### Less Variables
+### Variables
 
 ###### Format
 
@@ -16,4 +12,5 @@ All variables defined by this module should be prefixed by `@gb-`.
 
 ###### Paths
 
-Variables that defined a path should not finish with a slash.
+Variables that defined a path should not finish with a slash. For example `@gb-static-folder: "/static"` is valid.
+
