@@ -48,16 +48,24 @@
         }
 
         li {
-            padding: 2px 4px;
-            cursor: default;
+            margin: 0px;
+            padding: 0px;
 
-            &.active {
-                background: @gb-dropdown-background-active;
-                color: #fff;
+            a {
+                padding: 2px 4px;
+                cursor: default;
+                color: inherit;
+                text-decoration: none;
+                display: block;
+
+                &:hover {
+                    background: @gb-dropdown-background-hover;
+                }
             }
 
-            &:hover {
-                background: @gb-dropdown-background-hover;
+            &.active a {
+                background: @gb-dropdown-background-active;
+                color: #fff;
             }
         }
     }
