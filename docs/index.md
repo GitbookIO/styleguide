@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Home
+title: GitBook HTML/CSS Styleguide
 ---
 
 {% include guidelines.md %}
