@@ -1,6 +1,31 @@
+.panelStyle(@borderColor) {
+    border-color: @borderColor;
+
+    .panel-heading {
+        color: #333;
+        background-color: #f5f5f5;
+        border-color: @borderColor;
+    }
+}
+
+
 .panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: @gb-border-radius-small;
+    .box-shadow(~"0 1px 1px rgba(0,0,0,0.05)");
 
+    .panel-heading {
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-right-radius: 1px;
+        border-top-left-radius: 1px;
+    }
 
+    &.panel-default {
+        .panelStyle(@gb-palette-gray-outline);
+    }
 
 }
 
