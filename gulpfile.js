@@ -64,10 +64,16 @@ gulp.task('default', function(cb) {
         'less/**/*.less',
         'docs/less/**/*.less'
     ], ['styles']);
-    gulp.watch([
-        'docs/**/*.md',
+    var watcher = gulp.watch([
+        'docs/*.md',
         'docs/_layouts/*.html',
-        'docs/_includes/*.html'
+        'docs/_includes/*.html',
+        'docs/_includes/*.md'
     ], ['build']);
+
+    watcher.on('change', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+
     runSequence('build', 'connect', cb);
 });
