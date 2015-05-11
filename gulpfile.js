@@ -10,7 +10,6 @@ var exec = require('child_process').exec;
 var srcDocs = path.join(__dirname, 'docs');
 var destDocs = path.join(srcDocs, '_site')
 
-// Create website
 gulp.task('jekyll', function (cb) {
     exec('jekyll build', {
         cwd: srcDocs
@@ -21,7 +20,6 @@ gulp.task('jekyll', function (cb) {
     });
 });
 
-// Less to css
 gulp.task('styles', function() {
     return gulp.src('./docs/less/main.less')
     .pipe(less())
@@ -29,22 +27,30 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(destDocs));
 });
 
-// Clean output
 gulp.task('clean', function(cb) {
     del([
-        'build/**'
+        path.join(destDocs, '**')
     ], cb);
 });
 
-// HTTP server
 gulp.task('connect', function() {
     connect.server({
         root: destDocs
     });
 });
 
+gulp.task('assets', function() {
+    return gulp.src([
+            'assets/**/*.*'
+        ], {
+            base: 'assets'
+        })
+        .pipe(gulp.dest(path.join(destDocs, 'static')));
+});
+
+
 gulp.task('build', function(cb) {
-    runSequence('jekyll', 'styles',cb);
+    runSequence('jekyll', 'styles', 'assets', cb);
 });
 
 
