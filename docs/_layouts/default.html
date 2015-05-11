@@ -25,11 +25,19 @@
 
         <div class="docs-body">
             <div class="container">
-                {{ content }}
-
-                <footer class="docs-footer">
-                    Copyright GitBook {{ site.time | date: '%Y' }}.<br>
-                </footer>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% include sidenav.html %}
+                    </div>
+                    <div class="col-md-9">
+                        <div class="component-markdown">
+                            {{ content }}
+                        </div>
+                        <footer class="docs-footer">
+                            Copyright GitBook {{ site.time | date: '%Y' }}
+                        </footer>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
