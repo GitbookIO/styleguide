@@ -54,7 +54,7 @@ gulp.task('build', function(cb) {
     runSequence('jekyll', 'styles', 'assets', cb);
 });
 
-gulp.task('deploy', function() {
+gulp.task('deploy', ['build'], function() {
     return gulp.src('./docs/_site/**/*')
     .pipe(ghPages());
 });
