@@ -50,7 +50,7 @@ Color palettes is accessible throught less variables:
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <div class="color palette-red">@gb-palette-red: / @gb-brand-danger</div>
+            <div class="color palette-red">@gb-palette-red / @gb-brand-danger</div>
         </div>
         <div class="col-sm-6">
             <div class="color palette-logo">@gb-palette-logo</div>
