@@ -35,7 +35,7 @@ Different colors of buttons are available to indicate different kind of actions.
 <button class="btn btn-warning" type="button">Warning button</button>
 {% endexample %}
 
-### Filled Buttonss
+### Filled Buttons
 
 Buttons can be filled to indicate a more important action, using `.btn-fill`.
 
