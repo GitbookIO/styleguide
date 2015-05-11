@@ -5,13 +5,13 @@
         display: none;
         position: absolute;
         top: 100%;
-        left: 0px;
+        right: 0px;
         z-index: 1000;
         background: #fff;
         list-style: none;
         border: 1px solid @gb-dropdown-border;
         background: @gb-dropdown-background;
-        min-width: 100%;
+        min-width: 160px;
         margin: 0px;
         padding: 0px;
 
@@ -25,7 +25,7 @@
 
             &:after, &:before {
                 bottom: 100%;
-                left: 50%;
+                right: 16px;
                 border: solid transparent;
                 content: " ";
                 height: 0;
@@ -37,13 +37,13 @@
                 border-color: transparent;
                 border-bottom-color: @gb-dropdown-border;
                 border-width: 11px;
-                margin-left: -11px;
+                margin-right: -11px;
             }
             &:after {
                 border-color: transparent;
                 border-bottom-color: @gb-dropdown-background;
                 border-width: 10px;
-                margin-left: -10px;
+                margin-right: -10px;
             }
         }
 
@@ -70,6 +70,28 @@
             &.active a {
                 background: @gb-dropdown-background-active;
                 color: #fff;
+            }
+        }
+    }
+
+    &.pull-left {
+        .dropdown-menu {
+            left: 0px;
+            right: auto;
+
+            &:not(.inner) {
+                &:after, &:before {
+                    right: auto;
+                    left: 16px;
+                }
+                &:before {
+                    margin-right: 0px;
+                    margin-left: -11px;
+                }
+                &:after {
+                    margin-right: 0px;
+                    margin-left: -10px;
+                }
             }
         }
     }
