@@ -12,3 +12,4 @@ title: GitBook HTML/CSS Styleguide
 {% include button-groups.md %}
 {% include list-groups.md %}
 {% include panels.md %}
+{% include markdown.md %}
