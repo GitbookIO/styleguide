@@ -1,0 +1,50 @@
+.modal-backdrop {
+    background: rgba(0, 0, 0, 0.55);
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: @gb-zindex-modal;
+}
+
+.modalSize(@size) {
+    width: @size;
+    margin: 30px auto;
+}
+
+
+.modal {
+    border: 1px solid @gb-modal-border;
+    border-radius: @gb-modal-radius;
+    background: @gb-modal-background;
+    .box-shadow(@gb-modal-shadow);
+
+    .modal-heading {
+        padding: @gb-modal-padding;
+        border-bottom: 1px solid @gb-modal-innerborder;
+
+        h4 {
+            margin: 0px;
+        }
+    }
+
+    .modal-body {
+        padding: @gb-modal-padding;
+    }
+
+    .modal-footer {
+        border-top: 1px solid @gb-modal-innerborder;
+        padding: @gb-modal-padding;
+        text-align: right;
+    }
+
+    .modalSize(@gb-modal-size-medium);
+
+    &.modal-sm {
+        .modalSize(@gb-modal-size-small);
+    }
+    &.modal-lg {
+        .modalSize(@gb-modal-size-large);
+    }
+}
