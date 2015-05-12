@@ -16,7 +16,7 @@
         <header class="component-header">
             <div class="container">
                 <a href="/" class="logo">
-                    <h1>GitBook HTML/CSS Styleguide</h1>
+                    <h1><i class="octicon octicon-lock"></i> GitBook HTML/CSS Styleguide</h1>
                 </a>
 
                 <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
@@ -47,10 +47,12 @@
     <div class="list-group">
         <a href="#buttons" class="list-group-item">Buttons</a>
         <a href="#button-groups" class="list-group-item">Button Groups</a>
+        <a href="#tooltips" class="list-group-item">Tooltips</a>
         <a href="#dropdowns" class="list-group-item">Dropdowns</a>
         <a href="#list-groups" class="list-group-item">List Groups</a>
         <a href="#panels" class="list-group-item">Panels</a>
         <a href="#markdown" class="list-group-item">Markdown</a>
+        <a href="#labels" class="list-group-item">Labels</a>
         <a href="#modal" class="list-group-item">Modal</a>
     </div>
 </div>
@@ -61,9 +63,8 @@
 
 <p>GitBook stylesheets can be installed using <strong>NPM</strong> from <code>https://github.com/GitbookIO/stylesheet.git</code>:</p>
 
-<p><code>
-$ npm install git+https://github.com/GitbookIO/stylesheet.git#master
-</code></p>
+<pre><code>$ npm install git+https://github.com/GitbookIO/stylesheet.git#master
+</code></pre>
 
 <p>Simply include <code>node_modules/gitbook-stylesheets/less/main.less</code> in your less file.</p>
 
@@ -71,7 +72,20 @@ $ npm install git+https://github.com/GitbookIO/stylesheet.git#master
 
 <h1 id="guidelines">Guidelines</h1>
 
-<h3 id="variables">Variables</h3>
+<h3 id="html5-doctype">HTML5 doctype</h3>
+
+<p>It makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your pages.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<h3 id="box-sizing">Box-sizing</h3>
+
+<p>We reset <code>box-sizing</code> to <code>border-box</code> for every element. This allows us to more easily assign widths to elements that also have padding and borders.</p>
+
+<h3 id="less-variables">Less Variables</h3>
 
 <h6 id="format">Format</h6>
 
@@ -283,6 +297,21 @@ $ npm install git+https://github.com/GitbookIO/stylesheet.git#master
         <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-success"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="tooltips">Tooltips</h1>
+
+<p>Add tooltips built entirely in CSS to nearly any element. Just add a few classes and an <code>aria-label</code> attribute.</p>
+
+<p>Remember, <code>aria-label</code> and tooltip classes must go directly on <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements. Tooltip classes also conflict with icon classes, and as such, must go on a parent element instead of the icon.</p>
+
+<div class="docs-example clearfix"><button class="btn btn-default tooltipped tooltipped-o" aria-label="Bottom, right (default)" type="button">Button</button>
+<button class="btn btn-default tooltipped tooltipped-nw tooltipped-o" aria-label="Top, left" type="button">.tooltipped-nw</button>
+<button class="btn btn-default tooltipped tooltipped-w tooltipped-o" aria-label="Bottom, left" type="button">.tooltipped-w</button>
+<button class="btn btn-default tooltipped tooltipped-ne tooltipped-o" aria-label="Top, right" type="button">.tooltipped-ne</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Bottom, right (default)"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-nw tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Top, left"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-nw<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-w tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Bottom, left"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-w<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-ne tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Top, right"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-ne<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
 <h1 id="dropdowns">Dropdowns</h1>
 
