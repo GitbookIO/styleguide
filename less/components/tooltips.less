@@ -1,8 +1,8 @@
-.tooltip {
+.tooltipped {
     display: inline;
     position: relative;
 
-    &:hover {
+    &:hover, &.tooltipped-o {
         &:after {
             line-height: 1em;
             background: #111;
@@ -11,7 +11,7 @@
             bottom: auto;
             top: ~"calc(100% + 10px)";
             color: #fff;
-            content: attr(data-tooltip);
+            content: attr(aria-label);
             display: block;
             left: 5px;
             padding: 5px 5px;
@@ -38,7 +38,7 @@
         }
     }
 
-    &.tooltip-up {
+    .north() {
         &:after {
             top: auto;
             bottom: ~"calc(100% + 10px)";
@@ -48,5 +48,27 @@
             border-width: 5px 5px 0px 5px;
             bottom: ~"calc(100% + 5px)";
         }
+    }
+    .west() {
+        &:after {
+            left: auto;
+            right: 5px;
+        }
+        &:before {
+            left: auto;
+            right: 10px;
+        }
+    }
+
+    &.tooltipped-n, &.tooltipped-ne {
+        .north();
+    }
+
+    &.tooltipped-nw {
+        .north();
+        .west();
+    }
+    &.tooltipped-sw, &.tooltipped-w {
+        .west();
     }
 }
