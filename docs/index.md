@@ -16,4 +16,5 @@ title: GitBook HTML/CSS Styleguide
 {% include list-groups.md %}
 {% include panels.md %}
 {% include modals.md %}
+{% include spinner.md %}
 {% include markdown.md %}
