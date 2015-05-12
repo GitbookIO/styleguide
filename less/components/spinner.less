@@ -25,6 +25,16 @@
     width: @size;
     height: @size;
     border-width: @size/10;
+
+    &.centered {
+        display: block;
+        margin: 0px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -(@size/2);
+        margin-top: -(@size/2);
+    }
 }
 
 .component-spinner {
@@ -41,15 +51,5 @@
     }
     &.spinner-lg {
         .spinnerSize(@gb-spinner-size-large);
-    }
-
-    &.centered {
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
     }
 }
