@@ -48,12 +48,15 @@
         <a href="#buttons" class="list-group-item">Buttons</a>
         <a href="#button-groups" class="list-group-item">Button Groups</a>
         <a href="#tooltips" class="list-group-item">Tooltips</a>
+        <a href="#forms" class="list-group-item">Forms</a>
         <a href="#dropdowns" class="list-group-item">Dropdowns</a>
         <a href="#list-groups" class="list-group-item">List Groups</a>
         <a href="#panels" class="list-group-item">Panels</a>
-        <a href="#markdown" class="list-group-item">Markdown</a>
+        <a href="#navigation" class="list-group-item">Navigation</a>
         <a href="#labels" class="list-group-item">Labels</a>
-        <a href="#modal" class="list-group-item">Modal</a>
+        <a href="#modals" class="list-group-item">Modal</a>
+        <a href="#spinner" class="list-group-item">Spinner</a>
+        <a href="#markdown" class="list-group-item">Markdown</a>
     </div>
 </div>
                     </div>
@@ -313,6 +316,8 @@
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-w tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Bottom, left"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-w<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-ne tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Top, right"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-ne<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
+<h1 id="forms">Forms</h1>
+
 <h1 id="dropdowns">Dropdowns</h1>
 
 <p>Dropdown menu can be added to <code>.btn-group</code>.</p>
@@ -374,6 +379,19 @@
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Item 3<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
+<p>Icons and images can also be added to list items:</p>
+
+<div class="docs-example clearfix"><div class="list-group">
+    <a href="#" class="list-group-item"><img class="list-image" src="https://avatars2.githubusercontent.com/u/845425?v=3&amp;s=460" /> Image</a>
+    <a href="#" class="list-group-item active"><i class="octicon octicon-book"></i> Icon on the left</a>
+    <a href="#" class="list-group-item"><i class="octicon octicon-book pull-right"></i> Icon on the right</a>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;&lt;img</span> <span class="na">class=</span><span class="s">"list-image"</span> <span class="na">src=</span><span class="s">"https://avatars2.githubusercontent.com/u/845425?v=3&amp;s=460"</span> <span class="nt">/&gt;</span> Image<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item active"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"octicon octicon-book"</span><span class="nt">&gt;&lt;/i&gt;</span> Icon on the left<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"octicon octicon-book pull-right"</span><span class="nt">&gt;&lt;/i&gt;</span> Icon on the right<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
 <h1 id="panels">Panels</h1>
 
 <div class="docs-example clearfix"><div class="panel panel-default">
@@ -427,6 +445,46 @@
         Optional footer of the panel
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="modals">Modals</h1>
+
+<p>Modal (<code>.modal</code>) can be used in 3 sizes: medium (default), small (<code>.modal-sm</code>) and large (<code>.modal-lg</code>).</p>
+
+<div class="docs-example clearfix"><div class="modal">
+    <div class="modal-heading">
+        <h4>Title</h4>
+    </div>
+    <div class="modal-body">
+        Body of the modal
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default">Close</button>
+    </div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-heading"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4&gt;</span>Title<span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-body"</span><span class="nt">&gt;</span>
+        Body of the modal
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-footer"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="spinner">Spinner</h1>
+
+<p>Spinner can be use to indicate a loading operation.</p>
+
+<div class="docs-example clearfix"><div class="component-spinner spinner-sm"></div>
+<div class="component-spinner"></div>
+<div class="component-spinner spinner-lg"></div>
+<div class="component-spinner centered"></div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner spinner-sm"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner spinner-lg"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner centered"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></div>
 
 <h1 id="markdown">Markdown</h1>
 
