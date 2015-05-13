@@ -31,7 +31,7 @@ Input can have different states:
     <input type="text" class="form-control" value="Normal state">
 </div>
 <div class="form-group">
-    <input type="text" class="form-control" value="Disabled state">
+    <input type="text" class="form-control" disabled value="Disabled state">
 </div>
 <div class="form-group">
     <input type="text" class="form-control focus" value="Focus state">
