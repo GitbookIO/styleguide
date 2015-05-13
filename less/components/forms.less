@@ -1,0 +1,58 @@
+
+// Represent an <input>, <select>, ...
+.form-control {
+    width: 100%;
+    padding: @gb-padding-base-vertical @gb-padding-base-horizontal;
+    border-radius: @gb-border-radius-base;
+    font-size: 1.1rem;
+    border: 1px solid @gb-form-control-border;
+    background: @gb-form-control-background;
+
+    //// States
+    &:focus, &.focus {
+        border-color: @gb-form-control-active-border;
+        background: @gb-form-control-active-backrgound;
+    }
+
+    &:disabled, &.disabled {
+        border-color: @gb-form-control-disabled-border;
+        background: @gb-form-control-disabled-backrgound;
+    }
+
+
+    //// Sizes
+    .button-size(@gb-padding-base-vertical; @gb-padding-base-horizontal;
+        @gb-font-size-base; @gb-line-height-base; @gb-border-radius-base);
+
+    /// Sizes
+    &.input-lg {
+        // line-height: ensure even-numbered height of button next to large input
+        .button-size(@gb-padding-large-vertical; @gb-padding-large-horizontal; @gb-font-size-large; @gb-line-height-large; @gb-border-radius-large);
+    }
+    &.input-sm {
+        // line-height: ensure proper height of button next to small input
+        .button-size(@gb-padding-small-vertical; @gb-padding-small-horizontal; @gb-font-size-small; @gb-line-height-small; @gb-border-radius-small);
+    }
+    &.input-xs {
+        .button-size(@gb-padding-xs-vertical; @gb-padding-xs-horizontal; @gb-font-size-small; @gb-line-height-small; @gb-border-radius-small);
+    }
+}
+
+// Represent a group with a label and an input
+.form-group {
+    margin-bottom: 2*@gb-padding-base-vertical;
+
+    label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+
+    .help-block {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #737373;
+    }
+}
