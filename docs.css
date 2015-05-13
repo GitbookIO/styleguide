@@ -2512,6 +2512,10 @@ a:visited {
   padding: 15px;
   text-align: right;
 }
+.modal .modal-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
 .modal.modal-sm {
   width: 400px;
   margin: 30px auto;
@@ -2546,7 +2550,7 @@ a:visited {
   display: inline-block;
   border-radius: 100%;
   border: 5px solid #f5f5f5;
-  border-bottom-color: #e5e5e5;
+  border-bottom-color: #428bca;
   -webkit-animation: rotate 1.5s 0s linear infinite;
   -moz-animation: rotate 1.5s 0s linear infinite;
   -ms-animation: rotate 1.5s 0s linear infinite;
@@ -2554,7 +2558,7 @@ a:visited {
   height: 30px;
   border-width: 3px;
 }
-.component-spinner.centered {
+.component-spinner.spinner-centered {
   display: block;
   margin: 0px;
   position: absolute;
@@ -2564,25 +2568,25 @@ a:visited {
   margin-top: -15px;
 }
 .component-spinner.spinner-sm {
-  width: 15px;
-  height: 15px;
-  border-width: 1.5px;
+  width: 12px;
+  height: 12px;
+  border-width: 1.2px;
 }
-.component-spinner.spinner-sm.centered {
+.component-spinner.spinner-sm.spinner-centered {
   display: block;
   margin: 0px;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -7.5px;
-  margin-top: -7.5px;
+  margin-left: -6px;
+  margin-top: -6px;
 }
 .component-spinner.spinner-lg {
   width: 50px;
   height: 50px;
   border-width: 5px;
 }
-.component-spinner.spinner-lg.centered {
+.component-spinner.spinner-lg.spinner-centered {
   display: block;
   margin: 0px;
   position: absolute;
@@ -2590,6 +2594,122 @@ a:visited {
   top: 50%;
   margin-left: -25px;
   margin-top: -25px;
+}
+.form-control {
+  width: 100%;
+  font-size: 1.1rem;
+  border: 1px solid #d4d4d4;
+  background: #ffffff;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 2px;
+}
+.form-control:focus,
+.form-control.focus {
+  border-color: #428bca;
+  background: #ffffff;
+}
+.form-control:disabled,
+.form-control.disabled {
+  border-color: #d4d4d4;
+  background: #f5f5f5;
+}
+.form-control.input-lg {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 4px;
+}
+.form-control.input-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 1px;
+}
+.form-control.input-xs {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 1px;
+}
+select.form-control {
+  border-radius: 2px;
+  background: linear-gradient(#fcfcfc, #ededed);
+  border: 1px solid #c9c9c9;
+  color: #fcfcfc;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
+  text-shadow: none;
+  color: #333333;
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+select.form-control:hover,
+select.form-control:focus,
+select.form-control:active,
+select.form-control.dropdown-toggle.open {
+  background: linear-gradient(#fcfcfc, #e3e3e3);
+  border-color: #c9c9c9;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+  text-decoration: none;
+}
+select.form-control .caret {
+  border-top-color: #fcfcfc;
+}
+select.form-control.btn-noborder,
+select.form-control.btn-link {
+  text-shadow: none;
+  color: #fcfcfc;
+  border: none;
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+select.form-control.btn-noborder:hover,
+select.form-control.btn-link:hover,
+select.form-control.btn-noborder:focus,
+select.form-control.btn-link:focus {
+  color: #dddddd;
+  outline: none;
+}
+select.form-control.btn-fill {
+  background: linear-gradient(#fcfcfc, #e3e3e3);
+  border-color: #d6d6d6;
+  color: #fff;
+}
+select.form-control.btn-fill:hover,
+select.form-control.btn-fill:focus {
+  background: linear-gradient(#fcfcfc, #d6d6d6);
+  border-color: #c9c9c9;
+}
+select.form-control .caret {
+  border-top-color: #333333;
+}
+.form-group {
+  margin-bottom: 12px;
+}
+.form-group label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.form-group .help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
 }
 * {
   -webkit-box-sizing: border-box;
