@@ -47,6 +47,26 @@ select.form-control {
     appearance: none;
     cursor: pointer;
     position: relative;
+
+    background-image: url(@gb-form-select-caret), linear-gradient(@gb-button-background, darken(@gb-button-background, 6%));
+    background-repeat: no-repeat;
+    background-position-y: 12px;
+    background-position-x: right;
+
+    &:hover {
+        background-image: url(@gb-form-select-caret), linear-gradient(@gb-button-background, darken(@gb-button-background, 10%));
+        background-repeat: no-repeat;
+        background-position-y: 12px;
+        background-position-x: right;
+    }
+
+    &:focus {
+        background-image: url(@gb-form-select-caret), linear-gradient(@gb-button-background, darken(@gb-button-background, 10%));
+        background-repeat: no-repeat;
+        background-position-y: 12px;
+        background-position-x: right;
+        border-color: @gb-form-control-active-border;
+    }
 }
 
 // Represent a group with a label and an input
