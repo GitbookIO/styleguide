@@ -2486,6 +2486,7 @@ a:visited {
   left: 0px;
   right: 0px;
   z-index: 500;
+  overflow-y: auto;
 }
 .modal {
   border: 1px solid #d4d4d4;
