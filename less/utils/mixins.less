@@ -8,6 +8,14 @@
     display: none;
 }
 
+.user-select (@mode) {
+    -webkit-user-select: @mode;
+    -moz-user-select: @mode;
+    -ms-user-select: @mode;
+    -o-user-select: @mode;
+    user-select: @mode;
+}
+
 .text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
     text-shadow: @string;
 }
