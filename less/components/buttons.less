@@ -24,6 +24,17 @@
         text-decoration: none;
     }
 
+    &:disabled, &.disabled {
+        opacity: 0.6;
+        cursor: default;
+
+        &.tooltipped {
+            &:after, &:before {
+                display: none;
+            }
+        }
+    }
+
     .caret {
         border-top-color: @mainColor;
     }
