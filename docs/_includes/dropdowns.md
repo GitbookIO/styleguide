@@ -7,7 +7,19 @@ Dropdown menu can be added to `.btn-group`.
     <button class="btn btn-default" type="button">Toggle Dropdown</button>
     <ul class="dropdown-menu open">
         <li><a href="#">Entry 1</a></li>
-        <li class="active"><a href="#">Entry 2 (active)</a></li>
+        <li class="active">
+            <a href="#">Entry 2 (active)</a>
+            <ul class="dropdown-menu open">
+                <li>
+                    <a href="#">Entry 2.1 (hover me)</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Entry 2.1.1</a></li>
+                        <li><a href="#">Entry 2.1.2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Entry 2.2</a></li>
+            </ul>
+        </li>
         <li><a href="#">Entry 3</a></li>
     </ul>
 </div>
