@@ -16,7 +16,8 @@
     text-shadow: none;
     cursor: pointer;
 
-    &:hover, &:focus, &:active, &.dropdown-toggle.open {
+    // Hover and focus
+    &:hover, &:focus, &.dropdown-toggle.open {
         background: linear-gradient(@gb-button-background, darken(@gb-button-background, 10%));
         border-color: darken(@gb-button-background, 20%);
         .box-shadow(none);
@@ -24,6 +25,12 @@
         text-decoration: none;
     }
 
+    // Active state
+    &:active, &.active {
+        .box-shadow(~"inset 0 3px 5px rgba(0,0,0,.125)");
+    }
+
+    // Disabled state
     &:disabled, &.disabled {
         opacity: 0.6;
         cursor: default;

@@ -46,3 +46,20 @@ Buttons can be filled to indicate a more important action, using `.btn-fill`.
 <button class="btn btn-danger btn-fill" type="button">Danger button</button>
 <button class="btn btn-warning btn-fill" type="button">Warning button</button>
 {% endexample %}
+
+### States
+
+Buttons can have different states:
+
+{% example html %}
+<div class="btn-toolbar">
+    <button class="btn btn-default" type="button">Default</button>
+    <button class="btn btn-default active" type="button">:active or .active</button>
+    <button class="btn btn-default" disabled type="button">:disabled or .disabled</button>
+</div>
+<div class="btn-toolbar">
+    <button class="btn btn-primary btn-fill" type="button">Default</button>
+    <button class="btn btn-primary btn-fill active" type="button">:active or .active</button>
+    <button class="btn btn-primary btn-fill" disabled type="button">:disabled or .disabled</button>
+</div>
+{% endexample %}
