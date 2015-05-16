@@ -43,6 +43,9 @@ Input can have different states:
 <div class="form-group">
     <input type="text" class="form-control focus" value="Focus state">
 </div>
+<div class="form-group has-error">
+    <input type="text" class="form-control focus" value="Error state">
+</div>
 {% endexample %}
 
 And different sizes

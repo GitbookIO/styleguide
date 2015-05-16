@@ -86,4 +86,14 @@ select.form-control {
         margin-bottom: 10px;
         color: #737373;
     }
+
+    &.has-error {
+        label, .help-block {
+            color: @gb-brand-danger;
+        }
+
+        .form-control {
+            border-color: @gb-brand-danger;
+        }
+    }
 }
