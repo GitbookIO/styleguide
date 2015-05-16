@@ -56,6 +56,7 @@
         <a href="#labels" class="list-group-item">Labels</a>
         <a href="#modals" class="list-group-item">Modal</a>
         <a href="#spinner" class="list-group-item">Spinner</a>
+        <a href="#alerts" class="list-group-item">Alerts</a>
         <a href="#markdown" class="list-group-item">Markdown</a>
     </div>
 </div>
@@ -265,6 +266,31 @@
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
+<h3 id="states">States</h3>
+
+<p>Buttons can have different states:</p>
+
+<div class="docs-example clearfix"><div class="btn-toolbar">
+    <button class="btn btn-default" type="button">Default</button>
+    <button class="btn btn-default active" type="button">:active or .active</button>
+    <button class="btn btn-default" disabled="" type="button">:disabled or .disabled</button>
+</div>
+<div class="btn-toolbar">
+    <button class="btn btn-primary btn-fill" type="button">Default</button>
+    <button class="btn btn-primary btn-fill active" type="button">:active or .active</button>
+    <button class="btn btn-primary btn-fill" disabled="" type="button">:disabled or .disabled</button>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-toolbar"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default active"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:active or .active<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">disabled</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:disabled or .disabled<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-toolbar"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill active"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:active or .active<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill"</span> <span class="na">disabled</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:disabled or .disabled<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
 <h1 id="button-groups">Button Groups</h1>
 
 <p>Button groups and toolbars are used to group actions together.</p>
@@ -385,6 +411,9 @@
 </div>
 <div class="form-group">
     <input type="text" class="form-control focus" value="Focus state" />
+</div>
+<div class="form-group has-error">
+    <input type="text" class="form-control focus" value="Error state" />
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">value=</span><span class="s">"Normal state"</span><span class="nt">&gt;</span>
@@ -394,6 +423,9 @@
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control focus"</span> <span class="na">value=</span><span class="s">"Focus state"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-error"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control focus"</span> <span class="na">value=</span><span class="s">"Error state"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 <p>And different sizes</p>
@@ -431,7 +463,19 @@
     <button class="btn btn-default" type="button">Toggle Dropdown</button>
     <ul class="dropdown-menu open">
         <li><a href="#">Entry 1</a></li>
-        <li class="active"><a href="#">Entry 2 (active)</a></li>
+        <li class="active">
+            <a href="#">Entry 2 (active)</a>
+            <ul class="dropdown-menu open">
+                <li>
+                    <a href="#">Entry 2.1 (hover me)</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Entry 2.1.1</a></li>
+                        <li><a href="#">Entry 2.1.2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Entry 2.2</a></li>
+            </ul>
+        </li>
         <li><a href="#">Entry 3</a></li>
     </ul>
 </div></div>
@@ -439,7 +483,19 @@
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Toggle Dropdown<span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu open"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 2 (active)<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 2 (active)<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu open"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;li&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 2.1 (hover me)<span class="nt">&lt;/a&gt;</span>
+                    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 2.1.1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 2.1.2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                    <span class="nt">&lt;/ul&gt;</span>
+                <span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 2.2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
     <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
@@ -590,6 +646,36 @@
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner"</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner spinner-lg"</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner spinner-centered"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="alerts">Alerts</h1>
+
+<div class="docs-example clearfix"><div class="alert alert-danger">
+    This is an alert!
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-danger"</span><span class="nt">&gt;</span>
+    This is an alert!
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<div class="docs-example clearfix"><div class="alert alert-success">
+    This is an alert!
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success"</span><span class="nt">&gt;</span>
+    This is an alert!
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<div class="docs-example clearfix"><div class="alert alert-info">
+    This is an alert!
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-info"</span><span class="nt">&gt;</span>
+    This is an alert!
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<div class="docs-example clearfix"><div class="alert alert-warning">
+    This is an alert!
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-warning"</span><span class="nt">&gt;</span>
+    This is an alert!
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 <h1 id="markdown">Markdown</h1>
 
