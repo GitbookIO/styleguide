@@ -1,6 +1,6 @@
 # Installation
 
-GitBook stylesheets can be installed using **NPM** from `https://github.com/GitbookIO/styleguide.git`:
+GitBook styleguide can be installed using **NPM** from `https://github.com/GitbookIO/styleguide.git`:
 
 ```
 $ npm install git+https://github.com/GitbookIO/stylesheet.git#master
