@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "description": "Styleguide for GitBook websites",
     "dependencies": {
-        "octicons": "2.2.0"
+        "octicons": "2.2.0",
+        "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#1.0.0"
     },
     "devDependencies": {
         "gulp": "^3.8.11",
@@ -16,6 +17,6 @@
         "gulp-gh-pages": "0.5.1"
     },
     "scripts": {
-        "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/"
+        "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && cp -R ./node_modules/gitbook-logos/pngs ./assets/images/logos/"
     }
 }
