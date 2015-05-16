@@ -1,7 +1,7 @@
 {
-    "name": "gitbook-stylesheet",
-    "version": "0.0.0",
-    "description": "Less stylesheets for GitBook websites",
+    "name": "gitbook-styleguide",
+    "version": "0.0.1",
+    "description": "Styleguide for GitBook websites",
     "dependencies": {
         "octicons": "2.2.0"
     },
