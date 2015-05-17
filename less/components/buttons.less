@@ -89,6 +89,16 @@
         .button-size(@gb-padding-xs-vertical; @gb-padding-xs-horizontal; @gb-font-size-small; @gb-line-height-small; @gb-border-radius-small);
     }
 
+    /// Block Buttons
+    &.btn-block {
+        display: block;
+        width: 100%;
+
+        &+.btn-block {
+            margin-top: 5px;
+        }
+    }
+
 
     /// Styles
     &.btn-link {

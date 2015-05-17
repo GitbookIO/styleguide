@@ -47,6 +47,15 @@ Buttons can be filled to indicate a more important action, using `.btn-fill`.
 <button class="btn btn-warning btn-fill" type="button">Warning button</button>
 {% endexample %}
 
+### Block Buttons
+
+Create block level buttons—those that span the full width of a parent— by adding `.btn-block`.
+
+{% example html %}
+<button type="button" class="btn btn-primary btn-fill btn-lg btn-block">Block level button</button>
+<button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+{% endexample %}
+
 ### States
 
 Buttons can have different states:
