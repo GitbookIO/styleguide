@@ -27,14 +27,16 @@
             </header>
 
             <div class="gb-page-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            {% include sidenav.html %}
-                        </div>
-                        <div class="col-md-9">
-                            <div class="gb-markdown">
-                                {{ content }}
+                <div class="gb-page-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                {% include sidenav.html %}
+                            </div>
+                            <div class="col-md-9">
+                                <div class="gb-markdown">
+                                    {{ content }}
+                                </div>
                             </div>
                         </div>
                     </div>
