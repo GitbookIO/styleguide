@@ -2,11 +2,16 @@
 /// Fonts
 ///
 @gb-font-family-sans-serif:        "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@gb-font-family-serif:             Georgia, "Times New Roman", Times, serif;
+@gb-font-family-monospace:         Menlo, Monaco, Consolas, "Courier New", monospace;
 @gb-font-size-base:                14px;
 @gb-font-size-medium:              16px;
 @gb-font-size-large:               18px;
 @gb-font-size-small:               12px;
-@gb-line-height-base:              1.428571429;
+//** Unit-less `line-height` for use in components like buttons.
+@gb-line-height-base:              1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@gb-line-height-computed:          floor((@gb-font-size-base * @gb-line-height-base)); // ~20px
 
 @gb-assets-path:                   "/static";
 @gb-font-path:                     "@{gb-assets-path}/fonts";
@@ -210,4 +215,39 @@
 //// Large screen / wide desktop
 @gb-container-lg:                  ((1010px + @gb-grid-gutter-width));
 
+
+///
+/// Typography
+///
+@gb-font-size-h1:                  floor((@gb-font-size-base * 2.6)); // ~36px
+@gb-font-size-h2:                  floor((@gb-font-size-base * 2.15)); // ~30px
+@gb-font-size-h3:                  ceil((@gb-font-size-base * 1.7)); // ~24px
+@gb-font-size-h4:                  ceil((@gb-font-size-base * 1.25)); // ~18px
+@gb-font-size-h5:                  @gb-font-size-base;
+@gb-font-size-h6:                  ceil((@gb-font-size-base * 0.85)); // ~12px
+
+//** By default, this inherits from the `<body>`.
+@gb-headings-font-family:          inherit;
+@gb-headings-font-weight:          500;
+@gb-headings-line-height:          1.1;
+@gb-headings-color:                inherit;
+
+//** Horizontal offset for forms and lists.
+@gb-component-offset-horizontal:   180px;
+//** Text muted color
+@gb-text-muted:                    #777;
+//** Abbreviations and acronyms border color
+@gb-abbr-border-color:             @gb-text-muted;
+//** Headings small color
+@gb-headings-small-color:          @gb-text-muted;
+//** Blockquote small color
+@gb-blockquote-small-color:        @gb-text-muted;
+//** Blockquote font size
+@gb-blockquote-font-size:          (@gb-font-size-base * 1.25);
+//** Blockquote border color
+@gb-blockquote-border-color:       #eee;
+//** Width of horizontal description list titles
+@gb-dl-horizontal-offset:          180px;
+//** Horizontal line color.
+@gb-hr-border:                     @gb-blockquote-border-color;
 
