@@ -14,33 +14,38 @@
         <link rel="stylesheet" href="{{ site.baseurl }}/docs.css">
     </head>
     <body>
-        <header class="gb-header">
-            <div class="container">
-                <a href="{{ site.baseurl }}/" class="logo">
-                    <img src="{{ site.baseurl }}/static/images/logo/128.png">
-                    <h1>{{ page.title }}</h1>
-                </a>
+        <div class="gb-page-wrapper">
+            <header class="gb-page-header">
+                <div class="container">
+                    <a href="{{ site.baseurl }}/" class="logo">
+                        <img src="{{ site.baseurl }}/static/images/logo/128.png">
+                        <h1>{{ page.title }}</h1>
+                    </a>
 
-                <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
-            </div>
-        </header>
+                    <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
+                </div>
+            </header>
 
-        <div class="docs-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        {% include sidenav.html %}
-                    </div>
-                    <div class="col-md-9">
-                        <div class="gb-markdown">
-                            {{ content }}
+            <div class="gb-page-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            {% include sidenav.html %}
                         </div>
-                        <footer class="docs-footer">
-                            Copyright GitBook {{ site.time | date: '%Y' }}
-                        </footer>
+                        <div class="col-md-9">
+                            <div class="gb-markdown">
+                                {{ content }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <footer class="gb-page-footer">
+                <div class="footer-line">
+                    Copyright GitBook {{ site.time | date: '%Y' }}
+                </div>
+            </footer>
         </div>
     </body>
 </html>
