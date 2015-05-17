@@ -1,9 +1,9 @@
 # Markdown
 
-HTML from Markdown following [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/) syntax can be styled easily using `.component-markdown`.
+HTML from Markdown following [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/) syntax can be styled easily using `.gb-markdown`.
 
 {% example html %}
-<div class="component-markdown">
+<div class="gb-markdown">
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
