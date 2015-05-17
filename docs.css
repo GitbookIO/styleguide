@@ -2128,9 +2128,9 @@ a:visited {
   color: #991111;
 }
 .alert.alert-warning {
-  background: #fff9ea;
+  background: #ffefc6;
   border-color: #dfd8c2;
-  color: #4c4a42;
+  color: #a1882b;
 }
 .alert.alert-info {
   background: #e2eef9;
@@ -2142,7 +2142,7 @@ a:visited {
   border-color: #c0d1d0;
   color: #3c763d;
 }
-.component-markdown {
+.gb-markdown {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   line-height: 1.4;
@@ -2150,64 +2150,64 @@ a:visited {
   word-wrap: break-word;
   display: block;
 }
-.component-markdown > *:first-child {
+.gb-markdown > *:first-child {
   margin-top: 0 !important;
 }
-.component-markdown > *:last-child {
+.gb-markdown > *:last-child {
   margin-bottom: 0 !important;
 }
-.component-markdown a {
+.gb-markdown a {
   background: transparent;
 }
-.component-markdown a:active,
-.component-markdown a:hover {
+.gb-markdown a:active,
+.gb-markdown a:hover {
   outline: 0;
 }
-.component-markdown strong {
+.gb-markdown strong {
   font-weight: bold;
 }
-.component-markdown h1 {
+.gb-markdown h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-.component-markdown img {
+.gb-markdown img {
   border: 0;
 }
-.component-markdown hr {
+.gb-markdown hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
-.component-markdown pre {
+.gb-markdown pre {
   overflow: auto;
 }
-.component-markdown code,
-.component-markdown pre {
+.gb-markdown code,
+.gb-markdown pre {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-.component-markdown table {
+.gb-markdown table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.component-markdown td,
-.component-markdown th {
+.gb-markdown td,
+.gb-markdown th {
   padding: 0;
 }
-.component-markdown * {
+.gb-markdown * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.component-markdown a {
+.gb-markdown a {
   color: #4183c4;
   text-decoration: none;
 }
-.component-markdown a:hover,
-.component-markdown a:focus,
-.component-markdown a:active {
+.gb-markdown a:hover,
+.gb-markdown a:focus,
+.gb-markdown a:active {
   text-decoration: underline;
 }
-.component-markdown hr {
+.gb-markdown hr {
   height: 0;
   margin: 15px 0;
   overflow: hidden;
@@ -2215,73 +2215,73 @@ a:visited {
   border: 0;
   border-bottom: 1px solid #ddd;
 }
-.component-markdown hr:before,
-.component-markdown hr:after {
+.gb-markdown hr:before,
+.gb-markdown hr:after {
   display: table;
   content: " ";
 }
-.component-markdown hr:after {
+.gb-markdown hr:after {
   clear: both;
 }
-.component-markdown h1,
-.component-markdown h2,
-.component-markdown h3,
-.component-markdown h4,
-.component-markdown h5,
-.component-markdown h6 {
+.gb-markdown h1,
+.gb-markdown h2,
+.gb-markdown h3,
+.gb-markdown h4,
+.gb-markdown h5,
+.gb-markdown h6 {
   margin-top: 15px;
   margin-bottom: 15px;
   line-height: 1.1;
 }
-.component-markdown h1 {
+.gb-markdown h1 {
   font-size: 30px;
 }
-.component-markdown h2 {
+.gb-markdown h2 {
   font-size: 21px;
 }
-.component-markdown h3 {
+.gb-markdown h3 {
   font-size: 16px;
 }
-.component-markdown h4 {
+.gb-markdown h4 {
   font-size: 14px;
 }
-.component-markdown h5 {
+.gb-markdown h5 {
   font-size: 12px;
 }
-.component-markdown h6 {
+.gb-markdown h6 {
   font-size: 11px;
 }
-.component-markdown blockquote {
+.gb-markdown blockquote {
   margin: 0;
 }
-.component-markdown ul,
-.component-markdown ol {
+.gb-markdown ul,
+.gb-markdown ol {
   padding: 0;
   margin-top: 0;
   margin-bottom: 0;
 }
-.component-markdown ol ol {
+.gb-markdown ol ol {
   list-style-type: lower-roman;
 }
-.component-markdown dd {
+.gb-markdown dd {
   margin-left: 0;
 }
-.component-markdown code,
-.component-markdown pre {
+.gb-markdown code,
+.gb-markdown pre {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 12px;
 }
-.component-markdown pre {
+.gb-markdown pre {
   margin-top: 0;
   margin-bottom: 0;
 }
-.component-markdown .markdown-body > *:first-child {
+.gb-markdown .markdown-body > *:first-child {
   margin-top: 0 !important;
 }
-.component-markdown .markdown-body > *:last-child {
+.gb-markdown .markdown-body > *:last-child {
   margin-bottom: 0 !important;
 }
-.component-markdown .anchor {
+.gb-markdown .anchor {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -2291,126 +2291,126 @@ a:visited {
   padding-left: 30px;
   margin-left: -30px;
 }
-.component-markdown .anchor:focus {
+.gb-markdown .anchor:focus {
   outline: none;
 }
-.component-markdown h1,
-.component-markdown h2,
-.component-markdown h3,
-.component-markdown h4,
-.component-markdown h5,
-.component-markdown h6 {
+.gb-markdown h1,
+.gb-markdown h2,
+.gb-markdown h3,
+.gb-markdown h4,
+.gb-markdown h5,
+.gb-markdown h6 {
   position: relative;
   margin-top: 1em;
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
 }
-.component-markdown h1 {
+.gb-markdown h1 {
   padding-bottom: 0.3em;
   font-size: 2.25em;
   line-height: 1.2;
   border-bottom: 1px solid #eee;
 }
-.component-markdown h2 {
+.gb-markdown h2 {
   padding-bottom: 0.3em;
   font-size: 1.75em;
   line-height: 1.225;
   border-bottom: 1px solid #eee;
 }
-.component-markdown h3 {
+.gb-markdown h3 {
   font-size: 1.5em;
   line-height: 1.43;
 }
-.component-markdown h4 {
+.gb-markdown h4 {
   font-size: 1.25em;
 }
-.component-markdown h5 {
+.gb-markdown h5 {
   font-size: 1em;
 }
-.component-markdown h6 {
+.gb-markdown h6 {
   font-size: 1em;
   color: #777;
 }
-.component-markdown p,
-.component-markdown blockquote,
-.component-markdown ul,
-.component-markdown ol,
-.component-markdown dl,
-.component-markdown table,
-.component-markdown pre {
+.gb-markdown p,
+.gb-markdown blockquote,
+.gb-markdown ul,
+.gb-markdown ol,
+.gb-markdown dl,
+.gb-markdown table,
+.gb-markdown pre {
   margin-top: 0;
   margin-bottom: 16px;
 }
-.component-markdown hr {
+.gb-markdown hr {
   height: 4px;
   padding: 0;
   margin: 16px 0;
   background-color: #e7e7e7;
   border: 0 none;
 }
-.component-markdown ul,
-.component-markdown ol {
+.gb-markdown ul,
+.gb-markdown ol {
   padding-left: 2em;
 }
-.component-markdown ol ol,
-.component-markdown ol ul,
-.component-markdown ul ul {
+.gb-markdown ol ol,
+.gb-markdown ol ul,
+.gb-markdown ul ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-.component-markdown dl {
+.gb-markdown dl {
   padding: 0;
 }
-.component-markdown dl dt {
+.gb-markdown dl dt {
   padding: 0;
   margin-top: 16px;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
 }
-.component-markdown dl dd {
+.gb-markdown dl dd {
   padding: 0 16px;
   margin-bottom: 16px;
 }
-.component-markdown blockquote {
+.gb-markdown blockquote {
   padding: 0 15px;
   color: #777;
   border-left: 4px solid #ddd;
 }
-.component-markdown blockquote > :first-child {
+.gb-markdown blockquote > :first-child {
   margin-top: 0;
 }
-.component-markdown blockquote > :last-child {
+.gb-markdown blockquote > :last-child {
   margin-bottom: 0;
 }
-.component-markdown table {
+.gb-markdown table {
   display: block;
   width: 100%;
   overflow: auto;
 }
-.component-markdown table th {
+.gb-markdown table th {
   font-weight: bold;
 }
-.component-markdown table th,
-.component-markdown table td {
+.gb-markdown table th,
+.gb-markdown table td {
   padding: 6px 13px;
   border: 1px solid #ddd;
 }
-.component-markdown table tr {
+.gb-markdown table tr {
   background-color: #fff;
   border-top: 1px solid #ccc;
 }
-.component-markdown table tr:nth-child(2n) {
+.gb-markdown table tr:nth-child(2n) {
   background-color: #f8f8f8;
 }
-.component-markdown img {
+.gb-markdown img {
   max-width: 100%;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   page-break-inside: avoid;
 }
-.component-markdown code {
+.gb-markdown code {
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -2419,12 +2419,12 @@ a:visited {
   background-color: #f7f7f7;
   border-radius: 3px;
 }
-.component-markdown code:before,
-.component-markdown code:after {
+.gb-markdown code:before,
+.gb-markdown code:after {
   letter-spacing: -0.2em;
   content: "\00a0";
 }
-.component-markdown pre > code {
+.gb-markdown pre > code {
   padding: 0;
   margin: 0;
   font-size: 100%;
@@ -2432,8 +2432,8 @@ a:visited {
   background: transparent;
   border: 0;
 }
-.component-markdown .highlight pre,
-.component-markdown pre {
+.gb-markdown .highlight pre,
+.gb-markdown pre {
   padding: 16px;
   overflow: auto;
   font-size: 85%;
@@ -2442,10 +2442,10 @@ a:visited {
   border: none;
   border-radius: 3px;
 }
-.component-markdown pre {
+.gb-markdown pre {
   word-wrap: normal;
 }
-.component-markdown pre code {
+.gb-markdown pre code {
   display: inline;
   max-width: initial;
   padding: 0;
@@ -2456,11 +2456,11 @@ a:visited {
   background-color: transparent;
   border: 0;
 }
-.component-markdown pre code:before,
-.component-markdown pre code:after {
+.gb-markdown pre code:before,
+.gb-markdown pre code:after {
   content: normal;
 }
-.component-markdown .highlight {
+.gb-markdown .highlight {
   background: #ffffff;
 }
 .panel {
@@ -2496,7 +2496,7 @@ a:visited {
   background-color: #f5f5f5;
   border-color: #d4d4d4;
 }
-.component-header {
+.gb-header {
   width: 100%;
   padding: 8px 0px;
   text-shadow: 0 1px 0 #fff;
@@ -2504,31 +2504,31 @@ a:visited {
   color: #555555;
   border-bottom: 1px solid #d5d5d5;
 }
-.component-header .container {
+.gb-header .container {
   zoom: 1;
 }
-.component-header .container:before,
-.component-header .container:after {
+.gb-header .container:before,
+.gb-header .container:after {
   content: "";
   display: table;
 }
-.component-header .container:after {
+.gb-header .container:after {
   clear: both;
 }
-.component-header .container .logo {
+.gb-header .container .logo {
   color: inherit;
 }
-.component-header .container .logo:hover {
+.gb-header .container .logo:hover {
   text-decoration: none;
 }
-.component-header .container .logo img {
+.gb-header .container .logo img {
   width: 34px;
   height: 34px;
   float: left;
   margin-right: 8px;
   margin-top: 3px;
 }
-.component-header .container .logo h1 {
+.gb-header .container .logo h1 {
   font-size: 28px;
   font-weight: bold;
   line-height: 38px;
@@ -2538,21 +2538,21 @@ a:visited {
   text-shadow: none;
   color: #4d4d4f;
 }
-.component-header .container .btn {
+.gb-header .container .btn {
   text-decoration: none;
   margin: 2px 4px;
   box-shadow: none !important;
   text-transform: uppercase;
 }
-.component-header .container .btn:hover {
+.gb-header .container .btn:hover {
   text-decoration: none;
 }
-.component-header .container .btn.btn-icon {
+.gb-header .container .btn.btn-icon {
   margin: 1px 0;
   font-size: 16px;
   padding: 5px 10px;
 }
-.component-header .container img.avatar {
+.gb-header .container img.avatar {
   width: 24px;
   height: 24px;
   border-radius: 3px;
@@ -2561,19 +2561,19 @@ a:visited {
   margin-top: -2px;
   margin-bottom: -2px;
 }
-.component-header .container .dropdown-menu {
+.gb-header .container .dropdown-menu {
   top: 45px;
   border-radius: 3px;
   text-shadow: none;
   font-size: 14px;
 }
-.component-header .container .dropdown-menu .divider {
+.gb-header .container .dropdown-menu .divider {
   margin: 4px 0px;
 }
-.component-header .container .dropdown-menu > li > a {
+.gb-header .container .dropdown-menu > li > a {
   padding: 3px 12px;
 }
-.component-header .container .dropdown-menu > li > a:hover {
+.gb-header .container .dropdown-menu > li > a:hover {
   background: transparent;
   color: #428bca;
 }
@@ -2710,7 +2710,7 @@ a:visited {
     transform: rotate(360deg);
   }
 }
-.component-spinner {
+.gb-spinner {
   display: inline-block;
   border-radius: 100%;
   border: 5px solid #f5f5f5;
@@ -2722,7 +2722,7 @@ a:visited {
   height: 30px;
   border-width: 3px;
 }
-.component-spinner.spinner-centered {
+.gb-spinner.spinner-centered {
   display: block;
   margin: 0px;
   position: absolute;
@@ -2731,12 +2731,12 @@ a:visited {
   margin-left: -15px;
   margin-top: -15px;
 }
-.component-spinner.spinner-sm {
+.gb-spinner.spinner-sm {
   width: 12px;
   height: 12px;
   border-width: 1.2px;
 }
-.component-spinner.spinner-sm.spinner-centered {
+.gb-spinner.spinner-sm.spinner-centered {
   display: block;
   margin: 0px;
   position: absolute;
@@ -2745,12 +2745,12 @@ a:visited {
   margin-left: -6px;
   margin-top: -6px;
 }
-.component-spinner.spinner-lg {
+.gb-spinner.spinner-lg {
   width: 50px;
   height: 50px;
   border-width: 5px;
 }
-.component-spinner.spinner-lg.spinner-centered {
+.gb-spinner.spinner-lg.spinner-centered {
   display: block;
   margin: 0px;
   position: absolute;
@@ -2758,6 +2758,33 @@ a:visited {
   top: 50%;
   margin-left: -25px;
   margin-top: -25px;
+}
+.label {
+  display: inline-block;
+  margin: 0px;
+  padding: 4px 5px 3px;
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 11px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 3px;
+}
+.label.label-warning {
+  background-color: #ffefc6;
+  color: #a1882b;
+}
+.label.label-info {
+  background-color: #e2eef9;
+  color: #224466;
+}
+.label.label-success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+.label.label-danger {
+  background-color: #fcdede;
+  color: #991111;
 }
 .form-control {
   width: 100%;

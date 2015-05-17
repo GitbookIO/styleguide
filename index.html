@@ -10,13 +10,14 @@
 
         <title>GitBook HTML/CSS Styleguide</title>
 
+        <link rel="icon" href="/static/images/logo/favicon.ico">
         <link rel="stylesheet" href="/docs.css">
     </head>
     <body>
-        <header class="component-header">
+        <header class="gb-header">
             <div class="container">
                 <a href="/" class="logo">
-                    <img src="/static/images/logos/128.png">
+                    <img src="/static/images/logo/128.png">
                     <h1>GitBook HTML/CSS Styleguide</h1>
                 </a>
 
@@ -58,12 +59,13 @@
         <a href="#modals" class="list-group-item">Modal</a>
         <a href="#spinner" class="list-group-item">Spinner</a>
         <a href="#alerts" class="list-group-item">Alerts</a>
+        <a href="#labels" class="list-group-item">Labels</a>
         <a href="#markdown" class="list-group-item">Markdown</a>
     </div>
 </div>
                     </div>
                     <div class="col-md-9">
-                        <div class="component-markdown">
+                        <div class="gb-markdown">
                             <h1 id="installation">Installation</h1>
 
 <p>GitBook styleguide can be installed using <strong>NPM</strong> from <code>https://github.com/GitbookIO/styleguide.git</code>:</p>
@@ -639,14 +641,14 @@
 
 <p>Spinner can be use to indicate a loading operation.</p>
 
-<div class="docs-example clearfix"><div class="component-spinner spinner-sm"></div>
-<div class="component-spinner"></div>
-<div class="component-spinner spinner-lg"></div>
-<div class="component-spinner spinner-centered"></div></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner spinner-sm"</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner"</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner spinner-lg"</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-spinner spinner-centered"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></div>
+<div class="docs-example clearfix"><div class="gb-spinner spinner-sm"></div>
+<div class="gb-spinner"></div>
+<div class="gb-spinner spinner-lg"></div>
+<div class="gb-spinner spinner-centered"></div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-spinner spinner-sm"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-spinner"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-spinner spinner-lg"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-spinner spinner-centered"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></div>
 
 <h1 id="alerts">Alerts</h1>
 
@@ -678,17 +680,28 @@
     This is an alert!
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
+<h1 id="labels">Labels</h1>
+
+<div class="docs-example clearfix"><h1>Warning Label <span class="label label-warning">Warning !</span></h1>
+<h1>Danger Label <span class="label label-danger">Danger !</span></h1>
+<h1>Success Label <span class="label label-success">Success !</span></h1>
+<h1>Info Label <span class="label label-info">Info !</span></h1></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>Warning Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-warning"</span><span class="nt">&gt;</span>Warning !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Danger Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-danger"</span><span class="nt">&gt;</span>Danger !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Success Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-success"</span><span class="nt">&gt;</span>Success !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Info Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-info"</span><span class="nt">&gt;</span>Info !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span></code></pre></div>
+
 <h1 id="markdown">Markdown</h1>
 
-<p>HTML from Markdown following <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a> syntax can be styled easily using <code>.component-markdown</code>.</p>
+<p>HTML from Markdown following <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a> syntax can be styled easily using <code>.gb-markdown</code>.</p>
 
-<div class="docs-example clearfix"><div class="component-markdown">
+<div class="docs-example clearfix"><div class="gb-markdown">
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
     <h4>Heading 4</h4>
 </div></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"component-markdown"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-markdown"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h1&gt;</span>Heading 1<span class="nt">&lt;/h1&gt;</span>
     <span class="nt">&lt;h2&gt;</span>Heading 2<span class="nt">&lt;/h2&gt;</span>
     <span class="nt">&lt;h3&gt;</span>Heading 3<span class="nt">&lt;/h3&gt;</span>
