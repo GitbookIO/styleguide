@@ -1,9 +1,9 @@
-.panelStyle(@borderColor) {
+.panelStyle(@borderColor, @backgroundColor, @color) {
     border-color: @borderColor;
 
     .panel-heading {
-        color: #333;
-        background-color: #f5f5f5;
+        color: @color;
+        background-color: @backgroundColor;
         border-color: @borderColor;
     }
 }
@@ -52,7 +52,23 @@
     }
 
     &.panel-default {
-        .panelStyle(@gb-palette-gray-outline);
+        .panelStyle(@gb-palette-gray-outline, @gb-palette-gray, @gb-text-color);
+    }
+
+    &.panel-danger {
+        .panelStyle(@gb-alert-danger-border, @gb-alert-danger-background, @gb-alert-danger-color);
+    }
+
+    &.panel-warning {
+        .panelStyle(@gb-alert-warning-border, @gb-alert-warning-background, @gb-alert-warning-color);
+    }
+
+    &.panel-info {
+        .panelStyle(@gb-alert-info-border, @gb-alert-info-background, @gb-alert-info-color);
+    }
+
+    &.panel-success {
+        .panelStyle(@gb-alert-success-border, @gb-alert-success-background, @gb-alert-success-color);
     }
 
 }
