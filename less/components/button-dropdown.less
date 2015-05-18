@@ -90,7 +90,7 @@
     }
 }
 
-.dropdown-menu {
+.dropdown-menu, .dropdown .dropdown-menu {
     display: none;
     position: relative;
     z-index: @gb-zindex-dropdown;
@@ -116,13 +116,14 @@
         }
 
         a {
-            padding: 2px 4px;
+            padding: 3px 6px;
             cursor: default;
             color: inherit;
             text-decoration: none;
             display: block;
 
             &:hover {
+                text-decoration: none;
                 background: @gb-dropdown-background-hover;
             }
         }
