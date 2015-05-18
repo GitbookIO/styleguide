@@ -80,29 +80,23 @@ Include a table in a panel:
         <thead>
             <tr>
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Title</th>
+                <th>ID</th>
+                <th>Updated</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>PHP</td>
+                <td>php</td>
+                <td>1 month ago</td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>Javascript</td>
+                <td>js</td>
+                <td>1 month ago</td>
             </tr>
         </tbody>
     </table>
