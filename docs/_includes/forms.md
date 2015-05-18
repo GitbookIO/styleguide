@@ -64,3 +64,27 @@ And different sizes
     <input type="text" class="form-control input-xs" placeholder=".form-control.input-xs">
 </div>
 {% endexample %}
+
+Extend form controls by adding text or buttons before, after, or on both sides of any text-based `<input>`. Use `.input-group` with an `.input-group-addon` to prepend or append elements to a single `.form-control`.
+
+{% example html %}
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+    </div>
+</div>
+<div class="form-group">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+    </div>
+</div>
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <span class="input-group-addon">.00</span>
+    </div>
+</div>
+{% endexample %}
