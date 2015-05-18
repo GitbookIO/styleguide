@@ -41,6 +41,8 @@
 @gb-border-radius-large:           6px;
 @gb-border-radius-small:           3px;
 
+@gb-margin-base:                   20px;
+
 ///
 /// z-index
 ///
@@ -126,6 +128,7 @@
 ///
 /// List Groups
 ///
+@gb-listgroup-margin:              @gb-margin-base;
 @gb-listgroup-color:               @gb-body-color;
 @gb-listgroup-background:          #fff;
 @gb-listgroup-hover-background:    @gb-palette-gray;
@@ -165,7 +168,7 @@
 /// Alerts
 ///
 @gb-alert-padding:                15px;
-@gb-alert-marging:                20px;
+@gb-alert-marging:                @gb-margin-base;
 @gb-alert-radius:                 @gb-border-radius-large;
 
 @gb-alert-danger-color:           #911;
@@ -202,7 +205,7 @@
 @gb-grid-columns:                  12;
 
 //// gutter of grid
-@gb-grid-gutter-width:             20px;
+@gb-grid-gutter-width:             @gb-margin-base;
 
 //// Extra small screen / phone
 @gb-container-xs:                  ((480px + @gb-grid-gutter-width));
