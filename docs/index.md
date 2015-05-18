@@ -13,6 +13,7 @@ title: GitBook HTML/CSS Styleguide
 {% include button-groups.md %}
 {% include tooltips.md %}
 {% include forms.md %}
+{% include tables.md %}
 {% include dropdowns.md %}
 {% include list-groups.md %}
 {% include panels.md %}
