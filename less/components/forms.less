@@ -41,6 +41,28 @@
     }
 }
 
+// For radio and checkbox
+.radio, .checkbox {
+    display: block;
+    min-height: 20px;
+    margin-bottom: 2*@gb-padding-base-vertical;
+    padding-left: 20px;
+    vertical-align: middle;
+
+    input[type="radio"], input[type="checkbox"] {
+        float: left;
+        margin-top: 3px;
+        margin-left: -20px;
+    }
+
+    label {
+        display: inline;
+        margin-bottom: 0;
+        font-weight: normal;
+        cursor: pointer;
+    }
+}
+
 // Select
 select.form-control {
     .btn.btn-default();
