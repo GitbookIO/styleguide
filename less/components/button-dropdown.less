@@ -14,12 +14,16 @@
     position: relative;
 
     .dropdown-menu {
-        display: none;
         position: absolute;
         top: 100%;
         right: 0px;
     }
 
+    &.open, &.inner {
+        >.dropdown-menu {
+            display: block
+        }
+    }
 
     // Arrows
     &:not(.contextmenu) > .dropdown-menu {
