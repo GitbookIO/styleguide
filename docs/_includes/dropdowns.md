@@ -4,7 +4,7 @@ Dropdown menu can be added to `.btn-group`.
 
 {% example html %}
 <div class="btn-group dropdown">
-    <button class="btn btn-default" type="button">Toggle Dropdown</button>
+    <button class="btn btn-default" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
     <ul class="dropdown-menu open">
         <li><a href="#">Entry 1</a></li>
         <li class="active">
