@@ -14,22 +14,24 @@
         <link rel="stylesheet" href="/docs.css">
     </head>
     <body>
-        <header class="gb-header">
-            <div class="container">
-                <a href="/" class="logo">
-                    <img src="/static/images/logo/128.png">
-                    <h1>GitBook HTML/CSS Styleguide</h1>
-                </a>
+        <div class="gb-page-wrapper">
+            <header class="gb-page-header">
+                <div class="container">
+                    <a href="/" class="logo">
+                        <img src="/static/images/logo/128.png">
+                        <h1>GitBook HTML/CSS Styleguide</h1>
+                    </a>
 
-                <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
-            </div>
-        </header>
+                    <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
+                </div>
+            </header>
 
-        <div class="docs-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="panel panel-default">
+            <div class="gb-page-body">
+                <div class="gb-page-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
     <div class="panel-heading">
         <b>Styleguide</b>
     </div>
@@ -38,6 +40,7 @@
         <a href="#guidelines" class="list-group-item">Guidelines</a>
         <a href="#colors" class="list-group-item">Colors</a>
         <a href="#icons" class="list-group-item">Icons</a>
+        <a href="#page-layout" class="list-group-item">Layout</a>
         <a href="#grid-system" class="list-group-item">Grid</a>
     </div>
 </div>
@@ -51,6 +54,7 @@
         <a href="#button-groups" class="list-group-item">Button Groups</a>
         <a href="#tooltips" class="list-group-item">Tooltips</a>
         <a href="#forms" class="list-group-item">Forms</a>
+        <a href="#tables" class="list-group-item">Tables</a>
         <a href="#dropdowns" class="list-group-item">Dropdowns</a>
         <a href="#list-groups" class="list-group-item">List Groups</a>
         <a href="#panels" class="list-group-item">Panels</a>
@@ -63,10 +67,10 @@
         <a href="#markdown" class="list-group-item">Markdown</a>
     </div>
 </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="gb-markdown">
-                            <h1 id="installation">Installation</h1>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="gb-markdown">
+                                    <h1 id="installation">Installation</h1>
 
 <p>GitBook styleguide can be installed using <strong>NPM</strong> from <code>https://github.com/GitbookIO/styleguide.git</code>:</p>
 
@@ -106,6 +110,26 @@
 
 <p>Variables that defined a path should not finish with a slash. For example <code>@gb-static-folder: "/static"</code> is valid.</p>
 
+<h1 id="page-layout">Page Layout</h1>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-page-wrapper"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-page-header"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-page-body"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-page-footer"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+
 <h1 id="grid-system">Grid System</h1>
 
 <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content.</p>
@@ -144,6 +168,33 @@
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>.col-md-6<span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>.col-md-6<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h3 id="offsetting-columns">Offsetting columns</h3>
+
+<p>Move columns to the right using <code>.col-md-offset-*</code> classes. These classes increase the left margin of a column by * columns. For example, <code>.col-md-offset-4</code> moves <code>.col-md-4</code> over four columns.</p>
+
+<div class="docs-example clearfix"><div class="row">
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+    <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4 col-md-offset-4"</span><span class="nt">&gt;</span>.col-md-4 .col-md-offset-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 col-md-offset-3"</span><span class="nt">&gt;</span>.col-md-3 .col-md-offset-3<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 col-md-offset-3"</span><span class="nt">&gt;</span>.col-md-3 .col-md-offset-3<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-3"</span><span class="nt">&gt;</span>.col-md-6 .col-md-offset-3<span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 <h1 id="colors">Colors</h1>
@@ -269,6 +320,15 @@
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
+<h3 id="block-buttons">Block Buttons</h3>
+
+<p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
+
+<div class="docs-example clearfix"><button type="button" class="btn btn-primary btn-fill btn-lg btn-block">Block level button</button>
+<button type="button" class="btn btn-default btn-lg btn-block">Block level button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill btn-lg btn-block"</span><span class="nt">&gt;</span>Block level button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default btn-lg btn-block"</span><span class="nt">&gt;</span>Block level button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
 <h3 id="states">States</h3>
 
 <p>Buttons can have different states:</p>
@@ -368,7 +428,7 @@
         <input type="file" id="exampleInputFile" />
         <p class="help-block">Example block-level help text here.</p>
     </div>
-    <div class="form-group">
+    <div class="checkbox">
         <label>
             <input type="checkbox" /> Check me out
         </label>
@@ -396,7 +456,7 @@
         <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">id=</span><span class="s">"exampleInputFile"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"help-block"</span><span class="nt">&gt;</span>Example block-level help text here.<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label&gt;</span>
             <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span> Check me out
         <span class="nt">&lt;/label&gt;</span>
@@ -458,12 +518,106 @@
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control input-xs"</span> <span class="na">placeholder=</span><span class="s">".form-control.input-xs"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
+<p>Extend form controls by adding text or buttons before, after, or on both sides of any text-based <code>&lt;input&gt;</code>. Use <code>.input-group</code> with an <code>.input-group-addon</code> to prepend or append elements to a single <code>.form-control</code>.</p>
+
+<div class="docs-example clearfix"><div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2" />
+        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+    </div>
+</div>
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
+        <span class="input-group-addon">.00</span>
+    </div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"basic-addon1"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Username"</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Recipient's username"</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon2"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"basic-addon2"</span><span class="nt">&gt;</span>@example.com<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Amount (to the nearest dollar)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>.00<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="tables">Tables</h1>
+
+<div class="docs-example clearfix"><table class="table">
+    <caption>Optional table caption.</caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+    </tbody>
+</table></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;caption&gt;</span>Optional table caption.<span class="nt">&lt;/caption&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Username<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Mark<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Otto<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@mdo<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Jacob<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Thornton<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>@fat<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre></div>
+
 <h1 id="dropdowns">Dropdowns</h1>
 
 <p>Dropdown menu can be added to <code>.btn-group</code>.</p>
 
 <div class="docs-example clearfix"><div class="btn-group dropdown">
-    <button class="btn btn-default" type="button">Toggle Dropdown</button>
+    <button class="btn btn-default" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
     <ul class="dropdown-menu open">
         <li><a href="#">Entry 1</a></li>
         <li class="active">
@@ -483,7 +637,7 @@
     </ul>
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group dropdown"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Toggle Dropdown<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Toggle Dropdown <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown-caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu open"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>
@@ -592,9 +746,6 @@
         <a href="#" class="list-group-item active">Item 2</a>
         <a href="#" class="list-group-item">Item 3</a>
     </div>
-    <div class="panel-footer">
-        Optional footer of the panel
-    </div>
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
@@ -605,9 +756,140 @@
         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item active"</span><span class="nt">&gt;</span>Item 2<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Item 3<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>
-        Optional footer of the panel
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>And have different styles:</p>
+
+<div class="docs-example clearfix"><div class="panel panel-danger">
+    <div class="panel-heading">
+        <b>Title</b>
+    </div>
+    <div class="panel-body">
+        Body of the panel
+    </div>
+</div>
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <b>Title</b>
+    </div>
+    <div class="panel-body">
+        Body of the panel
+    </div>
+</div>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <b>Title</b>
+    </div>
+    <div class="panel-body">
+        Body of the panel
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <b>Title</b>
+    </div>
+    <div class="panel-body">
+        Body of the panel
+    </div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-danger"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;b&gt;</span>Title<span class="nt">&lt;/b&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+        Body of the panel
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-warning"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;b&gt;</span>Title<span class="nt">&lt;/b&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+        Body of the panel
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-success"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;b&gt;</span>Title<span class="nt">&lt;/b&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+        Body of the panel
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-info"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;b&gt;</span>Title<span class="nt">&lt;/b&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+        Body of the panel
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>Include a table in a panel:</p>
+
+<div class="docs-example clearfix"><div class="panel panel-default">
+    <div class="panel-heading">
+        <b>Title</b>
+    </div>
+    <div class="panel-body">
+        Body
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>ID</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>PHP</td>
+                <td>php</td>
+                <td>1 month ago</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Javascript</td>
+                <td>js</td>
+                <td>1 month ago</td>
+            </tr>
+        </tbody>
+    </table>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;b&gt;</span>Title<span class="nt">&lt;/b&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+        Body
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;thead&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+                <span class="nt">&lt;th&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+                <span class="nt">&lt;th&gt;</span>Title<span class="nt">&lt;/th&gt;</span>
+                <span class="nt">&lt;th&gt;</span>ID<span class="nt">&lt;/th&gt;</span>
+                <span class="nt">&lt;th&gt;</span>Updated<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;/thead&gt;</span>
+        <span class="nt">&lt;tbody&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+                <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+                <span class="nt">&lt;td&gt;</span>PHP<span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;td&gt;</span>php<span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;td&gt;</span>1 month ago<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+                <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+                <span class="nt">&lt;td&gt;</span>Javascript<span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;td&gt;</span>js<span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;td&gt;</span>1 month ago<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;/tbody&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 <h1 id="modals">Modals</h1>
@@ -709,13 +991,18 @@
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 
+                                </div>
+                            </div>
                         </div>
-                        <footer class="docs-footer">
-                            Copyright GitBook 2015
-                        </footer>
                     </div>
                 </div>
             </div>
+
+            <footer class="gb-page-footer">
+                <div class="footer-line">
+                    Copyright GitBook 2015
+                </div>
+            </footer>
         </div>
     </body>
 </html>
