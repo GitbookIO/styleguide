@@ -15,6 +15,7 @@ title: GitBook HTML/CSS Styleguide
 {% include forms.md %}
 {% include tables.md %}
 {% include navigation.md %}
+{% include tabs.md %}
 {% include blankslate.md %}
 {% include dropdowns.md %}
 {% include list-groups.md %}
