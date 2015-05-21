@@ -1,0 +1,60 @@
+
+// Inline and block code styles
+code,
+kbd,
+pre,
+samp {
+    font-family: @gb-font-family-monospace;
+}
+
+// Inline code
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: @gb-code-color;
+    background-color: @gb-code-bg;
+    border-radius: @gb-border-radius-base;
+}
+
+// User input typically entered via keyboard
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: @gb-kbd-color;
+    background-color: @gb-kbd-bg;
+    border-radius: @gb-border-radius-small;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+
+    kbd {
+        padding: 0;
+        font-size: 100%;
+        font-weight: bold;
+        box-shadow: none;
+    }
+}
+
+// Blocks of code
+pre {
+    display: block;
+    padding: ((@gb-line-height-computed - 1) / 2);
+    margin: 0 0 (@gb-line-height-computed / 2);
+    font-size: (@gb-font-size-base - 1); // 14px to 13px
+    line-height: @gb-line-height-base;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: @gb-pre-color;
+    background-color: @gb-pre-bg;
+    border: 1px solid @gb-pre-border-color;
+    border-radius: @gb-border-radius-base;
+
+    // Account for some code outputs that place code tags in pre tags
+    code {
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+        white-space: pre-wrap;
+        background-color: transparent;
+        border-radius: 0;
+    }
+}
+
