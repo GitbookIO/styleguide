@@ -156,16 +156,22 @@
 ///
 /// Dropdown
 ///
+@gb-dropdown-shadow:               ~"0 3px 12px rgba(0,0,0,0.15)";
 @gb-dropdown-border:               @gb-button-border;
 @gb-dropdown-background:           #fff;
-@gb-dropdown-background-hover:     @gb-state-info-background;
+@gb-dropdown-background-hover:     @gb-brand-primary;
 @gb-dropdown-background-active:    @gb-brand-primary;
+@gb-dropdown-color-active:         #fff;
+@gb-dropdown-color-hover:          #fff;
+@gb-dropdown-radius:               @gb-border-radius-base;
+@gb-dropdown-divider:              @gb-palette-gray-dark;
+@gb-dropdown-padding:              5px;
 
 ///
 /// List Groups
 ///
 @gb-listgroup-margin:              @gb-margin-base;
-@gb-listgroup-color:               @gb-body-color;
+@gb-listgroup-color:               #555;
 @gb-listgroup-background:          #fff;
 @gb-listgroup-hover-background:    @gb-palette-gray;
 @gb-listgroup-border:              @gb-palette-gray-outline;
@@ -177,6 +183,7 @@
 @gb-header-background:             #f5f5f5;
 @gb-header-border-color:           #d5d5d5;
 @gb-header-color:                  #555;
+@gb-header-active-color:           @gb-brand-primary;
 @gb-header-shadow:                 ~"inset 0px 1px #fff";
 
 ///
@@ -196,6 +203,11 @@
 @gb-pagehead-active-border:        @gb-listgroup-active-color;
 
 ///
+/// Caret
+///
+@gb-caret-color:                   @gb-palette-gray-darker;
+
+///
 /// Modal
 ///
 @gb-modal-border:                 @gb-palette-gray-outline;
@@ -211,6 +223,7 @@
 ///
 /// Panels
 ///
+@gb-panel-color:                  @gb-body-color;
 @gb-panel-padding:                15px;
 @gb-panel-radius:                 @gb-border-radius-small;
 
