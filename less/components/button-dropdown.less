@@ -13,7 +13,7 @@
 .dropdown, .btn-group.dropdown {
     position: relative;
 
-    .dropdown-menu {
+    > .dropdown-menu {
         position: absolute;
         top: 100%;
         right: 0px;
@@ -88,6 +88,51 @@
             right: 0px;
         }
     }
+
+
+    // Dropdown to the top
+    &.dropup {
+        > .dropdown-menu {
+            position: absolute;
+            top: auto;
+            bottom: 100%;
+
+            // Submenu
+            li .dropdown-menu {
+                top: auto;
+                bottom: 0px;
+            }
+        }
+
+        &:not(.contextmenu) > .dropdown-menu {
+            margin-top: 0px;
+            margin-bottom: 12px;
+
+            &:after, &:before {
+                top: 100%;
+                bottom: auo;
+                right: 16px;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            &:before {
+                border-color: transparent;
+                border-top-color: @gb-dropdown-border;
+                border-width: 11px;
+                margin-right: -11px;
+            }
+            &:after {
+                border-color: transparent;
+                border-top-color: @gb-dropdown-background;
+                border-width: 10px;
+                margin-right: -10px;
+            }
+        }
+    }
 }
 
 .dropdown-menu, .dropdown .dropdown-menu {
@@ -153,6 +198,7 @@
 
         // Submenu
         >.dropdown-menu {
+            position: absolute;
             right: auto;
             left: 100%;
             margin-top: 0px;
