@@ -3,43 +3,39 @@
     bottom: 0;
     width: 100%;
     height: @gb-footer-height;
-    padding: 20px 30px;
-    font-size: 13px;
-    letter-spacing: .2px;
-    line-height: 19px;
-    font-weight: 200;
     margin: 0;
-
-    color: @gb-footer-color;
     background: @gb-footer-background;
     border-top: 1px solid @gb-footer-border;
 
     .container {
-        .clearfix();
-        font-size: 13px;
-
-        a {
-            color: inherit;
-            text-transform: uppercase;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
-        p {
-            padding-top: 15px;
-            margin: 0px;
-        }
-
-        .footer-menu {
+        .menu {
             list-style: none;
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
+            .clearfix();
 
-            li {
-                padding: 0px;
-                margin: 0px;
+            >li {
+                float: left;
+
+                >a, >span {
+                    padding: 21px 10px;
+                    display: inline-block;
+                    color: @gb-footer-color;
+                    text-transform: uppercase;
+                    letter-spacing: .2px;
+                    line-height: 19px;
+                    font-weight: 200;
+                    height: 59px;
+                }
+
+                > a {
+                    text-decoration: none;
+
+                    &:hover, &:focus {
+                        text-decoration: none;
+                        background: rgba(0, 0, 0, 0.08);
+                    }
+                }
             }
         }
     }
