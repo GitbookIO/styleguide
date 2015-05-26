@@ -1107,14 +1107,6 @@ th {
     margin-left: 100%;
   }
 }
-@media (min-width: 0) and (max-width: 510px) {
-  .container .visible-xs {
-    display: block;
-  }
-  .container .hidden-xs {
-    display: none;
-  }
-}
 @media (min-width: 750px) {
   .container {
     max-width: 750px;
@@ -1214,14 +1206,6 @@ th {
   }
   .container .col-sm-offset-12 {
     margin-left: 100%;
-  }
-}
-@media (min-width: 510px) and (max-width: 750px) {
-  .container .visible-sm {
-    display: block;
-  }
-  .container .hidden-sm {
-    display: none;
   }
 }
 @media (min-width: 970px) {
@@ -1325,14 +1309,6 @@ th {
     margin-left: 100%;
   }
 }
-@media (min-width: 750px) and (max-width: 970px) {
-  .container .visible-md {
-    display: block;
-  }
-  .container .hidden-md {
-    display: none;
-  }
-}
 @media (min-width: 1030px) {
   .container {
     max-width: 1030px;
@@ -1434,14 +1410,6 @@ th {
     margin-left: 100%;
   }
 }
-@media (min-width: 970px) and (max-width: 1030px) {
-  .container .visible-lg {
-    display: block;
-  }
-  .container .hidden-lg {
-    display: none;
-  }
-}
 .row {
   margin-left: -15px;
   margin-right: -15px;
@@ -1454,6 +1422,38 @@ th {
 }
 .row:after {
   clear: both;
+}
+@media (min-width: 0) and (max-width: 749px) {
+  .visible-xs {
+    display: block !important;
+  }
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 750px) and (max-width: 969px) {
+  .visible-sm {
+    display: block !important;
+  }
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 970px) and (max-width: 1029px) {
+  .visible-md {
+    display: block !important;
+  }
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 970px) {
+  .visible-lg {
+    display: block !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
 }
 /* Tomorrow Comment */
 .hljs-comment,
@@ -3082,7 +3082,7 @@ table th[class*="col-"] {
 .gb-markdown {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  line-height: 1.4;
+  line-height: 1.6;
   overflow: hidden;
   word-wrap: break-word;
   display: block;
@@ -3685,7 +3685,7 @@ table th[class*="col-"] {
   vertical-align: baseline;
   white-space: nowrap;
   text-align: center;
-  background-color: #4f4f52;
+  background-color: #b3b3b1;
   border-radius: 10px;
   float: right;
 }
@@ -4438,47 +4438,45 @@ select.form-control:focus {
   bottom: 0;
   width: 100%;
   height: 60px;
-  padding: 20px 30px;
-  font-size: 13px;
-  letter-spacing: .2px;
-  line-height: 19px;
-  font-weight: 200;
   margin: 0;
-  color: rgba(255, 255, 255, 0.4);
   background: #323940;
   border-top: 1px solid #323940;
 }
-.gb-page-footer .container {
+.gb-page-footer .container .menu {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
   zoom: 1;
-  font-size: 13px;
 }
-.gb-page-footer .container:before,
-.gb-page-footer .container:after {
+.gb-page-footer .container .menu:before,
+.gb-page-footer .container .menu:after {
   content: "";
   display: table;
 }
-.gb-page-footer .container:after {
+.gb-page-footer .container .menu:after {
   clear: both;
 }
-.gb-page-footer .container a {
-  color: inherit;
-  text-transform: uppercase;
+.gb-page-footer .container .menu > li {
+  float: left;
 }
-.gb-page-footer .container a:hover {
+.gb-page-footer .container .menu > li > a,
+.gb-page-footer .container .menu > li > span {
+  padding: 21px 10px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: .2px;
+  line-height: 19px;
+  font-weight: 200;
+  height: 59px;
+}
+.gb-page-footer .container .menu > li > a {
   text-decoration: none;
 }
-.gb-page-footer .container p {
-  padding-top: 15px;
-  margin: 0px;
-}
-.gb-page-footer .container .footer-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.gb-page-footer .container .footer-menu li {
-  padding: 0px;
-  margin: 0px;
+.gb-page-footer .container .menu > li > a:hover,
+.gb-page-footer .container .menu > li > a:focus {
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.08);
 }
 * {
   -webkit-box-sizing: border-box;
