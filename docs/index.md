@@ -7,6 +7,7 @@ title: GitBook HTML/CSS Styleguide
 {% include guidelines.md %}
 {% include layout.md %}
 {% include grid.md %}
+{% include utilities.md %}
 {% include colors.md %}
 {% include icons.md %}
 {% include buttons.md %}
