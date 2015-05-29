@@ -3,7 +3,7 @@
 {% example html %}
 <div class="panel panel-default">
     <div class="panel-heading">
-        <b>Title</b>
+        <h3 class="panel-title">Title</h3>
     </div>
     <div class="panel-body">
         Body of the panel
@@ -19,7 +19,7 @@ Panels can also include a `.list-group`.
 {% example html %}
 <div class="panel panel-default">
     <div class="panel-heading">
-        <b>Title</b>
+        <h3 class="panel-title">Title</h3>
     </div>
     <div class="list-group">
         <a href="#" class="list-group-item">Item 1</a>
@@ -34,7 +34,7 @@ And have different styles:
 {% example html %}
 <div class="panel panel-danger">
     <div class="panel-heading">
-        <b>Title</b>
+        <h3 class="panel-title">Title</h3>
     </div>
     <div class="panel-body">
         Body of the panel
@@ -42,7 +42,7 @@ And have different styles:
 </div>
 <div class="panel panel-warning">
     <div class="panel-heading">
-        <b>Title</b>
+        <h3 class="panel-title">Title</h3>
     </div>
     <div class="panel-body">
         Body of the panel
@@ -50,7 +50,7 @@ And have different styles:
 </div>
 <div class="panel panel-success">
     <div class="panel-heading">
-        <b>Title</b>
+        <h3 class="panel-title">Title</h3>
     </div>
     <div class="panel-body">
         Body of the panel
@@ -58,7 +58,7 @@ And have different styles:
 </div>
 <div class="panel panel-info">
     <div class="panel-heading">
-        <b>Title</b>
+        <h3 class="panel-title">Title</h3>
     </div>
     <div class="panel-body">
         Body of the panel
