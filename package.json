@@ -1,6 +1,6 @@
 {
     "name": "gitbook-styleguide",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Styleguide for GitBook websites",
     "dependencies": {
         "octicons": "2.2.0",
