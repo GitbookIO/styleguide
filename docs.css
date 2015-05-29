@@ -1709,6 +1709,11 @@ small,
 .text-nowrap {
   white-space: nowrap;
 }
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .text-lowercase {
   text-transform: lowercase;
 }
@@ -4287,7 +4292,7 @@ select.form-control:focus {
   display: block;
 }
 .pagination {
-  margin: 0 15px;
+  margin: 0;
   zoom: 1;
 }
 .pagination:before,
@@ -4302,7 +4307,7 @@ select.form-control:focus {
 .pagination .pagination-pages {
   display: inline-block;
   padding-left: 0;
-  margin: 20px 0;
+  margin: 15px 0;
   border-radius: 2px;
 }
 .pagination .pagination-nav li,
