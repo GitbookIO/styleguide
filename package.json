@@ -4,7 +4,7 @@
     "description": "Styleguide for GitBook websites",
     "dependencies": {
         "octicons": "2.2.0",
-        "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#1.0.0"
+        "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#2.0.0"
     },
     "devDependencies": {
         "gulp": "^3.8.11",
