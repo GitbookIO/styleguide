@@ -4,7 +4,7 @@
     "description": "Styleguide for GitBook websites (less, branding, logos)",
     "dependencies": {
         "octicons": "2.2.0",
-        "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#2.0.0"
+        "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#2.0.1"
     },
     "devDependencies": {
         "gulp": "^3.8.11",
@@ -17,6 +17,6 @@
         "gulp-gh-pages": "0.5.1"
     },
     "scripts": {
-        "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && cp -R ./node_modules/gitbook-logos/output ./assets/images/logo"
+        "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && rm -rf ./assets/images/logo && cp -R ./node_modules/gitbook-logos/output ./assets/images/logo"
     }
 }
