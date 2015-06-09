@@ -2720,6 +2720,7 @@ table th[class*="col-"] {
 .dropdown,
 .btn-group.dropdown {
   position: relative;
+  text-align: left;
 }
 .dropdown > .dropdown-menu,
 .btn-group.dropdown > .dropdown-menu {
@@ -3761,6 +3762,46 @@ table th[class*="col-"] {
 .modal.modal-lg {
   width: 800px;
   margin: 30px auto;
+}
+.modal.modal-fullscreen {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  -ms-justify-content: space-around;
+  justify-content: space-around;
+  margin: 0px;
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.modal.modal-fullscreen .modal-heading {
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+}
+.modal.modal-fullscreen .modal-body {
+  position: relative;
+  -webkit-flex-grow: 1000000;
+  -moz-flex-grow: 1000000;
+  -ms-flex-grow: 1000000;
+  flex-grow: 1000000;
+}
+.modal.modal-fullscreen .modal-footer {
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
 }
 @-webkit-keyframes rotate {
   from {
