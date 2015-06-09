@@ -53,4 +53,30 @@
     &.modal-lg {
         .modalSize(@gb-modal-size-large);
     }
+
+    &.modal-fullscreen {
+        .flex-display();
+        .flex-direction(column);
+        .justify-content(space-around);
+
+        margin: 0px;
+        position: absolute;
+        top: 30px;
+        bottom: 30px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+
+        .modal-heading {
+            .flex-grow(1);
+        }
+
+        .modal-body {
+            position: relative;
+            .flex-grow(1000000);
+        }
+
+        .modal-footer {
+            .flex-grow(1);
+        }
+    }
 }
