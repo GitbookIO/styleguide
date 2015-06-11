@@ -1,7 +1,9 @@
 {
     "name": "gitbook-styleguide",
-    "version": "1.0.6",
+    "version": "1.0.7",
+    "author": "GitBook <contact@gitbook.com>",
     "description": "Styleguide for GitBook websites (less, branding, logos)",
+    "bugs": "https://github.com/GitbookIO/styleguide/issues",
     "dependencies": {
         "octicons": "2.2.0",
         "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#2.0.1"
@@ -18,5 +20,9 @@
     },
     "scripts": {
         "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && rm -rf ./assets/images/logo && cp -R ./node_modules/gitbook-logos/output ./assets/images/logo"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GitbookIO/styleguide.git"
     }
 }
