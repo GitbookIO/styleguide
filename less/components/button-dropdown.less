@@ -150,6 +150,21 @@
             }
         }
     }
+
+    // Button is on the right, diretcion is to the left
+    &.pull-right, &.dropdown-w {
+        > .dropdown-menu {
+            left: auto;
+            right: 0px;
+
+            li {
+                >.dropdown-menu {
+                    left: auto;
+                    right: 100%;
+                }
+            }
+        }
+    }
 }
 
 .dropdown-menu, .dropdown .dropdown-menu {
