@@ -214,17 +214,32 @@
             cursor: pointer;
             text-shadow: none;
 
+            // Help text
+            .help-label {
+                font-size: @gb-font-size-small;
+                color: @gb-palette-gray-darker;
+                margin-left: 10px;
+            }
+
             &:hover {
                 text-decoration: none;
                 text-shadow: none;
                 background: @gb-dropdown-background-hover;
                 color: @gb-dropdown-color-hover;
+
+                .help-label {
+                    color: inherit;
+                }
             }
         }
 
         &.active > a {
             background: @gb-dropdown-background-active;
             color: @gb-dropdown-color-active;
+
+            .help-label {
+                color: inherit;
+            }
         }
 
 

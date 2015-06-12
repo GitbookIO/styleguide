@@ -38,7 +38,7 @@ Dropdown menu can be added to `.btn-group`.
 <div class="btn-group pull-right dropdown">
     <button class="btn btn-default" type="button">Right</button>
     <ul class="dropdown-menu open">
-        <li><a href="#">This is a long entry</a></li>
+        <li><a href="#">This is a long entry <span class="help-label">Help Text</span></a></li>
     </ul>
 </div>
 {% endexample %}
