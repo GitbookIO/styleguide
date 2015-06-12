@@ -36,6 +36,7 @@ gulp.task('docs-clean', function(cb) {
 
 gulp.task('docs-server', function() {
     connect.server({
+        port: 8888,
         root: destDocs
     });
 });
