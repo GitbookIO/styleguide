@@ -84,9 +84,25 @@
 
         .dropdown-menu {
             display: block;
-            position: static;
+            position: absolute;
             top: 0px;
-            right: 0px;
+            left: 0px;
+        }
+
+        // to the left
+        &.contextmenu-w {
+            .dropdown-menu {
+                left: auto;
+                right: 0px;
+            }
+        }
+
+        // to the top
+        &.contextmenu-n {
+            .dropdown-menu {
+                top: auto;
+                bottom: 0px;
+            }
         }
     }
 
