@@ -11,7 +11,7 @@ var ghPages = require('gulp-gh-pages');
 var srcDocs = path.join(__dirname, 'docs');
 var destDocs = path.join(srcDocs, '_site')
 
-gulp.task('jekyll', function (cb) {
+gulp.task('docs-jekyll', function (cb) {
     exec('jekyll build', {
         cwd: srcDocs
     }, function(err) {
@@ -21,26 +21,26 @@ gulp.task('jekyll', function (cb) {
     });
 });
 
-gulp.task('styles', function() {
+gulp.task('docs-styles', function() {
     return gulp.src('./docs/less/main.less')
     .pipe(less())
     .pipe(rename('docs.css'))
     .pipe(gulp.dest(destDocs));
 });
 
-gulp.task('clean', function(cb) {
+gulp.task('docs-clean', function(cb) {
     del([
         path.join(destDocs, '**')
     ], cb);
 });
 
-gulp.task('connect', function() {
+gulp.task('docs-server', function() {
     connect.server({
         root: destDocs
     });
 });
 
-gulp.task('assets', function() {
+gulp.task('docs-assets', function() {
     return gulp.src([
             'assets/**/*.*'
         ], {
@@ -50,30 +50,30 @@ gulp.task('assets', function() {
 });
 
 
-gulp.task('build', function(cb) {
-    runSequence('jekyll', 'styles', 'assets', cb);
+gulp.task('docs-build', function(cb) {
+    runSequence('docs-jekyll', 'docs-styles', 'docs-assets', cb);
 });
 
-gulp.task('deploy', ['build'], function() {
+gulp.task('deploy', ['docs-build'], function() {
     return gulp.src('./docs/_site/**/*')
     .pipe(ghPages());
 });
 
-gulp.task('default', function(cb) {
+gulp.task('docs-test', function(cb) {
     gulp.watch([
         'less/**/*.less',
         'docs/less/**/*.less'
-    ], ['styles']);
+    ], ['docs-styles']);
     var watcher = gulp.watch([
         'docs/*.md',
         'docs/_layouts/*.html',
         'docs/_includes/*.html',
         'docs/_includes/*.md'
-    ], ['build']);
+    ], ['docs-build']);
 
     watcher.on('change', function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 
-    runSequence('build', 'connect', cb);
+    runSequence('docs-build', 'docs-server', cb);
 });
