@@ -12,12 +12,6 @@ $ npm i
 $ gulp
 ```
 
-To deploy the documentation to GitHub Pages:
-
-```
-$ gulp deploy
-```
-
 Release a new version using:
 
 ```

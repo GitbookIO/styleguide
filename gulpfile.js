@@ -26,7 +26,6 @@ gulp.task('docs-jekyll', function (cb) {
     exec('jekyll build', {
         cwd: srcDocs
     }, function(err) {
-        console.log(err, arguments);
         if (err) return cb(err);
         cb();
     });
@@ -71,9 +70,29 @@ gulp.task('docs-build', function(cb) {
 });
 
 // Deploy the documentation
-gulp.task('deploy', ['docs-build'], function() {
+gulp.task('docs-deploy', ['docs-build'], function() {
     return gulp.src('./docs/_site/**/*')
     .pipe(ghPages());
+});
+
+// Test the documentation in a webserver
+gulp.task('docs-test', function(cb) {
+    gulp.watch([
+        'less/**/*.less',
+        'docs/less/**/*.less'
+    ], ['docs-styles']);
+    var watcher = gulp.watch([
+        'docs/*.md',
+        'docs/_layouts/*.html',
+        'docs/_includes/*.html',
+        'docs/_includes/*.md'
+    ], ['docs-build']);
+
+    watcher.on('change', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+
+    runSequence('docs-build', 'docs-server', cb);
 });
 
 // Clean release folder
@@ -117,29 +136,19 @@ gulp.task('release-packagejson', function(cb) {
     fs.writeFile(path.resolve(releaseOutput, 'package.json'), JSON.stringify(_pkg, null, 4), cb);
 });
 
-// Release a new version
-gulp.task('release', function(cb) {
+// Build a release
+gulp.task('release-build', function(cb) {
     runSequence('release-folder', ['release-css', 'release-packagejson'], cb);
 });
 
-// Test the documentation in a webserver
-gulp.task('docs-test', function(cb) {
-    gulp.watch([
-        'less/**/*.less',
-        'docs/less/**/*.less'
-    ], ['docs-styles']);
-    var watcher = gulp.watch([
-        'docs/*.md',
-        'docs/_layouts/*.html',
-        'docs/_includes/*.html',
-        'docs/_includes/*.md'
-    ], ['docs-build']);
-
-    watcher.on('change', function(event) {
-        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+// Release a new version
+gulp.task('release', ['release-build', 'docs-deploy'], function(cb) {
+    exec('npm publish', {
+        cwd: releaseOutput
+    }, function(err) {
+        if (err) return cb(err);
+        cb();
     });
-
-    runSequence('docs-build', 'docs-server', cb);
 });
 
 gulp.task('default', ['docs-test']);
