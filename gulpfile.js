@@ -1,3 +1,5 @@
+var _ = require('lodash');
+var fs = require('fs');
 var path = require('path');
 var gulp = require('gulp');
 var del = require('del');
@@ -9,6 +11,8 @@ var merge = require('merge-stream');
 var minifyCSS = require('gulp-minify-css');
 var exec = require('child_process').exec;
 var ghPages = require('gulp-gh-pages');
+
+var pkg = require('./package.json');
 
 var srcDocs = path.join(__dirname, 'docs');
 var destDocs = path.join(srcDocs, '_site');
@@ -95,14 +99,25 @@ gulp.task('release-folder', ['release-clean'], function() {
         '**/*.*',
         '!docs/**/*',
         '!node_modules/**/*',
-        '!gulpfile.js'
+        '!gulpfile.js',
+        '!package.json'
     ])
     .pipe(gulp.dest(releaseOutput));
 });
 
+// Write release-ready package.json
+gulp.task('release-packagejson', function(cb) {
+    var _pkg = _.omit(pkg,
+        'devDependencies',
+        'scripts'
+    );
+
+    fs.writeFile(path.resolve(releaseOutput, 'package.json'), JSON.stringify(_pkg, null, 4), cb);
+});
+
 // Release a new version
 gulp.task('release', function(cb) {
-    runSequence('release-folder', 'release-css', cb);
+    runSequence('release-folder', ['release-css', 'release-packagejson'], cb);
 });
 
 // Test the documentation in a webserver
