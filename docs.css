@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'octicons';
-  src: url('/static/fonts/octicons/octicons.eot?#iefix&v=bed1e400746387e7e6c82072efdfad6d6d906eb5') format('embedded-opentype'), url('/static/fonts/octicons/octicons.woff?v=bed1e400746387e7e6c82072efdfad6d6d906eb5') format('woff'), url('/static/fonts/octicons/octicons.ttf?v=bed1e400746387e7e6c82072efdfad6d6d906eb5') format('truetype'), url('/static/fonts/octicons/octicons.svg?v=bed1e400746387e7e6c82072efdfad6d6d906eb5#octicons') format('svg');
+  src: url('/assets/fonts/octicons/octicons.eot?#iefix&v=bed1e400746387e7e6c82072efdfad6d6d906eb5') format('embedded-opentype'), url('/assets/fonts/octicons/octicons.woff?v=bed1e400746387e7e6c82072efdfad6d6d906eb5') format('woff'), url('/assets/fonts/octicons/octicons.ttf?v=bed1e400746387e7e6c82072efdfad6d6d906eb5') format('truetype'), url('/assets/fonts/octicons/octicons.svg?v=bed1e400746387e7e6c82072efdfad6d6d906eb5#octicons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -767,25 +767,25 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 200;
-  src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url("/static/fonts/raleway/extralight.ttf") format('truetype');
+  src: url("/assets/fonts/raleway/extralight.ttf") format('truetype');
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
-  src: local('Raleway Light'), local('Raleway-Light'), url("/static/fonts/raleway/light.ttf") format('truetype');
+  src: url("/assets/fonts/raleway/light.ttf") format('truetype');
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
-  src: local('Raleway'), url("/static/fonts/raleway/normal.ttf") format('truetype');
+  src: url("/assets/fonts/raleway/normal.ttf") format('truetype');
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
-  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url("/static/fonts/raleway/semibold.ttf") format('truetype');
+  src: url("/assets/fonts/raleway/semibold.ttf") format('truetype');
 }
 body .octicon {
   font-size: inherit;
@@ -2796,9 +2796,19 @@ table th[class*="col-"] {
 .dropdown.contextmenu .dropdown-menu,
 .btn-group.dropdown.contextmenu .dropdown-menu {
   display: block;
-  position: static;
+  position: absolute;
   top: 0px;
+  left: 0px;
+}
+.dropdown.contextmenu.contextmenu-w .dropdown-menu,
+.btn-group.dropdown.contextmenu.contextmenu-w .dropdown-menu {
+  left: auto;
   right: 0px;
+}
+.dropdown.contextmenu.contextmenu-n .dropdown-menu,
+.btn-group.dropdown.contextmenu.contextmenu-n .dropdown-menu {
+  top: auto;
+  bottom: 0px;
 }
 .dropdown.dropup > .dropdown-menu,
 .btn-group.dropdown.dropup > .dropdown-menu {
@@ -2844,6 +2854,20 @@ table th[class*="col-"] {
   border-width: 10px;
   margin-right: -10px;
 }
+.dropdown.pull-right > .dropdown-menu,
+.btn-group.dropdown.pull-right > .dropdown-menu,
+.dropdown.dropdown-w > .dropdown-menu,
+.btn-group.dropdown.dropdown-w > .dropdown-menu {
+  left: auto;
+  right: 0px;
+}
+.dropdown.pull-right > .dropdown-menu li > .dropdown-menu,
+.btn-group.dropdown.pull-right > .dropdown-menu li > .dropdown-menu,
+.dropdown.dropdown-w > .dropdown-menu li > .dropdown-menu,
+.btn-group.dropdown.dropdown-w > .dropdown-menu li > .dropdown-menu {
+  left: auto;
+  right: 100%;
+}
 .dropdown-menu,
 .dropdown .dropdown-menu {
   display: none;
@@ -2869,26 +2893,26 @@ table th[class*="col-"] {
 .dropdown .dropdown-menu.inner {
   display: block;
 }
-.dropdown-menu li,
-.dropdown .dropdown-menu li {
+.dropdown-menu > li,
+.dropdown .dropdown-menu > li {
   margin: 0px;
   padding: 0px;
   position: relative;
 }
-.dropdown-menu li.divider,
-.dropdown .dropdown-menu li.divider {
+.dropdown-menu > li.divider,
+.dropdown .dropdown-menu > li.divider {
   height: 1px;
   margin: 5px 1px;
   background-color: #e5e5e5;
 }
-.dropdown-menu li.dropdown-header,
-.dropdown .dropdown-menu li.dropdown-header {
+.dropdown-menu > li.dropdown-header,
+.dropdown .dropdown-menu > li.dropdown-header {
   padding: 4px 10px;
   font-size: 12px;
   color: #999;
 }
-.dropdown-menu li a,
-.dropdown .dropdown-menu li a {
+.dropdown-menu > li > a,
+.dropdown .dropdown-menu > li > a {
   padding: 4px 10px;
   cursor: default;
   color: inherit;
@@ -2900,20 +2924,34 @@ table th[class*="col-"] {
   cursor: pointer;
   text-shadow: none;
 }
-.dropdown-menu li a:hover,
-.dropdown .dropdown-menu li a:hover {
+.dropdown-menu > li > a .help-label,
+.dropdown .dropdown-menu > li > a .help-label {
+  font-size: 12px;
+  color: #b3b3b1;
+  margin-left: 10px;
+}
+.dropdown-menu > li > a:hover,
+.dropdown .dropdown-menu > li > a:hover {
   text-decoration: none;
   text-shadow: none;
   background: #428bca;
   color: #ffffff;
 }
-.dropdown-menu li.active > a,
-.dropdown .dropdown-menu li.active > a {
+.dropdown-menu > li > a:hover .help-label,
+.dropdown .dropdown-menu > li > a:hover .help-label {
+  color: inherit;
+}
+.dropdown-menu > li.active > a,
+.dropdown .dropdown-menu > li.active > a {
   background: #428bca;
   color: #ffffff;
 }
-.dropdown-menu li > .dropdown-menu,
-.dropdown .dropdown-menu li > .dropdown-menu {
+.dropdown-menu > li.active > a .help-label,
+.dropdown .dropdown-menu > li.active > a .help-label {
+  color: inherit;
+}
+.dropdown-menu > li > .dropdown-menu,
+.dropdown .dropdown-menu > li > .dropdown-menu {
   position: absolute;
   right: auto;
   left: 100%;
@@ -2921,8 +2959,8 @@ table th[class*="col-"] {
   top: 0px;
   margin-top: -1px;
 }
-.dropdown-menu li:hover > .dropdown-menu,
-.dropdown .dropdown-menu li:hover > .dropdown-menu {
+.dropdown-menu > li:hover > .dropdown-menu,
+.dropdown .dropdown-menu > li:hover > .dropdown-menu {
   display: block;
 }
 .input-group {
@@ -3782,7 +3820,10 @@ table th[class*="col-"] {
   top: 30px;
   bottom: 30px;
   margin-left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
 }
 .modal.modal-fullscreen .modal-heading {
   -webkit-flex-grow: 1;
