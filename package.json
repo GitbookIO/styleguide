@@ -1,6 +1,6 @@
 {
     "name": "gitbook-styleguide",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "author": "GitBook <contact@gitbook.com>",
     "homepage": "http://styleguide.gitbook.com/",
     "description": "Styleguide for GitBook websites (CSS, Less, Logos)",
