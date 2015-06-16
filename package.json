@@ -2,6 +2,7 @@
     "name": "gitbook-styleguide",
     "version": "1.0.7",
     "author": "GitBook <contact@gitbook.com>",
+    "homepage": "http://styleguide.gitbook.com/",
     "description": "Styleguide for GitBook websites (CSS, Less, Logos)",
     "bugs": "https://github.com/GitbookIO/styleguide/issues",
     "devDependencies": {

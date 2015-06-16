@@ -18,3 +18,15 @@ To deploy the documentation to GitHub Pages:
 $ gulp deploy
 ```
 
+Release a new version using:
+
+```
+# Bump version in package.json
+$ git add package.json
+$ git commit -m "Bump version to X.Y.Z"
+$ git tag X.Y.Z
+$ git push --tags
+
+# Publish on NPM, and publish documentation
+$ gulp release
+```
