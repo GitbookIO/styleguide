@@ -78,3 +78,5 @@ gulp.task('docs-test', function(cb) {
 
     runSequence('docs-build', 'docs-server', cb);
 });
+
+gulp.task('default', ['docs-test']);
