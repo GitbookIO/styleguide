@@ -61,7 +61,7 @@ gulp.task('docs-assets', function() {
     ], {
         base: 'assets'
     })
-    .pipe(gulp.dest(path.join(destDocs, 'static')));
+    .pipe(gulp.dest(path.join(destDocs, 'assets')));
 });
 
 // Build all the documentation
