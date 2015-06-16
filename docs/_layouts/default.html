@@ -4,9 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="author" content="GitBook">
+        <meta name="description" content="{{ site.data.package.description }}">
+        <meta name="author" content="{{ site.data.package.author }}">
 
         <title>{{ page.title }}</title>
 
@@ -48,6 +47,9 @@
                     <ul class="menu">
                         <li>
                             <span>Copyright GitBook {{ site.time | date: '%Y' }}</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/GitbookIO/styleguide/blob/master/CHANGES.md">Version {{ site.data.package.version }}</a>
                         </li>
                     </ul>
                 </div>

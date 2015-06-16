@@ -21,6 +21,8 @@ var cssRelease = path.join(releaseOutput, 'css');
 
 // Build the doc website
 gulp.task('docs-jekyll', function (cb) {
+    fs.writeFileSync(path.join(srcDocs, '_data/package.json'), JSON.stringify(pkg));
+
     exec('jekyll build', {
         cwd: srcDocs
     }, function(err) {
