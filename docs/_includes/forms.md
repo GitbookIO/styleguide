@@ -87,4 +87,15 @@ Extend form controls by adding text or buttons before, after, or on both sides o
         <span class="input-group-addon">.00</span>
     </div>
 </div>
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon">
+            <input type="checkbox"> I confirm, I want to delete
+        </span>
+        <input type="text" class="form-control" placeholder="Please type in the username.">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Delete</button>
+        </span>
+    </div>
+</div>
 {% endexample %}
