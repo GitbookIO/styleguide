@@ -1005,6 +1005,8 @@ th {
 .container [class*='col-'] {
   float: left;
   width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 @media (min-width: 510px) {
   .container {
