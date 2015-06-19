@@ -1002,6 +1002,9 @@ th {
   padding-right: 15px;
   box-sizing: border-box;
 }
+.container.container-fluid {
+  padding: 0px;
+}
 .container [class*='col-'] {
   float: left;
   width: 100%;
@@ -3826,6 +3829,7 @@ table th[class*="col-"] {
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .modal.modal-fullscreen .modal-heading {
   -webkit-flex-grow: 1;
