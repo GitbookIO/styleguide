@@ -136,12 +136,21 @@
     -moz-transition:    @transition;
     -ms-transition:     @transition;
     -o-transition:      @transition;
+    transition:         @transition;
 }
 .transform(@string){
     -webkit-transform: @string;
     -moz-transform:      @string;
     -ms-transform:       @string;
     -o-transform:        @string;
+    transform:           @string;
+}
+.filter(@string){
+    -webkit-filter: @string;
+    -moz-filter:      @string;
+    -ms-filter:       @string;
+    -o-filter:        @string;
+    filter:           @string;
 }
 .scale (@factor) {
     -webkit-transform: scale(@factor);
