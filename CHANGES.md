@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.2.0
+
+- Add LESS mixin `.filter(@string)`
+- Add `containter-fluid`, for container with no padding
+
 ## 1.1.2
 
 - Fix default padding on columns
