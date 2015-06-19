@@ -130,7 +130,8 @@ gulp.task('release-folder', ['release-clean'], function() {
 gulp.task('release-packagejson', function(cb) {
     var _pkg = _.omit(pkg,
         'devDependencies',
-        'scripts'
+        'scripts',
+        'private'
     );
 
     fs.writeFile(path.resolve(releaseOutput, 'package.json'), JSON.stringify(_pkg, null, 4), cb);
