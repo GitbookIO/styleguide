@@ -1,11 +1,12 @@
 .blankslate {
     width: 100%;
     max-width: 400px;
-    margin: 80px auto;
+    margin: @gb-blankslate-vertical-padding auto;
     text-align: center;
+    padding: 20px;
 
     @media (max-height: 800px) {
-        margin: 60px auto;
+        margin: (@gb-blankslate-vertical-padding / 2) auto;
     }
 
 
@@ -24,5 +25,18 @@
     p {
         color: @gb-palette-gray-darker;
         margin: 10px 0px;
+    }
+
+    &.with-background {
+        background-color: @gb-blankslate-background;
+        border: 1px solid @gb-blankslate-border;
+        .border-radius(@gb-border-radius-base);
+        .box-shadow(~"inset 0 0 10px rgba(0,0,0,0.05)");
+    }
+
+    &.full-width {
+        max-width: 100%;
+        margin: 0px;
+        padding: @gb-blankslate-vertical-padding 10px;
     }
 }

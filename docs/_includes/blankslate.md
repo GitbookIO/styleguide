@@ -13,3 +13,25 @@ Wrap some content in the outer `.blankslate` wrapper to give it the blankslate a
     <p>Use it to provide information when no dynamic content exists.</p>
 </div>
 {% endexample %}
+
+### With some background
+
+{% example html %}
+<div class="blankslate with-background">
+    <div class="icon"><i class="octicon octicon-book"></i></div>
+    <h3>This is a blank slate</h3>
+    <p>Use it to provide information when no dynamic content exists.</p>
+</div>
+{% endexample %}
+
+### Full width
+
+Container will occupy the entire available width.
+
+{% example html %}
+<div class="blankslate with-background full-width">
+    <div class="icon"><i class="octicon octicon-book"></i></div>
+    <h3>This is a blank slate</h3>
+    <p>Use it to provide information when no dynamic content exists.</p>
+</div>
+{% endexample %}
