@@ -2,7 +2,7 @@
 
 This repository contains all stylesheets and brandings for GitBook websites. Documentation is available at [styleguide.gitbook.com](http://styleguide.gitbook.com).
 
-How to test it and build the documentation:
+How to test and build the documentation (Jekyll needs to be install on the machine):
 
 ```
 # Install node dependencies
