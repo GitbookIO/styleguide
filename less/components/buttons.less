@@ -33,6 +33,9 @@
 
     // Disabled state
     &:disabled, &.disabled {
+        background: linear-gradient(@gb-button-background, darken(@gb-button-background, 6%));
+        border-color: @gb-button-border;
+        .box-shadow(none);
         opacity: 0.6;
         cursor: default;
 
@@ -131,6 +134,10 @@
         &:hover, &:focus {
             background: #fff;
             color: @gb-link-color;
+        }
+        &.disabled, &:disabled {
+            background: #fff;
+            color: @gb-body-color;
         }
 
         .caret {
