@@ -25,11 +25,11 @@
         border-radius: 0;
     }
 
-    > .btn:first-child {
+    > .btn:not(:last-child):first-child {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
     }
-    > .btn:last-child {
+    > .btn:not(:first-child):last-child {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
     }
