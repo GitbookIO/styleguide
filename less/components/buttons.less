@@ -123,6 +123,21 @@
         }
     }
 
+    &.btn-outline {
+        .button(#fff);
+        color: @gb-body-color;
+        background: #fff;
+
+        &:hover, &:focus {
+            background: #fff;
+            color: @gb-link-color;
+        }
+
+        .caret {
+            border-top-color: @gb-body-color;
+        }
+    }
+
     &.btn-success {
         .button(@gb-brand-success);
     }

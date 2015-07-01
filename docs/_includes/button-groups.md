@@ -21,5 +21,9 @@ Toolbars can contain multiple group of buttons:
         <button class="btn btn-danger" type="button">Danger button</button>
         <a class="btn btn-success" href="#" role="button">Success button</a>
     </div>
+    <div class="btn-group">
+        <button class="btn btn-default" type="button">Star</button>
+        <a class="btn btn-outline" href="#" role="button">0</a>
+    </div>
 </div>
 {% endexample %}
