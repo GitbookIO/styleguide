@@ -1,6 +1,6 @@
 # Modals
 
-Modal (`.modal`) can be used in 3 sizes: medium (default), small (`.modal-sm`) and large (`.modal-lg`).
+Modal (`.modal`) can be used in 3 sizes: medium (default), small (`.modal-sm`) and large (`.modal-lg`). `.modal-backdrop` can be use to set a fixed backdrop for modals.
 
 {% example html %}
 <div class="modal">
