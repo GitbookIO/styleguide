@@ -40,14 +40,15 @@
 
         .modal-close {
             position: absolute;
-            top: 6px;
+            line-height: 30px;
+            top: 50%;
+            margin-top: -15px;
             right: @gb-modal-padding;
-            opacity: 0.1;
+            color: @gb-palette-gray-outline;
             font-size: 30px;
-            color: inherit;
 
             &:hover {
-                opacity: 0.25;
+                color: darken(@gb-palette-gray-outline, 10%);
                 text-decoration: none;
             }
         }
