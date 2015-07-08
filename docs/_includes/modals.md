@@ -6,6 +6,7 @@ Modal (`.modal`) can be used in 3 sizes: medium (default), small (`.modal-sm`) a
 <div class="modal">
     <div class="modal-heading">
         <h4>Title</h4>
+        <a href="#" class="modal-close">&times;</a>
     </div>
     <div class="modal-body">
         Body of the modal

@@ -30,11 +30,26 @@
     }
 
     .modal-heading {
+        position: relative;
         padding: @gb-modal-padding;
         border-bottom: 1px solid @gb-modal-innerborder;
 
         h4 {
             margin: 0px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 6px;
+            right: @gb-modal-padding;
+            opacity: 0.1;
+            font-size: 30px;
+            color: inherit;
+
+            &:hover {
+                opacity: 0.25;
+                text-decoration: none;
+            }
         }
     }
 
