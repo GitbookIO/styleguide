@@ -25,13 +25,18 @@
         border-radius: 0;
     }
 
-    > .btn:not(:last-child):first-child {
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
+    // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+    > .btn:first-child {
+        margin-left: 0;
+        &:not(:last-child):not(.dropdown-toggle) {
+            .border-right-radius(0);
+        }
     }
-    > .btn:not(:first-child):last-child {
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 0px;
+
+    // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+    > .btn:last-child:not(:first-child),
+    > .dropdown-toggle:not(:first-child) {
+      .border-left-radius(0);
     }
 }
 
