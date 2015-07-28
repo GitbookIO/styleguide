@@ -2820,13 +2820,17 @@ table th[class*="col-"] {
 .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0;
 }
-.btn-group > .btn:not(:last-child):first-child {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+.btn-group > .btn:first-child {
+  margin-left: 0;
 }
-.btn-group > .btn:not(:first-child):last-child {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 .btn-toolbar {
   margin-left: -5px;
@@ -3826,7 +3830,7 @@ table th[class*="col-"] {
 .list-group .list-group-item:focus,
 .list-group .list-group-item:hover {
   text-decoration: none;
-  background: #f5f5f5;
+  background: #f8f8f8;
 }
 .list-group .list-group-item.active {
   color: #dd4b39;
@@ -3915,13 +3919,29 @@ table th[class*="col-"] {
   border-right: 0px;
   margin: 0px;
   margin-top: -1px;
+  position: relative;
+  z-index: 1;
 }
 .modal .modal-heading {
+  position: relative;
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
 .modal .modal-heading h4 {
   margin: 0px;
+}
+.modal .modal-heading .modal-close {
+  position: absolute;
+  line-height: 30px;
+  top: 50%;
+  margin-top: -15px;
+  right: 15px;
+  color: #d4d4d4;
+  font-size: 30px;
+}
+.modal .modal-heading .modal-close:hover {
+  color: #bbbbbb;
+  text-decoration: none;
 }
 .modal .modal-body {
   padding: 15px;
