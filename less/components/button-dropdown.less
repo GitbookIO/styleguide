@@ -233,6 +233,34 @@
             }
         }
 
+        // Indicator for sub-menu
+        > a:not(:last-child) {
+            position: relative;
+
+            &:after {
+                bottom: 9px;
+                right: 6px;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: transparent;
+                border-left-color: @gb-palette-gray-darker;
+                border-width: 5px;
+                margin-right: -5px;
+            }
+
+            &:hover:after {
+                border-left-color: @gb-dropdown-color-hover;
+            }
+        }
+
+        // Active entries
+        &.active > a:not(:last-child):after {
+            border-left-color: @gb-dropdown-color-hover;
+        }
         &.active > a {
             background: @gb-dropdown-background-active;
             color: @gb-dropdown-color-active;
