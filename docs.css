@@ -3080,6 +3080,33 @@ table th[class*="col-"] {
 .dropdown .dropdown-menu > li > a:hover .help-label {
   color: inherit;
 }
+.dropdown-menu > li > a:not(:last-child),
+.dropdown .dropdown-menu > li > a:not(:last-child) {
+  position: relative;
+}
+.dropdown-menu > li > a:not(:last-child):after,
+.dropdown .dropdown-menu > li > a:not(:last-child):after {
+  bottom: 9px;
+  right: 6px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: transparent;
+  border-left-color: #b3b3b1;
+  border-width: 5px;
+  margin-right: -5px;
+}
+.dropdown-menu > li > a:not(:last-child):hover:after,
+.dropdown .dropdown-menu > li > a:not(:last-child):hover:after {
+  border-left-color: #ffffff;
+}
+.dropdown-menu > li.active > a:not(:last-child):after,
+.dropdown .dropdown-menu > li.active > a:not(:last-child):after {
+  border-left-color: #ffffff;
+}
 .dropdown-menu > li.active > a,
 .dropdown .dropdown-menu > li.active > a {
   background: #428bca;
