@@ -18,14 +18,20 @@
                 float: left;
 
                 >a, >span {
-                    padding: 21px 10px;
+                    padding: ((@gb-footer-height - 1) - 20)/2 10px;
                     display: inline-block;
                     color: @gb-footer-color;
                     text-transform: uppercase;
                     letter-spacing: .2px;
-                    line-height: 19px;
+                    font-size: @gb-footer-fontsize;
+                    line-height: 20px;
                     font-weight: 200;
-                    height: 59px;
+                    height: (@gb-footer-height - 1);
+
+                    &.service-info {
+                        color: #818181;
+                        font-weight: 400;
+                    }
                 }
 
                 > a {
