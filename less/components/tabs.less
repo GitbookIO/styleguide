@@ -1,5 +1,5 @@
 .tabs {
-    .tabs-nav {
+    > .tabs-nav {
         margin: 0px;
         padding: 0px;
         list-style: none;
@@ -10,12 +10,12 @@
         .clearfix();
 
 
-        li {
+        > li {
             margin: 0px;
             float: left;
             margin-bottom: -1px;
 
-            a {
+            > a {
                 position: relative;
                 display: block;
                 padding: 10px 15px;
@@ -33,7 +33,7 @@
             }
 
             &.active {
-                a {
+                > a {
                     color: #555;
                     background-color: #fff;
                     border: 1px solid @gb-palette-gray-outline;
@@ -45,7 +45,7 @@
 
 
         &.justified {
-            li {
+            > li {
                 float: none;
                 display: table-cell;
                 width: 1%;
@@ -58,10 +58,10 @@
         }
     }
 
-    .tabs-content {
+    > .tabs-content {
         margin-top: @gb-margin-base;
 
-        .tab-pane {
+        > .tab-pane {
               display: none;
 
               &.active {
@@ -70,4 +70,9 @@
         }
     }
 
+    &.tabs-fluid {
+        > .tabs-content {
+            margin: 0px;
+        }
+    }
 }

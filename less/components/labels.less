@@ -3,7 +3,6 @@
     margin: 0px;
     padding: 4px 5px 3px;
     font-size: 11px;
-    font-weight: 300;
     line-height: 11px;
     text-transform: uppercase;
     vertical-align: middle;
@@ -24,5 +23,12 @@
     &.label-danger {
         background-color: @gb-state-danger-background;
         color: @gb-state-danger-color;
+    }
+}
+
+a.label {
+    &:hover {
+        color: @gb-link-color;
+        text-decoration: none;
     }
 }
