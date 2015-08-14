@@ -2723,6 +2723,17 @@ table th[class*="col-"] {
   background: linear-gradient(#44b6f1, #1094d8);
   border-color: #0e84c1;
 }
+.btn .btn-image {
+  width: 28px;
+  height: 28px;
+  float: left;
+  margin-right: 6px;
+  margin-left: -10px;
+  border: 1px solid #ccc;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  border-radius: 3px;
+}
 .tooltipped {
   display: inline;
   position: relative;
@@ -4477,21 +4488,6 @@ select.form-control:focus {
   height: 34px;
   padding-left: 30px;
   background: transparent;
-}
-@media (max-width: 800px) {
-  .pagehead h1 {
-    float: none;
-    text-align: center;
-  }
-  .pagehead .menu {
-    float: none;
-  }
-  .pagehead .menu li {
-    display: block;
-  }
-  .pagehead .menu li a {
-    display: block;
-  }
 }
 .blankslate {
   width: 100%;
