@@ -21,7 +21,7 @@
         "gulp-gh-pages": "0.5.1",
         "gulp-minify-css": "1.1.6",
         "merge-stream": "0.1.7",
-        "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#2.0.1"
+        "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#2.0.2"
     },
     "scripts": {
         "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && rm -rf ./assets/images/logo && cp -R ./node_modules/gitbook-logos/output ./assets/images/logo"
