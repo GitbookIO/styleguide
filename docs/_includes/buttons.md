@@ -72,3 +72,15 @@ Buttons can have different states:
     <button class="btn btn-primary btn-fill" disabled type="button">:disabled or .disabled</button>
 </div>
 {% endexample %}
+
+### Labels
+
+Buttons can contains a new-line label:
+
+{% example html %}
+<button class="btn btn-primary btn-fill btn-block" type="button">
+    Download for OS X
+    <span class="btn-label">OS X 10.9 or later</span>
+</button>
+{% endexample %}
+
