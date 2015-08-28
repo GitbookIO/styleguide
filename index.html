@@ -69,6 +69,7 @@
         <a href="#pagination" class="list-group-item">Pagination</a>
         <a href="#alerts" class="list-group-item">Alerts</a>
         <a href="#labels" class="list-group-item">Labels</a>
+        <a href="#badges" class="list-group-item">Badges</a>
         <a href="#markdown" class="list-group-item">Markdown</a>
     </div>
 </div>
@@ -83,9 +84,9 @@
 
 <h1 id="installation">Installation</h1>
 
-<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code>gitbook-styleguide</code>, current version is <strong>2.0.4</strong>.</p>
+<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code>gitbook-styleguide</code>, current version is <strong>2.1.0</strong>.</p>
 
-<pre><code>$ npm install gitbook-styleguide@2.0.4
+<pre><code>$ npm install gitbook-styleguide@2.1.0
 </code></pre>
 
 <p>Simply include <code>node_modules/gitbook-styleguide/less/main.less</code> in your less file.</p>
@@ -415,6 +416,19 @@
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill active"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:active or .active<span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill"</span> <span class="na">disabled</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:disabled or .disabled<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h3 id="buttons-labels">Buttons Labels</h3>
+
+<p>Buttons can contains a new-line label:</p>
+
+<div class="docs-example clearfix"><button class="btn btn-primary btn-fill btn-block" type="button">
+    Download for OS X
+    <span class="btn-label">OS X 10.9 or later</span>
+</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill btn-block"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Download for OS X
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"btn-label"</span><span class="nt">&gt;</span>OS X 10.9 or later<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
 <h1 id="button-groups">Button Groups</h1>
 
@@ -1222,6 +1236,39 @@
 <span class="nt">&lt;h1&gt;</span>Success Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-success"</span><span class="nt">&gt;</span>Success !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
 <span class="nt">&lt;h1&gt;</span>Info Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-info"</span><span class="nt">&gt;</span>Info !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span></code></pre></div>
 
+<h1 id="badges">Badges</h1>
+
+<div class="docs-example clearfix"><button class="btn btn-default" type="button">
+    Default <span class="badge">10</span>
+</button>
+<button class="btn btn-default" type="button">
+    Warning <span class="badge badge-warning">10</span>
+</button>
+<button class="btn btn-default" type="button">
+    Danger <span class="badge badge-danger">10</span>
+</button>
+<button class="btn btn-default" type="button">
+    Success <span class="badge badge-success">10</span>
+</button>
+<button class="btn btn-default" type="button">
+    Info <span class="badge badge-info">10</span>
+</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Default <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Warning <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-warning"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Danger <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-danger"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Success <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-success"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Info <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-info"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
 <h1 id="markdown">Markdown</h1>
 
 <p>HTML from Markdown following <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a> syntax can be styled easily using <code>.gb-markdown</code>.</p>
@@ -1257,7 +1304,7 @@
                             <a href="/">Return to the top</a>
                         </li>
                         <li>
-                            <a href="https://github.com/GitbookIO/styleguide/blob/master/CHANGES.md">Version 2.0.4</a>
+                            <a href="https://github.com/GitbookIO/styleguide/blob/master/CHANGES.md">Version 2.1.0</a>
                         </li>
                     </ul>
                 </div>
