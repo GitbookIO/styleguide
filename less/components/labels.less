@@ -1,28 +1,38 @@
+@label-lighten: 4%;
+
 .label {
     display: inline-block;
     margin: 0px;
-    padding: 4px 5px 3px;
+    padding: 3px 4px 2px;
     font-size: 11px;
+    font-weight: 700;
     line-height: 11px;
     text-transform: uppercase;
     vertical-align: middle;
     border-radius: 3px;
+    color: #666;
+    background-color: #eee;
+    border: 1px solid #ccc;
 
     &.label-warning {
-        color: #a1882b;
-        background-color: #ffefc6;
+        color: lighten(@gb-state-warning-color, @label-lighten);
+        background-color: lighten(@gb-state-warning-background, @label-lighten);
+        border-color: lighten(@gb-state-warning-border, @label-lighten);
     }
     &.label-info {
-        background-color: @gb-state-info-background;
-        color: @gb-state-info-color;
+        background-color: lighten(@gb-state-info-background, @label-lighten);
+        color: lighten(@gb-state-info-color, @label-lighten);
+        border-color: lighten(@gb-state-info-border, @label-lighten);
     }
     &.label-success {
-        background-color: @gb-state-success-background;
-        color: @gb-state-success-color;
+        background-color: lighten(@gb-state-success-background, @label-lighten);
+        color: lighten(@gb-state-success-color, @label-lighten);
+        border-color: lighten(@gb-state-success-border, @label-lighten);
     }
     &.label-danger {
-        background-color: @gb-state-danger-background;
-        color: @gb-state-danger-color;
+        background-color: lighten(@gb-state-danger-background, @label-lighten);
+        color: lighten(@gb-state-danger-color, @label-lighten);
+        border-color: lighten(@gb-state-danger-border, @label-lighten);
     }
 }
 

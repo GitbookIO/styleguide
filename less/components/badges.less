@@ -1,10 +1,32 @@
 .badge {
     display: inline-block;
-    padding: 2px 5px;
+    padding: 2px 4px;
     font-size: 11px;
     font-weight: bold;
     line-height: 1;
     color: #666;
     background-color: #eee;
     border-radius: 20px;
+    border: 1px solid #ccc;
+
+    &.badge-warning {
+        background-color: @gb-state-warning-background;
+        color: @gb-state-warning-color;
+        border-color: @gb-state-warning-border;
+    }
+    &.badge-info {
+        background-color: @gb-state-info-background;
+        color: @gb-state-info-color;
+        border-color: @gb-state-info-border;
+    }
+    &.badge-success {
+        background-color: @gb-state-success-background;
+        color: @gb-state-success-color;
+        border-color: @gb-state-success-border;
+    }
+    &.badge-danger {
+        background-color: @gb-state-danger-background;
+        color: @gb-state-danger-color;
+        border-color: @gb-state-danger-border;
+    }
 }

@@ -73,7 +73,7 @@ Buttons can have different states:
 </div>
 {% endexample %}
 
-### Labels
+### Buttons Labels
 
 Buttons can contains a new-line label:
 

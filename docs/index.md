@@ -26,4 +26,5 @@ title: GitBook HTML/CSS Styleguide
 {% include pagination.md %}
 {% include alerts.md %}
 {% include labels.md %}
+{% include badges.md %}
 {% include markdown.md %}
