@@ -3655,6 +3655,15 @@ table th[class*="col-"] {
   font-size: 22px;
   font-weight: 400;
 }
+.panel > .alert {
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin: 0px;
+  margin-top: -1px;
+  position: relative;
+  z-index: 1;
+}
 .panel > hr {
   margin: 0;
 }
@@ -3914,19 +3923,23 @@ table th[class*="col-"] {
   float: right;
   margin-top: 3px;
 }
-.panel > .list-group {
+.panel > .list-group,
+.modal > .list-group {
   margin: 0px;
 }
-.panel > .list-group .list-group-item {
+.panel > .list-group .list-group-item,
+.modal > .list-group .list-group-item {
   border-left: 0px;
   border-right: 0px;
 }
-.panel > .list-group .list-group-item:first-child {
+.panel > .list-group .list-group-item:first-child,
+.modal > .list-group .list-group-item:first-child {
   border-top-width: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
-.panel > .list-group .list-group-item:last-child {
+.panel > .list-group .list-group-item:last-child,
+.modal > .list-group .list-group-item:last-child {
   border-bottom: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
