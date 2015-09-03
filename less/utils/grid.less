@@ -24,8 +24,9 @@
         padding-right: (@gb-grid-gutter-width / 2);
     }
 
-    .col-@{grid-prefix}-offset-@{i} {
-        margin-left: percentage(@i / @number-cols);
+    @y: @i - 1;
+    .col-@{grid-prefix}-offset-@{y} {
+        margin-left: percentage(@y / @number-cols);
     }
 
     .generate-columns(@grid-prefix; @container-width; @number-cols; @i + 1);
