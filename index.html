@@ -84,9 +84,9 @@
 
 <h1 id="installation">Installation</h1>
 
-<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code>gitbook-styleguide</code>, current version is <strong>2.1.2</strong>.</p>
+<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code>gitbook-styleguide</code>, current version is <strong>3.0.0</strong>.</p>
 
-<pre><code>$ npm install gitbook-styleguide@2.1.2
+<pre><code>$ npm install gitbook-styleguide@3.0.0
 </code></pre>
 
 <p>Simply include <code>node_modules/gitbook-styleguide/less/main.less</code> in your less file.</p>
@@ -337,95 +337,125 @@
 
 <p>When using a <code>&lt;button&gt;</code> element, <strong>always specify a <code>type</code></strong>. When using a <code>&lt;a&gt;</code> element, <strong>always add <code>role="button"</code> for accessibility</strong>.</p>
 
-<div class="docs-example clearfix"><button class="btn btn-default" type="button">Button button</button>
-<a class="btn btn-default" href="#" role="button">Link button</a></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span></code></pre></div>
+<div class="docs-example clearfix"><button class="btn" type="button">Button button</button>
+<a class="btn" href="#" role="button">Link button</a></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span></code></pre></div>
 
 <h3 id="sizes">Sizes</h3>
 
 <p>Buttons are availables in multiples sizes: Large, Normal, Small and Extra-Small.</p>
 
-<div class="docs-example clearfix"><button class="btn btn-default btn-lg" type="button">Large Button</button>
-<button class="btn btn-default" type="button">Button</button>
-<button class="btn btn-default btn-sm" type="button">Small button</button>
-<button class="btn btn-default btn-xs" type="button">Extra Small button</button></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default btn-lg"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Large Button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default btn-sm"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Small button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default btn-xs"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Extra Small button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+<div class="docs-example clearfix"><button class="btn btn-lg" type="button">Large Button</button>
+<button class="btn" type="button">Button</button>
+<button class="btn btn-sm" type="button">Small button</button>
+<button class="btn btn-xs" type="button">Extra Small button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-lg"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Large Button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-sm"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Small button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-xs"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Extra Small button<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
 <h3 id="styles">Styles</h3>
 
-<p>Different styles of buttons are available to indicate different kind of actions.</p>
+<p>Buttons can be filled to indicate a more important action:</p>
 
 <div class="docs-example clearfix"><button class="btn btn-primary" type="button">Primary button</button>
 <button class="btn btn-success" type="button">Success button</button>
 <button class="btn btn-danger" type="button">Danger button</button>
-<button class="btn btn-warning" type="button">Warning button</button>
-<button class="btn btn-link" type="button">Link button</button></div>
+<button class="btn btn-warning" type="button">Warning button</button></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-success"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+<h3 id="colored-text">Colored Text</h3>
+
+<p>Different styles of buttons are available to indicate different kind of actions.</p>
+
+<div class="docs-example clearfix"><button class="btn btn-text-primary" type="button">Primary button</button>
+<button class="btn btn-text-success" type="button">Success button</button>
+<button class="btn btn-text-danger" type="button">Danger button</button>
+<button class="btn btn-text-warning" type="button">Warning button</button>
+<button class="btn btn-link" type="button">Link button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-primary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-success"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-danger"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-warning"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/button&gt;</span></code></pre></div>
-
-<h3 id="filled-buttons">Filled Buttons</h3>
-
-<p>Buttons can be filled to indicate a more important action, using <code>.btn-fill</code>.</p>
-
-<div class="docs-example clearfix"><button class="btn btn-primary btn-fill" type="button">Primary button</button>
-<button class="btn btn-success btn-fill" type="button">Success button</button>
-<button class="btn btn-danger btn-fill" type="button">Danger button</button>
-<button class="btn btn-warning btn-fill" type="button">Warning button</button></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-success btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
 <h3 id="block-buttons">Block Buttons</h3>
 
 <p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
 
-<div class="docs-example clearfix"><button type="button" class="btn btn-primary btn-fill btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-default btn-lg btn-block">Block level button</button></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill btn-lg btn-block"</span><span class="nt">&gt;</span>Block level button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default btn-lg btn-block"</span><span class="nt">&gt;</span>Block level button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+<div class="docs-example clearfix"><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+<button type="button" class="btn btn-lg btn-block">Block level button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span><span class="nt">&gt;</span>Block level button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-lg btn-block"</span><span class="nt">&gt;</span>Block level button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+<h3 id="outline">Outline</h3>
+
+<p>Outline buttons downplay an action as they appear like boxy links. Just add <code>.btn-outline</code> and go.</p>
+
+<div class="docs-example clearfix"><button class="btn btn-count" type="button">Default button</button>
+<button class="btn btn-primary btn-outline" type="button">Primary button</button>
+<button class="btn btn-success btn-outline" type="button">Success button</button>
+<button class="btn btn-danger btn-outline" type="button">Danger button</button>
+<button class="btn btn-warning btn-outline" type="button">Warning button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-count"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-success btn-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning btn-outline"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+<h3 id="plain">Plain</h3>
+
+<p>Plain buttons are flat and filled buttons.</p>
+
+<div class="docs-example clearfix"><button class="btn btn-plain" type="button">Default button</button>
+<button class="btn btn-primary btn-plain" type="button">Primary button</button>
+<button class="btn btn-success btn-plain" type="button">Success button</button>
+<button class="btn btn-danger btn-plain" type="button">Danger button</button>
+<button class="btn btn-warning btn-plain" type="button">Warning button</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-plain"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-plain"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-success btn-plain"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-plain"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-warning btn-plain"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
 <h3 id="states">States</h3>
 
 <p>Buttons can have different states:</p>
 
 <div class="docs-example clearfix"><div class="btn-toolbar">
-    <button class="btn btn-default" type="button">Default</button>
-    <button class="btn btn-default active" type="button">:active or .active</button>
-    <button class="btn btn-default" disabled="" type="button">:disabled or .disabled</button>
+    <button class="btn" type="button">Default</button>
+    <button class="btn active" type="button">:active or .active</button>
+    <button class="btn" disabled="" type="button">:disabled or .disabled</button>
 </div>
 <div class="btn-toolbar">
-    <button class="btn btn-primary btn-fill" type="button">Default</button>
-    <button class="btn btn-primary btn-fill active" type="button">:active or .active</button>
-    <button class="btn btn-primary btn-fill" disabled="" type="button">:disabled or .disabled</button>
+    <button class="btn btn-primary" type="button">Default</button>
+    <button class="btn btn-primary active" type="button">:active or .active</button>
+    <button class="btn btn-primary" disabled="" type="button">:disabled or .disabled</button>
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-toolbar"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default active"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:active or .active<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">disabled</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:disabled or .disabled<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn active"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:active or .active<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">disabled</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:disabled or .disabled<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-toolbar"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill active"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:active or .active<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill"</span> <span class="na">disabled</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:disabled or .disabled<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary active"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:active or .active<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">disabled</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>:disabled or .disabled<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 <h3 id="buttons-labels">Buttons Labels</h3>
 
 <p>Buttons can contains a new-line label:</p>
 
-<div class="docs-example clearfix"><button class="btn btn-primary btn-fill btn-block" type="button">
+<div class="docs-example clearfix"><button class="btn btn-primary btn-block" type="button">
     Download for OS X
     <span class="btn-label">OS X 10.9 or later</span>
 </button></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-fill btn-block"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-block"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     Download for OS X
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"btn-label"</span><span class="nt">&gt;</span>OS X 10.9 or later<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/button&gt;</span></code></pre></div>
@@ -435,42 +465,42 @@
 <p>Button groups and toolbars are used to group actions together.</p>
 
 <div class="docs-example clearfix"><div class="btn-group">
-    <button class="btn btn-default" type="button">Button button</button>
-    <a class="btn btn-default" href="#" role="button">Link button</a>
+    <button class="btn" type="button">Button button</button>
+    <a class="btn" href="#" role="button">Link button</a>
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 <p>Toolbars can contain multiple group of buttons:</p>
 
 <div class="docs-example clearfix"><div class="btn-toolbar">
     <div class="btn-group">
-        <button class="btn btn-default" type="button">Button button</button>
-        <a class="btn btn-default" href="#" role="button">Link button</a>
+        <button class="btn" type="button">Button button</button>
+        <a class="btn" href="#" role="button">Link button</a>
     </div>
     <div class="btn-group">
         <button class="btn btn-danger" type="button">Danger button</button>
         <a class="btn btn-success" href="#" role="button">Success button</a>
     </div>
     <div class="btn-group">
-        <button class="btn btn-default" type="button">Star</button>
-        <a class="btn btn-outline" href="#" role="button">0</a>
+        <button class="btn" type="button">Star</button>
+        <a class="btn btn-count" href="#" role="button">0</a>
     </div>
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-toolbar"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button button<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-success"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Star<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-outline"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Star<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-count"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
@@ -480,14 +510,14 @@
 
 <p>Remember, <code>aria-label</code> and tooltip classes must go directly on <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements. Tooltip classes also conflict with icon classes, and as such, must go on a parent element instead of the icon.</p>
 
-<div class="docs-example clearfix"><button class="btn btn-default tooltipped tooltipped-o" aria-label="Bottom, right (default)" type="button">Button</button>
-<button class="btn btn-default tooltipped tooltipped-nw tooltipped-o" aria-label="Top, left" type="button">.tooltipped-nw</button>
-<button class="btn btn-default tooltipped tooltipped-w tooltipped-o" aria-label="Bottom, left" type="button">.tooltipped-w</button>
-<button class="btn btn-default tooltipped tooltipped-ne tooltipped-o" aria-label="Top, right" type="button">.tooltipped-ne</button></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Bottom, right (default)"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-nw tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Top, left"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-nw<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-w tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Bottom, left"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-w<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default tooltipped tooltipped-ne tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Top, right"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-ne<span class="nt">&lt;/button&gt;</span></code></pre></div>
+<div class="docs-example clearfix"><button class="btn tooltipped tooltipped-o" aria-label="Bottom, right (default)" type="button">Button</button>
+<button class="btn tooltipped tooltipped-nw tooltipped-o" aria-label="Top, left" type="button">.tooltipped-nw</button>
+<button class="btn tooltipped tooltipped-w tooltipped-o" aria-label="Bottom, left" type="button">.tooltipped-w</button>
+<button class="btn tooltipped tooltipped-ne tooltipped-o" aria-label="Top, right" type="button">.tooltipped-ne</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn tooltipped tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Bottom, right (default)"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn tooltipped tooltipped-nw tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Top, left"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-nw<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn tooltipped tooltipped-w tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Bottom, left"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-w<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn tooltipped tooltipped-ne tooltipped-o"</span> <span class="na">aria-label=</span><span class="s">"Top, right"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>.tooltipped-ne<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
 <h1 id="forms">Forms</h1>
 
@@ -517,7 +547,7 @@
             <input type="checkbox" /> Check me out
         </label>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn">Submit</button>
 </form></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
@@ -545,7 +575,7 @@
             <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span> Check me out
         <span class="nt">&lt;/label&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/form&gt;</span></code></pre></div>
 
 <p>Input can have different states:</p>
@@ -630,7 +660,7 @@
         </span>
         <input type="text" class="form-control" placeholder="Please type in the username." />
         <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Delete</button>
+            <button class="btn" type="submit">Delete</button>
         </span>
     </div>
 </div></div>
@@ -660,7 +690,7 @@
         <span class="nt">&lt;/span&gt;</span>
         <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Please type in the username."</span><span class="nt">&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/span&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
@@ -847,7 +877,7 @@
 <p>Dropdown menu can be added to <code>.btn-group</code>.</p>
 
 <div class="docs-example clearfix"><div class="btn-group dropdown">
-    <button class="btn btn-default" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
+    <button class="btn" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
     <ul class="dropdown-menu open">
         <li class="dropdown-header">This is an header</li>
         <li><a href="#">Entry 1</a></li>
@@ -868,7 +898,7 @@
     </ul>
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group dropdown"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Toggle Dropdown <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown-caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Toggle Dropdown <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown-caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu open"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"dropdown-header"</span><span class="nt">&gt;</span>This is an header<span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Entry 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
@@ -892,25 +922,25 @@
 <p><code>.pull-right</code> and <code>.pull-left</code> classes can be used to change the direction of the dropdown:</p>
 
 <div class="docs-example clearfix"><div class="btn-group pull-left dropdown">
-    <button class="btn btn-default" type="button">Left</button>
+    <button class="btn" type="button">Left</button>
     <ul class="dropdown-menu open">
         <li><a href="#">This is a long entry</a></li>
     </ul>
 </div>
 <div class="btn-group pull-right dropdown">
-    <button class="btn btn-default" type="button">Right</button>
+    <button class="btn" type="button">Right</button>
     <ul class="dropdown-menu open">
         <li><a href="#">This is a long entry <span class="help-label">Help Text</span></a></li>
     </ul>
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group pull-left dropdown"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Left<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Left<span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu open"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>This is a long entry<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
     <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group pull-right dropdown"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Right<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Right<span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu open"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>This is a long entry <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"help-label"</span><span class="nt">&gt;</span>Help Text<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
     <span class="nt">&lt;/ul&gt;</span>
@@ -1139,7 +1169,7 @@
         Body of the modal
     </div>
     <div class="modal-footer">
-        <button class="btn btn-default">Close</button>
+        <button class="btn">Close</button>
     </div>
 </div></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
@@ -1151,7 +1181,7 @@
         Body of the modal
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-footer"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
@@ -1238,34 +1268,34 @@
 
 <h1 id="badges">Badges</h1>
 
-<div class="docs-example clearfix"><button class="btn btn-default" type="button">
+<div class="docs-example clearfix"><button class="btn" type="button">
     Default <span class="badge">10</span>
 </button>
-<button class="btn btn-default" type="button">
+<button class="btn" type="button">
     Warning <span class="badge badge-warning">10</span>
 </button>
-<button class="btn btn-default" type="button">
+<button class="btn" type="button">
     Danger <span class="badge badge-danger">10</span>
 </button>
-<button class="btn btn-default" type="button">
+<button class="btn" type="button">
     Success <span class="badge badge-success">10</span>
 </button>
-<button class="btn btn-default" type="button">
+<button class="btn" type="button">
     Info <span class="badge badge-info">10</span>
 </button></div>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     Default <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     Warning <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-warning"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     Danger <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-danger"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     Success <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-success"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     Info <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-info"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/button&gt;</span></code></pre></div>
 
@@ -1304,7 +1334,7 @@
                             <a href="/">Return to the top</a>
                         </li>
                         <li>
-                            <a href="https://github.com/GitbookIO/styleguide/blob/master/CHANGES.md">Version 2.1.2</a>
+                            <a href="https://github.com/GitbookIO/styleguide/blob/master/CHANGES.md">Version 3.0.0</a>
                         </li>
                     </ul>
                 </div>
