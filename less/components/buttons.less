@@ -6,13 +6,13 @@
 }
 
 .button(@mainColor) {
-    background: linear-gradient(@mainColor, darken(@mainColor, 10%));
-    border-color: darken(@mainColor, 15%);
+    background: linear-gradient(@mainColor, darken(@mainColor, @gb-button-gradient));
+    border-color: darken(@mainColor, 1.5 * @gb-button-gradient);
     color: #fff;
 
     &:hover, &:focus {
-        background: linear-gradient(@mainColor, darken(@mainColor, 15%));
-        border-color: darken(@mainColor, 20%);
+        background: linear-gradient(@mainColor, darken(@mainColor, 1.5 * @gb-button-gradient));
+        border-color: darken(@mainColor, 2 * @gb-button-gradient);
     }
 
     .caret {
@@ -37,7 +37,42 @@
 // Create new class of button
 .button-class(@className, @mainColor) {
     &.btn-@{className} {
-        .button(@mainColor)
+        .button(@mainColor);
+
+        &.btn-plain {
+            background: @mainColor;
+            border-color: @mainColor;
+            color: #fff;
+
+            .caret {
+                border-top-color: #fff;
+            }
+
+            &:hover, &:focus {
+                background: darken(@mainColor, 1.5 * @gb-button-gradient);
+                border-color: darken(@mainColor, 1.5 * @gb-button-gradient);
+                color: #fff;
+            }
+        }
+
+        &.btn-outline {
+            background: #fff;
+            color: @mainColor;
+            border-color: @mainColor;
+
+            .caret {
+                border-top-color: @mainColor;
+            }
+
+            &:hover, &:focus {
+                background: @mainColor;
+                color: #fff;
+
+                .caret {
+                    border-top-color: #fff;
+                }
+            }
+        }
     }
 
     &.btn-text-@{className} {
@@ -63,8 +98,8 @@
 
     // Hover and focus
     &:hover, &:focus, &.dropdown-toggle.open {
-        background: linear-gradient(@gb-button-background, darken(@gb-button-background, 10%));
-        border-color: darken(@gb-button-background, 20%);
+        background: linear-gradient(@gb-button-background, darken(@gb-button-background, @gb-button-gradient));
+        border-color: darken(@gb-button-background, 2 * @gb-button-gradient);
         .box-shadow(none);
         outline: none;
         text-decoration: none;
@@ -117,7 +152,6 @@
         }
     }
 
-
     /// Styles
     &.btn-link {
         .button(@gb-link-color);
@@ -130,8 +164,18 @@
         }
     }
 
-    &.btn-outline {
-        .button(#fff);
+    &.btn-plain {
+        background: @gb-button-background;
+        border-color: @gb-button-background;
+
+        &:hover, &:focus {
+            background: darken(@gb-button-background, 1.5 * @gb-button-gradient);
+            border-color: darken(@gb-button-background, 1.5 * @gb-button-gradient);
+        }
+    }
+
+    &.btn-count {
+        background: #fff;
         color: @gb-body-color;
         background: #fff;
 

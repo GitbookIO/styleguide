@@ -61,11 +61,23 @@ Create block level buttons—those that span the full width of a parent— by ad
 Outline buttons downplay an action as they appear like boxy links. Just add `.btn-outline` and go.
 
 {% example html %}
-<button class="btn btn-outline" type="button">Default button</button>
+<button class="btn btn-count" type="button">Default button</button>
 <button class="btn btn-primary btn-outline" type="button">Primary button</button>
 <button class="btn btn-success btn-outline" type="button">Success button</button>
 <button class="btn btn-danger btn-outline" type="button">Danger button</button>
 <button class="btn btn-warning btn-outline" type="button">Warning button</button>
+{% endexample %}
+
+### Plain
+
+Plain buttons are flat and filled buttons.
+
+{% example html %}
+<button class="btn btn-plain" type="button">Default button</button>
+<button class="btn btn-primary btn-plain" type="button">Primary button</button>
+<button class="btn btn-success btn-plain" type="button">Success button</button>
+<button class="btn btn-danger btn-plain" type="button">Danger button</button>
+<button class="btn btn-warning btn-plain" type="button">Warning button</button>
 {% endexample %}
 
 ### States

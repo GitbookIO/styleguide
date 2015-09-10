@@ -23,7 +23,7 @@ Toolbars can contain multiple group of buttons:
     </div>
     <div class="btn-group">
         <button class="btn" type="button">Star</button>
-        <a class="btn btn-outline" href="#" role="button">0</a>
+        <a class="btn btn-count" href="#" role="button">0</a>
     </div>
 </div>
 {% endexample %}
