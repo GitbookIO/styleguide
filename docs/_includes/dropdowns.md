@@ -4,7 +4,7 @@ Dropdown menu can be added to `.btn-group`.
 
 {% example html %}
 <div class="btn-group dropdown">
-    <button class="btn btn-default" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
+    <button class="btn" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
     <ul class="dropdown-menu open">
         <li class="dropdown-header">This is an header</li>
         <li><a href="#">Entry 1</a></li>
@@ -30,13 +30,13 @@ Dropdown menu can be added to `.btn-group`.
 
 {% example html %}
 <div class="btn-group pull-left dropdown">
-    <button class="btn btn-default" type="button">Left</button>
+    <button class="btn" type="button">Left</button>
     <ul class="dropdown-menu open">
         <li><a href="#">This is a long entry</a></li>
     </ul>
 </div>
 <div class="btn-group pull-right dropdown">
-    <button class="btn btn-default" type="button">Right</button>
+    <button class="btn" type="button">Right</button>
     <ul class="dropdown-menu open">
         <li><a href="#">This is a long entry <span class="help-label">Help Text</span></a></li>
     </ul>

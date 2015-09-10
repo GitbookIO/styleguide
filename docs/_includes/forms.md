@@ -27,7 +27,7 @@
             <input type="checkbox"> Check me out
         </label>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn">Submit</button>
 </form>
 {% endexample %}
 
@@ -94,7 +94,7 @@ Extend form controls by adding text or buttons before, after, or on both sides o
         </span>
         <input type="text" class="form-control" placeholder="Please type in the username.">
         <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Delete</button>
+            <button class="btn" type="submit">Delete</button>
         </span>
     </div>
 </div>

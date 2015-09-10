@@ -12,7 +12,7 @@ Modal (`.modal`) can be used in 3 sizes: medium (default), small (`.modal-sm`) a
         Body of the modal
     </div>
     <div class="modal-footer">
-        <button class="btn btn-default">Close</button>
+        <button class="btn">Close</button>
     </div>
 </div>
 {% endexample %}
