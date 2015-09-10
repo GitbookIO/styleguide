@@ -9,8 +9,8 @@ Use the standard—yet classy—`.btn` for form actions and primary page actions
 When using a `<button>` element, **always specify a `type`**. When using a `<a>` element, **always add `role="button"` for accessibility**.
 
 {% example html %}
-<button class="btn btn-default" type="button">Button button</button>
-<a class="btn btn-default" href="#" role="button">Link button</a>
+<button class="btn" type="button">Button button</button>
+<a class="btn" href="#" role="button">Link button</a>
 {% endexample %}
 
 ### Sizes
@@ -18,10 +18,10 @@ When using a `<button>` element, **always specify a `type`**. When using a `<a>`
 Buttons are availables in multiples sizes: Large, Normal, Small and Extra-Small.
 
 {% example html %}
-<button class="btn btn-default btn-lg" type="button">Large Button</button>
-<button class="btn btn-default" type="button">Button</button>
-<button class="btn btn-default btn-sm" type="button">Small button</button>
-<button class="btn btn-default btn-xs" type="button">Extra Small button</button>
+<button class="btn btn-lg" type="button">Large Button</button>
+<button class="btn" type="button">Button</button>
+<button class="btn btn-sm" type="button">Small button</button>
+<button class="btn btn-xs" type="button">Extra Small button</button>
 {% endexample %}
 
 ### Styles
@@ -53,7 +53,19 @@ Create block level buttons—those that span the full width of a parent— by ad
 
 {% example html %}
 <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+<button type="button" class="btn btn-lg btn-block">Block level button</button>
+{% endexample %}
+
+### Outline
+
+Outline buttons downplay an action as they appear like boxy links. Just add `.btn-outline` and go.
+
+{% example html %}
+<button class="btn btn-outline" type="button">Default button</button>
+<button class="btn btn-primary btn-outline" type="button">Primary button</button>
+<button class="btn btn-success btn-outline" type="button">Success button</button>
+<button class="btn btn-danger btn-outline" type="button">Danger button</button>
+<button class="btn btn-warning btn-outline" type="button">Warning button</button>
 {% endexample %}
 
 ### States
@@ -62,9 +74,9 @@ Buttons can have different states:
 
 {% example html %}
 <div class="btn-toolbar">
-    <button class="btn btn-default" type="button">Default</button>
-    <button class="btn btn-default active" type="button">:active or .active</button>
-    <button class="btn btn-default" disabled type="button">:disabled or .disabled</button>
+    <button class="btn" type="button">Default</button>
+    <button class="btn active" type="button">:active or .active</button>
+    <button class="btn" disabled type="button">:disabled or .disabled</button>
 </div>
 <div class="btn-toolbar">
     <button class="btn btn-primary" type="button">Default</button>
