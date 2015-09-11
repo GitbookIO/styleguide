@@ -21,6 +21,11 @@
     background: @gb-modal-background;
     .box-shadow(@gb-modal-shadow);
 
+    &.without-backdrop {
+        border-color: @gb-palette-gray-outline;
+        box-shadow: 0 1px 2px #ddd;
+    }
+
     .modal-heading + .alert {
         border-radius: 0px;
         border-left:0px;
