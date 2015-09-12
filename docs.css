@@ -4040,7 +4040,7 @@ a.btn .btn-label,
   overflow-y: auto;
 }
 .modal {
-  border: 1px solid #444444;
+  border: 1px solid rgba(0, 0, 0, 0.65);
   border-radius: 4px;
   background: #ffffff;
   -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
@@ -4048,6 +4048,10 @@ a.btn .btn-label,
   box-shadow: 0 5px 15px rgba(0,0,0,.5);
   width: 600px;
   margin: 30px auto;
+}
+.modal.without-backdrop {
+  border-color: #d4d4d4;
+  box-shadow: 0 1px 2px #ddd;
 }
 .modal .modal-heading + .alert {
   border-radius: 0px;
@@ -5272,6 +5276,14 @@ select.form-control:focus {
 }
 .gb-page-body .gb-page-inner {
   margin: 30px 0;
+}
+.gb-page-body.for-modal {
+  position: absolute;
+  top: 76px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: #f5f5f5;
 }
 .gb-page-footer {
   position: absolute;
