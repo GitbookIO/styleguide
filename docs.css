@@ -3385,6 +3385,23 @@ a.btn .btn-label,
   border-color: #c0d1d0;
   color: #3c763d;
 }
+.alert .alert-btn {
+  display: inline-block;
+  float: right;
+  color: inherit;
+  border-radius: 3px;
+  padding: 0px;
+  color: #000;
+  opacity: 0.3;
+}
+.alert a.alert-btn {
+  text-decoration: none;
+}
+.alert a.alert-btn:hover,
+.alert a.alert-btn:focus {
+  opacity: 0.5;
+  text-decoration: none;
+}
 .gb-markdown {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
