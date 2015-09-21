@@ -5208,6 +5208,10 @@ select.form-control:focus {
   position: relative;
   padding-bottom: 46px;
 }
+.gb-page-wrapper.for-modal {
+  padding-bottom: 1px;
+  background: #f5f5f5;
+}
 .gb-page-header {
   position: relative;
   z-index: 2;
@@ -5293,14 +5297,6 @@ select.form-control:focus {
 }
 .gb-page-body .gb-page-inner {
   margin: 30px 0;
-}
-.gb-page-body.for-modal {
-  position: absolute;
-  top: 76px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  background: #f5f5f5;
 }
 .gb-page-footer {
   position: absolute;
