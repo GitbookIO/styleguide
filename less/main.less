@@ -56,13 +56,10 @@ body, html {
     line-height: @gb-line-height-base;
     background: #fff;
 
-    // For Raleway font
-    -moz-font-feature-settings:"lnum" 1;
-    -moz-font-feature-settings:"lnum=1";
-    -ms-font-feature-settings:"lnum" 1;
-    -o-font-feature-settings:"lnum" 1;
-    -webkit-font-feature-settings:"lnum" 1;
-    font-feature-settings:"lnum" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
 }
 
 hr {
