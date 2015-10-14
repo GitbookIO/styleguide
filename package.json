@@ -14,7 +14,7 @@
         "gulp": "^3.8.11",
         "gulp-rename": "^1.2.2",
         "gulp-less": "3.0.2",
-        "gulp-run-sequence": "0.3.2",
+        "run-sequence": "1.1.4",
         "gulp-jekyll": "0.0.0",
         "del": "1.1.1",
         "gulp-connect": "2.2.0",
@@ -24,6 +24,8 @@
         "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#2.0.2"
     },
     "scripts": {
+        "start": "gulp",
+        "release": "gulp release",
         "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && rm -rf ./assets/images/logo && cp -R ./node_modules/gitbook-logos/output ./assets/images/logo"
     },
     "repository": {
