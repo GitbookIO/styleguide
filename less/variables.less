@@ -4,10 +4,17 @@
 @gb-font-family-sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 @gb-font-family-serif:             Georgia, "Times New Roman", Times, serif;
 @gb-font-family-monospace:         Menlo, Monaco, Consolas, "Courier New", monospace;
+
 @gb-font-size-base:                14px;
 @gb-font-size-medium:              16px;
 @gb-font-size-large:               18px;
 @gb-font-size-small:               12px;
+
+@gb-font-weight-bolder:            700;
+@gb-font-weight-bold:              500;
+@gb-font-weight-base:              400;
+@gb-font-weight-light:             300;
+
 //** Unit-less `line-height` for use in components like buttons.
 @gb-line-height-base:              1.428571429; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
@@ -338,7 +345,7 @@
 
 //** By default, this inherits from the `<body>`.
 @gb-headings-font-family:          inherit;
-@gb-headings-font-weight:          500;
+@gb-headings-font-weight:          @gb-font-weight-bold;
 @gb-headings-line-height:          1.1;
 @gb-headings-color:                inherit;
 
