@@ -2,3 +2,37 @@ body .octicon {
     font-size: inherit;
     line-height: inherit;
 }
+
+
+.icon-spin {
+  -webkit-animation: icon-frame-spin 2s infinite linear;
+          animation: icon-frame-spin 2s infinite linear;
+}
+
+.icon-pulse {
+  -webkit-animation: icon-frame-spin 1s infinite steps(8);
+          animation: icon-frame-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes icon-frame-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes icon-frame-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
