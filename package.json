@@ -7,7 +7,7 @@
     "description": "Styleguide for GitBook websites (CSS, Less, Logos)",
     "bugs": "https://github.com/GitbookIO/styleguide/issues",
     "dependencies":{
-        "octicons": "2.2.0"
+        "octicons": "3.1.0"
     },
     "devDependencies": {
         "lodash": "3.9.3",
