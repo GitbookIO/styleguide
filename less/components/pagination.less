@@ -24,6 +24,19 @@
                 margin-left: -1px;
             }
 
+            &:first-child {
+                a, span {
+                    border-top-left-radius: @gb-pagination-radius;
+                    border-bottom-left-radius: @gb-pagination-radius;
+                }
+            }
+            &:last-child {
+                a, span {
+                    border-top-right-radius: @gb-pagination-radius;
+                    border-bottom-right-radius: @gb-pagination-radius;
+                }
+            }
+
             .separator {
                 cursor: default;
                 letter-spacing: 3px;
