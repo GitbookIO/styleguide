@@ -9,24 +9,40 @@
         background: @gb-state-danger-background;
         border-color: @gb-state-danger-border;
         color: @gb-state-danger-color;
+
+        .alert-btn {
+            background: @gb-state-danger-color;
+        }
     }
 
     &.alert-warning {
         background: @gb-state-warning-background;
         border-color: @gb-state-warning-border;
         color: @gb-state-warning-color;
+
+        .alert-btn {
+            background: @gb-state-warning-color;
+        }
     }
 
     &.alert-info {
         background: @gb-state-info-background;
         border-color: @gb-state-info-border;
         color: @gb-state-info-color;
+
+        .alert-btn {
+            background: @gb-state-info-color;
+        }
     }
 
     &.alert-success {
         background: @gb-state-success-background;
         border-color: @gb-state-success-border;
         color: @gb-state-success-color;
+
+        .alert-btn {
+            background: @gb-state-success-color;
+        }
     }
 
 
@@ -36,15 +52,16 @@
         color: inherit;
         border-radius: @gb-border-radius-base;
         padding: 0px;
-        color: #000;
-        opacity: 0.3;
+        color: #fff;
+        opacity: 0.6;
+        padding: 0px 5px;
     }
 
     a.alert-btn {
         text-decoration: none;
 
         &:hover, &:focus {
-            opacity: 0.5;
+            opacity: 0.8;
             text-decoration: none;
         }
     }
