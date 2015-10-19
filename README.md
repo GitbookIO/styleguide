@@ -9,7 +9,7 @@ How to test and build the documentation (Jekyll needs to be installed on the mac
 $ npm i
 
 # Build and test the documentation
-$ gulp
+$ npm start
 ```
 
 Release a new version using:
@@ -22,5 +22,5 @@ $ git tag X.Y.Z
 $ git push --tags
 
 # Publish on NPM, and publish documentation
-$ gulp release
+$ npm run release
 ```

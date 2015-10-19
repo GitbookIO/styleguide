@@ -11,7 +11,7 @@
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
     <div class="form-group">
-        <label for="exampleInputSelect">Type</label>
+        <label for="exampleInputSelect">Type <span class="note">(Optional)</span></label>
         <select class="form-control" id="exampleInputSelect">
             <option>User</option>
             <option>Organization</option>
