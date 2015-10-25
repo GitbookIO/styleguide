@@ -10,12 +10,16 @@
 
 
 .panel {
-    margin-bottom: 20px;
+    margin-bottom: @gb-margin-base;
     background-color: #fff;
     border: 1px solid transparent;
     border-radius: @gb-panel-radius;
     color: @gb-panel-color;
     .box-shadow(~"0 1px 1px rgba(0,0,0,0.05)");
+
+    .btn-toolbar + & {
+        margin-top: @gb-margin-base;
+    }
 
     .panel-heading {
         padding: 10px 15px;
