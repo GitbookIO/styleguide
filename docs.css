@@ -1505,7 +1505,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -2884,6 +2884,9 @@ a.btn .btn-label,
 .btn-toolbar > .input-group {
   margin-left: 5px;
 }
+.btn-toolbar.prepend {
+  margin-bottom: 20px;
+}
 .caret {
   display: inline-block;
   width: 0;
@@ -3380,8 +3383,9 @@ a.btn .btn-label,
 .gb-markdown a:hover {
   outline: 0;
 }
-.gb-markdown strong {
-  font-weight: 500;
+.gb-markdown strong,
+.gb-markdown b {
+  font-weight: 700;
 }
 .gb-markdown h1 {
   font-size: 2em;
@@ -3689,6 +3693,9 @@ a.btn .btn-label,
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
   box-shadow: 0 1px 1px rgba(0,0,0,0.05);
 }
+.btn-toolbar + .panel {
+  margin-top: 20px;
+}
 .panel .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
@@ -3700,6 +3707,9 @@ a.btn .btn-label,
   padding: 0px;
   font-size: inherit;
   font-weight: 500;
+  line-height: 19px;
+  margin-top: -2px;
+  margin-bottom: -2px;
 }
 .panel .panel-heading .panel-title a {
   color: inherit;
@@ -3722,6 +3732,10 @@ a.btn .btn-label,
   margin-top: -1px;
   position: relative;
   z-index: 1;
+}
+.panel > .blankslate.with-background {
+  border-radius: 0px;
+  border: 0px;
 }
 .panel > hr {
   margin: 0;
@@ -5163,7 +5177,8 @@ select.form-control:focus {
   background-color: #eee;
   border-radius: 20px;
   border: 1px solid #ccc;
-  min-width: 20px;
+  min-width: 18px;
+  text-align: center;
 }
 .badge.badge-warning {
   background-color: #fff2d0;
@@ -5342,7 +5357,7 @@ html {
   height: 100%;
   color: #333333;
   font-size: 14px;
-  font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.42857143;
   background: #fff;
