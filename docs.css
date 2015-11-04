@@ -4209,7 +4209,7 @@ a.btn .btn-label,
 .label {
   display: inline-block;
   margin: 0px;
-  padding: 3px 4px;
+  padding: 3px 4px 4px;
   font-size: 11px;
   font-weight: 500;
   line-height: 11px;
@@ -4218,7 +4218,6 @@ a.btn .btn-label,
   border-radius: 3px;
   color: #666;
   background-color: #eee;
-  border: 1px solid #ccc;
 }
 .label.label-warning {
   color: #9d852a;
