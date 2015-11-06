@@ -49,8 +49,8 @@
             }
 
             &:hover, &:focus {
-                background: darken(@mainColor, 1.5 * @gb-button-gradient);
-                border-color: darken(@mainColor, 1.5 * @gb-button-gradient);
+                background: darken(@mainColor, @gb-button-gradient);
+                border-color: darken(@mainColor, @gb-button-gradient);
                 color: #fff;
             }
         }
@@ -169,12 +169,12 @@
     }
 
     &.btn-plain {
-        background: @gb-button-background;
-        border-color: @gb-button-background;
+        background: @gb-button-plain-background;
+        border-color: @gb-button-plain-background;
 
         &:hover, &:focus {
-            background: darken(@gb-button-background, 1.5 * @gb-button-gradient);
-            border-color: darken(@gb-button-background, 1.5 * @gb-button-gradient);
+            background: darken(@gb-button-plain-background, @gb-button-gradient);
+            border-color: darken(@gb-button-plain-background, @gb-button-gradient);
         }
     }
 
