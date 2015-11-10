@@ -1614,6 +1614,10 @@ hr {
   border: 0;
   border-top: 1px solid #eeeeee;
 }
+strong,
+b {
+  font-weight: 700;
+}
 p {
   margin: 0 0 10px;
 }
@@ -3383,10 +3387,6 @@ a.btn .btn-label,
 .gb-markdown a:active,
 .gb-markdown a:hover {
   outline: 0;
-}
-.gb-markdown strong,
-.gb-markdown b {
-  font-weight: 700;
 }
 .gb-markdown h1 {
   font-size: 2em;
