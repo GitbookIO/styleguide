@@ -128,3 +128,22 @@ select.form-control {
         .clearfix();
     }
 }
+
+.form-inline {
+    .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+    }
+
+    .form-control {
+        display: inline-block;
+        width: auto; // Prevent labels from stacking above inputs in `.form-group`
+        vertical-align: middle;
+    }
+
+    .btn {
+        vertical-align: middle;
+    }
+}
+
