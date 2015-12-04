@@ -34,7 +34,9 @@ gulp.task('docs-jekyll', function (cb) {
 // Build the docs css
 gulp.task('docs-styles', function() {
     return gulp.src('./docs/less/main.less')
-    .pipe(less())
+    .pipe(less({
+        paths: [ path.join(__dirname, 'node_modules') ]
+    }))
     .pipe(rename('docs.css'))
     .pipe(gulp.dest(destDocs));
 });
