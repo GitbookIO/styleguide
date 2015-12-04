@@ -109,7 +109,7 @@ gulp.task('release-clean', function(cb) {
 // Build css for release
 gulp.task('release-css', function() {
     var s = function() {
-        return gulp.src('./less/main.less').pipe(less(lessCOnfig));
+        return gulp.src('./less/main.less').pipe(less(lessConfig));
     };
 
     return merge(
