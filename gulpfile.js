@@ -19,6 +19,10 @@ var destDocs = path.join(srcDocs, '_site');
 var releaseOutput = path.join(__dirname, '.release');
 var cssRelease = path.join(releaseOutput, 'css');
 
+var lessConfig = {
+    paths: [ path.join(__dirname, 'node_modules') ]
+};
+
 // Build the doc website
 gulp.task('docs-jekyll', function (cb) {
     fs.writeFileSync(path.join(srcDocs, '_data/package.json'), JSON.stringify(pkg));
@@ -34,9 +38,7 @@ gulp.task('docs-jekyll', function (cb) {
 // Build the docs css
 gulp.task('docs-styles', function() {
     return gulp.src('./docs/less/main.less')
-    .pipe(less({
-        paths: [ path.join(__dirname, 'node_modules') ]
-    }))
+    .pipe(less(lessConfig))
     .pipe(rename('docs.css'))
     .pipe(gulp.dest(destDocs));
 });
@@ -107,7 +109,7 @@ gulp.task('release-clean', function(cb) {
 // Build css for release
 gulp.task('release-css', function() {
     var s = function() {
-        return gulp.src('./less/main.less').pipe(less());
+        return gulp.src('./less/main.less').pipe(less(lessCOnfig));
     };
 
     return merge(
