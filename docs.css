@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'octicons';
-  src: url('/assets/fonts/octicons/octicons.eot?#iefix&v=396334ee3da78f4302d25c758ae3e3ce5dc3c97d') format('embedded-opentype'), url('/assets/fonts/octicons/octicons.woff?v=396334ee3da78f4302d25c758ae3e3ce5dc3c97d') format('woff'), url('/assets/fonts/octicons/octicons.ttf?v=396334ee3da78f4302d25c758ae3e3ce5dc3c97d') format('truetype'), url('/assets/fonts/octicons/octicons.svg?v=396334ee3da78f4302d25c758ae3e3ce5dc3c97d#octicons') format('svg');
+  src: url('/assets/fonts/octicons/octicons.eot?#iefix&v=6f0908ee5b07e503e10c6040adaebd65ea4f4c0e') format('embedded-opentype'), url('/assets/fonts/octicons/octicons.woff?v=6f0908ee5b07e503e10c6040adaebd65ea4f4c0e') format('woff'), url('/assets/fonts/octicons/octicons.ttf?v=6f0908ee5b07e503e10c6040adaebd65ea4f4c0e') format('truetype'), url('/assets/fonts/octicons/octicons.svg?v=6f0908ee5b07e503e10c6040adaebd65ea4f4c0e#octicons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -65,6 +65,10 @@
   content: '\f0de';
 }
 /*  */
+.octicon-bold:before {
+  content: '\f0e2';
+}
+/*  */
 .octicon-book:before {
   content: '\f007';
 }
@@ -364,6 +368,10 @@
   content: '\f027';
 }
 /*  */
+.octicon-italic:before {
+  content: '\f0e4';
+}
+/*  */
 .octicon-jersey:before {
   content: '\f019';
 }
@@ -411,6 +419,10 @@
   content: '\f06a';
 }
 /*  */
+.octicon-logo-gist:before {
+  content: '\f0ad';
+}
+/*  */
 .octicon-logo-github:before {
   content: '\f092';
 }
@@ -568,14 +580,6 @@
   content: '\f047';
 }
 /*  */
-.octicon-screen-full:before {
-  content: '\f066';
-}
-/*  */
-.octicon-screen-normal:before {
-  content: '\f067';
-}
-/*  */
 .octicon-search-save:before,
 .octicon-search:before {
   content: '\f02e';
@@ -628,6 +632,10 @@
   content: '\f015';
 }
 /*  */
+.octicon-tasklist:before {
+  content: '\f0e5';
+}
+/*  */
 .octicon-telescope:before {
   content: '\f088';
 }
@@ -636,6 +644,10 @@
   content: '\f0c8';
 }
 /*  */
+.octicon-text-size:before {
+  content: '\f0e3';
+}
+/*  */
 .octicon-three-bars:before {
   content: '\f05e';
 }
