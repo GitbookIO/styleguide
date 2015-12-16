@@ -31,4 +31,11 @@ Switch can replace checkbox (without JavaScript):
         Big switch
     </label>
 </div>
+<div class="checkbox checkbox-switch">
+    <label>
+        <input type="checkbox" disabled>
+        <span></span>
+        Disabled checkbox
+    </label>
+</div>
 {% endexample %}
