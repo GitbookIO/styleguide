@@ -1818,7 +1818,8 @@ address {
   line-height: 1.42857143;
 }
 .checkbox-switch,
-.checkbox.checkbox-switch {
+.checkbox.checkbox-switch,
+.form-group .checkbox.checkbox-switch {
   padding-left: 0px;
   position: relative;
   cursor: pointer;
@@ -1833,58 +1834,70 @@ address {
   /* reset accessibility style on hover */
 }
 .checkbox-switch.switch-right,
-.checkbox.checkbox-switch.switch-right {
+.checkbox.checkbox-switch.switch-right,
+.form-group .checkbox.checkbox-switch.switch-right {
   zoom: 1;
 }
 .checkbox-switch.switch-right:before,
 .checkbox.checkbox-switch.switch-right:before,
+.form-group .checkbox.checkbox-switch.switch-right:before,
 .checkbox-switch.switch-right:after,
-.checkbox.checkbox-switch.switch-right:after {
+.checkbox.checkbox-switch.switch-right:after,
+.form-group .checkbox.checkbox-switch.switch-right:after {
   content: "";
   display: table;
 }
 .checkbox-switch.switch-right:after,
-.checkbox.checkbox-switch.switch-right:after {
+.checkbox.checkbox-switch.switch-right:after,
+.form-group .checkbox.checkbox-switch.switch-right:after {
   clear: both;
 }
 .checkbox-switch.switch-right input + span,
-.checkbox.checkbox-switch.switch-right input + span {
+.checkbox.checkbox-switch.switch-right input + span,
+.form-group .checkbox.checkbox-switch.switch-right input + span {
   float: right;
 }
 .checkbox-switch.switch-xs input + span,
-.checkbox.checkbox-switch.switch-xs input + span {
+.checkbox.checkbox-switch.switch-xs input + span,
+.form-group .checkbox.checkbox-switch.switch-xs input + span {
   font-size: 12px;
 }
 .checkbox-switch.switch-lg input + span,
-.checkbox.checkbox-switch.switch-lg input + span {
+.checkbox.checkbox-switch.switch-lg input + span,
+.form-group .checkbox.checkbox-switch.switch-lg input + span {
   font-size: 18px;
 }
 .checkbox-switch input,
-.checkbox.checkbox-switch input {
+.checkbox.checkbox-switch input,
+.form-group .checkbox.checkbox-switch input {
   opacity: 0;
   position: absolute;
 }
 .checkbox-switch input + span,
-.checkbox.checkbox-switch input + span {
+.checkbox.checkbox-switch input + span,
+.form-group .checkbox.checkbox-switch input + span {
   font-size: 16px;
   position: relative;
   display: inline-block;
   width: 1.65em;
   height: 1em;
   background: white;
-  box-shadow: inset 0 0 0 0.0625em #e9e9e9;
+  box-shadow: inset 0 0 0 0.0625em #d4d4d4;
   border-radius: 0.5em;
   vertical-align: -0.15em;
   transition: all 0.4s cubic-bezier(0.17, 0.67, 0.43, 0.98);
 }
 .checkbox-switch:active input + span,
 .checkbox.checkbox-switch:active input + span,
+.form-group .checkbox.checkbox-switch:active input + span,
 .checkbox-switch input + span:active,
-.checkbox.checkbox-switch input + span:active {
-  box-shadow: inset 0 0 0 0.73em #e9e9e9;
+.checkbox.checkbox-switch input + span:active,
+.form-group .checkbox.checkbox-switch input + span:active {
+  box-shadow: inset 0 0 0 0.73em #d4d4d4;
 }
 .checkbox-switch input + span:after,
-.checkbox.checkbox-switch input + span:after {
+.checkbox.checkbox-switch input + span:after,
+.form-group .checkbox.checkbox-switch input + span:after {
   position: absolute;
   display: block;
   content: '';
@@ -1894,54 +1907,71 @@ address {
   top: 0.0625em;
   left: 0.0625em;
   background: white;
-  box-shadow: inset 0 0 0 0.03em rgba(0, 0, 0, 0.1), 0 0 0.05em rgba(0, 0, 0, 0.05), 0 0.1em 0.2em rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 0.03em rgba(0, 0, 0, 0.4), 0 0 0.05em rgba(0, 0, 0, 0.35), 0 0.1em 0.2em rgba(0, 0, 0, 0.4);
   transition: all 0.25s ease-out;
 }
 .checkbox-switch:active input + span:after,
 .checkbox.checkbox-switch:active input + span:after,
+.form-group .checkbox.checkbox-switch:active input + span:after,
 .checkbox-switch input + span:active:after,
-.checkbox.checkbox-switch input + span:active:after {
+.checkbox.checkbox-switch input + span:active:after,
+.form-group .checkbox.checkbox-switch input + span:active:after {
   width: 1.15em;
 }
 .checkbox-switch input:checked + span,
-.checkbox.checkbox-switch input:checked + span {
-  box-shadow: inset 0 0 0 0.73em #4cd964;
+.checkbox.checkbox-switch input:checked + span,
+.form-group .checkbox.checkbox-switch input:checked + span {
+  box-shadow: inset 0 0 0 0.73em #5cb85c;
+}
+.checkbox-switch input:disabled + span,
+.checkbox.checkbox-switch input:disabled + span,
+.form-group .checkbox.checkbox-switch input:disabled + span {
+  background: #f5f5f5;
 }
 .checkbox-switch input:checked + span:after,
-.checkbox.checkbox-switch input:checked + span:after {
+.checkbox.checkbox-switch input:checked + span:after,
+.form-group .checkbox.checkbox-switch input:checked + span:after {
   left: 0.7125em;
 }
 .checkbox-switch:active input:checked + span:after,
 .checkbox.checkbox-switch:active input:checked + span:after,
+.form-group .checkbox.checkbox-switch:active input:checked + span:after,
 .checkbox-switch input:checked + span:active:after,
-.checkbox.checkbox-switch input:checked + span:active:after {
+.checkbox.checkbox-switch input:checked + span:active:after,
+.form-group .checkbox.checkbox-switch input:checked + span:active:after {
   left: 0.4375em;
 }
 .checkbox-switch input:focus + span:after,
-.checkbox.checkbox-switch input:focus + span:after {
+.checkbox.checkbox-switch input:focus + span:after,
+.form-group .checkbox.checkbox-switch input:focus + span:after {
   box-shadow: inset 0 0 0 0.03em rgba(0, 0, 0, 0.15), 0 0 0.05em rgba(0, 0, 0, 0.08), 0 0.1em 0.2em rgba(0, 0, 0, 0.3);
   background: #fff;
 }
 .checkbox-switch input:focus + span,
-.checkbox.checkbox-switch input:focus + span {
+.checkbox.checkbox-switch input:focus + span,
+.form-group .checkbox.checkbox-switch input:focus + span {
   box-shadow: inset 0 0 0 0.0625em #dadada;
 }
 .checkbox-switch input:focus:checked + span,
-.checkbox.checkbox-switch input:focus:checked + span {
+.checkbox.checkbox-switch input:focus:checked + span,
+.form-group .checkbox.checkbox-switch input:focus:checked + span {
   box-shadow: inset 0 0 0 0.73em #33be4b;
 }
 .checkbox-switch:hover input:focus + span:after,
-.checkbox.checkbox-switch:hover input:focus + span:after {
+.checkbox.checkbox-switch:hover input:focus + span:after,
+.form-group .checkbox.checkbox-switch:hover input:focus + span:after {
   box-shadow: inset 0 0 0 0.03em rgba(0, 0, 0, 0.1), 0 0 0.05em rgba(0, 0, 0, 0.05), 0 0.1em 0.2em rgba(0, 0, 0, 0.2);
   background: #fff;
 }
 .checkbox-switch:hover input:focus + span,
-.checkbox.checkbox-switch:hover input:focus + span {
+.checkbox.checkbox-switch:hover input:focus + span,
+.form-group .checkbox.checkbox-switch:hover input:focus + span {
   box-shadow: inset 0 0 0 0.0625em #e9e9e9;
 }
 .checkbox-switch:hover input:focus:checked + span,
-.checkbox.checkbox-switch:hover input:focus:checked + span {
-  box-shadow: inset 0 0 0 0.73em #4cd964;
+.checkbox.checkbox-switch:hover input:focus:checked + span,
+.form-group .checkbox.checkbox-switch:hover input:focus:checked + span {
+  box-shadow: inset 0 0 0 0.73em #5cb85c;
 }
 code,
 kbd,
