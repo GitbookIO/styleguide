@@ -6,6 +6,26 @@
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
 
+    &.switch-right {
+        .clearfix();
+
+        input + span {
+            float: right;
+        }
+    }
+
+    &.switch-xs {
+        input + span {
+            font-size: 12px;
+        }
+    }
+
+    &.switch-lg {
+        input + span {
+            font-size: 18px;
+        }
+    }
+
     input {
         opacity: 0;
         position: absolute;

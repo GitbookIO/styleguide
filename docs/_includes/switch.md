@@ -14,7 +14,21 @@ Switch can replace checkbox (without JavaScript):
     <label>
         <input type="checkbox" checked>
         <span></span>
-        Better checkbox
+        Switch on the right
+    </label>
+</div>
+<div class="checkbox checkbox-switch switch-xs">
+    <label>
+        <input type="checkbox" checked>
+        <span></span>
+        Small switch
+    </label>
+</div>
+<div class="checkbox checkbox-switch switch-lg">
+    <label>
+        <input type="checkbox" checked>
+        <span></span>
+        Big switch
     </label>
 </div>
 {% endexample %}
