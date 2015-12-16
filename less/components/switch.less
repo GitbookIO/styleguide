@@ -1,11 +1,8 @@
-.checkbox-switch {
-    display: inline-block;
+.checkbox-switch, .checkbox.checkbox-switch {
+    padding-left: 0px;
     position: relative;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    .user-select(none);
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
 
@@ -15,6 +12,7 @@
     }
 
     input + span {
+        font-size: 16px;
         position: relative;
         display: inline-block;
         width: 1.65em;

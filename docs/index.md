@@ -23,6 +23,7 @@ title: GitBook HTML/CSS Styleguide
 {% include panels.md %}
 {% include modals.md %}
 {% include spinner.md %}
+{% include switch.md %}
 {% include pagination.md %}
 {% include alerts.md %}
 {% include labels.md %}

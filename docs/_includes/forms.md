@@ -27,13 +27,6 @@
             <input type="checkbox"> Check me out
         </label>
     </div>
-    <div class="checkbox checkbox-switch">
-        <label>
-            <input type="checkbox">
-            <span></span>
-            Better checkbox
-        </label>
-    </div>
     <button type="submit" class="btn">Submit</button>
 </form>
 {% endexample %}
