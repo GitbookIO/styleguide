@@ -205,6 +205,19 @@
             color: @gb-text-light;
         }
 
+        &.disabled, &.disabled:hover {
+            > a, >a:hover {
+                cursor: default;
+                background: transparent;
+                color: @gb-palette-gray-darker;
+                pointer-events: none;
+            }
+
+            >.dropdown-menu {
+                display: none;
+            }
+        }
+
         > a {
             padding: 4px 10px;
             cursor: default;

@@ -14,7 +14,7 @@ Dropdown menu can be added to `.btn-group`.
                 <li>
                     <a href="#">Entry 2.1 (hover me)</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Entry 2.1.1</a></li>
+                        <li class="disabled"><a href="#">Entry 2.1.1</a></li>
                         <li><a href="#">Entry 2.1.2</a></li>
                     </ul>
                 </li>
