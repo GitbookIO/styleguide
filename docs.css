@@ -3265,6 +3265,25 @@ a.btn .btn-label,
   font-size: 12px;
   color: #999;
 }
+.dropdown-menu > li.disabled > a,
+.dropdown .dropdown-menu > li.disabled > a,
+.dropdown-menu > li.disabled:hover > a,
+.dropdown .dropdown-menu > li.disabled:hover > a,
+.dropdown-menu > li.disabled > a:hover,
+.dropdown .dropdown-menu > li.disabled > a:hover,
+.dropdown-menu > li.disabled:hover > a:hover,
+.dropdown .dropdown-menu > li.disabled:hover > a:hover {
+  cursor: default;
+  background: transparent;
+  color: #b3b3b1;
+  pointer-events: none;
+}
+.dropdown-menu > li.disabled > .dropdown-menu,
+.dropdown .dropdown-menu > li.disabled > .dropdown-menu,
+.dropdown-menu > li.disabled:hover > .dropdown-menu,
+.dropdown .dropdown-menu > li.disabled:hover > .dropdown-menu {
+  display: none;
+}
 .dropdown-menu > li > a,
 .dropdown .dropdown-menu > li > a {
   padding: 4px 10px;
