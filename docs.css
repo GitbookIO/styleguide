@@ -3057,6 +3057,10 @@ a.btn .btn-label,
 .btn-toolbar > .input-group {
   margin-left: 5px;
 }
+.btn-toolbar > .btn-toolbar {
+  float: left;
+  margin: 0px;
+}
 .btn-toolbar.prepend {
   margin-bottom: 20px;
 }
