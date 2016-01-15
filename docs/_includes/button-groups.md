@@ -27,3 +27,13 @@ Toolbars can contain multiple group of buttons:
     </div>
 </div>
 {% endexample %}
+
+
+Button groups can be justified, to make a group of buttons stretch at equal sizes to span the entire width of its parent. Also works with button dropdowns within the button group.
+
+{% example html %}
+<div class="btn-group btn-group-justified">
+    <a class="btn" href="#" role="button">Button 1</a>
+    <a class="btn" href="#" role="button">Button 2</a>
+</div>
+{% endexample %}

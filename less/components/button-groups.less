@@ -15,8 +15,11 @@
     }
 
     .btn + .btn,
+    .btn-group + .btn {
+        border-left: 0px;
+    }
+
     .btn + .btn-group,
-    .btn-group + .btn,
     .btn-group + .btn-group {
         margin-left: -1px;
     }
@@ -37,6 +40,29 @@
     > .btn:last-child:not(:first-child),
     > .dropdown-toggle:not(:first-child) {
       .border-left-radius(0);
+    }
+
+    // Justified button groups
+    &.btn-group-justified {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: separate;
+
+        > .btn,
+        > .btn-group {
+            text-align: center;
+            float: none;
+            display: table-cell;
+            width: 1%;
+        }
+        > .btn-group .btn {
+            width: 100%;
+        }
+
+        > .btn-group .dropdown-menu {
+            left: auto;
+        }
     }
 }
 
