@@ -2310,7 +2310,7 @@ a.btn.btn-link:focus,
 .btn.btn-link .caret,
 a.btn.btn-link .caret,
 .gb-markdown .btn.btn-link .caret {
-  border-top-color: #428bca;
+  border-top-color: #fff;
 }
 .btn.btn-link.btn-noborder,
 a.btn.btn-link.btn-noborder,
@@ -2412,7 +2412,7 @@ a.btn.btn-success:focus,
 .btn.btn-success .caret,
 a.btn.btn-success .caret,
 .gb-markdown .btn.btn-success .caret {
-  border-top-color: #5cb85c;
+  border-top-color: #fff;
 }
 .btn.btn-success.btn-noborder,
 a.btn.btn-success.btn-noborder,
@@ -2518,7 +2518,7 @@ a.btn.btn-primary:focus,
 .btn.btn-primary .caret,
 a.btn.btn-primary .caret,
 .gb-markdown .btn.btn-primary .caret {
-  border-top-color: #428bca;
+  border-top-color: #fff;
 }
 .btn.btn-primary.btn-noborder,
 a.btn.btn-primary.btn-noborder,
@@ -2624,7 +2624,7 @@ a.btn.btn-warning:focus,
 .btn.btn-warning .caret,
 a.btn.btn-warning .caret,
 .gb-markdown .btn.btn-warning .caret {
-  border-top-color: #f0ad4e;
+  border-top-color: #fff;
 }
 .btn.btn-warning.btn-noborder,
 a.btn.btn-warning.btn-noborder,
@@ -2730,7 +2730,7 @@ a.btn.btn-danger:focus,
 .btn.btn-danger .caret,
 a.btn.btn-danger .caret,
 .gb-markdown .btn.btn-danger .caret {
-  border-top-color: #dd4b39;
+  border-top-color: #fff;
 }
 .btn.btn-danger.btn-noborder,
 a.btn.btn-danger.btn-noborder,
@@ -2836,7 +2836,7 @@ a.btn.btn-info:focus,
 .btn.btn-info .caret,
 a.btn.btn-info .caret,
 .gb-markdown .btn.btn-info .caret {
-  border-top-color: #44b6f1;
+  border-top-color: #fff;
 }
 .btn.btn-info.btn-noborder,
 a.btn.btn-info.btn-noborder,
@@ -3024,8 +3024,10 @@ a.btn .btn-label,
   z-index: 2;
 }
 .btn-group .btn + .btn,
+.btn-group .btn-group + .btn {
+  border-left: 0px;
+}
 .btn-group .btn + .btn-group,
-.btn-group .btn-group + .btn,
 .btn-group .btn-group + .btn-group {
   margin-left: -1px;
 }
@@ -3043,6 +3045,25 @@ a.btn .btn-label,
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+}
+.btn-group.btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+.btn-group.btn-group-justified > .btn,
+.btn-group.btn-group-justified > .btn-group {
+  text-align: center;
+  float: none;
+  display: table-cell;
+  width: 1%;
+}
+.btn-group.btn-group-justified > .btn-group .btn {
+  width: 100%;
+}
+.btn-group.btn-group-justified > .btn-group .dropdown-menu {
+  left: auto;
 }
 .btn-toolbar {
   margin-left: -5px;
@@ -4063,6 +4084,10 @@ a.btn .btn-label,
   margin-bottom: 20px;
   padding-left: 0;
 }
+.list-group li.list-group-item a {
+  color: inherit;
+  text-decoration: none;
+}
 .list-group .list-group-item {
   position: relative;
   display: block;
@@ -4510,7 +4535,7 @@ select.form-control.btn-link:focus {
   border-color: #245682;
 }
 select.form-control.btn-link .caret {
-  border-top-color: #428bca;
+  border-top-color: #fff;
 }
 select.form-control.btn-link.btn-noborder,
 select.form-control.btn-link.btn-link {
@@ -4570,7 +4595,7 @@ select.form-control.btn-success:focus {
   border-color: #357935;
 }
 select.form-control.btn-success .caret {
-  border-top-color: #5cb85c;
+  border-top-color: #fff;
 }
 select.form-control.btn-success.btn-noborder,
 select.form-control.btn-success.btn-link {
@@ -4634,7 +4659,7 @@ select.form-control.btn-primary:focus {
   border-color: #245682;
 }
 select.form-control.btn-primary .caret {
-  border-top-color: #428bca;
+  border-top-color: #fff;
 }
 select.form-control.btn-primary.btn-noborder,
 select.form-control.btn-primary.btn-link {
@@ -4698,7 +4723,7 @@ select.form-control.btn-warning:focus {
   border-color: #c77c11;
 }
 select.form-control.btn-warning .caret {
-  border-top-color: #f0ad4e;
+  border-top-color: #fff;
 }
 select.form-control.btn-warning.btn-noborder,
 select.form-control.btn-warning.btn-link {
@@ -4762,7 +4787,7 @@ select.form-control.btn-danger:focus {
   border-color: #96271a;
 }
 select.form-control.btn-danger .caret {
-  border-top-color: #dd4b39;
+  border-top-color: #fff;
 }
 select.form-control.btn-danger.btn-noborder,
 select.form-control.btn-danger.btn-link {
@@ -4826,7 +4851,7 @@ select.form-control.btn-info:focus {
   border-color: #0e84c1;
 }
 select.form-control.btn-info .caret {
-  border-top-color: #44b6f1;
+  border-top-color: #fff;
 }
 select.form-control.btn-info.btn-noborder,
 select.form-control.btn-info.btn-link {
