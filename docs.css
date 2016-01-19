@@ -3023,6 +3023,10 @@ a.btn .btn-label,
 .btn-group > .btn.active {
   z-index: 2;
 }
+.btn-group.btn-group-block {
+  width: 100%;
+  display: block;
+}
 .btn-group .btn + .btn,
 .btn-group .btn-group + .btn {
   border-left: 0px;
@@ -3101,6 +3105,10 @@ a.btn .btn-label,
   position: relative;
   text-align: left;
   color: #333;
+}
+.dropdown.btn-group-block .dropdown-menu,
+.btn-group.dropdown.btn-group-block .dropdown-menu {
+  min-width: 100%;
 }
 .dropdown > .dropdown-menu,
 .btn-group.dropdown > .dropdown-menu {
