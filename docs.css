@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'octicons';
-  src: url('/assets/fonts/octicons/octicons.eot?#iefix&v=6f0908ee5b07e503e10c6040adaebd65ea4f4c0e') format('embedded-opentype'), url('/assets/fonts/octicons/octicons.woff?v=6f0908ee5b07e503e10c6040adaebd65ea4f4c0e') format('woff'), url('/assets/fonts/octicons/octicons.ttf?v=6f0908ee5b07e503e10c6040adaebd65ea4f4c0e') format('truetype'), url('/assets/fonts/octicons/octicons.svg?v=6f0908ee5b07e503e10c6040adaebd65ea4f4c0e#octicons') format('svg');
+  src: url('/assets/fonts/octicons/octicons.eot?#iefix&v=83cf61c381c06806e0a3925d1a13c772b25161d2') format('embedded-opentype'), url('/assets/fonts/octicons/octicons.woff?v=83cf61c381c06806e0a3925d1a13c772b25161d2') format('woff'), url('/assets/fonts/octicons/octicons.ttf?v=83cf61c381c06806e0a3925d1a13c772b25161d2') format('truetype'), url('/assets/fonts/octicons/octicons.svg?v=83cf61c381c06806e0a3925d1a13c772b25161d2#octicons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -149,10 +149,6 @@
   content: '\f05f';
 }
 /*  */
-.octicon-color-mode:before {
-  content: '\f065';
-}
-/*  */
 .octicon-comment-add:before,
 .octicon-comment:before {
   content: '\f02b';
@@ -607,6 +603,10 @@
   content: '\f032';
 }
 /*  */
+.octicon-smiley:before {
+  content: '\f0e7';
+}
+/*  */
 .octicon-squirrel:before {
   content: '\f0b2';
 }
@@ -692,6 +692,10 @@
   content: '\f0ba';
 }
 /*  */
+.octicon-verified:before {
+  content: '\f0e6';
+}
+/*  */
 .octicon-versions:before {
   content: '\f064';
 }
@@ -5389,7 +5393,6 @@ select.form-control:focus {
   padding: 10px 0px;
   background: #fff;
   color: #555;
-  border-top: 2px solid #4d4d4f;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 3px 2px -2px rgba(200, 200, 200, 0.2);
 }
