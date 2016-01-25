@@ -1,6 +1,6 @@
 {
     "name": "gitbook-styleguide",
-    "version": "5.4.0",
+    "version": "5.4.1",
     "private": true,
     "main": "./index.js",
     "author": "GitBook <contact@gitbook.com>",
