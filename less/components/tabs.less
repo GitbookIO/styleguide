@@ -58,16 +58,19 @@
         }
     }
 
-    > .tabs-content {
-        margin-top: @gb-margin-base;
-
-        > .tab-pane {
+    .tabs-content {
+        .tab-pane {
               display: none;
 
               &.active {
                 display: block;
               }
         }
+    }
+
+    // Positioning and margin
+    > .tabs-content {
+        margin-top: @gb-margin-base;
     }
 
     &.tabs-fluid {
