@@ -2344,6 +2344,7 @@ a.btn.btn-link.btn-link:focus,
 .gb-markdown .btn.btn-link.btn-link:focus {
   color: #2d6ca2;
   outline: none;
+  text-decoration: underline;
 }
 .btn.btn-link:hover,
 a.btn.btn-link:hover,
@@ -2351,6 +2352,21 @@ a.btn.btn-link:hover,
 .btn.btn-link:focus,
 a.btn.btn-link:focus,
 .gb-markdown .btn.btn-link:focus {
+  color: #428bca;
+}
+.btn.btn-text-link,
+a.btn.btn-text-link,
+.gb-markdown .btn.btn-text-link {
+  color: inherit;
+  background: transparent;
+  border-color: transparent;
+}
+.btn.btn-text-link:hover,
+a.btn.btn-text-link:hover,
+.gb-markdown .btn.btn-text-link:hover,
+.btn.btn-text-link:focus,
+a.btn.btn-text-link:focus,
+.gb-markdown .btn.btn-text-link:focus {
   color: #428bca;
 }
 .btn.btn-plain,
@@ -2446,6 +2462,7 @@ a.btn.btn-success.btn-link:focus,
 .gb-markdown .btn.btn-success.btn-link:focus {
   color: #419641;
   outline: none;
+  text-decoration: underline;
 }
 .btn.btn-success.btn-plain,
 a.btn.btn-success.btn-plain,
@@ -2552,6 +2569,7 @@ a.btn.btn-primary.btn-link:focus,
 .gb-markdown .btn.btn-primary.btn-link:focus {
   color: #2d6ca2;
   outline: none;
+  text-decoration: underline;
 }
 .btn.btn-primary.btn-plain,
 a.btn.btn-primary.btn-plain,
@@ -2658,6 +2676,7 @@ a.btn.btn-warning.btn-link:focus,
 .gb-markdown .btn.btn-warning.btn-link:focus {
   color: #eb9316;
   outline: none;
+  text-decoration: underline;
 }
 .btn.btn-warning.btn-plain,
 a.btn.btn-warning.btn-plain,
@@ -2764,6 +2783,7 @@ a.btn.btn-danger.btn-link:focus,
 .gb-markdown .btn.btn-danger.btn-link:focus {
   color: #b93120;
   outline: none;
+  text-decoration: underline;
 }
 .btn.btn-danger.btn-plain,
 a.btn.btn-danger.btn-plain,
@@ -2870,6 +2890,7 @@ a.btn.btn-info.btn-link:focus,
 .gb-markdown .btn.btn-info.btn-link:focus {
   color: #119ee7;
   outline: none;
+  text-decoration: underline;
 }
 .btn.btn-info.btn-plain,
 a.btn.btn-info.btn-plain,
@@ -4565,9 +4586,19 @@ select.form-control.btn-link.btn-noborder:focus,
 select.form-control.btn-link.btn-link:focus {
   color: #2d6ca2;
   outline: none;
+  text-decoration: underline;
 }
 select.form-control.btn-link:hover,
 select.form-control.btn-link:focus {
+  color: #428bca;
+}
+select.form-control.btn-text-link {
+  color: inherit;
+  background: transparent;
+  border-color: transparent;
+}
+select.form-control.btn-text-link:hover,
+select.form-control.btn-text-link:focus {
   color: #428bca;
 }
 select.form-control.btn-plain {
@@ -4625,6 +4656,7 @@ select.form-control.btn-success.btn-noborder:focus,
 select.form-control.btn-success.btn-link:focus {
   color: #419641;
   outline: none;
+  text-decoration: underline;
 }
 select.form-control.btn-success.btn-plain {
   background: #5cb85c;
@@ -4689,6 +4721,7 @@ select.form-control.btn-primary.btn-noborder:focus,
 select.form-control.btn-primary.btn-link:focus {
   color: #2d6ca2;
   outline: none;
+  text-decoration: underline;
 }
 select.form-control.btn-primary.btn-plain {
   background: #428bca;
@@ -4753,6 +4786,7 @@ select.form-control.btn-warning.btn-noborder:focus,
 select.form-control.btn-warning.btn-link:focus {
   color: #eb9316;
   outline: none;
+  text-decoration: underline;
 }
 select.form-control.btn-warning.btn-plain {
   background: #f0ad4e;
@@ -4817,6 +4851,7 @@ select.form-control.btn-danger.btn-noborder:focus,
 select.form-control.btn-danger.btn-link:focus {
   color: #b93120;
   outline: none;
+  text-decoration: underline;
 }
 select.form-control.btn-danger.btn-plain {
   background: #dd4b39;
@@ -4881,6 +4916,7 @@ select.form-control.btn-info.btn-noborder:focus,
 select.form-control.btn-info.btn-link:focus {
   color: #119ee7;
   outline: none;
+  text-decoration: underline;
 }
 select.form-control.btn-info.btn-plain {
   background: #44b6f1;

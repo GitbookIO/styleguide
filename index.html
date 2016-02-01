@@ -85,14 +85,15 @@
 
 <h1 id="installation">Installation</h1>
 
-<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code>gitbook-styleguide</code>, current version is <strong>5.4.1</strong>.</p>
+<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code class="highlighter-rouge">gitbook-styleguide</code>, current version is <strong>5.5.0</strong>.</p>
 
-<pre><code>$ npm install gitbook-styleguide@5.4.1
-</code></pre>
+<p><code class="highlighter-rouge">
+$ npm install gitbook-styleguide@5.5.0
+</code></p>
 
-<p>Simply include <code>node_modules/gitbook-styleguide/less/main.less</code> in your less file.</p>
+<p>Simply include <code class="highlighter-rouge">node_modules/gitbook-styleguide/less/main.less</code> in your less file.</p>
 
-<p>Contents of folder <code>node_modules/gitbook-styleguide/assets</code> should be accessible from the web server. The root folder can be set using the less variable <code>@gb-assets-path</code>.</p>
+<p>Contents of folder <code class="highlighter-rouge">node_modules/gitbook-styleguide/assets</code> should be accessible from the web server. The root folder can be set using the less variable <code class="highlighter-rouge">@gb-assets-path</code>.</p>
 
 <h1 id="guidelines">Guidelines</h1>
 
@@ -100,32 +101,32 @@
 
 <p>It makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your pages.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
   ...
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
 
 <h3 id="box-sizing">Box-sizing</h3>
 
-<p>We reset <code>box-sizing</code> to <code>border-box</code> for every element. This allows us to more easily assign widths to elements that also have padding and borders.</p>
+<p>We reset <code class="highlighter-rouge">box-sizing</code> to <code class="highlighter-rouge">border-box</code> for every element. This allows us to more easily assign widths to elements that also have padding and borders.</p>
 
 <h3 id="less-variables">Less Variables</h3>
 
 <h6 id="format">Format</h6>
 
-<p>Variables should use dash instead of uppercases. For example <code>@gb-hello-world</code> is valid, but <code>@gb-helloWorld</code> is not.</p>
+<p>Variables should use dash instead of uppercases. For example <code class="highlighter-rouge">@gb-hello-world</code> is valid, but <code class="highlighter-rouge">@gb-helloWorld</code> is not.</p>
 
 <h6 id="prefix">Prefix</h6>
 
-<p>All variables defined by this module should be prefixed by <code>@gb-</code>.</p>
+<p>All variables defined by this module should be prefixed by <code class="highlighter-rouge">@gb-</code>.</p>
 
 <h6 id="paths">Paths</h6>
 
-<p>Variables that defined a path should not finish with a slash. For example <code>@gb-static-folder: "/static"</code> is valid.</p>
+<p>Variables that defined a path should not finish with a slash. For example <code class="highlighter-rouge">@gb-static-folder: "/static"</code> is valid.</p>
 
 <h1 id="page-layout">Page Layout</h1>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
     ...
     <span class="nt">&lt;body&gt;</span>
@@ -141,7 +142,7 @@
             <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
 
 <h1 id="grid-system">Grid System</h1>
 
@@ -149,8 +150,8 @@
 
 <ul>
   <li>There are 12 columns per row</li>
-  <li>Rows must be placed within a <code>.container</code></li>
-  <li>Use <code>.row</code> to create horizontal groups of columns.</li>
+  <li>Rows must be placed within a <code class="highlighter-rouge">.container</code></li>
+  <li>Use <code class="highlighter-rouge">.row</code> to create horizontal groups of columns.</li>
   <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
 </ul>
 
@@ -185,7 +186,7 @@
 
 <h3 id="offsetting-columns">Offsetting columns</h3>
 
-<p>Move columns to the right using <code>.col-md-offset-*</code> classes. These classes increase the left margin of a column by * columns. For example, <code>.col-md-offset-4</code> moves <code>.col-md-4</code> over four columns.</p>
+<p>Move columns to the right using <code class="highlighter-rouge">.col-md-offset-*</code> classes. These classes increase the left margin of a column by * columns. For example, <code class="highlighter-rouge">.col-md-offset-4</code> moves <code class="highlighter-rouge">.col-md-4</code> over four columns.</p>
 
 <div class="docs-example clearfix"><div class="row">
     <div class="col-md-4">.col-md-4</div>
@@ -224,35 +225,35 @@
       <td>Large devices (≥1200px)</td>
     </tr>
     <tr>
-      <td><code>.hidden</code></td>
+      <td><code class="highlighter-rouge">.hidden</code></td>
       <td>Hidden</td>
       <td>Hidden</td>
       <td>Hidden</td>
       <td>Hidden</td>
     </tr>
     <tr>
-      <td><code>.hidden-xs</code></td>
+      <td><code class="highlighter-rouge">.hidden-xs</code></td>
       <td>Hidden</td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
     </tr>
     <tr>
-      <td><code>.hidden-sm</code></td>
+      <td><code class="highlighter-rouge">.hidden-sm</code></td>
       <td><strong>Visible</strong></td>
       <td>Hidden</td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
     </tr>
     <tr>
-      <td><code>.hidden-md</code></td>
+      <td><code class="highlighter-rouge">.hidden-md</code></td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
       <td>Hidden</td>
       <td><strong>Visible</strong></td>
     </tr>
     <tr>
-      <td><code>.hidden-lg</code></td>
+      <td><code class="highlighter-rouge">.hidden-lg</code></td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
@@ -323,7 +324,7 @@
 
 <h1 id="icons">Icons</h1>
 
-<p>Icons from <a href="https://octicons.github.com/">octicons</a> are used for GitBook. You should use <code>&lt;i&gt;</code> tags for icons.</p>
+<p>Icons from <a href="https://octicons.github.com/">octicons</a> are used for GitBook. You should use <code class="highlighter-rouge">&lt;i&gt;</code> tags for icons.</p>
 
 <div class="docs-example clearfix"><i class="octicon octicon-book"></i></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"octicon octicon-book"</span><span class="nt">&gt;&lt;/i&gt;</span></code></pre></div>
@@ -334,9 +335,9 @@
 
 <h3 id="default-buttons">Default buttons</h3>
 
-<p>Use the standard—yet classy—<code>.btn</code> for form actions and primary page actions. These are used extensively around the site.</p>
+<p>Use the standard—yet classy—<code class="highlighter-rouge">.btn</code> for form actions and primary page actions. These are used extensively around the site.</p>
 
-<p>When using a <code>&lt;button&gt;</code> element, <strong>always specify a <code>type</code></strong>. When using a <code>&lt;a&gt;</code> element, <strong>always add <code>role="button"</code> for accessibility</strong>.</p>
+<p>When using a <code class="highlighter-rouge">&lt;button&gt;</code> element, <strong>always specify a <code class="highlighter-rouge">type</code></strong>. When using a <code class="highlighter-rouge">&lt;a&gt;</code> element, <strong>always add <code class="highlighter-rouge">role="button"</code> for accessibility</strong>.</p>
 
 <div class="docs-example clearfix"><button class="btn" type="button">Button button</button>
 <a class="btn" href="#" role="button">Link button</a></div>
@@ -377,16 +378,18 @@
 <button class="btn btn-text-success" type="button">Success button</button>
 <button class="btn btn-text-danger" type="button">Danger button</button>
 <button class="btn btn-text-warning" type="button">Warning button</button>
-<button class="btn btn-link" type="button">Link button</button></div>
+<button class="btn btn-link" type="button">Link button</button>
+<button class="btn btn-text-link" type="button">Text Link button</button></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-primary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-success"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Success button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-danger"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Danger button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-warning"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Warning button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/button&gt;</span></code></pre></div>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Text Link button<span class="nt">&lt;/button&gt;</span></code></pre></div>
 
 <h3 id="block-buttons">Block Buttons</h3>
 
-<p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
+<p>Create block level buttons—those that span the full width of a parent— by adding <code class="highlighter-rouge">.btn-block</code>.</p>
 
 <div class="docs-example clearfix"><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
 <button type="button" class="btn btn-lg btn-block">Block level button</button></div>
@@ -395,7 +398,7 @@
 
 <h3 id="outline">Outline</h3>
 
-<p>Outline buttons downplay an action as they appear like boxy links. Just add <code>.btn-outline</code> and go.</p>
+<p>Outline buttons downplay an action as they appear like boxy links. Just add <code class="highlighter-rouge">.btn-outline</code> and go.</p>
 
 <div class="docs-example clearfix"><button class="btn btn-count" type="button">Default button</button>
 <button class="btn btn-primary btn-outline" type="button">Primary button</button>
@@ -518,9 +521,9 @@
 
 <h1 id="tooltips">Tooltips</h1>
 
-<p>Add tooltips built entirely in CSS to nearly any element. Just add a few classes and an <code>aria-label</code> attribute.</p>
+<p>Add tooltips built entirely in CSS to nearly any element. Just add a few classes and an <code class="highlighter-rouge">aria-label</code> attribute.</p>
 
-<p>Remember, <code>aria-label</code> and tooltip classes must go directly on <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements. Tooltip classes also conflict with icon classes, and as such, must go on a parent element instead of the icon.</p>
+<p>Remember, <code class="highlighter-rouge">aria-label</code> and tooltip classes must go directly on <code class="highlighter-rouge">&lt;button&gt;</code> and <code class="highlighter-rouge">&lt;a&gt;</code> elements. Tooltip classes also conflict with icon classes, and as such, must go on a parent element instead of the icon.</p>
 
 <div class="docs-example clearfix"><button class="btn tooltipped tooltipped-o" aria-label="Bottom, right (default)" type="button">Button</button>
 <button class="btn tooltipped tooltipped-nw tooltipped-o" aria-label="Top, left" type="button">.tooltipped-nw</button>
@@ -644,7 +647,7 @@
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control input-xs"</span> <span class="na">placeholder=</span><span class="s">".form-control.input-xs"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
-<p>Extend form controls by adding text or buttons before, after, or on both sides of any text-based <code>&lt;input&gt;</code>. Use <code>.input-group</code> with an <code>.input-group-addon</code> to prepend or append elements to a single <code>.form-control</code>.</p>
+<p>Extend form controls by adding text or buttons before, after, or on both sides of any text-based <code class="highlighter-rouge">&lt;input&gt;</code>. Use <code class="highlighter-rouge">.input-group</code> with an <code class="highlighter-rouge">.input-group-addon</code> to prepend or append elements to a single <code class="highlighter-rouge">.form-control</code>.</p>
 
 <div class="docs-example clearfix"><div class="form-group">
     <div class="input-group">
@@ -762,7 +765,7 @@
 
 <h1 id="navigation">Navigation</h1>
 
-<p><code>.pagehead</code> can be used to display a horrizontal navigation bar:</p>
+<p><code class="highlighter-rouge">.pagehead</code> can be used to display a horrizontal navigation bar:</p>
 
 <div class="docs-example clearfix"><div class="pagehead">
     <div class="container">
@@ -843,7 +846,7 @@
 
 <h3 id="basic-example">Basic example</h3>
 
-<p>Wrap some content in the outer <code>.blankslate</code> wrapper to give it the blankslate appearance.</p>
+<p>Wrap some content in the outer <code class="highlighter-rouge">.blankslate</code> wrapper to give it the blankslate appearance.</p>
 
 <div class="docs-example clearfix"><div class="blankslate">
     <div class="icon"><i class="octicon octicon-book"></i></div>
@@ -886,7 +889,7 @@
 
 <h1 id="dropdowns">Dropdowns</h1>
 
-<p>Dropdown menu can be added to <code>.btn-group</code>.</p>
+<p>Dropdown menu can be added to <code class="highlighter-rouge">.btn-group</code>.</p>
 
 <div class="docs-example clearfix"><div class="btn-group dropdown">
     <button class="btn" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
@@ -931,7 +934,7 @@
     <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
-<p><code>.pull-right</code> and <code>.pull-left</code> classes can be used to change the direction of the dropdown:</p>
+<p><code class="highlighter-rouge">.pull-right</code> and <code class="highlighter-rouge">.pull-left</code> classes can be used to change the direction of the dropdown:</p>
 
 <div class="docs-example clearfix"><div class="btn-group pull-left dropdown">
     <button class="btn" type="button">Left</button>
@@ -1011,7 +1014,7 @@
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
-<p>Panels can also include a <code>.list-group</code>.</p>
+<p>Panels can also include a <code class="highlighter-rouge">.list-group</code>.</p>
 
 <div class="docs-example clearfix"><div class="panel panel-default">
     <div class="panel-heading">
@@ -1170,7 +1173,7 @@
 
 <h1 id="modals">Modals</h1>
 
-<p>Modal (<code>.modal</code>) can be used in 3 sizes: medium (default), small (<code>.modal-sm</code>) and large (<code>.modal-lg</code>). <code>.modal-backdrop</code> can be use to set a fixed backdrop for modals.</p>
+<p>Modal (<code class="highlighter-rouge">.modal</code>) can be used in 3 sizes: medium (default), small (<code class="highlighter-rouge">.modal-sm</code>) and large (<code class="highlighter-rouge">.modal-lg</code>). <code class="highlighter-rouge">.modal-backdrop</code> can be use to set a fixed backdrop for modals.</p>
 
 <div class="docs-example clearfix"><div class="modal">
     <div class="modal-heading">
@@ -1396,7 +1399,7 @@
 
 <h1 id="markdown">Markdown</h1>
 
-<p>HTML from Markdown following <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a> syntax can be styled easily using <code>.gb-markdown</code>.</p>
+<p>HTML from Markdown following <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a> syntax can be styled easily using <code class="highlighter-rouge">.gb-markdown</code>.</p>
 
 <div class="docs-example clearfix"><div class="gb-markdown">
     <h1>Heading 1</h1>
@@ -1429,7 +1432,7 @@
                             <a href="/">Return to the top</a>
                         </li>
                         <li>
-                            <a href="https://github.com/GitbookIO/styleguide/releases">Version 5.4.1</a>
+                            <a href="https://github.com/GitbookIO/styleguide/releases">Version 5.5.0</a>
                         </li>
                     </ul>
                 </div>
