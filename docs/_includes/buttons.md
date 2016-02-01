@@ -45,6 +45,7 @@ Different styles of buttons are available to indicate different kind of actions.
 <button class="btn btn-text-danger" type="button">Danger button</button>
 <button class="btn btn-text-warning" type="button">Warning button</button>
 <button class="btn btn-link" type="button">Link button</button>
+<button class="btn btn-text-link" type="button">Text Link button</button>
 {% endexample %}
 
 ### Block Buttons
