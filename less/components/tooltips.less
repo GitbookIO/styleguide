@@ -5,37 +5,37 @@
     &:hover, &.tooltipped-o {
         &:after {
             line-height: 1em;
-            background: #111;
-            background: rgba(0,0,0,.9);
-            border-radius: 1px;
+            background: @gb-tooltip-background;
+            border-radius: @gb-tooltip-radius;
             bottom: auto;
             top: ~"calc(100% + 10px)";
-            color: #fff;
+            color: @gb-tooltipe-color;
             content: attr(aria-label);
             display: block;
-            left: 5px;
+            left: 50%;
             padding: 5px 5px;
             position: absolute;
-            text-shadow: 0 1px 0 #000;
             white-space: nowrap;
             z-index: @gb-zindex-tooltip;
             font-size: 13px;
             text-transform: none;
             font-weight: @gb-font-weight-base;
+            pointer-events: none;
+            .transform(~"translateX(-50%)");
         }
 
         &:before {
             border: solid;
-            border-color: #111 transparent;
-            border-color: rgba(0,0,0,.9) transparent;
+            border-color: @gb-tooltip-background transparent;
             bottom:auto;
             top: ~"calc(100% + 5px)";
             border-width: 0px 5px 5px 5px;
             content: "";
             display: block;
-            left: 10px;
+            left: 50%;
             position: absolute;
             z-index: @gb-zindex-tooltip+1;
+            .transform(~"translateX(-50%)");
         }
     }
 
@@ -43,21 +43,25 @@
         &:after {
             top: auto;
             bottom: ~"calc(100% + 10px)";
+            .transform(~"translateX(0%)");
         }
         &:before {
             top: auto;
             border-width: 5px 5px 0px 5px;
             bottom: ~"calc(100% + 5px)";
+            .transform(~"translateX(0%)");
         }
     }
     .west() {
         &:after {
             left: auto;
             right: 5px;
+            .transform(~"translateX(0%)");
         }
         &:before {
             left: auto;
             right: 10px;
+            .transform(~"translateX(0%)");
         }
     }
 
