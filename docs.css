@@ -4246,6 +4246,44 @@ a.btn .btn-label,
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+.filter-list,
+ul.filter-list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.filter-list li .filter-item,
+ul.filter-list li .filter-item {
+  position: relative;
+  display: block;
+  padding: 6px 12px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #777;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+.filter-list li .filter-item .count,
+ul.filter-list li .filter-item .count {
+  float: right;
+  font-weight: 500;
+}
+.filter-list li .filter-item:hover,
+ul.filter-list li .filter-item:hover {
+  text-decoration: none;
+  color: #777;
+  background-color: #eee;
+}
+.filter-list li .filter-item.selected,
+ul.filter-list li .filter-item.selected,
+.filter-list li .filter-item.selected:hover,
+ul.filter-list li .filter-item.selected:hover {
+  color: #fff;
+  background-color: #428bca;
+}
 .modal-backdrop {
   background: rgba(0, 0, 0, 0.55);
   position: fixed;

@@ -62,6 +62,7 @@
         <a href="#blankslate" class="list-group-item">Blankslate</a>
         <a href="#dropdowns" class="list-group-item">Dropdowns</a>
         <a href="#list-groups" class="list-group-item">List Groups</a>
+        <a href="#filter-list" class="list-group-item">Filter Lists</a>
         <a href="#panels" class="list-group-item">Panels</a>
         <a href="#labels" class="list-group-item">Labels</a>
         <a href="#modals" class="list-group-item">Modal</a>
@@ -85,15 +86,14 @@
 
 <h1 id="installation">Installation</h1>
 
-<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code class="highlighter-rouge">gitbook-styleguide</code>, current version is <strong>5.6.0</strong>.</p>
+<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code>gitbook-styleguide</code>, current version is <strong>5.7.0</strong>.</p>
 
-<p><code class="highlighter-rouge">
-$ npm install gitbook-styleguide@5.6.0
-</code></p>
+<pre><code>$ npm install gitbook-styleguide@5.7.0
+</code></pre>
 
-<p>Simply include <code class="highlighter-rouge">node_modules/gitbook-styleguide/less/main.less</code> in your less file.</p>
+<p>Simply include <code>node_modules/gitbook-styleguide/less/main.less</code> in your less file.</p>
 
-<p>Contents of folder <code class="highlighter-rouge">node_modules/gitbook-styleguide/assets</code> should be accessible from the web server. The root folder can be set using the less variable <code class="highlighter-rouge">@gb-assets-path</code>.</p>
+<p>Contents of folder <code>node_modules/gitbook-styleguide/assets</code> should be accessible from the web server. The root folder can be set using the less variable <code>@gb-assets-path</code>.</p>
 
 <h1 id="guidelines">Guidelines</h1>
 
@@ -101,32 +101,32 @@ $ npm install gitbook-styleguide@5.6.0
 
 <p>It makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your pages.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
   ...
-<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <h3 id="box-sizing">Box-sizing</h3>
 
-<p>We reset <code class="highlighter-rouge">box-sizing</code> to <code class="highlighter-rouge">border-box</code> for every element. This allows us to more easily assign widths to elements that also have padding and borders.</p>
+<p>We reset <code>box-sizing</code> to <code>border-box</code> for every element. This allows us to more easily assign widths to elements that also have padding and borders.</p>
 
 <h3 id="less-variables">Less Variables</h3>
 
 <h6 id="format">Format</h6>
 
-<p>Variables should use dash instead of uppercases. For example <code class="highlighter-rouge">@gb-hello-world</code> is valid, but <code class="highlighter-rouge">@gb-helloWorld</code> is not.</p>
+<p>Variables should use dash instead of uppercases. For example <code>@gb-hello-world</code> is valid, but <code>@gb-helloWorld</code> is not.</p>
 
 <h6 id="prefix">Prefix</h6>
 
-<p>All variables defined by this module should be prefixed by <code class="highlighter-rouge">@gb-</code>.</p>
+<p>All variables defined by this module should be prefixed by <code>@gb-</code>.</p>
 
 <h6 id="paths">Paths</h6>
 
-<p>Variables that defined a path should not finish with a slash. For example <code class="highlighter-rouge">@gb-static-folder: "/static"</code> is valid.</p>
+<p>Variables that defined a path should not finish with a slash. For example <code>@gb-static-folder: "/static"</code> is valid.</p>
 
 <h1 id="page-layout">Page Layout</h1>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
     ...
     <span class="nt">&lt;body&gt;</span>
@@ -142,7 +142,7 @@ $ npm install gitbook-styleguide@5.6.0
             <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <h1 id="grid-system">Grid System</h1>
 
@@ -150,8 +150,8 @@ $ npm install gitbook-styleguide@5.6.0
 
 <ul>
   <li>There are 12 columns per row</li>
-  <li>Rows must be placed within a <code class="highlighter-rouge">.container</code></li>
-  <li>Use <code class="highlighter-rouge">.row</code> to create horizontal groups of columns.</li>
+  <li>Rows must be placed within a <code>.container</code></li>
+  <li>Use <code>.row</code> to create horizontal groups of columns.</li>
   <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
 </ul>
 
@@ -186,7 +186,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h3 id="offsetting-columns">Offsetting columns</h3>
 
-<p>Move columns to the right using <code class="highlighter-rouge">.col-md-offset-*</code> classes. These classes increase the left margin of a column by * columns. For example, <code class="highlighter-rouge">.col-md-offset-4</code> moves <code class="highlighter-rouge">.col-md-4</code> over four columns.</p>
+<p>Move columns to the right using <code>.col-md-offset-*</code> classes. These classes increase the left margin of a column by * columns. For example, <code>.col-md-offset-4</code> moves <code>.col-md-4</code> over four columns.</p>
 
 <div class="docs-example clearfix"><div class="row">
     <div class="col-md-4">.col-md-4</div>
@@ -225,35 +225,35 @@ $ npm install gitbook-styleguide@5.6.0
       <td>Large devices (≥1200px)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.hidden</code></td>
+      <td><code>.hidden</code></td>
       <td>Hidden</td>
       <td>Hidden</td>
       <td>Hidden</td>
       <td>Hidden</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.hidden-xs</code></td>
+      <td><code>.hidden-xs</code></td>
       <td>Hidden</td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.hidden-sm</code></td>
+      <td><code>.hidden-sm</code></td>
       <td><strong>Visible</strong></td>
       <td>Hidden</td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.hidden-md</code></td>
+      <td><code>.hidden-md</code></td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
       <td>Hidden</td>
       <td><strong>Visible</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">.hidden-lg</code></td>
+      <td><code>.hidden-lg</code></td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
       <td><strong>Visible</strong></td>
@@ -324,7 +324,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h1 id="icons">Icons</h1>
 
-<p>Icons from <a href="https://octicons.github.com/">octicons</a> are used for GitBook. You should use <code class="highlighter-rouge">&lt;i&gt;</code> tags for icons.</p>
+<p>Icons from <a href="https://octicons.github.com/">octicons</a> are used for GitBook. You should use <code>&lt;i&gt;</code> tags for icons.</p>
 
 <div class="docs-example clearfix"><i class="octicon octicon-book"></i></div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"octicon octicon-book"</span><span class="nt">&gt;&lt;/i&gt;</span></code></pre></div>
@@ -335,9 +335,9 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h3 id="default-buttons">Default buttons</h3>
 
-<p>Use the standard—yet classy—<code class="highlighter-rouge">.btn</code> for form actions and primary page actions. These are used extensively around the site.</p>
+<p>Use the standard—yet classy—<code>.btn</code> for form actions and primary page actions. These are used extensively around the site.</p>
 
-<p>When using a <code class="highlighter-rouge">&lt;button&gt;</code> element, <strong>always specify a <code class="highlighter-rouge">type</code></strong>. When using a <code class="highlighter-rouge">&lt;a&gt;</code> element, <strong>always add <code class="highlighter-rouge">role="button"</code> for accessibility</strong>.</p>
+<p>When using a <code>&lt;button&gt;</code> element, <strong>always specify a <code>type</code></strong>. When using a <code>&lt;a&gt;</code> element, <strong>always add <code>role="button"</code> for accessibility</strong>.</p>
 
 <div class="docs-example clearfix"><button class="btn" type="button">Button button</button>
 <a class="btn" href="#" role="button">Link button</a></div>
@@ -389,7 +389,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h3 id="block-buttons">Block Buttons</h3>
 
-<p>Create block level buttons—those that span the full width of a parent— by adding <code class="highlighter-rouge">.btn-block</code>.</p>
+<p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
 
 <div class="docs-example clearfix"><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
 <button type="button" class="btn btn-lg btn-block">Block level button</button></div>
@@ -398,7 +398,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h3 id="outline">Outline</h3>
 
-<p>Outline buttons downplay an action as they appear like boxy links. Just add <code class="highlighter-rouge">.btn-outline</code> and go.</p>
+<p>Outline buttons downplay an action as they appear like boxy links. Just add <code>.btn-outline</code> and go.</p>
 
 <div class="docs-example clearfix"><button class="btn btn-count" type="button">Default button</button>
 <button class="btn btn-primary btn-outline" type="button">Primary button</button>
@@ -521,9 +521,9 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h1 id="tooltips">Tooltips</h1>
 
-<p>Add tooltips built entirely in CSS to nearly any element. Just add a few classes and an <code class="highlighter-rouge">aria-label</code> attribute.</p>
+<p>Add tooltips built entirely in CSS to nearly any element. Just add a few classes and an <code>aria-label</code> attribute.</p>
 
-<p>Remember, <code class="highlighter-rouge">aria-label</code> and tooltip classes must go directly on <code class="highlighter-rouge">&lt;button&gt;</code> and <code class="highlighter-rouge">&lt;a&gt;</code> elements. Tooltip classes also conflict with icon classes, and as such, must go on a parent element instead of the icon.</p>
+<p>Remember, <code>aria-label</code> and tooltip classes must go directly on <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements. Tooltip classes also conflict with icon classes, and as such, must go on a parent element instead of the icon.</p>
 
 <div class="docs-example clearfix"><button class="btn tooltipped tooltipped-nw tooltipped-o" aria-label="Top, left" type="button">.tooltipped-nw</button>
 <button class="btn tooltipped tooltipped-w tooltipped-o" aria-label="Bottom, left" type="button">.tooltipped-w</button>
@@ -647,7 +647,7 @@ $ npm install gitbook-styleguide@5.6.0
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control input-xs"</span> <span class="na">placeholder=</span><span class="s">".form-control.input-xs"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
-<p>Extend form controls by adding text or buttons before, after, or on both sides of any text-based <code class="highlighter-rouge">&lt;input&gt;</code>. Use <code class="highlighter-rouge">.input-group</code> with an <code class="highlighter-rouge">.input-group-addon</code> to prepend or append elements to a single <code class="highlighter-rouge">.form-control</code>.</p>
+<p>Extend form controls by adding text or buttons before, after, or on both sides of any text-based <code>&lt;input&gt;</code>. Use <code>.input-group</code> with an <code>.input-group-addon</code> to prepend or append elements to a single <code>.form-control</code>.</p>
 
 <div class="docs-example clearfix"><div class="form-group">
     <div class="input-group">
@@ -765,7 +765,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h1 id="navigation">Navigation</h1>
 
-<p><code class="highlighter-rouge">.pagehead</code> can be used to display a horrizontal navigation bar:</p>
+<p><code>.pagehead</code> can be used to display a horrizontal navigation bar:</p>
 
 <div class="docs-example clearfix"><div class="pagehead">
     <div class="container">
@@ -846,7 +846,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h3 id="basic-example">Basic example</h3>
 
-<p>Wrap some content in the outer <code class="highlighter-rouge">.blankslate</code> wrapper to give it the blankslate appearance.</p>
+<p>Wrap some content in the outer <code>.blankslate</code> wrapper to give it the blankslate appearance.</p>
 
 <div class="docs-example clearfix"><div class="blankslate">
     <div class="icon"><i class="octicon octicon-book"></i></div>
@@ -889,7 +889,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h1 id="dropdowns">Dropdowns</h1>
 
-<p>Dropdown menu can be added to <code class="highlighter-rouge">.btn-group</code>.</p>
+<p>Dropdown menu can be added to <code>.btn-group</code>.</p>
 
 <div class="docs-example clearfix"><div class="btn-group dropdown">
     <button class="btn" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
@@ -934,7 +934,7 @@ $ npm install gitbook-styleguide@5.6.0
     <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
-<p><code class="highlighter-rouge">.pull-right</code> and <code class="highlighter-rouge">.pull-left</code> classes can be used to change the direction of the dropdown:</p>
+<p><code>.pull-right</code> and <code>.pull-left</code> classes can be used to change the direction of the dropdown:</p>
 
 <div class="docs-example clearfix"><div class="btn-group pull-left dropdown">
     <button class="btn" type="button">Left</button>
@@ -989,6 +989,49 @@ $ npm install gitbook-styleguide@5.6.0
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"badge"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span> Badge<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
+<h1 id="filter-list">Filter List</h1>
+
+<p>A vertical list of filters.</p>
+
+<div class="docs-example clearfix"><ul class="filter-list">
+  <li>
+    <a href="#" class="filter-item selected">
+      <span class="count">21</span>
+      First filter
+    </a>
+  </li>
+  <li>
+    <a href="#" class="filter-item">
+      <span class="count">3</span>
+      Second filter
+    </a>
+  </li>
+  <li>
+    <a href="#" class="filter-item">
+      Third filter
+    </a>
+  </li>
+</ul></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"filter-list"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"filter-item selected"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"count"</span><span class="nt">&gt;</span>21<span class="nt">&lt;/span&gt;</span>
+      First filter
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"filter-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"count"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/span&gt;</span>
+      Second filter
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"filter-item"</span><span class="nt">&gt;</span>
+      Third filter
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></div>
+
 <h1 id="panels">Panels</h1>
 
 <div class="docs-example clearfix"><div class="panel panel-default">
@@ -1014,7 +1057,7 @@ $ npm install gitbook-styleguide@5.6.0
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
-<p>Panels can also include a <code class="highlighter-rouge">.list-group</code>.</p>
+<p>Panels can also include a <code>.list-group</code>.</p>
 
 <div class="docs-example clearfix"><div class="panel panel-default">
     <div class="panel-heading">
@@ -1173,7 +1216,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h1 id="modals">Modals</h1>
 
-<p>Modal (<code class="highlighter-rouge">.modal</code>) can be used in 3 sizes: medium (default), small (<code class="highlighter-rouge">.modal-sm</code>) and large (<code class="highlighter-rouge">.modal-lg</code>). <code class="highlighter-rouge">.modal-backdrop</code> can be use to set a fixed backdrop for modals.</p>
+<p>Modal (<code>.modal</code>) can be used in 3 sizes: medium (default), small (<code>.modal-sm</code>) and large (<code>.modal-lg</code>). <code>.modal-backdrop</code> can be use to set a fixed backdrop for modals.</p>
 
 <div class="docs-example clearfix"><div class="modal">
     <div class="modal-heading">
@@ -1399,7 +1442,7 @@ $ npm install gitbook-styleguide@5.6.0
 
 <h1 id="markdown">Markdown</h1>
 
-<p>HTML from Markdown following <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a> syntax can be styled easily using <code class="highlighter-rouge">.gb-markdown</code>.</p>
+<p>HTML from Markdown following <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a> syntax can be styled easily using <code>.gb-markdown</code>.</p>
 
 <div class="docs-example clearfix"><div class="gb-markdown">
     <h1>Heading 1</h1>
@@ -1432,7 +1475,7 @@ $ npm install gitbook-styleguide@5.6.0
                             <a href="/">Return to the top</a>
                         </li>
                         <li>
-                            <a href="https://github.com/GitbookIO/styleguide/releases">Version 5.6.0</a>
+                            <a href="https://github.com/GitbookIO/styleguide/releases">Version 5.7.0</a>
                         </li>
                     </ul>
                 </div>
