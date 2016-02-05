@@ -20,6 +20,7 @@ title: GitBook HTML/CSS Styleguide
 {% include blankslate.md %}
 {% include dropdowns.md %}
 {% include list-groups.md %}
+{% include filter-list.md %}
 {% include panels.md %}
 {% include modals.md %}
 {% include spinner.md %}
