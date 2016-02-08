@@ -6,12 +6,12 @@
 }
 
 .button(@mainColor) {
-    background: linear-gradient(@mainColor, darken(@mainColor, @gb-button-gradient));
-    border-color: darken(@mainColor, 1.5 * @gb-button-gradient);
+    background: @mainColor;
+    border-color: darken(@mainColor, @gb-button-gradient);
     color: #fff;
 
     &:hover, &:focus {
-        background: linear-gradient(@mainColor, darken(@mainColor, 1.5 * @gb-button-gradient));
+        background: darken(@mainColor, @gb-button-gradient);
         border-color: darken(@mainColor, 2 * @gb-button-gradient);
     }
 
@@ -39,22 +39,6 @@
 .button-class(@className, @mainColor) {
     &.btn-@{className} {
         .button(@mainColor);
-
-        &.btn-plain {
-            background: @mainColor;
-            border-color: @mainColor;
-            color: #fff;
-
-            .caret {
-                border-top-color: #fff;
-            }
-
-            &:hover, &:focus {
-                background: darken(@mainColor, @gb-button-gradient);
-                border-color: darken(@mainColor, @gb-button-gradient);
-                color: #fff;
-            }
-        }
 
         &.btn-outline {
             background: #fff;
@@ -84,7 +68,7 @@
 .btn, a.btn, .gb-markdown .btn {
     text-shadow: none;
     border-radius: @gb-border-radius-base;
-    background: linear-gradient(@gb-button-background, darken(@gb-button-background, 6%));
+    background: @gb-button-background;
     border: 1px solid @gb-button-border;
     color: @gb-body-color;
     .box-shadow(none);
@@ -103,8 +87,8 @@
 
     // Hover and focus
     &:hover, &:focus, &.dropdown-toggle.open {
-        background: linear-gradient(@gb-button-background, darken(@gb-button-background, @gb-button-gradient));
-        border-color: darken(@gb-button-background, 2 * @gb-button-gradient);
+        background: darken(@gb-button-background, @gb-button-gradient);
+        border-color: darken(@gb-button-border, @gb-button-gradient);
         .box-shadow(none);
         outline: none;
         text-decoration: none;
@@ -178,16 +162,6 @@
         }
     }
 
-    &.btn-plain {
-        background: @gb-button-plain-background;
-        border-color: @gb-button-plain-background;
-
-        &:hover, &:focus {
-            background: darken(@gb-button-plain-background, @gb-button-gradient);
-            border-color: darken(@gb-button-plain-background, @gb-button-gradient);
-        }
-    }
-
     &.btn-count {
         background: #fff;
         color: @gb-body-color;
@@ -209,9 +183,7 @@
 
     .button-class(success, @gb-brand-success);
     .button-class(primary, @gb-brand-primary);
-    .button-class(warning, @gb-brand-warning);
     .button-class(danger, @gb-brand-danger);
-    .button-class(info, @gb-brand-info);
 
 
     // Label for buttons

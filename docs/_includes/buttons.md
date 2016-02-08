@@ -32,7 +32,6 @@ Buttons can be filled to indicate a more important action:
 <button class="btn btn-primary" type="button">Primary button</button>
 <button class="btn btn-success" type="button">Success button</button>
 <button class="btn btn-danger" type="button">Danger button</button>
-<button class="btn btn-warning" type="button">Warning button</button>
 {% endexample %}
 
 ### Colored Text
@@ -43,7 +42,6 @@ Different styles of buttons are available to indicate different kind of actions.
 <button class="btn btn-text-primary" type="button">Primary button</button>
 <button class="btn btn-text-success" type="button">Success button</button>
 <button class="btn btn-text-danger" type="button">Danger button</button>
-<button class="btn btn-text-warning" type="button">Warning button</button>
 <button class="btn btn-link" type="button">Link button</button>
 <button class="btn btn-text-link" type="button">Text Link button</button>
 {% endexample %}
@@ -66,19 +64,6 @@ Outline buttons downplay an action as they appear like boxy links. Just add `.bt
 <button class="btn btn-primary btn-outline" type="button">Primary button</button>
 <button class="btn btn-success btn-outline" type="button">Success button</button>
 <button class="btn btn-danger btn-outline" type="button">Danger button</button>
-<button class="btn btn-warning btn-outline" type="button">Warning button</button>
-{% endexample %}
-
-### Plain
-
-Plain buttons are flat and filled buttons.
-
-{% example html %}
-<button class="btn btn-plain" type="button">Default button</button>
-<button class="btn btn-primary btn-plain" type="button">Primary button</button>
-<button class="btn btn-success btn-plain" type="button">Success button</button>
-<button class="btn btn-danger btn-plain" type="button">Danger button</button>
-<button class="btn btn-warning btn-plain" type="button">Warning button</button>
 {% endexample %}
 
 ### States
