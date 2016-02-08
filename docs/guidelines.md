@@ -1,12 +1,10 @@
 ---
 layout: default
 title: Guidelines
-order: 10
+order: 2
 ---
 
-# Guidelines
-
-## HTML5 doctype
+# HTML5 doctype
 
 It makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your pages.
 
@@ -17,11 +15,11 @@ It makes use of certain HTML elements and CSS properties that require the use of
 </html>
 {% endhighlight %}
 
-## Box-sizing
+# Box-sizing
 
 We reset `box-sizing` to `border-box` for every element. This allows us to more easily assign widths to elements that also have padding and borders.
 
-## Less Variables
+# Less Variables
 
 #### Format
 
@@ -35,7 +33,7 @@ All variables defined by this module should be prefixed by `@gb-`.
 
 Variables that defined a path should not finish with a slash. For example `@gb-static-folder: "/static"` is valid.
 
-## Page Layout
+# Page Layout
 
 {% highlight html %}
 <!DOCTYPE html>
