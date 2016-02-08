@@ -22,3 +22,6 @@ Simply include `node_modules/{{ site.data.package.name }}/less/main.less` in you
 
 Contents of folder `node_modules/{{ site.data.package.name }}/assets` should be accessible from the web server. The root folder can be set using the less variable `@gb-assets-path`.
 
+# Open Source
+
+Available for use under the Apache 2.0 license and built with open source projects like LESS, Jekyll, Gulp, and more.

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Colors & Icons
-order: 10
+order: 3
 ---
 
 # Colors
