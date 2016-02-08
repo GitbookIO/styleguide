@@ -1,3 +1,9 @@
+---
+layout: default
+title: Modals
+order: 10
+---
+
 # Modals
 
 Modal (`.modal`) can be used in 3 sizes: medium (default), small (`.modal-sm`) and large (`.modal-lg`). `.modal-backdrop` can be use to set a fixed backdrop for modals.
