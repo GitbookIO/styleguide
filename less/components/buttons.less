@@ -130,6 +130,16 @@
         .button-size(@gb-padding-xs-vertical; @gb-padding-xs-horizontal; @gb-font-size-small; @gb-line-height-small; @gb-border-radius-small);
     }
 
+    // Positioning
+    &.btn-right {
+        .pull-right();
+        margin-left: @gb-padding-large-horizontal;
+    }
+    &.btn-left {
+        .pull-left();
+        margin-right: @gb-padding-large-horizontal;
+    }
+
     /// Block Buttons
     &.btn-block {
         display: block;
