@@ -141,7 +141,7 @@ Switch can replace checkbox (without JavaScript):
 </div>
 <div class="checkbox checkbox-switch">
     <label>
-        <input type="checkbox" disabled>
+        <input type="checkbox" checked disabled>
         <span></span>
         Disabled checkbox
     </label>
