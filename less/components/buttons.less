@@ -6,12 +6,12 @@
 }
 
 .button(@mainColor) {
-    background: @mainColor;
-    border-color: darken(@mainColor, @gb-button-gradient);
+    background: linear-gradient(@mainColor, darken(@mainColor, @gb-button-gradient));
+    border-color: darken(@mainColor, 1.5 * @gb-button-gradient);
     color: #fff;
 
     &:hover, &:focus {
-        background: darken(@mainColor, @gb-button-gradient);
+        background: linear-gradient(@mainColor, darken(@mainColor, 1.5 * @gb-button-gradient));
         border-color: darken(@mainColor, 2 * @gb-button-gradient);
     }
 
@@ -68,7 +68,7 @@
 .btn, a.btn, .gb-markdown .btn {
     text-shadow: none;
     border-radius: @gb-border-radius-base;
-    background: @gb-button-background;
+    background: linear-gradient(@gb-button-background, darken(@gb-button-background, 6%));
     border: 1px solid @gb-button-border;
     color: @gb-body-color;
     .box-shadow(none);
@@ -87,8 +87,8 @@
 
     // Hover and focus
     &:hover, &:focus, &.dropdown-toggle.open {
-        background: darken(@gb-button-background, @gb-button-gradient);
-        border-color: darken(@gb-button-border, @gb-button-gradient);
+        background: linear-gradient(@gb-button-background, darken(@gb-button-background, @gb-button-gradient));
+        border-color: darken(@gb-button-background, 2 * @gb-button-gradient);
         .box-shadow(none);
         outline: none;
         text-decoration: none;
