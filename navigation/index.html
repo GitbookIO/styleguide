@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Styleguide for GitBook websites (CSS, Less, Logos)">
+        <meta name="author" content="GitBook <contact@gitbook.com>">
+
+        <title>Navigation</title>
+
+        <link rel="icon" href="/assets/images/logo/favicon.ico">
+        <link rel="stylesheet" href="/docs.css">
+    </head>
+    <body>
+        <div class="gb-page-wrapper">
+            <header class="gb-page-header">
+                <div class="container">
+                    <a href="/" class="logo">
+                        <img src="/assets/images/logo/128.png">
+                        <h1>GitBook Design Styleguide</h1>
+                    </a>
+
+                    <a href="https://github.com/GitbookIO/styleguide" class="btn btn-link pull-right hidden-xs tooltipped tooltipped-w" aria-label="Source on Github">
+                        <i class="octicon octicon-mark-github"></i>
+                    </a>
+                    <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
+                </div>
+            </header>
+
+            <div class="gb-page-body">
+                <div class="gb-page-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                
+
+<div class="panel panel-default">
+    <div class="list-group">
+        
+        <a href="/" class="list-group-item ">Introduction</a>
+        
+        <a href="/guidelines/" class="list-group-item ">Guidelines</a>
+        
+        <a href="/colors/" class="list-group-item ">Colors & Icons</a>
+        
+        <a href="/alerts/" class="list-group-item ">Alerts</a>
+        
+        <a href="/forms/" class="list-group-item ">Forms</a>
+        
+        <a href="/grid/" class="list-group-item ">Grid</a>
+        
+        <a href="/blankslate/" class="list-group-item ">Blankslate</a>
+        
+        <a href="/buttons/" class="list-group-item ">Buttons</a>
+        
+        <a href="/tooltips/" class="list-group-item ">Tooltips</a>
+        
+        <a href="/tables/" class="list-group-item ">Tables</a>
+        
+        <a href="/navigation/" class="list-group-item active">Navigation</a>
+        
+        <a href="/panels/" class="list-group-item ">Panels</a>
+        
+        <a href="/modals/" class="list-group-item ">Modals</a>
+        
+        <a href="/utilities/" class="list-group-item ">Utilities & Markdown</a>
+        
+        <a href="/misc/" class="list-group-item ">Miscellaneous</a>
+        
+    </div>
+</div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="gb-markdown">
+                                    <h1 id="page-head">Page head</h1>
+
+<p><code class="highlighter-rouge">.pagehead</code> can be used to display a horrizontal navigation bar:</p>
+
+<div class="docs-example clearfix"><div class="pagehead">
+    <div class="container">
+        <h1>Explore GitBook</h1>
+
+        <form class="search-bar hidden-xs hidden-sm pull-right" method="get" action="/search">
+            <i class="octicon octicon-search"></i><input type="text" name="q" value="" class="form-control" placeholder="Search Books" />
+        </form>
+    </div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pagehead"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Explore GitBook<span class="nt">&lt;/h1&gt;</span>
+
+        <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"search-bar hidden-xs hidden-sm pull-right"</span> <span class="na">method=</span><span class="s">"get"</span> <span class="na">action=</span><span class="s">"/search"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"octicon octicon-search"</span><span class="nt">&gt;&lt;/i&gt;&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"q"</span> <span class="na">value=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Search Books"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="list-groups">List Groups</h1>
+
+<div class="docs-example clearfix"><div class="list-group">
+    <a href="#" class="list-group-item">Item 1</a>
+    <a href="#" class="list-group-item active">Item 2</a>
+    <a href="#" class="list-group-item">Item 3</a>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Item 1<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item active"</span><span class="nt">&gt;</span>Item 2<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Item 3<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>Icons, badges and images can also be added to list items:</p>
+
+<div class="docs-example clearfix"><div class="list-group">
+    <a href="#" class="list-group-item"><img class="list-image" src="https://avatars2.githubusercontent.com/u/845425?v=3&amp;s=460" /> Image</a>
+    <a href="#" class="list-group-item active"><i class="octicon octicon-book"></i> Icon on the left</a>
+    <a href="#" class="list-group-item"><i class="octicon octicon-book pull-right"></i> Icon on the right</a>
+    <a href="#" class="list-group-item"><span class="badge">10</span> Badge</a>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;&lt;img</span> <span class="na">class=</span><span class="s">"list-image"</span> <span class="na">src=</span><span class="s">"https://avatars2.githubusercontent.com/u/845425?v=3&amp;s=460"</span> <span class="nt">/&gt;</span> Image<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item active"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"octicon octicon-book"</span><span class="nt">&gt;&lt;/i&gt;</span> Icon on the left<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"octicon octicon-book pull-right"</span><span class="nt">&gt;&lt;/i&gt;</span> Icon on the right<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"badge"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span> Badge<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="filter-list">Filter List</h1>
+
+<p>A vertical list of filters.</p>
+
+<div class="docs-example clearfix"><ul class="filter-list">
+  <li>
+    <a href="#" class="filter-item selected">
+      <span class="count">21</span>
+      First filter
+    </a>
+  </li>
+  <li>
+    <a href="#" class="filter-item">
+      <span class="count">3</span>
+      Second filter
+    </a>
+  </li>
+  <li>
+    <a href="#" class="filter-item">
+      Third filter
+    </a>
+  </li>
+</ul></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"filter-list"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"filter-item selected"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"count"</span><span class="nt">&gt;</span>21<span class="nt">&lt;/span&gt;</span>
+      First filter
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"filter-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"count"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/span&gt;</span>
+      Second filter
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"filter-item"</span><span class="nt">&gt;</span>
+      Third filter
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></div>
+
+<h1 id="tabs">Tabs</h1>
+
+<div class="docs-example clearfix"><div class="tabs">
+    <ul class="tabs-nav">
+        <li>
+            <a href="#github" data-toggle="tab">My Books</a>
+        </li>
+        <li class="active">
+            <a href="#followers" data-toggle="tab">Followers</a>
+        </li>
+    </ul>
+    <div class="tabs-content">
+        <div class="tab-pane" id="books">...</div>
+        <div class="tab-pane active" id="followers">...</div>
+    </div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tabs-nav"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#github"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>My Books<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#followers"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Followers<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs-content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"books"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane active"</span> <span class="na">id=</span><span class="s">"followers"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>Justified navigation:</p>
+
+<div class="docs-example clearfix"><div class="tabs">
+    <ul class="tabs-nav justified">
+        <li>
+            <a href="#github" data-toggle="tab">My Books</a>
+        </li>
+        <li class="active">
+            <a href="#followers" data-toggle="tab">Followers</a>
+        </li>
+    </ul>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tabs-nav justified"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#github"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>My Books<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#followers"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Followers<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="gb-page-footer">
+                <div class="container">
+                    <ul class="menu">
+                        <li class="pull-right">
+                            <span class="service-info">Copyright GitBook 2016</span>
+                        </li>
+                        <li>
+                            <a href="/">Return to the top</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/GitbookIO/styleguide/releases">Version 5.8.0</a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

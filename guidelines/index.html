@@ -7,7 +7,7 @@
         <meta name="description" content="Styleguide for GitBook websites (CSS, Less, Logos)">
         <meta name="author" content="GitBook <contact@gitbook.com>">
 
-        <title>Introduction</title>
+        <title>Guidelines</title>
 
         <link rel="icon" href="/assets/images/logo/favicon.ico">
         <link rel="stylesheet" href="/docs.css">
@@ -38,9 +38,9 @@
 <div class="panel panel-default">
     <div class="list-group">
         
-        <a href="/" class="list-group-item active">Introduction</a>
+        <a href="/" class="list-group-item ">Introduction</a>
         
-        <a href="/guidelines/" class="list-group-item ">Guidelines</a>
+        <a href="/guidelines/" class="list-group-item active">Guidelines</a>
         
         <a href="/colors/" class="list-group-item ">Colors & Icons</a>
         
@@ -73,27 +73,53 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="gb-markdown">
-                                    <h1 id="what-is-it">What is it?</h1>
+                                    <h1 id="html5-doctype">HTML5 doctype</h1>
 
-<p>GitBook Styleguide is a collection of styling, components and rules; which are being used by the GitBook team on our official websites such as <a href="https://www.gitbook.com">gitbook.com</a>.</p>
+<p>It makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your pages.</p>
 
-<p>This styleguide is open to criticsms and feedback, feel free to <a href="https://github.com/GitbookIO/styleguide.gitbook.com">post an issue</a> on GitHub.</p>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
 
-<h1 id="installation">Installation</h1>
+<h1 id="box-sizing">Box-sizing</h1>
 
-<p>GitBook styleguide can be installed using <strong>NPM</strong>, the module is published as <code class="highlighter-rouge">gitbook-styleguide</code>, current version is <strong>5.8.0</strong>.</p>
+<p>We reset <code class="highlighter-rouge">box-sizing</code> to <code class="highlighter-rouge">border-box</code> for every element. This allows us to more easily assign widths to elements that also have padding and borders.</p>
 
-<p><code class="highlighter-rouge">
-$ npm install gitbook-styleguide@5.8.0
-</code></p>
+<h1 id="less-variables">Less Variables</h1>
 
-<p>Simply include <code class="highlighter-rouge">node_modules/gitbook-styleguide/less/main.less</code> in your less file.</p>
+<h4 id="format">Format</h4>
 
-<p>Contents of folder <code class="highlighter-rouge">node_modules/gitbook-styleguide/assets</code> should be accessible from the web server. The root folder can be set using the less variable <code class="highlighter-rouge">@gb-assets-path</code>.</p>
+<p>Variables should use dash instead of uppercases. For example <code class="highlighter-rouge">@gb-hello-world</code> is valid, but <code class="highlighter-rouge">@gb-helloWorld</code> is not.</p>
 
-<h1 id="open-source">Open Source</h1>
+<h4 id="prefix">Prefix</h4>
 
-<p>Available for use under the Apache 2.0 license and built with open source projects like LESS, Jekyll, Gulp, and more.</p>
+<p>All variables defined by this module should be prefixed by <code class="highlighter-rouge">@gb-</code>.</p>
+
+<h4 id="paths">Paths</h4>
+
+<p>Variables that defined a path should not finish with a slash. For example <code class="highlighter-rouge">@gb-static-folder: "/static"</code> is valid.</p>
+
+<h1 id="page-layout">Page Layout</h1>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-page-wrapper"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-page-header"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-page-body"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-page-footer"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
 
                                 </div>
                             </div>

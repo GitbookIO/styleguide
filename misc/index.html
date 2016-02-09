@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Styleguide for GitBook websites (CSS, Less, Logos)">
+        <meta name="author" content="GitBook <contact@gitbook.com>">
+
+        <title>Miscellaneous</title>
+
+        <link rel="icon" href="/assets/images/logo/favicon.ico">
+        <link rel="stylesheet" href="/docs.css">
+    </head>
+    <body>
+        <div class="gb-page-wrapper">
+            <header class="gb-page-header">
+                <div class="container">
+                    <a href="/" class="logo">
+                        <img src="/assets/images/logo/128.png">
+                        <h1>GitBook Design Styleguide</h1>
+                    </a>
+
+                    <a href="https://github.com/GitbookIO/styleguide" class="btn btn-link pull-right hidden-xs tooltipped tooltipped-w" aria-label="Source on Github">
+                        <i class="octicon octicon-mark-github"></i>
+                    </a>
+                    <a href="https://www.gitbook.com" class="btn btn-link pull-right hidden-xs">Return to GitBook.com</a>
+                </div>
+            </header>
+
+            <div class="gb-page-body">
+                <div class="gb-page-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                
+
+<div class="panel panel-default">
+    <div class="list-group">
+        
+        <a href="/" class="list-group-item ">Introduction</a>
+        
+        <a href="/guidelines/" class="list-group-item ">Guidelines</a>
+        
+        <a href="/colors/" class="list-group-item ">Colors & Icons</a>
+        
+        <a href="/alerts/" class="list-group-item ">Alerts</a>
+        
+        <a href="/forms/" class="list-group-item ">Forms</a>
+        
+        <a href="/grid/" class="list-group-item ">Grid</a>
+        
+        <a href="/blankslate/" class="list-group-item ">Blankslate</a>
+        
+        <a href="/buttons/" class="list-group-item ">Buttons</a>
+        
+        <a href="/tooltips/" class="list-group-item ">Tooltips</a>
+        
+        <a href="/tables/" class="list-group-item ">Tables</a>
+        
+        <a href="/navigation/" class="list-group-item ">Navigation</a>
+        
+        <a href="/panels/" class="list-group-item ">Panels</a>
+        
+        <a href="/modals/" class="list-group-item ">Modals</a>
+        
+        <a href="/utilities/" class="list-group-item ">Utilities & Markdown</a>
+        
+        <a href="/misc/" class="list-group-item active">Miscellaneous</a>
+        
+    </div>
+</div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="gb-markdown">
+                                    <h1 id="pagination">Pagination</h1>
+
+<div class="docs-example clearfix"><div class="pagination">
+    <ul class="pagination-pages">
+        <li class="active"><a href="?page=0">0</a></li>
+        <li><a href="?page=1">1</a></li>
+        <li><a href="?page=2">2</a></li>
+        <li><span class="separator">...</span></li>
+        <li><a href="?page=3">3</a></li>
+    </ul>
+    <ul class="pagination-nav">
+        <li><a href="?page=1">next page »</a></li>
+    </ul>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pagination"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pagination-pages"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"?page=0"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"?page=1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"?page=2"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;span</span> <span class="na">class=</span><span class="s">"separator"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"?page=3"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pagination-nav"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"?page=1"</span><span class="nt">&gt;</span>next page »<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h1 id="labels">Labels</h1>
+
+<div class="docs-example clearfix"><h1>Warning Label <span class="label label-warning">Warning !</span></h1>
+<h1>Danger Label <span class="label label-danger">Danger !</span></h1>
+<h1>Success Label <span class="label label-success">Success !</span></h1>
+<h1>Info Label <span class="label label-info">Info !</span></h1></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>Warning Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-warning"</span><span class="nt">&gt;</span>Warning !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Danger Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-danger"</span><span class="nt">&gt;</span>Danger !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Success Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-success"</span><span class="nt">&gt;</span>Success !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Info Label <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-info"</span><span class="nt">&gt;</span>Info !<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span></code></pre></div>
+
+<h1 id="badges">Badges</h1>
+
+<div class="docs-example clearfix"><button class="btn" type="button">
+    Default <span class="badge">10</span>
+</button>
+<button class="btn" type="button">
+    Warning <span class="badge badge-warning">10</span>
+</button>
+<button class="btn" type="button">
+    Danger <span class="badge badge-danger">10</span>
+</button>
+<button class="btn" type="button">
+    Success <span class="badge badge-success">10</span>
+</button>
+<button class="btn" type="button">
+    Info <span class="badge badge-info">10</span>
+</button></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Default <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Warning <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-warning"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Danger <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-danger"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Success <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-success"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    Info <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-info"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+<h1 id="spinner">Spinner</h1>
+
+<p>Spinner can be use to indicate a loading operation.</p>
+
+<div class="docs-example clearfix"><div class="gb-spinner spinner-sm"></div>
+<div class="gb-spinner"></div>
+<div class="gb-spinner spinner-lg"></div>
+<div class="gb-spinner spinner-centered"></div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-spinner spinner-sm"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-spinner"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-spinner spinner-lg"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gb-spinner spinner-centered"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="gb-page-footer">
+                <div class="container">
+                    <ul class="menu">
+                        <li class="pull-right">
+                            <span class="service-info">Copyright GitBook 2016</span>
+                        </li>
+                        <li>
+                            <a href="/">Return to the top</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/GitbookIO/styleguide/releases">Version 5.8.0</a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
