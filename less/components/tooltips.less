@@ -64,9 +64,30 @@
             .transform(~"translateX(0%)");
         }
     }
+    .east() {
+        &:after {
+            right: auto;
+            left: 5px;
+            .transform(~"translateX(0%)");
+        }
+        &:before {
+            right: auto;
+            left: 10px;
+            .transform(~"translateX(0%)");
+        }
+    }
 
-    &.tooltipped-n, &.tooltipped-ne {
+    &.tooltipped-e {
+        .east()
+    }
+
+    &.tooltipped-n {
         .north();
+    }
+
+    &.tooltipped-ne {
+        .north();
+        .east();
     }
 
     &.tooltipped-nw {

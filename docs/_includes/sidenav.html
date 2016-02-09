@@ -1,42 +1,9 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Styleguide</h3>
-    </div>
-    <div class="list-group">
-        <a href="#installation" class="list-group-item">Installation</a>
-        <a href="#guidelines" class="list-group-item">Guidelines</a>
-        <a href="#colors" class="list-group-item">Colors</a>
-        <a href="#icons" class="list-group-item">Icons</a>
-        <a href="#page-layout" class="list-group-item">Layout</a>
-        <a href="#grid-system" class="list-group-item">Grid</a>
-    </div>
-</div>
+{% assign sorted_pages = site.pages | sort:"order" %}
 
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Components</h3>
-    </div>
     <div class="list-group">
-        <a href="#buttons" class="list-group-item">Buttons</a>
-        <a href="#button-groups" class="list-group-item">Button Groups</a>
-        <a href="#tooltips" class="list-group-item">Tooltips</a>
-        <a href="#forms" class="list-group-item">Forms</a>
-        <a href="#tables" class="list-group-item">Tables</a>
-        <a href="#navigation" class="list-group-item">Navigation</a>
-        <a href="#tabs" class="list-group-item">Tabs</a>
-        <a href="#blankslate" class="list-group-item">Blankslate</a>
-        <a href="#dropdowns" class="list-group-item">Dropdowns</a>
-        <a href="#list-groups" class="list-group-item">List Groups</a>
-        <a href="#filter-list" class="list-group-item">Filter Lists</a>
-        <a href="#panels" class="list-group-item">Panels</a>
-        <a href="#labels" class="list-group-item">Labels</a>
-        <a href="#modals" class="list-group-item">Modal</a>
-        <a href="#spinner" class="list-group-item">Spinner</a>
-        <a href="#switch" class="list-group-item">Switch</a>
-        <a href="#pagination" class="list-group-item">Pagination</a>
-        <a href="#alerts" class="list-group-item">Alerts</a>
-        <a href="#labels" class="list-group-item">Labels</a>
-        <a href="#badges" class="list-group-item">Badges</a>
-        <a href="#markdown" class="list-group-item">Markdown</a>
+        {% for p in sorted_pages %}
+        <a href="{{ p.url }}" class="list-group-item {% if p.url == page.url %}active{% endif %}">{{ p.title }}</a>
+        {% endfor %}
     </div>
 </div>

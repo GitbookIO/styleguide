@@ -1,3 +1,9 @@
+---
+layout: default
+title: Tables
+order: 10
+---
+
 # Tables
 
 {% example html %}

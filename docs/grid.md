@@ -1,3 +1,9 @@
+---
+layout: default
+title: Grid
+order: 10
+---
+
 # Grid System
 
 Grid systems are used for creating page layouts through a series of rows and columns that house your content.

@@ -40,22 +40,6 @@
     &.btn-@{className} {
         .button(@mainColor);
 
-        &.btn-plain {
-            background: @mainColor;
-            border-color: @mainColor;
-            color: #fff;
-
-            .caret {
-                border-top-color: #fff;
-            }
-
-            &:hover, &:focus {
-                background: darken(@mainColor, @gb-button-gradient);
-                border-color: darken(@mainColor, @gb-button-gradient);
-                color: #fff;
-            }
-        }
-
         &.btn-outline {
             background: #fff;
             color: @mainColor;
@@ -77,7 +61,7 @@
     }
 
     &.btn-text-@{className} {
-        color: @mainColor;
+        color: darken(@mainColor, @gb-button-gradient);
     }
 }
 
@@ -146,6 +130,16 @@
         .button-size(@gb-padding-xs-vertical; @gb-padding-xs-horizontal; @gb-font-size-small; @gb-line-height-small; @gb-border-radius-small);
     }
 
+    // Positioning
+    &.btn-right {
+        .pull-right();
+        margin-left: @gb-padding-large-horizontal;
+    }
+    &.btn-left {
+        .pull-left();
+        margin-right: @gb-padding-large-horizontal;
+    }
+
     /// Block Buttons
     &.btn-block {
         display: block;
@@ -178,16 +172,6 @@
         }
     }
 
-    &.btn-plain {
-        background: @gb-button-plain-background;
-        border-color: @gb-button-plain-background;
-
-        &:hover, &:focus {
-            background: darken(@gb-button-plain-background, @gb-button-gradient);
-            border-color: darken(@gb-button-plain-background, @gb-button-gradient);
-        }
-    }
-
     &.btn-count {
         background: #fff;
         color: @gb-body-color;
@@ -209,9 +193,7 @@
 
     .button-class(success, @gb-brand-success);
     .button-class(primary, @gb-brand-primary);
-    .button-class(warning, @gb-brand-warning);
     .button-class(danger, @gb-brand-danger);
-    .button-class(info, @gb-brand-info);
 
 
     // Label for buttons

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Panels
+order: 10
+---
+
 # Panels
 
 {% example html %}

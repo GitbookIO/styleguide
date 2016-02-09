@@ -1,3 +1,9 @@
+---
+layout: default
+title: Buttons
+order: 10
+---
+
 # Buttons
 
 Buttons are used for **actions**, like in forms, while textual hyperlinks are used for **destinations**, or moving from one page to another.
@@ -32,7 +38,6 @@ Buttons can be filled to indicate a more important action:
 <button class="btn btn-primary" type="button">Primary button</button>
 <button class="btn btn-success" type="button">Success button</button>
 <button class="btn btn-danger" type="button">Danger button</button>
-<button class="btn btn-warning" type="button">Warning button</button>
 {% endexample %}
 
 ### Colored Text
@@ -43,7 +48,6 @@ Different styles of buttons are available to indicate different kind of actions.
 <button class="btn btn-text-primary" type="button">Primary button</button>
 <button class="btn btn-text-success" type="button">Success button</button>
 <button class="btn btn-text-danger" type="button">Danger button</button>
-<button class="btn btn-text-warning" type="button">Warning button</button>
 <button class="btn btn-link" type="button">Link button</button>
 <button class="btn btn-text-link" type="button">Text Link button</button>
 {% endexample %}
@@ -66,19 +70,6 @@ Outline buttons downplay an action as they appear like boxy links. Just add `.bt
 <button class="btn btn-primary btn-outline" type="button">Primary button</button>
 <button class="btn btn-success btn-outline" type="button">Success button</button>
 <button class="btn btn-danger btn-outline" type="button">Danger button</button>
-<button class="btn btn-warning btn-outline" type="button">Warning button</button>
-{% endexample %}
-
-### Plain
-
-Plain buttons are flat and filled buttons.
-
-{% example html %}
-<button class="btn btn-plain" type="button">Default button</button>
-<button class="btn btn-primary btn-plain" type="button">Primary button</button>
-<button class="btn btn-success btn-plain" type="button">Success button</button>
-<button class="btn btn-danger btn-plain" type="button">Danger button</button>
-<button class="btn btn-warning btn-plain" type="button">Warning button</button>
 {% endexample %}
 
 ### States
@@ -108,4 +99,90 @@ Buttons can contains a new-line label:
     <span class="btn-label">OS X 10.9 or later</span>
 </button>
 {% endexample %}
+
+# Button Groups
+
+Button groups and toolbars are used to group actions together.
+
+{% example html %}
+<div class="btn-group">
+    <button class="btn" type="button">Button button</button>
+    <a class="btn" href="#" role="button">Link button</a>
+</div>
+{% endexample %}
+
+Toolbars can contain multiple group of buttons:
+
+{% example html %}
+<div class="btn-toolbar">
+    <div class="btn-group">
+        <button class="btn" type="button">Button button</button>
+        <a class="btn" href="#" role="button">Link button</a>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-danger" type="button">Danger button</button>
+        <a class="btn btn-success" href="#" role="button">Success button</a>
+    </div>
+    <div class="btn-group">
+        <button class="btn" type="button">Star</button>
+        <a class="btn btn-count" href="#" role="button">0</a>
+    </div>
+</div>
+{% endexample %}
+
+
+Button groups can be justified, to make a group of buttons stretch at equal sizes to span the entire width of its parent. Also works with button dropdowns within the button group.
+
+{% example html %}
+<div class="btn-group btn-group-justified">
+    <a class="btn" href="#" role="button">Button 1</a>
+    <a class="btn" href="#" role="button">Button 2</a>
+</div>
+{% endexample %}
+
+# Dropdowns
+
+Dropdown menu can be added to `.btn-group`.
+
+{% example html %}
+<div class="btn-group dropdown">
+    <button class="btn" type="button">Toggle Dropdown <span class="dropdown-caret"></span></button>
+    <ul class="dropdown-menu open">
+        <li class="dropdown-header">This is an header</li>
+        <li><a href="#">Entry 1</a></li>
+        <li class="active">
+            <a href="#">Entry 2 (active)</a>
+            <ul class="dropdown-menu open">
+                <li>
+                    <a href="#">Entry 2.1 (hover me)</a>
+                    <ul class="dropdown-menu">
+                        <li class="disabled"><a href="#">Entry 2.1.1</a></li>
+                        <li><a href="#">Entry 2.1.2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Entry 2.2</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Entry 3</a></li>
+    </ul>
+</div>
+{% endexample %}
+
+`.pull-right` and `.pull-left` classes can be used to change the direction of the dropdown:
+
+{% example html %}
+<div class="btn-group pull-left dropdown">
+    <button class="btn" type="button">Left</button>
+    <ul class="dropdown-menu open">
+        <li><a href="#">This is a long entry</a></li>
+    </ul>
+</div>
+<div class="btn-group pull-right dropdown">
+    <button class="btn" type="button">Right</button>
+    <ul class="dropdown-menu open">
+        <li><a href="#">This is a long entry <span class="help-label">Help Text</span></a></li>
+    </ul>
+</div>
+{% endexample %}
+
 

@@ -1,32 +1,27 @@
 ---
 layout: default
-title: GitBook HTML/CSS Styleguide
+title: Introduction
+order: 1
 ---
 
-{% include install.md %}
-{% include guidelines.md %}
-{% include layout.md %}
-{% include grid.md %}
-{% include utilities.md %}
-{% include colors.md %}
-{% include icons.md %}
-{% include buttons.md %}
-{% include button-groups.md %}
-{% include tooltips.md %}
-{% include forms.md %}
-{% include tables.md %}
-{% include navigation.md %}
-{% include tabs.md %}
-{% include blankslate.md %}
-{% include dropdowns.md %}
-{% include list-groups.md %}
-{% include filter-list.md %}
-{% include panels.md %}
-{% include modals.md %}
-{% include spinner.md %}
-{% include switch.md %}
-{% include pagination.md %}
-{% include alerts.md %}
-{% include labels.md %}
-{% include badges.md %}
-{% include markdown.md %}
+# What is it?
+
+GitBook Styleguide is a collection of styling, components and rules; which are being used by the GitBook team on our official websites such as [gitbook.com](https://www.gitbook.com).
+
+This styleguide is open to criticsms and feedback, feel free to [post an issue](https://github.com/GitbookIO/styleguide.gitbook.com) on GitHub.
+
+# Installation
+
+GitBook styleguide can be installed using **NPM**, the module is published as `{{ site.data.package.name }}`, current version is **{{ site.data.package.version }}**.
+
+```
+$ npm install {{ site.data.package.name }}@{{ site.data.package.version }}
+```
+
+Simply include `node_modules/{{ site.data.package.name }}/less/main.less` in your less file.
+
+Contents of folder `node_modules/{{ site.data.package.name }}/assets` should be accessible from the web server. The root folder can be set using the less variable `@gb-assets-path`.
+
+# Open Source
+
+Available for use under the Apache 2.0 license and built with open source projects like LESS, Jekyll, Gulp, and more.

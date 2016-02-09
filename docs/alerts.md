@@ -1,3 +1,9 @@
+---
+layout: default
+title: Alerts
+order: 10
+---
+
 # Alerts
 
 {% example html %}
