@@ -6,6 +6,8 @@ order: 10
 
 # Panels
 
+Panels are composed of 3 parts: `.panel-heading`, `.panel-body` and `.panel-footer`.
+
 {% example html %}
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -16,6 +18,25 @@ order: 10
     </div>
     <div class="panel-footer">
         Optional footer of the panel
+    </div>
+</div>
+{% endexample %}
+
+The panel heading can contains a toolbar:
+
+{% example html %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-toolbar panel-toolbar">
+            <button class="btn">My Button</button>
+            <button class="btn btn-text-link">Text Button</button>
+        </div>
+        <h3 class="panel-title">Title</h3>
+    </div>
+    <div class="list-group">
+        <a href="#" class="list-group-item">Item 1</a>
+        <a href="#" class="list-group-item active">Item 2</a>
+        <a href="#" class="list-group-item">Item 3</a>
     </div>
 </div>
 {% endexample %}
