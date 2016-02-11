@@ -75,6 +75,8 @@
                                 <div class="gb-markdown">
                                     <h1 id="panels">Panels</h1>
 
+<p>Panels are composed of 3 parts: <code class="highlighter-rouge">.panel-heading</code>, <code class="highlighter-rouge">.panel-body</code> and <code class="highlighter-rouge">.panel-footer</code>.</p>
+
 <div class="docs-example clearfix"><div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Title</h3>
@@ -95,6 +97,37 @@
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>
         Optional footer of the panel
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>The panel heading can contains a toolbar:</p>
+
+<div class="docs-example clearfix"><div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-toolbar panel-toolbar">
+            <button class="btn">My Button</button>
+            <button class="btn btn-text-link">Text Button</button>
+        </div>
+        <h3 class="panel-title">Title</h3>
+    </div>
+    <div class="list-group">
+        <a href="#" class="list-group-item">Item 1</a>
+        <a href="#" class="list-group-item active">Item 2</a>
+        <a href="#" class="list-group-item">Item 3</a>
+    </div>
+</div></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-toolbar panel-toolbar"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span><span class="nt">&gt;</span>My Button<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-text-link"</span><span class="nt">&gt;</span>Text Button<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;</span>Title<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Item 1<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item active"</span><span class="nt">&gt;</span>Item 2<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Item 3<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
@@ -273,7 +306,7 @@
                             <a href="/">Return to the top</a>
                         </li>
                         <li>
-                            <a href="https://github.com/GitbookIO/styleguide/releases">Version 5.8.0</a>
+                            <a href="https://github.com/GitbookIO/styleguide/releases">Version 5.9.0</a>
                         </li>
                     </ul>
                 </div>

@@ -2275,7 +2275,7 @@ a.btn.btn-sm,
 .btn.btn-xs,
 a.btn.btn-xs,
 .gb-markdown .btn.btn-xs {
-  padding: 1px 5px;
+  padding: 2px 7px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 2px;
@@ -3285,7 +3285,7 @@ a.btn .btn-label,
 .input-group-xs > .form-control,
 .input-group-xs > .input-group-addon,
 .input-group-xs > .input-group-btn > .btn {
-  padding: 1px 5px;
+  padding: 2px 7px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 2px;
@@ -3711,6 +3711,17 @@ a.btn .btn-label,
   text-align: center;
   font-size: 22px;
   font-weight: 400;
+}
+.panel .panel-heading .panel-toolbar {
+  float: right;
+  margin-top: -5px;
+  margin-right: -5px;
+}
+.panel .panel-heading .panel-toolbar .btn {
+  padding: 2px 7px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 2px;
 }
 .panel > .alert {
   border-radius: 0px;
@@ -4311,7 +4322,7 @@ a.label:hover {
   border-radius: 2px;
 }
 .form-control.input-xs {
-  padding: 1px 5px;
+  padding: 2px 7px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 2px;
@@ -4392,7 +4403,7 @@ select.form-control.btn-sm {
   border-radius: 2px;
 }
 select.form-control.btn-xs {
-  padding: 1px 5px;
+  padding: 2px 7px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 2px;
@@ -5535,6 +5546,7 @@ hr {
   line-height: 1.4;
   border: 1px solid #e5e5e5;
   border-radius: .25rem .25rem 0 0;
+  font-size: 14px;
 }
 .docs-example + .highlight {
   margin-top: -1px;
