@@ -2051,18 +2051,18 @@ a:visited {
   text-decoration: none;
   color: #428bca;
 }
-.underlined-text,
+.underlined-link,
 .gb-markdown .underlined-link {
   color: inherit;
   text-decoration: underline;
 }
-.underlined-text:visited,
+.underlined-link:visited,
 .gb-markdown .underlined-link:visited {
   color: inherit;
 }
-.underlined-text:focus,
+.underlined-link:focus,
 .gb-markdown .underlined-link:focus,
-.underlined-text:hover,
+.underlined-link:hover,
 .gb-markdown .underlined-link:hover {
   text-decoration: underline;
   color: inherit;
