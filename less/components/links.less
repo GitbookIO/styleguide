@@ -9,4 +9,18 @@ a {
     &:visited {
         color: @gb-link-color;
     }
+
+    // Text with same color as parent
+    &.muted-link {
+        color: inherit;
+
+        &:visited {
+            color: inherit;
+        }
+
+        &:focus, &:hover {
+            text-decoration: none;
+            color: @gb-link-color;
+        }
+    }
 }

@@ -65,6 +65,24 @@
     }
 }
 
+// Button withotu background (btn-link, etc)
+.button-nobackground {
+    background: transparent;
+    border-color: transparent;
+
+    &:hover, &:focus {
+        color: @gb-link-color;
+        background: none;
+        box-shadow: none;
+    }
+
+    &.active {
+        background: none;
+        box-shadow: none;
+        font-weight: 500;
+    }
+}
+
 .btn, a.btn, .gb-markdown .btn {
     text-shadow: none;
     border-radius: @gb-border-radius-base;
@@ -154,22 +172,12 @@
     /// Styles
     &.btn-link {
         .button(@gb-link-color);
-        color: inherit;
-        background: transparent;
-        border-color: transparent;
-
-        &:hover, &:focus {
-            color: @gb-link-color;
-        }
+        .button-nobackground();
+        color: @gb-link-color;
     }
     &.btn-text-link {
+        .button-nobackground();
         color: inherit;
-        background: transparent;
-        border-color: transparent;
-
-        &:hover, &:focus {
-            color: @gb-link-color;
-        }
     }
 
     &.btn-count {
