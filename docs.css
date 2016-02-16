@@ -1552,7 +1552,7 @@ h6 .small,
 .h6 .small {
   font-weight: 400;
   line-height: 1;
-  color: #777;
+  color: #737373;
 }
 h1,
 .h1,
@@ -1704,7 +1704,7 @@ small,
   color: #3c763d;
 }
 .text-muted {
-  color: #777;
+  color: #737373;
 }
 ul,
 ol {
@@ -1762,7 +1762,7 @@ dd {
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #777;
+  border-bottom: 1px dotted #737373;
 }
 .initialism {
   font-size: 90%;
@@ -1785,7 +1785,7 @@ blockquote .small {
   display: block;
   font-size: 80%;
   line-height: 1.42857143;
-  color: #777;
+  color: #737373;
 }
 blockquote footer:before,
 blockquote small:before,
@@ -2036,13 +2036,44 @@ a:hover {
 a:visited {
   color: #428bca;
 }
+.muted-link,
+.gb-markdown .muted-link {
+  color: #737373;
+}
+.muted-link:visited,
+.gb-markdown .muted-link:visited {
+  color: #737373;
+}
+.muted-link:focus,
+.gb-markdown .muted-link:focus,
+.muted-link:hover,
+.gb-markdown .muted-link:hover {
+  text-decoration: none;
+  color: #428bca;
+}
+.underlined-text,
+.gb-markdown .underlined-link {
+  color: inherit;
+  text-decoration: underline;
+}
+.underlined-text:visited,
+.gb-markdown .underlined-link:visited {
+  color: inherit;
+}
+.underlined-text:focus,
+.gb-markdown .underlined-link:focus,
+.underlined-text:hover,
+.gb-markdown .underlined-link:hover {
+  text-decoration: underline;
+  color: inherit;
+}
 table {
   background-color: transparent;
 }
 caption {
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #777;
+  color: #737373;
   text-align: left;
 }
 th {
@@ -2172,6 +2203,21 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
     border-bottom: 0;
   }
+}
+.button-nobackground {
+  background: transparent;
+  border-color: transparent;
+}
+.button-nobackground:hover,
+.button-nobackground:focus {
+  color: #428bca;
+  background: none;
+  box-shadow: none;
+}
+.button-nobackground.active {
+  background: none;
+  box-shadow: none;
+  font-weight: 500;
 }
 .btn,
 a.btn,
@@ -2310,9 +2356,9 @@ a.btn.btn-link,
   background: linear-gradient(#428bca, #3071a9);
   border-color: #2a6496;
   color: #fff;
-  color: inherit;
   background: transparent;
   border-color: transparent;
+  color: #428bca;
 }
 .btn.btn-link:hover,
 a.btn.btn-link:hover,
@@ -2365,13 +2411,22 @@ a.btn.btn-link:hover,
 a.btn.btn-link:focus,
 .gb-markdown .btn.btn-link:focus {
   color: #428bca;
+  background: none;
+  box-shadow: none;
+}
+.btn.btn-link.active,
+a.btn.btn-link.active,
+.gb-markdown .btn.btn-link.active {
+  background: none;
+  box-shadow: none;
+  font-weight: 500;
 }
 .btn.btn-text-link,
 a.btn.btn-text-link,
 .gb-markdown .btn.btn-text-link {
-  color: inherit;
   background: transparent;
   border-color: transparent;
+  color: inherit;
 }
 .btn.btn-text-link:hover,
 a.btn.btn-text-link:hover,
@@ -2380,6 +2435,15 @@ a.btn.btn-text-link:hover,
 a.btn.btn-text-link:focus,
 .gb-markdown .btn.btn-text-link:focus {
   color: #428bca;
+  background: none;
+  box-shadow: none;
+}
+.btn.btn-text-link.active,
+a.btn.btn-text-link.active,
+.gb-markdown .btn.btn-text-link.active {
+  background: none;
+  box-shadow: none;
+  font-weight: 500;
 }
 .btn.btn-count,
 a.btn.btn-count,
@@ -4032,7 +4096,7 @@ ul.filter-list li .filter-item {
   padding: 6px 12px;
   margin-bottom: 5px;
   font-size: 14px;
-  color: #777;
+  color: #737373;
   text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -4047,7 +4111,7 @@ ul.filter-list li .filter-item .count {
 .filter-list li .filter-item:hover,
 ul.filter-list li .filter-item:hover {
   text-decoration: none;
-  color: #777;
+  color: #737373;
   background-color: #eee;
 }
 .filter-list li .filter-item.selected,
@@ -4428,9 +4492,9 @@ select.form-control.btn-link {
   background: linear-gradient(#428bca, #3071a9);
   border-color: #2a6496;
   color: #fff;
-  color: inherit;
   background: transparent;
   border-color: transparent;
+  color: #428bca;
 }
 select.form-control.btn-link:hover,
 select.form-control.btn-link:focus {
@@ -4461,15 +4525,29 @@ select.form-control.btn-link.btn-link:focus {
 select.form-control.btn-link:hover,
 select.form-control.btn-link:focus {
   color: #428bca;
+  background: none;
+  box-shadow: none;
+}
+select.form-control.btn-link.active {
+  background: none;
+  box-shadow: none;
+  font-weight: 500;
 }
 select.form-control.btn-text-link {
-  color: inherit;
   background: transparent;
   border-color: transparent;
+  color: inherit;
 }
 select.form-control.btn-text-link:hover,
 select.form-control.btn-text-link:focus {
   color: #428bca;
+  background: none;
+  box-shadow: none;
+}
+select.form-control.btn-text-link.active {
+  background: none;
+  box-shadow: none;
+  font-weight: 500;
 }
 select.form-control.btn-count {
   color: #333;
@@ -5024,7 +5102,7 @@ select.form-control:focus {
   padding: 6px 12px;
   line-height: 1.42857143;
   text-decoration: none;
-  color: #777;
+  color: #737373;
   background-color: #fff;
   border: 1px solid #d4d4d4;
   margin-left: -1px;
