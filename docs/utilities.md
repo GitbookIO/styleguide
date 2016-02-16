@@ -15,6 +15,14 @@ For faster mobile-friendly development, use these utility classes for showing an
 | `.hidden-md` | **Visible** | **Visible** | Hidden | **Visible** |
 | `.hidden-lg` | **Visible** | **Visible**| **Visible** | Hidden |
 
+# Links
+
+When you need a hyperlink to not be @gb-brand-primary, use a `.muted-link` or `.underlined-link`.
+
+{% example html %}
+Here is some example text. <a class="muted-link" href="#">A muted link. </a><a class="underlined-link" href="#">And an underlined link.</a>
+{% endexample %}
+
 # Markdown
 
 HTML from Markdown following [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/) syntax can be styled easily using `.gb-markdown`.

@@ -9,18 +9,34 @@ a {
     &:visited {
         color: @gb-link-color;
     }
+}
 
-    // Text with same color as parent
-    &.muted-link {
-        color: inherit;
+// Text with a gray color
+.muted-link, .gb-markdown .muted-link {
+    color: @gb-text-muted;
 
-        &:visited {
-            color: inherit;
-        }
+    &:visited {
+        color: @gb-text-muted;
+    }
 
-        &:focus, &:hover {
-            text-decoration: none;
-            color: @gb-link-color;
-        }
+    &:focus, &:hover {
+        text-decoration: none;
+        color: @gb-link-color;
     }
 }
+
+// Text with same color as parent, but underlined
+.underlined-text, .gb-markdown .underlined-link {
+    color: inherit;
+    text-decoration: underline;
+
+    &:visited {
+        color: inherit;
+    }
+
+    &:focus, &:hover {
+        text-decoration: underline;
+        color: inherit;
+    }
+}
+
