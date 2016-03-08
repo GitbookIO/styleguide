@@ -4,6 +4,7 @@
     margin: @gb-blankslate-vertical-padding auto;
     text-align: center;
     padding: 20px;
+    color: #666;
 
     @media (max-height: 800px) {
         margin: (@gb-blankslate-vertical-padding / 2) auto;
@@ -11,8 +12,8 @@
 
 
     .icon {
-        font-size: 64px;
-        line-height: 120px;
+        font-size: @gb-blankslate-icon-size;
+        line-height: 1.9em;
         color: @gb-palette-gray-darker;
     }
 
@@ -38,6 +39,12 @@
         max-width: 100%;
         margin: 0px;
         padding: @gb-blankslate-vertical-padding @gb-blankslate-vertical-padding;
+    }
+
+    .blankslate-inner {
+        max-width: @gb-blankslate-inner-maxwidth;
+        width: 100%;
+        margin: 0px auto;
     }
 }
 
