@@ -15,11 +15,10 @@
     .list-group-item {
         position: relative;
         display: block;
-        padding: 10px 15px;
+        padding: 8px 15px;
         margin-bottom: -1px;
         color: @gb-listgroup-color;
         background-color: @gb-listgroup-background;
-        border: 1px solid @gb-listgroup-border;
 
         &:focus, &:hover {
             text-decoration: none;
@@ -35,14 +34,10 @@
 
         &:first-child {
             margin-top: 0;
-            border-top-right-radius: @gb-border-radius-small;
-            border-top-left-radius: @gb-border-radius-small;
         }
 
         &:last-child {
             margin-bottom: 0;
-            border-bottom-right-radius: @gb-border-radius-small;
-            border-bottom-left-radius: @gb-border-radius-small;
         }
 
         .list-image {
@@ -50,13 +45,11 @@
             overflow: hidden;
             line-height: 1;
             vertical-align: middle;
-            border-radius: 3px;
-
+            border-radius: 18px;
             float: left;
-            margin-right: 5px;
-
-            width: 20px;
-            height: 20px;
+            margin-right: 6px;
+            width: 18px;
+            height: 18px;
         }
 
         .badge {
@@ -69,6 +62,7 @@
             text-align: center;
             border-radius: 10px;
             float:right;
+            border: none;
         }
 
         i.pull-right {
