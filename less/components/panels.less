@@ -3,8 +3,8 @@
 
     .panel-heading {
         color: @color;
-        background-color: @backgroundColor;
-        border-color: @borderColor;
+        //background-color: @backgroundColor;
+        //border-color: @borderColor;
     }
 }
 
@@ -24,19 +24,17 @@
     .panel-heading {
         padding: 10px 15px;
         border-bottom: 1px solid transparent;
-        border-top-right-radius: 1px;
-        border-top-left-radius: 1px;
+        border-top-right-radius: @gb-panel-radius;
+        border-top-left-radius: @gb-panel-radius;
 
         .panel-title {
             margin: 0px;
             padding: 0px;
-            font-size: inherit;
+            font-size: @gb-font-size-medium;
             font-weight: @gb-font-weight-bold;
-
-            // size of a "label"
             line-height: 19px;
-            margin-top: -2px;
-            margin-bottom: -2px;
+            margin-top: 2px;
+            margin-bottom: 2px;
 
             a {
                 color: inherit;
