@@ -1,9 +1,7 @@
 .pagehead {
     .clearfix();
-    text-align: center;
     margin: 0 auto;
     padding: 0;
-    text-align: center;
     background-color: @gb-pagehead-background;
     border-bottom: 1px solid @gb-pagehead-border;
 
@@ -27,7 +25,20 @@
         }
     }
 
-    h1 {
+    .head-content {
+        > h1 {
+            color: inherit;
+            margin: 0 0 10px;
+            font-size: 42px;
+            font-weight: 500
+        }
+
+        p {
+
+        }
+    }
+
+    .head-heading {
         float: left;
         font-size: 24px;
         padding: 0px;
@@ -55,24 +66,12 @@
         margin-top: 16px;
     }
 
-    .menu {
+    .head-menu {
         list-style: none;
         .clearfix();
-
         margin: 0px;
         padding: 0px;
-
-        float: right;
-
         text-align: center;
-
-        &.center {
-            float: none;
-        }
-
-        &.left {
-            float: left;
-        }
 
         /* Items */
         li {
