@@ -1,4 +1,7 @@
 var React = require('react');
+var classNames = require('classnames');
+
+var Button = require('./button');
 
 var ButtonDropdown = React.createClass({
     getInitialState: function() {
@@ -9,7 +12,9 @@ var ButtonDropdown = React.createClass({
 
     // Toggle the dopdown
     toggle: function(e) {
-        if (e) e.stopPropagation();
+        if (e) {
+            e.stopPropagation();
+        }
 
         this.setState({
             open: !this.state.open
@@ -76,13 +81,10 @@ var ButtonDropdown = React.createClass({
             return null;
         });
 
-        var classes = ['dropdown'];
-        if (this.props.dropup) classes.push('dropup');
-
-        return <ButtonGroup {...this.props} classes={classes}>
+        return <Button.Group {...this.props} className={classNames('dropdown', { 'dropup': this.props.dropup })}>
             {inner}
-            <ul className={this.state.open? 'dropdown-menu open' : 'dropdown-menu'}>{items}</ul>
-        </ButtonGroup>;
+            <DropdownMenu open={this.state.open}>{items}</DropdownMenu>
+        </Button.Group>;
     }
 });
 
@@ -126,7 +128,9 @@ var DropdownItem = React.createClass({
 
 var DropdownMenu = React.createClass({
     render: function() {
-        return <ul className="dropdown-menu">{this.props.children}</ul>;
+        return <ul className={classNames('dropdown-menu', { open: this.props.open })}>
+            {this.props.children}
+        </ul>;
     }
 });
 
