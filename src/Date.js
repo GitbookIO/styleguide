@@ -5,6 +5,7 @@ var DateSpan =  React.createClass({
     propTypes: {
         date: React.PropTypes.oneOfType([
             React.PropTypes.number,
+            React.PropTypes.string,
             React.PropTypes.instanceOf(Date)
         ]).isRequired,
 
