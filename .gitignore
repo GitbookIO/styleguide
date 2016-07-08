@@ -31,3 +31,4 @@ docs/_data/*
 !docs/_data/.gitkeep
 assets/fonts/octicons
 assets/images/logo
+lib
