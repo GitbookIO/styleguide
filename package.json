@@ -34,6 +34,7 @@
     "start": "gulp",
     "release": "gulp release",
     "build-js": "babel src --out-dir lib",
+    "build": "npm run build-js",
     "postinstall": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && rm -rf ./assets/images/logo && cp -R ./node_modules/gitbook-logos/output ./assets/images/logo"
   },
   "repository": {

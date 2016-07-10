@@ -1,0 +1,78 @@
+var React = require('react');
+
+var Icon = require('./Icon');
+
+var PageHead = React.createClass({
+    render: function() {
+        return (
+            <div className="pagehead">
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
+var HeadTitle = React.createClass({
+    render: function() {
+        return (
+            <h1>
+                {this.props.children}
+            </h1>
+        );
+    }
+});
+
+var HeadSearchBar = React.createClass({
+    propTypes: {
+        placeholder: React.PropTypes.string,
+        value:       React.PropTypes.string,
+        action:      React.PropTypes.string,
+        name:        React.PropTypes.string,
+        method:      React.PropTypes.string,
+        onSubmit:    React.PropTypes.func
+    },
+
+    getDefaultProps: function() {
+        return {
+            method: 'get'
+        };
+    },
+
+    getInitialState: function() {
+        return {
+            value: this.props.value
+        };
+    },
+
+    onChange: function(e) {
+        this.setState({
+            value: e.target.value
+        });
+    },
+
+    onSubmit: function(e) {
+        if (!this.props.onSubmit) {
+            return;
+        }
+
+        e.preventDefault();
+        this.props.onSubmit(this.state.value);
+    },
+
+    render: function() {
+        var {action, placeholder,
+            name, method} = this.props;
+        var value = this.state.value;
+
+        return (
+            <form className="search-bar hidden-xs hidden-sm pull-right" method={method} action={action}>
+                <Icon id="search" />
+                <input type="text" name={name} value={value} onChange={this.onChange} className="form-control" placeholder={placeholder} />
+            </form>
+        );
+    }
+});
+
+module.exports           = PageHead;
+module.exports.Title     = HeadTitle;
+module.exports.SearchBar = HeadSearchBar;

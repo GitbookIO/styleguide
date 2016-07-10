@@ -6,13 +6,19 @@ var Icon = React.createClass({
         type: React.PropTypes.string
     },
 
+    getDefaultProps: function() {
+        return {
+            type: 'octicon'
+        };
+    },
+
     render: function() {
-        var type      = this.props.type || 'octicon';
+        var type      = this.props.type;
         var id        = this.props.id;
         var className = this.props.className;
 
         if (!className) {
-            className = className + ' ' + type + '-' + id;
+            className = type + ' ' + type + '-' + id;
         }
 
         return <i className={className}></i>;

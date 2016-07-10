@@ -1,9 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-var SIZES = [
-    'xs', 'sm', 'md', 'lg'
-];
+var SIZES = require('./SIZES');
 
 var Row = React.createClass({
     render: function() {
