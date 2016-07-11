@@ -28,9 +28,12 @@
     "gulp-rename": "^1.2.2",
     "lodash": "3.9.3",
     "merge-stream": "0.1.7",
-    "run-sequence": "1.1.4"
+    "run-sequence": "1.1.4",
+    "eslint": "^2.11.1",
+    "eslint-plugin-react": "^4.2.1"
   },
   "scripts": {
+    "lint": "eslint",
     "start": "gulp",
     "release": "gulp release",
     "build-js": "babel src --out-dir lib",

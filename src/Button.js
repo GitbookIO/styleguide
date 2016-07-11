@@ -2,8 +2,19 @@ var React = require('react');
 var classNames = require('classnames');
 
 var Icon = require('./icon');
+var STYLES = require('./STYLES');
+var SIZES = require('./SIZES');
 
 var Button = React.createClass({
+    propTypes: {
+        size:     React.PropTypes.oneOf(SIZES),
+        style:    React.PropTypes.oneOf(STYLES),
+        filled:   React.PropTypes.bool,
+        disabled: React.PropTypes.bool,
+        active:   React.PropTypes.bool,
+        block:    React.PropTypes.bool
+    },
+
     getDefaultProps: function() {
         return {
             style: 'default',
@@ -27,6 +38,7 @@ var Button = React.createClass({
         props.className = classNames('btn', 'btn-'+this.props.style, 'btn-'+this.props.size,
             this.props.className || [], {
                 'btn-fill':        this.props.filled,
+                'btn-block':       this.props.block,
                 'active':          this.props.active,
                 'dropdown-toggle': this.props.dropdownToggle,
                 'tooltipped':      Boolean(title)

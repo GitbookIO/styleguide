@@ -1,6 +1,8 @@
 var React = require('react');
 
 var Icon = require('./Icon');
+var Form = require('./Form');
+var Input = require('./Input');
 
 var PageHead = React.createClass({
     render: function() {
@@ -65,10 +67,10 @@ var HeadSearchBar = React.createClass({
         var value = this.state.value;
 
         return (
-            <form className="search-bar hidden-xs hidden-sm pull-right" method={method} action={action}>
+            <Form className="search-bar hidden-xs hidden-sm pull-right" method={method} action={action}>
                 <Icon id="search" />
-                <input type="text" name={name} value={value} onChange={this.onChange} className="form-control" placeholder={placeholder} />
-            </form>
+                <Input name={name} value={value} onChange={this.onChange} placeholder={placeholder} />
+            </Form>
         );
     }
 });

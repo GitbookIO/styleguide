@@ -63,16 +63,16 @@ var Alert = React.createClass({
  */
 function createAlertStyle(style) {
     return React.createClass({
-        displayName: 'Alert' + style,
+        displayName: Alert.displayName + style,
         render: function() {
-            return <Alert {...this.props} style={style} />;
+            return <Alert {...this.props} style={style.toLowerCase()} />;
         }
     });
 }
 
 module.exports         = Alert;
-module.exports.Info    = createAlertStyle('info');
-module.exports.Danger  = createAlertStyle('danger');
-module.exports.Success = createAlertStyle('success');
-module.exports.Warning = createAlertStyle('warning');
+module.exports.Info    = createAlertStyle('Info');
+module.exports.Danger  = createAlertStyle('Danger');
+module.exports.Success = createAlertStyle('Success');
+module.exports.Warning = createAlertStyle('Warning');
 
