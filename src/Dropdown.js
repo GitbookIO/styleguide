@@ -90,6 +90,11 @@ var ButtonDropdown = React.createClass({
 
 
 var DropdownItem = React.createClass({
+    propTypes: {
+        divider: React.PropTypes.bool,
+        header:  React.PropTypes.bool
+    },
+
     onClick: function(e) {
         if (!this.props.href) {
             e.preventDefault();
@@ -100,12 +105,17 @@ var DropdownItem = React.createClass({
     },
 
     isInner: function(child) {
-        return (child && (!child.type || child.type == 'i' || child.type == 'span' || child.type.displayName == 'ContextMenuShortcut'));
+        return (child && (!child.type || child.type == 'i'
+            || child.type == 'span' || child.type.displayName == 'ContextMenuShortcut'));
     },
 
     render: function() {
-        if (this.props.divider) return <li className="divider"></li>;
-        if (this.props.header) return <li className="dropdown-header">{this.props.children}</li>;
+        if (this.props.divider) {
+            return <li className="divider"></li>;
+        }
+        if (this.props.header) {
+            return <li className="dropdown-header">{this.props.children}</li>;
+        }
 
         var inner = [], outer = [];
 

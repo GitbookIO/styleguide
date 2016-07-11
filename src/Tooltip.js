@@ -1,0 +1,46 @@
+var React = require('react');
+var classNames = require('classnames');
+
+var POSITIONS = {
+    BOTTOM_RIGHT: 'e',
+    BOTTOM_LEFT:  'w',
+    TOP_LEFT:     'nw',
+    TOP_RIGHT:    'ne',
+    BOTTOM:       '',
+    TOP:          'n'
+};
+
+var Tooltip = React.createClass({
+    propTypes: {
+        text:     React.PropTypes.string.isRequired,
+        position: React.PropTypes.string,
+        open:     React.PropTypes.bool
+    },
+
+    getDefaultProps: function() {
+        return {
+            open:     false,
+            position: POSITIONS.BOTTOM
+        };
+    },
+
+    render: function() {
+        var className = classNames(
+            'tooltipped-overlay',
+            'tooltipped-' + this.props.position,
+            'tooltipped',
+            {
+                'tooltipped-o': this.props.open
+            }
+        );
+
+        return (
+            <div className={className}>
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
+module.exports = Tooltip;
+module.exports.POSITIONS = POSITIONS;

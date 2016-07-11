@@ -4,7 +4,7 @@ var classNames = require('classnames');
 var Form = React.createClass({
     render: function() {
         return (
-            <form>
+            <form {...this.props}>
                 {this.props.children}
             </form>
         );
