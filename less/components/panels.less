@@ -3,8 +3,7 @@
 
     .panel-heading {
         color: @color;
-        //background-color: @backgroundColor;
-        //border-color: @borderColor;
+        border-color: @borderColor;
     }
 }
 
@@ -22,8 +21,10 @@
     }
 
     .panel-heading {
-        padding: 10px 15px;
-        border-bottom: 1px solid transparent;
+        padding: 10px 5px;
+        margin-right: 15px;
+        margin-left: 15px;
+        border-bottom: 1px solid @gb-palette-gray-dark;
         border-top-right-radius: @gb-panel-radius;
         border-top-left-radius: @gb-panel-radius;
 
@@ -31,10 +32,12 @@
             margin: 0px;
             padding: 0px;
             font-size: @gb-font-size-medium;
-            font-weight: @gb-font-weight-bold;
-            line-height: 19px;
+            font-weight: @gb-font-weight-base;
             margin-top: 2px;
             margin-bottom: 2px;
+            font-size: 20px;
+            letter-spacing: .6px;
+            line-height: 24px;
 
             a {
                 color: inherit;
