@@ -1,0 +1,43 @@
+.tags {
+    list-style: none;
+    .clearfix();
+    margin: 0px;
+    padding: 0px;
+
+    li {
+        float: left;
+
+        a {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0px @gb-padding-small-horizontal @gb-padding-small-vertical 0;
+            padding: 4px 8px;
+            border: 1px solid transparent;
+            border-radius: @gb-border-radius-small;
+            font-size: @gb-font-size-small;
+            border: none;
+            color: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.05);
+            .transition(0.2s ease background);
+
+            &.selected {
+                border-color: @gb-brand-primary;
+            }
+
+            &:hover, &:focus {
+                text-decoration: none;
+                background: rgba(0, 0, 0, 0.1);
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .name {
+                font-weight: @gb-font-weight-bold;
+            }
+
+            .count {
+                opacity: 0.5;
+            }
+        }
+    }
+}
