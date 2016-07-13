@@ -1,3 +1,3 @@
 module.exports = [
-    'default', 'info', 'warning', 'danger'
+    'default', 'info', 'warning', 'success', 'danger'
 ];

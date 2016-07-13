@@ -5,10 +5,14 @@ var Icon = require('./icon');
 var STYLES = require('./STYLES');
 var SIZES = require('./SIZES');
 
+var BUTTONS_STYLE = STYLES.concat([
+    'link'
+]);
+
 var Button = React.createClass({
     propTypes: {
         size:     React.PropTypes.oneOf(SIZES),
-        style:    React.PropTypes.oneOf(STYLES),
+        style:    React.PropTypes.oneOf(BUTTONS_STYLE),
         filled:   React.PropTypes.bool,
         disabled: React.PropTypes.bool,
         active:   React.PropTypes.bool,
