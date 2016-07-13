@@ -31,7 +31,8 @@ var HeadSearchBar = React.createClass({
         action:      React.PropTypes.string,
         name:        React.PropTypes.string,
         method:      React.PropTypes.string,
-        onSubmit:    React.PropTypes.func
+        onSubmit:    React.PropTypes.func,
+        onChange:    React.PropTypes.func
     },
 
     getDefaultProps: function() {
@@ -46,10 +47,14 @@ var HeadSearchBar = React.createClass({
         };
     },
 
-    onChange: function(e) {
+    onChange: function(newValue) {
         this.setState({
-            value: e.target.value
+            value: newValue
         });
+
+        if (this.props.onChange) {
+            this.props.onChange(newValue);
+        }
     },
 
     onSubmit: function(e) {
