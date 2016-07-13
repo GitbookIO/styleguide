@@ -17,7 +17,7 @@ var PageHead = React.createClass({
 var HeadTitle = React.createClass({
     render: function() {
         return (
-            <h1>
+            <h1 className="head-heading">
                 {this.props.children}
             </h1>
         );

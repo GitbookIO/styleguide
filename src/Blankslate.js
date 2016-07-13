@@ -1,6 +1,8 @@
 var React = require('react');
 var classNames = require('classnames');
 
+var Icon = require('./Icon');
+
 var Blankslate = React.createClass({
     propTypes: {
         icon:       React.PropTypes.string,

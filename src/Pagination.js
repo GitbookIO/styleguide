@@ -81,7 +81,7 @@ var Pagination = React.createClass({
                 </ul>
                 <ul className="pagination-nav">
                     {page < 1? '' : this.renderPageItem(page - 1, '« previous page')}
-                    {page >= maxRange? '' : this.renderPageItem(page + 1, 'next page »')}
+                    {page >= (maxRange - 1)? '' : this.renderPageItem(page + 1, 'next page »')}
                 </ul>
             </div>
         );
