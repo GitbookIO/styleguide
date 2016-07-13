@@ -35,7 +35,7 @@ var PanelHeading = React.createClass({
         var inner = '';
 
         if (title) {
-            inner = <PanelTitle>{title}</PanelTitle>
+            inner = <PanelTitle>{title}</PanelTitle>;
         }
 
         return (

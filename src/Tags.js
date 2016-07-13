@@ -14,7 +14,7 @@ var Tags = React.createClass({
 var TagItem = React.createClass({
     propTypes: {
         title:    React.PropTypes.string,
-        selected: React.PropTypes.boolean,
+        selected: React.PropTypes.bool,
         count:    React.PropTypes.number
     },
 
