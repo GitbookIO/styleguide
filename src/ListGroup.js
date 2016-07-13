@@ -31,7 +31,7 @@ var ListItem = React.createClass({
         });
 
         return (
-            <a className={className} onClick={this.onClick}>{this.props.children}</a>
+            <a href={this.props.href} className={className} onClick={this.onClick}>{this.props.children}</a>
         );
     }
 });
