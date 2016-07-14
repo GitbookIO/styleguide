@@ -1,17 +1,27 @@
 var React = require('react');
 var classNames = require('classnames');
 
+var SIZES = require('./SIZES');
+
 var Modal = React.createClass({
+    propTypes: {
+        size:     React.PropTypes.oneOf(SIZES),
+        backdrop: React.PropTypes.bool
+    },
+
     getDefaultProps: function() {
         return {
-            size: 'md'
+            size: 'md',
+            backdrop: true
         };
     },
 
     render: function() {
         var className = classNames('modal',
             'modal-' + this.props.size,
-            this.props.className);
+            this.props.className, {
+                'without-backdrop': !this.props.backdrop
+            });
 
         return <div className={className}>
             {this.props.children}

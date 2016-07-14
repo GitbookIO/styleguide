@@ -47,7 +47,9 @@ var HeadSearchBar = React.createClass({
         };
     },
 
-    onChange: function(newValue) {
+    onChange: function(e) {
+        var newValue = e.target.value;
+
         this.setState({
             value: newValue
         });

@@ -11,6 +11,7 @@ var BUTTONS_STYLE = STYLES.concat([
 
 var Button = React.createClass({
     propTypes: {
+        type:     React.PropTypes.string,
         size:     React.PropTypes.oneOf(SIZES),
         style:    React.PropTypes.oneOf(BUTTONS_STYLE),
         filled:   React.PropTypes.bool,
@@ -48,6 +49,7 @@ var Button = React.createClass({
                 'tooltipped':      Boolean(title)
             });
         props['aria-label'] = title;
+        props.role          = 'button';
         props.disabled      = this.props.disabled;
         props.onClick       = this.props.onNativeClick? this.props.onNativeClick : this.onClick;
         props.href          = this.props.href;

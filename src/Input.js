@@ -10,17 +10,12 @@ var Input = React.createClass({
         type:        React.PropTypes.string,
         placeholder: React.PropTypes.string,
         disabled:    React.PropTypes.bool,
+        autoFocus:   React.PropTypes.bool,
         size:        React.PropTypes.oneOf(SIZES),
         value:       React.PropTypes.oneOfType([
             React.PropTypes.string,
             React.PropTypes.bool
         ])
-    },
-
-    getInitialState: function() {
-        return {
-            value: this.props.value
-        };
     },
 
     getDefaultProps: function() {
@@ -30,21 +25,9 @@ var Input = React.createClass({
         };
     },
 
-    componentWillReceiveProps: function(newProps) {
-        this.setState({
-            value: newProps.value
-        });
-    },
-
     onChange: function(e) {
-        var newValue = e.target.value;
-
-        this.setState({
-            value: newValue
-        });
-
         if (this.props.onChange) {
-            this.props.onChange(newValue);
+            this.props.onChange(e);
         }
     },
 
@@ -54,11 +37,12 @@ var Input = React.createClass({
         var type        = this.props.type;
         var placeholder = this.props.placeholder;
         var size        = this.props.size;
-        var value       = this.state.value;
+        var autoFocus   = this.props.autoFocus;
+        var value       = this.props.value;
 
         var className = classNames('form-control', 'input-' + size, this.props.className);
 
-        return <input type={type} className={className} disabled={disabled} name={name} value={value} placeholder={placeholder} onChange={this.onChange} />;
+        return <input type={type} autoFocus={autoFocus} className={className} disabled={disabled} name={name} value={value} placeholder={placeholder} onChange={this.onChange} />;
     }
 });
 
