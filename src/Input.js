@@ -5,17 +5,25 @@ var SIZES = require('./SIZES');
 
 var Input = React.createClass({
     propTypes: {
-        onChange:    React.PropTypes.func,
-        name:        React.PropTypes.string,
-        type:        React.PropTypes.string,
-        placeholder: React.PropTypes.string,
-        disabled:    React.PropTypes.bool,
-        autoFocus:   React.PropTypes.bool,
-        size:        React.PropTypes.oneOf(SIZES),
-        value:       React.PropTypes.oneOfType([
+        onChange:     React.PropTypes.func,
+        name:         React.PropTypes.string,
+        type:         React.PropTypes.string,
+        placeholder:  React.PropTypes.string,
+        disabled:     React.PropTypes.bool,
+        autoFocus:    React.PropTypes.bool,
+        size:         React.PropTypes.oneOf(SIZES),
+        defaultValue: React.PropTypes.string,
+        value:        React.PropTypes.oneOfType([
             React.PropTypes.string,
             React.PropTypes.bool
         ])
+    },
+
+    /**
+     * Focus this input
+     */
+    focus: function() {
+        this.refs.input.focus();
     },
 
     getDefaultProps: function() {
@@ -32,17 +40,22 @@ var Input = React.createClass({
     },
 
     render: function() {
-        var disabled    = this.props.disabled;
-        var name        = this.props.name;
-        var type        = this.props.type;
-        var placeholder = this.props.placeholder;
-        var size        = this.props.size;
-        var autoFocus   = this.props.autoFocus;
-        var value       = this.props.value;
+        var disabled     = this.props.disabled;
+        var name         = this.props.name;
+        var type         = this.props.type;
+        var placeholder  = this.props.placeholder;
+        var size         = this.props.size;
+        var autoFocus    = this.props.autoFocus;
+        var value        = this.props.value;
+        var defaultValue = this.props.defaultValue;
 
         var className = classNames('form-control', 'input-' + size, this.props.className);
 
-        return <input type={type} autoFocus={autoFocus} className={className} disabled={disabled} name={name} value={value} placeholder={placeholder} onChange={this.onChange} />;
+        return <input ref="input"
+            type={type} autoFocus={autoFocus}
+            className={className} disabled={disabled}
+            name={name} value={value} defaultValue={defaultValue}
+            placeholder={placeholder} onChange={this.onChange} />;
     }
 });
 

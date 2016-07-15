@@ -2,9 +2,13 @@ var React = require('react');
 var classNames = require('classnames');
 
 var Form = React.createClass({
+    submit: function() {
+        this.refs.form.submit();
+    },
+
     render: function() {
         return (
-            <form {...this.props}>
+            <form ref="form" {...this.props}>
                 {this.props.children}
             </form>
         );
