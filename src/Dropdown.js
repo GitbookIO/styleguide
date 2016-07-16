@@ -81,7 +81,7 @@ var ButtonDropdown = React.createClass({
             return null;
         });
 
-        return <Button.Group {...this.props} className={classNames('dropdown', { 'dropup': this.props.dropup })}>
+        return <Button.Group {...this.props} className={classNames('dropdown', this.props.className, { 'dropup': this.props.dropup })}>
             {inner}
             <DropdownMenu open={this.state.open}>{items}</DropdownMenu>
         </Button.Group>;
@@ -106,7 +106,8 @@ var DropdownItem = React.createClass({
 
     isInner: function(child) {
         return (child && (!child.type || child.type == 'i'
-            || child.type == 'span' || child.type.displayName == 'ContextMenuShortcut'));
+            || child.type == 'span' || child.type.displayName == 'ContextMenuShortcut'
+            || child.type.displayName == 'Icon'));
     },
 
     render: function() {
