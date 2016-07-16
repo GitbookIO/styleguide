@@ -198,10 +198,13 @@ var Select = React.createClass({
      * Render the options selector
      */
     renderOptions: function() {
-        var children;
-        var search = this.props.search;
+        var query = this.state.query;
 
-        children = React.Children.map(this.props.children, function(child) {
+        var children = React.Children.map(this.props.children, function(child) {
+            if (!!query && child.props.value.indexOf(query) < 0) {
+                return;
+            }
+
             var childValue = child.props.value;
             var className = classNames('select-option', {
                 'active': this.hasValue(childValue)
@@ -212,6 +215,8 @@ var Select = React.createClass({
             </div>;
         }, this);
 
+        var search = this.props.search;
+        var opened = this.state.opened;
         var className = classNames('select-container', {
             'open': opened
         });
