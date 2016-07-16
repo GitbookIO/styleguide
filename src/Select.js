@@ -202,12 +202,12 @@ var Select = React.createClass({
         var search = this.props.search;
 
         children = React.Children.map(this.props.children, function(child) {
-            var childKey = child.props.key;
+            var childValue = child.props.value;
             var className = classNames('select-option', {
-                'active': this.hasValue(childKey)
+                'active': this.hasValue(childValue)
             });
 
-            return <div className={className} onClick={this.onToggleOption.bind(this, childKey)}>
+            return <div className={className} onClick={this.onToggleOption.bind(this, childValue)}>
                 {child}
             </div>;
         }, this);
@@ -245,14 +245,14 @@ var Select = React.createClass({
 
 var SelectOption = React.createClass({
     propTypes: {
-        key: React.PropTypes.string
+        value: React.PropTypes.string
     },
 
     render: function() {
-        var key = this.props.key;
+        var value = this.props.value;
 
         if (isServerSide) {
-            return <option value={key}>
+            return <option value={value}>
                 {this.props.children}
             </option>;
         }
