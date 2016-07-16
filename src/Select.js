@@ -236,7 +236,7 @@ var Select = React.createClass({
         }
 
         return <div className="select">
-            <input type="hidden" value={this.getStringValue()} />
+            <input type="hidden" name={name} value={this.getStringValue()} />
             {this.renderButton()}
             {opened? this.renderOptions() : ''}
         </div>;
