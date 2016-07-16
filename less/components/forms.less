@@ -72,6 +72,63 @@ select.form-control {
     }
 }
 
+.select {
+    .form-control();
+    position: relative;
+    padding: 0;
+    border: none;
+
+    button.btn {
+        width: 100%;
+
+        .caret {
+            position: absolute;
+            top: 50%;
+            margin-top: -2px;
+            right: 12px;
+
+        }
+    }
+
+    .select-container {
+        .dropdown-menu();
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: -1px;
+        min-width: 100%;
+        max-width: 100%;
+
+        .select-search {
+            padding: 4px 8px;
+        }
+
+        .select-options {
+            .dropdown-menu();
+            display: block;
+            position: static;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+
+            .select-option {
+                position: relative;
+                cursor: pointer;
+                padding: 4px 10px 4px 24px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                &:hover, &.active {
+                    background-color: @gb-palette-blue;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
 // For radio and checkbox
 .radio, .checkbox, .form-group .radio, .form-group .checkbox {
     display: block;
