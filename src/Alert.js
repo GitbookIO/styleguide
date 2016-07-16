@@ -44,7 +44,7 @@ var Alert = React.createClass({
         }
 
         if (onClose) {
-            inner = <a href="#" onClose={this.onClose} className="alert-btn"><Icon id="x" /></a>
+            inner = <a href="#" onClose={this.onClose} className="alert-btn"><Icon id="x" /></a>;
         }
 
         return (
