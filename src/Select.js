@@ -189,7 +189,7 @@ var Select = React.createClass({
 
         return (
             <div className="select-search">
-                <Input ref="searchInput" value={query} onChange={this.onSearchChanged} />
+                <Input ref="searchInput" size={this.props.size} value={query} onChange={this.onSearchChanged} />
             </div>
         );
     },
