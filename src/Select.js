@@ -55,7 +55,8 @@ var Select = React.createClass({
             disabled:  false,
             search:    true,
             delimiter: ',',
-            size:      SIZES[0]
+            size:      SIZES[0],
+            multiple:  false
         };
     },
 
