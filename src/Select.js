@@ -26,28 +26,28 @@ var Select = React.createClass({
         ]).isRequired,
 
         // Optional callback when value changed
-        onChange:  React.PropTypes.func,
+        onChange:       React.PropTypes.func,
 
         // Name when using server posting
-        name:      React.PropTypes.string,
+        name:           React.PropTypes.string,
 
         // Text to display when no value is set
-        placeholder:       React.PropTypes.string,
+        placeholder:    React.PropTypes.string,
 
         // Delimiter for multiple values
-        delimiter: React.PropTypes.string,
+        delimiter:      React.PropTypes.string,
 
         // Prevent selection
-        disabled:  React.PropTypes.bool,
+        disabled:       React.PropTypes.bool,
 
         // Display the search filter?
-        search:    React.PropTypes.bool,
+        search:         React.PropTypes.bool,
 
         // Accept multiple values
-        multiple:  React.PropTypes.multiple,
+        multiple:       React.PropTypes.bool,
 
         // Size of the select to display
-        size:      React.PropTypes.oneOf(SIZES)
+        size:           React.PropTypes.oneOf(SIZES)
     },
 
     getDefaultProps: function() {
