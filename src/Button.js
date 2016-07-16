@@ -82,6 +82,14 @@ var ButtonToolbar = React.createClass({
     }
 });
 
-module.exports = Button;
-module.exports.Group = ButtonGroup;
+var ButtonCaret = React.createClass({
+    render: function() {
+        return <span className="caret" />;
+    }
+});
+
+module.exports         = Button;
+module.exports.Group   = ButtonGroup;
 module.exports.Toolbar = ButtonToolbar;
+module.exports.Caret   = ButtonCaret;
+
