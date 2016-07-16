@@ -176,7 +176,8 @@ var Select = React.createClass({
 
         return (
             <Button size={this.props.size} disabled={disabled} active={opened} onClick={this.onToggle}>
-
+                <span className="filter-option pull-left">{this.getStringValue()}</span>
+                <span className="caret"></span>
             </Button>
         );
     },
