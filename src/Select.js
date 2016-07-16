@@ -105,7 +105,7 @@ var Select = React.createClass({
     },
 
     /**
-     * Toggle (close/open) the select
+     * Toggle an option
      */
     onToggleOption: function(value, e) {
         if (e) {
@@ -121,7 +121,8 @@ var Select = React.createClass({
             });
         } else {
             this.setState({
-                value: value
+                value:  value,
+                opened: false
             });
         }
     },
