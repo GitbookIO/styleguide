@@ -212,8 +212,12 @@ var Select = React.createClass({
             </div>;
         }, this);
 
+        var className = classNames('select-container', {
+            'open': opened
+        });
+
         return (
-            <div className="select-container">
+            <div className={className}>
                 {search? this.renderSearch() : ''}
                 <div className="select-options">
                     {children}
