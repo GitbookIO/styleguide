@@ -61,8 +61,15 @@ var Pagination = React.createClass({
         var pages       = this.props.pages;
         var pagesToList = this.props.pagesToList;
 
+        if (pages < 2) {
+            return <div />;
+        }
+
+        if (page < 0) page = 0;
+        if (page >= pages) page = (pages - 1);
+
         var startRange = Math.max(0, page - pagesToList);
-        var maxRange   = pages - 1;
+        var maxRange   = pages;
         var endRange   = Math.min(maxRange, page + pagesToList);
         var pagesRange = Array.apply(null, {length: pages}).map(Number.call, Number).slice(startRange, endRange);
 
