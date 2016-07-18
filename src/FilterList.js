@@ -38,9 +38,11 @@ var FilterItem = React.createClass({
         }
 
         return (
-            <li className={className}>
-                {inner}
-                <a onClick={this.onClick}>{this.props.children}</a>
+            <li>
+                <a className={className} onClick={this.onClick}>
+                    {inner}
+                    {this.props.children}
+                </a>
             </li>
         );
     }
