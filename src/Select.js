@@ -240,7 +240,7 @@ var Select = React.createClass({
 
         if (isServerSide) {
             return (
-                <select class="form-control" name={name} disabled={disabled}>
+                <select className="form-control" name={name} disabled={disabled}>
                     {this.props.children}
                 </select>
             );
