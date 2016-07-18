@@ -20,7 +20,7 @@ var isServerSide = require('./isServerSide');
 var Select = React.createClass({
     propTypes: {
         // Current value of the select
-        value:       React.PropTypes.oneOfType([
+        value:          React.PropTypes.oneOfType([
             React.PropTypes.string,
             React.PropTypes.arrayOf(React.PropTypes.string)
         ]).isRequired,
@@ -116,8 +116,18 @@ var Select = React.createClass({
         var currentValue   = this.state.value;
 
         if (acceptMultiple) {
+            var newValue = currentValue;
+
+            // Add to selection if not yet selected
+            if (!this.hasValue(value)) {
+                newValue = currentValue.concat([value]);
+            } else if (currentValue.length > 1) {
+                // Unselect if many options are selected
+                newValue.splice(newValue.indexOf(value), 1);
+            }
+
             this.setState({
-                value: currentValue.concat([value])
+                value: newValue
             });
         } else {
             this.setState({
@@ -208,7 +218,7 @@ var Select = React.createClass({
             }
 
             var childValue = child.props.value;
-            var className = classNames('select-option', {
+            var className  = classNames('select-option', {
                 'active': this.hasValue(childValue)
             });
 
