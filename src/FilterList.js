@@ -31,6 +31,7 @@ var FilterItem = React.createClass({
             selected: this.props.selected
         });
         var count = this.props.count;
+        var href  = this.props.href;
         var inner = '';
 
         if (typeof count !== 'undefined') {
@@ -39,7 +40,7 @@ var FilterItem = React.createClass({
 
         return (
             <li>
-                <a className={className} onClick={this.onClick}>
+                <a className={className} href={href} onClick={this.onClick}>
                     {inner}
                     {this.props.children}
                 </a>
