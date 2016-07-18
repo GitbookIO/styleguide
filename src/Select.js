@@ -64,6 +64,7 @@ var Select = React.createClass({
     getInitialState: function() {
         return {
             value:  this.props.value,
+            selected: this.props.selected,
             query:  '',
             opened: false
         };
@@ -71,7 +72,8 @@ var Select = React.createClass({
 
     componentWillReceiveProps: function(newProps) {
         this.setState({
-            value: newProps.value
+            value: newProps.value,
+            selected: newProps.selected
         });
     },
 
@@ -108,31 +110,46 @@ var Select = React.createClass({
     /**
      * Toggle an option
      */
-    onToggleOption: function(value, e) {
+    onToggleOption: function(optionProps, e) {
         if (e) {
             e.preventDefault();
         }
 
         var acceptMultiple = this.props.multiple;
         var currentValue   = this.state.value;
+        var selected       = this.state.selected;
+
+        var value = optionProps.value;
 
         if (acceptMultiple) {
             var newValue = currentValue;
+            var newSelection = selected;
 
             // Add to selection if not yet selected
             if (!this.hasValue(value)) {
                 newValue = currentValue.concat([value]);
+                newSelection = selected.concat([{
+                    text: optionProps.children,
+                    icon: optionProps.icon
+                }]);
             } else if (currentValue.length > 1) {
                 // Unselect if many options are selected
-                newValue.splice(newValue.indexOf(value), 1);
+                var removeIndex = newValue.indexOf(value);
+                newValue.splice(removeIndex, 1);
+                newSelection.splice(removeIndex, 1);
             }
 
             this.setState({
-                value: newValue
+                value: newValue,
+                selected: newSelection
             });
         } else {
             this.setState({
                 value:  value,
+                selected: [{
+                    text: optionProps.children,
+                    icon: optionProps.icon
+                }],
                 opened: false
             });
         }
@@ -184,11 +201,17 @@ var Select = React.createClass({
      */
     renderButton: function() {
         var disabled = this.props.disabled;
-        var opened = this.state.opened;
+        var opened   = this.state.opened;
+        var selected = this.state.selected;
 
         return (
             <Button size={this.props.size} disabled={disabled} active={opened} onClick={this.onToggle}>
-                <span className="filter-option pull-left">{this.getStringValue()}</span>
+                <span className="filter-option pull-left">
+                {selected.map(function(el, i) {
+                    var isLast = (i == (selected.length - 1));
+                    return <SelectedItem key={i} text={el.text} icon={el.icon} isLast={isLast} />;
+                })}
+                </span>
                 <span className="caret"></span>
             </Button>
         );
@@ -223,7 +246,7 @@ var Select = React.createClass({
                 'active': this.hasValue(childValue)
             });
 
-            return <div className={className} onClick={this.onToggleOption.bind(this, childValue)}>
+            return <div className={className} onClick={this.onToggleOption.bind(this, child.props)}>
                 {child}
             </div>;
         }, this);
@@ -292,6 +315,28 @@ var SelectOption = React.createClass({
             {icon? <Icon id={icon} /> : ''}
             {text}
         </div>;
+    }
+});
+
+var SelectedItem = React.createClass({
+    getDefaultProps: function() {
+        return {
+            icon: null
+        };
+    },
+
+    render: function() {
+        var text   = this.props.text;
+        var icon   = this.props.icon;
+        var isLast = this.props.isLast;
+
+        return (
+            <span className="select-item-selected">
+                {icon? <Icon id={icon} /> : ''}
+                {text}
+                {isLast? '' : ', '}
+            </span>
+        );
     }
 });
 
