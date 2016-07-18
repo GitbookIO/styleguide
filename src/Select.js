@@ -1,9 +1,10 @@
-var React = require('react');
+var React      = require('react');
 var classNames = require('classnames');
 
-var SIZES = require('./SIZES');
-var Button = require('./Button');
-var Input = require('./Input');
+var SIZES        = require('./SIZES');
+var Button       = require('./Button');
+var Icon         = require('./Icon');
+var Input        = require('./Input');
 var isServerSide = require('./isServerSide');
 
 
@@ -266,11 +267,20 @@ var Select = React.createClass({
 
 var SelectOption = React.createClass({
     propTypes: {
-        value: React.PropTypes.string
+        value:    React.PropTypes.string,
+        children: React.PropTypes.string
+    },
+
+    getDefaultProps: function() {
+        return {
+            icon: null
+        };
     },
 
     render: function() {
         var value = this.props.value;
+        var icon  = this.props.icon;
+        var text  = this.props.children;
 
         if (isServerSide) {
             return <option value={value}>
@@ -279,7 +289,8 @@ var SelectOption = React.createClass({
         }
 
         return <div className="select-option-inner">
-            {this.props.children}
+            {icon? <Icon id={icon} /> : ''}
+            {text}
         </div>;
     }
 });
