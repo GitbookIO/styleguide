@@ -6,6 +6,10 @@ var Button       = require('./Button');
 var Input        = require('./Input');
 
 const DEFAULT_SEARCH_PLACEHOLDER = 'Search';
+const itemShape = React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.object
+]);
 
 /**
  * Default filter for select
@@ -36,12 +40,12 @@ var Select = React.createClass({
     propTypes: {
         // Current value of the select
         value:          React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.arrayOf(React.PropTypes.string)
-        ]).isRequired,
+            itemShape,
+            React.PropTypes.arrayOf(itemShape)
+        ]),
 
         // List of items to display
-        options:        React.PropTypes.array,
+        options:        React.PropTypes.arrayOf(itemShape),
 
         // Functions to render
         renderOption:    React.PropTypes.func,
@@ -216,7 +220,7 @@ var Select = React.createClass({
                     var inner = renderSelection(val, i);
 
                     return (
-                        <span className="SelectSelection">
+                        <span key={i} className="SelectSelection">
                             {inner}
                         </span>
                     );
@@ -270,7 +274,7 @@ var Select = React.createClass({
                         var onClick = this.onToggleOption.bind(this, item);
 
                         return (
-                            <div className={classNames('SelectOption', { active: isSelected})} onClick={onClick}>
+                            <div key={i} className={classNames('SelectOption', { active: isSelected})} onClick={onClick}>
                                 {inner}
                             </div>
                         );
