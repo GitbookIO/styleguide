@@ -3,9 +3,23 @@ var classNames = require('classnames');
 
 var SIZES        = require('./SIZES');
 var Button       = require('./Button');
-var Icon         = require('./Icon');
 var Input        = require('./Input');
-var isServerSide = require('./isServerSide');
+
+const DEFAULT_SEARCH_PLACEHOLDER = 'Search';
+
+/**
+ * Default filter for select
+ */
+function defaultFilter(query, item, i) {
+    return true;
+}
+
+/**
+ * Default render for options
+ */
+function defaultRenderOption(item, i) {
+    return String(item);
+}
 
 
 /**
@@ -25,6 +39,16 @@ var Select = React.createClass({
             React.PropTypes.string,
             React.PropTypes.arrayOf(React.PropTypes.string)
         ]).isRequired,
+
+        // List of items to display
+        options:        React.PropTypes.array,
+
+        // Functions to render
+        renderOption:    React.PropTypes.func,
+        renderSelection: React.PropTypes.func,
+
+        // Function to filter an element
+        filter:         React.PropTypes.func,
 
         // Optional callback when value changed
         onChange:       React.PropTypes.func,
@@ -53,40 +77,32 @@ var Select = React.createClass({
 
     getDefaultProps: function() {
         return {
-            disabled:  false,
-            search:    true,
-            delimiter: ',',
-            size:      SIZES[0],
-            multiple:  false
+            disabled:        false,
+            search:          true,
+            delimiter:       ',',
+            size:            SIZES[0],
+            multiple:        false,
+            filter:          defaultFilter,
+            renderOption:    defaultRenderOption,
+            placeholder:     DEFAULT_SEARCH_PLACEHOLDER
         };
     },
 
     getInitialState: function() {
+        var options = this.props.options;
+
         return {
-            value:  this.props.value,
-            selected: this.props.selected,
-            query:  '',
-            opened: false
+            value:    this.props.value || options[0],
+            query:    '',
+            opened:   false
         };
     },
 
     componentWillReceiveProps: function(newProps) {
         this.setState({
             value: newProps.value,
-            selected: newProps.selected
+            opened: newProps.disabled? false : this.state.opened
         });
-    },
-
-    onChange: function(e) {
-        var newValue = e.target.value;
-
-        this.setState({
-            value: newValue
-        });
-
-        if (this.props.onChange) {
-            this.props.onChange(newValue);
-        }
     },
 
     /**
@@ -110,46 +126,32 @@ var Select = React.createClass({
     /**
      * Toggle an option
      */
-    onToggleOption: function(optionProps, e) {
+    onToggleOption: function(value, e) {
         if (e) {
             e.preventDefault();
         }
 
         var acceptMultiple = this.props.multiple;
         var currentValue   = this.state.value;
-        var selected       = this.state.selected;
-
-        var value = optionProps.value;
 
         if (acceptMultiple) {
             var newValue = currentValue;
-            var newSelection = selected;
 
             // Add to selection if not yet selected
             if (!this.hasValue(value)) {
                 newValue = currentValue.concat([value]);
-                newSelection = selected.concat([{
-                    text: optionProps.children,
-                    icon: optionProps.icon
-                }]);
             } else if (currentValue.length > 1) {
                 // Unselect if many options are selected
                 var removeIndex = newValue.indexOf(value);
                 newValue.splice(removeIndex, 1);
-                newSelection.splice(removeIndex, 1);
             }
 
             this.setState({
-                value: newValue,
-                selected: newSelection
+                value: newValue
             });
         } else {
             this.setState({
                 value:  value,
-                selected: [{
-                    text: optionProps.children,
-                    icon: optionProps.icon
-                }],
                 opened: false
             });
         }
@@ -200,16 +202,24 @@ var Select = React.createClass({
      * Render button to open select
      */
     renderButton: function() {
-        var disabled = this.props.disabled;
-        var opened   = this.state.opened;
-        var selected = this.state.selected;
+        var disabled        = this.props.disabled;
+        var acceptMultiple  = this.props.multiple;
+        var renderSelection = this.props.renderSelection || this.props.renderOption;
+        var opened          = this.state.opened;
+        var value           = this.state.value;
+        var values          = acceptMultiple? value : [value];
 
         return (
             <Button size={this.props.size} disabled={disabled} active={opened} onClick={this.onToggle}>
-                <span className="filter-option pull-left">
-                {selected.map(function(el, i) {
-                    var isLast = (i == (selected.length - 1));
-                    return <SelectedItem key={i} text={el.text} icon={el.icon} isLast={isLast} />;
+                <span className="SelectSelections">
+                {values.map(function(val, i) {
+                    var inner = renderSelection(val, i);
+
+                    return (
+                        <span className="SelectSelection">
+                            {inner}
+                        </span>
+                    );
                 })}
                 </span>
                 <span className="caret"></span>
@@ -224,44 +234,47 @@ var Select = React.createClass({
         var query = this.state.query;
 
         return (
-            <div className="select-search">
-                <Input ref="searchInput" size={this.props.size} value={query} onChange={this.onSearchChanged} />
+            <div className="SelectSearch">
+                <Input ref="searchInput" value={query} onChange={this.onSearchChanged} placeholder={this.props.placeholder} />
             </div>
         );
     },
+
 
     /**
      * Render the options selector
      */
     renderOptions: function() {
-        var query = this.state.query;
+        var query        = this.state.query;
+        var opened       = this.state.opened;
+        var options      = this.props.options;
+        var renderOption = this.props.renderOption;
+        var search       = this.props.search;
+        var filter       = this.props.filter;
 
-        var children = React.Children.map(this.props.children, function(child) {
-            if (!!query && child.props.value.indexOf(query) < 0) {
-                return;
-            }
-
-            var childValue = child.props.value;
-            var className  = classNames('select-option', {
-                'active': this.hasValue(childValue)
-            });
-
-            return <div className={className} onClick={this.onToggleOption.bind(this, child.props)}>
-                {child}
-            </div>;
-        }, this);
-
-        var search = this.props.search;
-        var opened = this.state.opened;
-        var className = classNames('select-container', {
+        var className = classNames('SelectContainer', {
             'open': opened
         });
 
         return (
             <div className={className}>
                 {search? this.renderSearch() : ''}
-                <div className="select-options">
-                    {children}
+                <div className="SelectOptions">
+                    {options.map(function(item, i) {
+                        if (!filter(query, item, i)) {
+                            return '';
+                        }
+
+                        var inner = renderOption(item, i);
+                        var isSelected = this.hasValue(item);
+                        var onClick = this.onToggleOption.bind(this, item);
+
+                        return (
+                            <div className={classNames('SelectOption', { active: isSelected})} onClick={onClick}>
+                                {inner}
+                            </div>
+                        );
+                    }, this)}
                 </div>
             </div>
         );
@@ -269,18 +282,9 @@ var Select = React.createClass({
 
     render: function() {
         var name     = this.props.name;
-        var disabled = this.props.disabled;
         var opened = this.state.opened;
 
-        if (isServerSide) {
-            return (
-                <select className="form-control" name={name} disabled={disabled}>
-                    {this.props.children}
-                </select>
-            );
-        }
-
-        return <div className="select">
+        return <div className="SelectFormControl">
             <input type="hidden" name={name} value={this.getStringValue()} />
             {this.renderButton()}
             {opened? this.renderOptions() : ''}
@@ -288,57 +292,4 @@ var Select = React.createClass({
     }
 });
 
-var SelectOption = React.createClass({
-    propTypes: {
-        value:    React.PropTypes.string,
-        children: React.PropTypes.string
-    },
-
-    getDefaultProps: function() {
-        return {
-            icon: null
-        };
-    },
-
-    render: function() {
-        var value = this.props.value;
-        var icon  = this.props.icon;
-        var text  = this.props.children;
-
-        if (isServerSide) {
-            return <option value={value}>
-                {this.props.children}
-            </option>;
-        }
-
-        return <div className="select-option-inner">
-            {icon? <Icon id={icon} /> : ''}
-            {text}
-        </div>;
-    }
-});
-
-var SelectedItem = React.createClass({
-    getDefaultProps: function() {
-        return {
-            icon: null
-        };
-    },
-
-    render: function() {
-        var text   = this.props.text;
-        var icon   = this.props.icon;
-        var isLast = this.props.isLast;
-
-        return (
-            <span className="select-item-selected">
-                {icon? <Icon id={icon} /> : ''}
-                {text}
-                {isLast? '' : ', '}
-            </span>
-        );
-    }
-});
-
-module.exports        = Select;
-module.exports.Option = SelectOption;
+module.exports = Select;

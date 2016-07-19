@@ -1,0 +1,60 @@
+.SelectFormControl {
+    .form-control();
+    position: relative;
+    padding: 0;
+    border: none;
+
+    button.btn {
+        width: 100%;
+        text-align: left;
+
+        .caret {
+            position: absolute;
+            top: 50%;
+            margin-top: -2px;
+            right: 12px;
+        }
+    }
+
+    .SelectSearch {
+        margin-bottom: @gb-padding-large-vertical;
+    }
+
+    .SelectContainer {
+        .dropdown-menu();
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: -1px;
+        min-width: 100%;
+        max-width: 100%;
+
+        .SelectSearch {
+            padding: 4px 8px;
+        }
+
+        .SelectOptions {
+            .dropdown-menu();
+            display: block;
+            position: static;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+
+            .SelectOption {
+                position: relative;
+                cursor: pointer;
+                padding: 4px 10px 4px 24px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                &:hover, &.active {
+                    background-color: @gb-palette-blue;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
