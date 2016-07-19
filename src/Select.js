@@ -25,6 +25,13 @@ function defaultRenderOption(item, i) {
     return String(item);
 }
 
+/**
+ * Default render to string for input
+ */
+function defaultRenderToString(item, i) {
+    return String(item);
+}
+
 
 /**
  * Interractive select for forms
@@ -47,9 +54,17 @@ var Select = React.createClass({
         // List of items to display
         options:        React.PropTypes.arrayOf(itemShape),
 
-        // Functions to render
+        // Function to render the option to a string or element
         renderOption:    React.PropTypes.func,
+
+        // Function to render the selected option in the button
+        // Defaults to "renderOption"
         renderSelection: React.PropTypes.func,
+
+        // Function to output an option as a string
+        // Defaults to a string representation, you have to provide your own value
+        // when using a custom option renderer
+        renderToString:  React.PropTypes.func,
 
         // Function to filter an element
         filter:         React.PropTypes.func,
@@ -81,14 +96,15 @@ var Select = React.createClass({
 
     getDefaultProps: function() {
         return {
-            disabled:        false,
-            search:          true,
-            delimiter:       ',',
-            size:            SIZES[0],
-            multiple:        false,
-            filter:          defaultFilter,
-            renderOption:    defaultRenderOption,
-            placeholder:     DEFAULT_SEARCH_PLACEHOLDER
+            disabled:       false,
+            search:         true,
+            delimiter:      ',',
+            size:           SIZES[0],
+            multiple:       false,
+            filter:         defaultFilter,
+            renderOption:   defaultRenderOption,
+            renderToString: defaultRenderToString,
+            placeholder:    DEFAULT_SEARCH_PLACEHOLDER
         };
     },
 
@@ -162,16 +178,19 @@ var Select = React.createClass({
     },
 
     /**
-     * Get current value as a string
+     * Get current value as a string (for hidden input)
      * @return {String}
      */
     getStringValue: function() {
         var value = this.state.value;
+        var renderToString = this.props.renderToString;
 
         if (!this.props.multiple) {
-            return value;
+            return renderToString(value);
         } else {
-            return value.join(this.props.delimiter);
+            return value
+                .map(renderToString)
+                .join(this.props.delimiter);
         }
     },
 
