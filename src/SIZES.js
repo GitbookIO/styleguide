@@ -1,3 +1,3 @@
 module.exports = [
-    'xs', 'sm', 'md', 'lg'
+    'md', 'xs', 'sm', 'lg'
 ];
