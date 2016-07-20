@@ -17,16 +17,19 @@ var Button = React.createClass({
         filled:   React.PropTypes.bool,
         disabled: React.PropTypes.bool,
         active:   React.PropTypes.bool,
-        block:    React.PropTypes.bool
+        block:    React.PropTypes.bool,
+        title:    React.PropTypes.string,
+        icon:     React.PropTypes.string
     },
 
     getDefaultProps: function() {
         return {
-            style: 'default',
-            size: 'md',
-            filled: false,
+            style:    'default',
+            size:     'md',
+            type:     'button',
+            filled:   false,
             disabled: false,
-            active: false
+            active:   false
         };
     },
 
@@ -54,11 +57,12 @@ var Button = React.createClass({
         props.onClick       = this.props.onNativeClick? this.props.onNativeClick : this.onClick;
         props.href          = this.props.href;
         props.id            = this.props.id;
+        props.type          = this.props.type;
 
         if (props.href) {
+            delete props.type;
             return <a {...props}>{inner} {this.props.children}</a>;
         } else {
-            props.type = this.props.type || 'button';
             return <button {...props}>{inner} {this.props.children}</button>;
         }
     }
