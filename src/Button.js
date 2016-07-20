@@ -58,6 +58,7 @@ var Button = React.createClass({
         if (props.href) {
             return <a {...props}>{inner} {this.props.children}</a>;
         } else {
+            props.type = this.props.type || 'button';
             return <button {...props}>{inner} {this.props.children}</button>;
         }
     }
