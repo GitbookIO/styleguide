@@ -1,5 +1,4 @@
 var React = require('react');
-var classNames = require('classnames');
 
 var SIZES = require('./SIZES');
 
@@ -11,17 +10,7 @@ var Row = React.createClass({
     }
 });
 
-var Container = React.createClass({
-    render: function() {
-        var className = classNames('container', {
-            'container-fluid': this.props.fluid
-        });
-
-        return <div className={className}>
-            {this.props.children}
-        </div>;
-    }
-});
+var Container = require('./Container');
 
 var Column = React.createClass({
     render: function() {
