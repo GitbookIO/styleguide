@@ -4,13 +4,20 @@ var classNames = require('classnames');
 var Button = require('./button');
 
 var ButtonDropdown = React.createClass({
+    propTypes: {
+        up: React.PropTypes.bool
+    },
+
     getInitialState: function() {
         return {
             open: false
         };
     },
 
-    // Toggle the dopdown
+    /**
+     * Toggle the dopdown
+     * @param  {Event} e?
+     */
     toggle: function(e) {
         if (e) {
             e.stopPropagation();
@@ -21,13 +28,18 @@ var ButtonDropdown = React.createClass({
         });
     },
 
-    // Close the dropdown
+    /**
+     * Close the dropdown
+     */
     close: function() {
         this.setState({
             open: false
         });
     },
 
+    /**
+     * Bind a random click in the window to close the dropdown
+     */
     bindWindowClick: function() {
         if (this.state.open) {
             window.addEventListener('click', this.close);
@@ -52,6 +64,9 @@ var ButtonDropdown = React.createClass({
         var that = this;
         var inner = [];
         var items = [];
+        var className = classNames('dropdown', this.props.className, {
+            'dropup': this.props.up
+        });
 
         inner = React.Children.map(this.props.children, function(child) {
             // If the Button is connected through Redux.connect, it is
@@ -81,7 +96,7 @@ var ButtonDropdown = React.createClass({
             return null;
         });
 
-        return <Button.Group {...this.props} className={classNames('dropdown', this.props.className, { 'dropup': this.props.dropup })}>
+        return <Button.Group {...this.props} className={className}>
             {inner}
             <DropdownMenu open={this.state.open}>{items}</DropdownMenu>
         </Button.Group>;
