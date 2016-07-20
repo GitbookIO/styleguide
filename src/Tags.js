@@ -13,19 +13,39 @@ var Tags = React.createClass({
 
 var TagItem = React.createClass({
     propTypes: {
-        title:    React.PropTypes.string,
-        selected: React.PropTypes.bool,
-        count:    React.PropTypes.number
+        title:   React.PropTypes.string,
+        href:    React.PropTypes.string,
+        active:  React.PropTypes.bool,
+        count:   React.PropTypes.number,
+        onClick: React.PropTypes.func
+    },
+
+    getDefaultProps: function() {
+        return {
+            href: '#'
+        };
+    },
+
+    onClick: function(e) {
+        var onClick  = this.props.onClick;
+
+        if (!onClick) {
+            return;
+        }
+
+        e.preventDefault();
+        onClick();
     },
 
     render: function() {
-        var selected = this.props.selected;
+        var active = this.props.active;
         var count    = this.props.count;
         var title    = this.props.title;
+        var href     = this.props.href;
         var inner    = '';
 
         var className = classNames('tag', {
-            'selected': selected
+            'active': active
         });
 
         if (typeof count !== 'undefined') {
@@ -34,8 +54,10 @@ var TagItem = React.createClass({
 
         return (
             <li className={className}>
-                <span className="name">{title}</span>
-                {inner}
+                <a href={href} onClick={this.onClick}>
+                    <span className="name">{title}</span>
+                    {inner}
+                </a>
             </li>
         );
     }
