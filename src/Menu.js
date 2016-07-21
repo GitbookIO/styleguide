@@ -1,4 +1,5 @@
 var React = require('react');
+var classNames = require('classnames');
 
 var MenuItem = React.createClass({
     propTypes: {
@@ -16,6 +17,9 @@ var MenuItem = React.createClass({
 
     render: function() {
         var inner;
+        var className = classNames(this.props.className || '', {
+            'active': this.props.active
+        });
 
         if (this.props.href) {
             inner = <a href={this.props.href}>{this.props.children}</a>;
@@ -25,15 +29,32 @@ var MenuItem = React.createClass({
 
 
         return (
-            <li className={this.props.className}>{inner}</li>
+            <li className={className}>{inner}</li>
         );
     }
 });
 
 var Menu = React.createClass({
+    propTypes: {
+        right: React.PropTypes.bool,
+        left: React.PropTypes.bool
+    },
+
+    getDefaultProps: function() {
+        return {
+            active: false,
+            href:   null
+        };
+    },
+
     render: function() {
+        var className = classNames('menu', {
+            'pull-right': this.props.right,
+            'pull-left': this.props.left
+        });
+
         return (
-            <ul className="menu">
+            <ul className={className}>
                 {this.props.children}
             </ul>
         );
