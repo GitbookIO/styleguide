@@ -6,10 +6,16 @@ var Button       = require('./Button');
 var Input        = require('./Input');
 
 const DEFAULT_SEARCH_PLACEHOLDER = 'Search';
+
 const itemShape = React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.object
 ]);
+
+const groupShape = React.PropTypes.shape({
+    label:   React.PropTypes.string,
+    options: React.PropTypes.arrayOf(itemShape)
+});
 
 /**
  * Default filter for select
@@ -21,8 +27,8 @@ function defaultFilter(query, item, i) {
 /**
  * Default render for options
  */
-function defaultRenderOption(item, i) {
-    return String(item);
+function defaultComponent({option}) {
+    return String(option);
 }
 
 /**
@@ -52,14 +58,15 @@ var Select = React.createClass({
         ]),
 
         // List of items to display
+        groups:         React.PropTypes.arrayOf(groupShape),
         options:        React.PropTypes.arrayOf(itemShape),
 
         // Function to render the option to a string or element
-        renderOption:    React.PropTypes.func,
+        component:     React.PropTypes.func,
 
         // Function to render the selected option in the button
         // Defaults to "renderOption"
-        renderSelection: React.PropTypes.func,
+        componentSelection: React.PropTypes.func,
 
         // Function to output an option as a string
         // Defaults to a string representation, you have to provide your own value
@@ -77,6 +84,7 @@ var Select = React.createClass({
 
         // Text to display when no value is set
         placeholder:    React.PropTypes.string,
+        searchPlaceholder: React.PropTypes.string,
 
         // Delimiter for multiple values
         delimiter:      React.PropTypes.string,
@@ -96,33 +104,52 @@ var Select = React.createClass({
 
     getDefaultProps: function() {
         return {
-            disabled:       false,
-            search:         true,
-            delimiter:      ',',
-            size:           SIZES[0],
-            multiple:       false,
-            filter:         defaultFilter,
-            renderOption:   defaultRenderOption,
-            renderToString: defaultRenderToString,
-            placeholder:    DEFAULT_SEARCH_PLACEHOLDER
+            disabled:          false,
+            search:            true,
+            delimiter:         ',',
+            size:              SIZES[0],
+            multiple:          false,
+            filter:            defaultFilter,
+            component:         defaultComponent,
+            renderToString:    defaultRenderToString,
+            searchPlaceholder: DEFAULT_SEARCH_PLACEHOLDER,
+            placeholder:       'Select'
         };
     },
 
     getInitialState: function() {
-        var options = this.props.options;
-
         return {
-            value:    this.props.value || options[0],
+            value:    this.props.value,
             query:    '',
-            opened:   false
+            opened:   false,
+            groups:   this.propsToGroups(this.props)
         };
     },
 
     componentWillReceiveProps: function(newProps) {
         this.setState({
-            value: newProps.value,
+            value:  newProps.value,
+            groups: this.propsToGroups(newProps),
             opened: newProps.disabled? false : this.state.opened
         });
+    },
+
+    /**
+     * Create list of groups from props
+     * @param {Object} props
+     * @return {Array<groupShape>}
+     */
+    propsToGroups: function(props) {
+        var options = this.props.options;
+        var groups = this.props.groups;
+
+        if (groups) {
+            return groups;
+        }
+
+        return [
+            { options: options }
+        ];
     },
 
     /**
@@ -185,6 +212,10 @@ var Select = React.createClass({
         var value = this.state.value;
         var renderToString = this.props.renderToString;
 
+        if (!value) {
+            return '';
+        }
+
         if (!this.props.multiple) {
             return renderToString(value);
         } else {
@@ -225,18 +256,21 @@ var Select = React.createClass({
      * Render button to open select
      */
     renderButton: function() {
-        var disabled        = this.props.disabled;
-        var acceptMultiple  = this.props.multiple;
-        var renderSelection = this.props.renderSelection || this.props.renderOption;
-        var opened          = this.state.opened;
-        var value           = this.state.value;
-        var values          = acceptMultiple? value : [value];
+        var ComponentSelection = this.props.componentSelection || this.props.component;
+        var disabled           = this.props.disabled;
+        var acceptMultiple     = this.props.multiple;
+        var placeholder        = this.props.placeholder;
+        var opened             = this.state.opened;
+        var value              = this.state.value;
 
-        return (
-            <Button size={this.props.size} disabled={disabled} active={opened} onClick={this.onToggle}>
+        var inner;
+
+        if (value) {
+            var values = acceptMultiple? value : [value];
+            inner      = (
                 <span className="SelectSelections">
                 {values.map(function(val, i) {
-                    var inner = renderSelection(val, i);
+                    var inner = <ComponentSelection option={val} index={i} />;
 
                     return (
                         <span key={i} className="SelectSelection">
@@ -245,6 +279,14 @@ var Select = React.createClass({
                     );
                 })}
                 </span>
+            );
+        } else {
+            inner = <span className="SelectPlaceholder">{placeholder}</span>;
+        }
+
+        return (
+            <Button size={this.props.size} disabled={disabled} active={opened} onClick={this.onToggle}>
+                {inner}
                 <span className="caret"></span>
             </Button>
         );
@@ -263,17 +305,55 @@ var Select = React.createClass({
         );
     },
 
-
     /**
      * Render the options selector
      */
-    renderOptions: function() {
-        var query        = this.state.query;
+    renderGroup: function(group, index) {
+        var query     = this.state.query;
+        var Component = this.props.component;
+        var filter    = this.props.filter;
+        var count     = 0;
+
+        var options = group.options.map(function(item, i) {
+            if (!filter(query, item, i)) {
+                return '';
+            }
+
+            count++;
+
+            var inner = <Component option={item} index={i} />;
+            var isSelected = this.hasValue(item);
+            var onClick = this.onToggleOption.bind(this, item);
+
+            return (
+                <div key={i} className={classNames('SelectOption', { active: isSelected})} onClick={onClick}>
+                    {inner}
+                </div>
+            );
+        }, this);
+
+        // Don't display empty groups (when filtered)
+        if (count === 0) {
+            return '';
+        }
+
+        return (
+            <div key={index} className="SelectOptGroup">
+                {group.label? <div className="GroupLabel">{group.label}</div> : ''}
+                <div className="GroupOptions">
+                    {options}
+                </div>
+            </div>
+        );
+    },
+
+    /**
+     * Render the groups
+     */
+    renderGroups: function() {
         var opened       = this.state.opened;
-        var options      = this.props.options;
-        var renderOption = this.props.renderOption;
+        var groups      = this.props.groups;
         var search       = this.props.search;
-        var filter       = this.props.filter;
 
         var className = classNames('SelectContainer', {
             'open': opened
@@ -282,22 +362,8 @@ var Select = React.createClass({
         return (
             <div className={className}>
                 {search? this.renderSearch() : ''}
-                <div className="SelectOptions">
-                    {options.map(function(item, i) {
-                        if (!filter(query, item, i)) {
-                            return '';
-                        }
-
-                        var inner = renderOption(item, i);
-                        var isSelected = this.hasValue(item);
-                        var onClick = this.onToggleOption.bind(this, item);
-
-                        return (
-                            <div key={i} className={classNames('SelectOption', { active: isSelected})} onClick={onClick}>
-                                {inner}
-                            </div>
-                        );
-                    }, this)}
+                <div className="SelectGroups">
+                    {groups.map(this.renderGroup)}
                 </div>
             </div>
         );
@@ -310,7 +376,7 @@ var Select = React.createClass({
         return <div className="SelectFormControl">
             <input type="hidden" name={name} value={this.getStringValue()} />
             {this.renderButton()}
-            {opened? this.renderOptions() : ''}
+            {opened? this.renderGroups() : ''}
         </div>;
     }
 });

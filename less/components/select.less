@@ -33,7 +33,24 @@
             padding: 4px 8px;
         }
 
-        .SelectOptions {
+        .SelectOptGroup {
+            .GroupLabel {
+                padding: 4px 10px;
+                font-size: @gb-font-size-small;
+                color: @gb-text-light;
+            }
+
+            .GroupOptions {
+
+            }
+        }
+
+        .SelectGroups {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .GroupOptions {
             .dropdown-menu();
             display: block;
             position: static;
