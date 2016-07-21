@@ -192,7 +192,8 @@ var Select = React.createClass({
      * Bind a random click in the window to close the dropdown
      */
     bindWindowClick: function() {
-        if (this.state.open) {
+        if (this.state.opened) {
+            this.focusSearch();
             window.addEventListener('click', this.close);
         } else {
             window.removeEventListener('click', this.close);
@@ -414,7 +415,7 @@ var Select = React.createClass({
         var name     = this.props.name;
         var opened = this.state.opened;
 
-        return <div className="SelectFormControl">
+        return <div className="SelectFormControl" onClick={e => e.stopPropagation()}>
             <input type="hidden" name={name} value={this.getStringValue()} />
             {this.renderButton()}
             {opened? this.renderGroups() : ''}
