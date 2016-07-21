@@ -5,7 +5,7 @@ var Icon = require('./icon');
 var STYLES = require('./STYLES');
 var SIZES = require('./SIZES');
 
-var BUTTONS_STYLE = STYLES.concat([
+var BUTTONS_STYLES = STYLES.concat([
     'link'
 ]);
 
@@ -13,7 +13,7 @@ var Button = React.createClass({
     propTypes: {
         type:     React.PropTypes.string,
         size:     React.PropTypes.oneOf(SIZES),
-        style:    React.PropTypes.oneOf(BUTTONS_STYLE),
+        style:    React.PropTypes.oneOf(BUTTONS_STYLES),
         filled:   React.PropTypes.bool,
         disabled: React.PropTypes.bool,
         active:   React.PropTypes.bool,
@@ -97,4 +97,4 @@ module.exports         = Button;
 module.exports.Group   = ButtonGroup;
 module.exports.Toolbar = ButtonToolbar;
 module.exports.Caret   = ButtonCaret;
-
+module.exports.STYLES  = BUTTONS_STYLES;
