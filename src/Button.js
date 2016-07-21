@@ -99,7 +99,4 @@ module.exports         = Button;
 module.exports.Group   = ButtonGroup;
 module.exports.Toolbar = ButtonToolbar;
 module.exports.Caret   = ButtonCaret;
-<<<<<<< HEAD
 module.exports.STYLES  = BUTTONS_STYLES;
-=======
->>>>>>> Small comment
