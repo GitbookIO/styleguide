@@ -2,11 +2,12 @@ var React = require('react');
 var classNames = require('classnames');
 
 var SIZES = require('./SIZES');
+var AVATAR_SIZES = SIZES.concat(['button']);
 
 var Avatar = React.createClass({
     propTypes: {
         src:  React.PropTypes.string.isRequired,
-        size: React.PropTypes.oneOf(SIZES)
+        size: React.PropTypes.oneOf(AVATAR_SIZES)
     },
 
     getDefaultProps: function() {
