@@ -6,7 +6,8 @@ var STYLES = require('./STYLES');
 var SIZES = require('./SIZES');
 
 var BUTTONS_STYLE = STYLES.concat([
-    'link'
+    'link',
+    'text-link'
 ]);
 
 var Button = React.createClass({
