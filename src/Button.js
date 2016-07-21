@@ -15,6 +15,7 @@ var Button = React.createClass({
         type:     React.PropTypes.string,
         size:     React.PropTypes.oneOf(SIZES),
         style:    React.PropTypes.oneOf(BUTTONS_STYLES),
+        href:     React.PropTypes.string, // Makes a link button
         filled:   React.PropTypes.bool,
         disabled: React.PropTypes.bool,
         active:   React.PropTypes.bool,
@@ -98,4 +99,7 @@ module.exports         = Button;
 module.exports.Group   = ButtonGroup;
 module.exports.Toolbar = ButtonToolbar;
 module.exports.Caret   = ButtonCaret;
+<<<<<<< HEAD
 module.exports.STYLES  = BUTTONS_STYLES;
+=======
+>>>>>>> Small comment
