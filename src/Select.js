@@ -28,7 +28,7 @@ function defaultFilter(query, item, i) {
  * Default render for options
  */
 function defaultComponent({option}) {
-    return String(option);
+    return <span>{option}</span>;
 }
 
 /**
@@ -168,6 +168,47 @@ var Select = React.createClass({
         this.setState({
             opened: !this.state.opened
         });
+    },
+
+    /**
+     * Close the select
+     */
+    close: function() {
+        this.setState({
+            opened: false
+        });
+    },
+
+    /**
+     * Open the select
+     */
+    open: function() {
+        this.setState({
+            opened: false
+        });
+    },
+
+    /**
+     * Bind a random click in the window to close the dropdown
+     */
+    bindWindowClick: function() {
+        if (this.state.open) {
+            window.addEventListener('click', this.close);
+        } else {
+            window.removeEventListener('click', this.close);
+        }
+    },
+
+    componentDidUpdate: function() {
+        this.bindWindowClick();
+    },
+
+    componentDidMount: function() {
+        this.bindWindowClick();
+    },
+
+    componentWillUnmount: function() {
+        window.removeEventListener('click', this.close);
     },
 
     /**
@@ -351,9 +392,9 @@ var Select = React.createClass({
      * Render the groups
      */
     renderGroups: function() {
-        var opened       = this.state.opened;
-        var groups      = this.props.groups;
-        var search       = this.props.search;
+        var opened = this.state.opened;
+        var groups = this.state.groups;
+        var search = this.props.search;
 
         var className = classNames('SelectContainer', {
             'open': opened
