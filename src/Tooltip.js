@@ -12,7 +12,7 @@ var POSITIONS = {
 
 var Tooltip = React.createClass({
     propTypes: {
-        text:     React.PropTypes.string.isRequired,
+        title:    React.PropTypes.string.isRequired,
         position: React.PropTypes.string,
         open:     React.PropTypes.bool
     },
@@ -35,7 +35,7 @@ var Tooltip = React.createClass({
         );
 
         return (
-            <div className={className}>
+            <div className={className} aria-label={this.props.title}>
                 {this.props.children}
             </div>
         );
