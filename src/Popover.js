@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-const POSITIONS = ['bottom', 'top', 'left', 'right'];
+const POSITIONS = ['bottom', 'top'];
 
 var Popover =  React.createClass({
     propTypes: {
@@ -20,6 +20,16 @@ var Popover =  React.createClass({
 
         return (
             <div className={className}>
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
+var PopoverContainer =  React.createClass({
+    render: function() {
+        return (
+            <div className="popover-container">
                 {this.props.children}
             </div>
         );
@@ -58,6 +68,7 @@ var PopoverHeading =  React.createClass({
     }
 });
 
-module.exports         = Popover;
-module.exports.Body    = PopoverBody;
-module.exports.Heading = PopoverHeading;
+module.exports           = Popover;
+module.exports.Body      = PopoverBody;
+module.exports.Heading   = PopoverHeading;
+module.exports.Container = PopoverContainer;
