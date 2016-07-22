@@ -146,7 +146,7 @@ var DropdownItem = React.createClass({
         }, this);
 
         return <li className={this.props.disabled? 'disabled' : ''}>
-            <a href={this.props.href || '#'} onClick={this.props.disabled? null : this.onClick} target={this.props.href? '_blank' : ''}>{inner}</a>
+            <a {...this.props} href={this.props.href || '#'} onClick={this.props.disabled? null : this.onClick}>{inner}</a>
             {outer}
         </li>;
     }
