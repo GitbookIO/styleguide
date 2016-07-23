@@ -10,16 +10,10 @@ var Avatar = React.createClass({
         size: React.PropTypes.oneOf(AVATAR_SIZES)
     },
 
-    getDefaultProps: function() {
-        return {
-            size: 'md'
-        };
-    },
-
     render: function() {
         var src = this.props.src;
         var size = this.props.size;
-        var className = classNames('avatar', 'avatar-' + size, this.props.className);
+        var className = classNames('avatar', size? 'avatar-' + size : '', this.props.className);
 
         return (
             <figure className={className}>

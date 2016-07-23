@@ -9,7 +9,7 @@
     position: relative;
     vertical-align: middle;
     line-height: 1;
-    .avatar-size(48px);
+    .avatar-size(100%);
     border-radius: @gb-border-radius-large;
     background: @gb-palette-gray;
 
@@ -45,6 +45,10 @@
 
     &.avatar-sm {
         .avatar-size(24px);
+    }
+
+    &.avatar-md {
+        .avatar-size(48px);
     }
 
     &.avatar-lg {
