@@ -6,8 +6,9 @@ var STYLES = require('./STYLES');
 
 var Alert = React.createClass({
     propTypes: {
-        onClose: React.PropTypes.func,
-        style:   React.PropTypes.oneOf(STYLES)
+        onClose:  React.PropTypes.func,
+        closable: React.PropTypes.bool,
+        style:    React.PropTypes.oneOf(STYLES)
     },
 
     getInitialState: function() {
@@ -29,21 +30,22 @@ var Alert = React.createClass({
         this.setState({
             opened: false
         }, function() {
-            onClose();
+            if (onClose) onClose();
         });
     },
 
     render: function() {
         var style     = this.props.style;
         var className = classNames('alert', 'alert-' + style, this.props.className);
-        var onClose = this.props.onClose;
+        var onClose   = this.props.onClose;
+        var closable  = this.props.closable;
         var inner;
 
         if (!this.state.opened) {
             return <div />;
         }
 
-        if (onClose) {
+        if (onClose || closable) {
             inner = <a href="#" onClose={this.onClose} className="alert-btn"><Icon id="x" /></a>;
         }
 
