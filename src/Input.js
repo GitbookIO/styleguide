@@ -10,6 +10,7 @@ var Input = React.createClass({
         type:         React.PropTypes.string,
         placeholder:  React.PropTypes.string,
         disabled:     React.PropTypes.bool,
+        readOnly:     React.PropTypes.bool,
         autoFocus:    React.PropTypes.bool,
         size:         React.PropTypes.oneOf(SIZES),
         defaultValue: React.PropTypes.string,
@@ -48,12 +49,13 @@ var Input = React.createClass({
         var autoFocus    = this.props.autoFocus;
         var value        = this.props.value;
         var defaultValue = this.props.defaultValue;
+        var readOnly     = this.props.readOnly;
 
         var className = classNames('form-control', 'input-' + size, this.props.className);
 
         return <input ref="input"
             type={type} autoFocus={autoFocus}
-            className={className} disabled={disabled}
+            className={className} disabled={disabled} readOnly={readOnly}
             name={name} value={value} defaultValue={defaultValue}
             placeholder={placeholder} onChange={this.onChange} />;
     }
