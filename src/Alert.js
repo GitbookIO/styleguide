@@ -40,7 +40,6 @@ var Alert = React.createClass({
         var className = classNames('alert', 'alert-' + style, this.props.className);
         var onClose   = this.props.onClose;
         var closable  = this.props.closable;
-        var style     = this.props.style;
         var inner;
 
         if (!this.state.opened) {
@@ -52,7 +51,7 @@ var Alert = React.createClass({
         }
 
         return (
-            <div className={className} style={style}>
+            <div className={className}>
                 <Container>
                 {inner}
                 {this.props.children}
