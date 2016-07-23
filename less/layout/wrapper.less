@@ -2,9 +2,17 @@
     min-height: 100%;
     position: relative;
     padding-bottom: @gb-footer-height;
+    background: @gb-body-background;
 
     &.for-modal {
         padding-bottom: 1px;
         background: @gb-palette-gray;
+    }
+
+    &.with-pagehead {
+        .gb-page-header {
+            border-bottom-color: @gb-header-background;
+            box-shadow: none;
+        }
     }
 }

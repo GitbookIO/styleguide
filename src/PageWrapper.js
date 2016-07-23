@@ -3,13 +3,12 @@ var classNames = require('classnames');
 
 var PageWrapper = React.createClass({
     propTypes: {
-        // Wrapper for a modal page
-        modal: React.PropTypes.bool
+        withPageHead: React.PropTypes.bool
     },
 
     render: function() {
         var className = classNames('gb-page-wrapper', {
-            'for-modal': this.props.modal
+            'with-pagehead': this.props.withPageHead
         });
 
         return (

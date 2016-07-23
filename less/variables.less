@@ -118,7 +118,7 @@
 ///
 /// Body
 ///
-@gb-body-background:               #ffffff;
+@gb-body-background:               #fafafa;
 @gb-body-color:                    #333;
 
 ///
@@ -201,11 +201,11 @@
 ///
 /// Header
 ///
-@gb-header-background:             #f5f5f5;
+@gb-header-background:             #fff;
 @gb-header-border-color:           #e5e5e5;
 @gb-header-color:                  #555;
 @gb-header-active-color:           @gb-brand-primary;
-@gb-header-shadow:                 ~"inset 0px 1px #fff";
+@gb-header-shadow:                 ~"0 3px 2px -2px rgba(200, 200, 200, 0.15)";
 
 ///
 /// Footer
@@ -218,10 +218,12 @@
 ///
 /// Pagehead
 ///
-@gb-pagehead-background:           #fafafa;
+@gb-pagehead-background:           @gb-header-background;
 @gb-pagehead-color:                darken(@gb-palette-gray-darker, 15%);
-@gb-pagehead-border:               @gb-palette-gray-dark;
+@gb-pagehead-border:               @gb-header-border-color;
 @gb-pagehead-active-border:        @gb-listgroup-active-color;
+@gb-pagehead-shadow:               @gb-header-shadow;
+@gb-pagehead-search-background:    @gb-body-background;
 
 ///
 /// Blankslate
