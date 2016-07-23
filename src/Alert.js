@@ -1,7 +1,8 @@
 var React = require('react');
 var classNames = require('classnames');
 
-var Icon = require('./icon');
+var Icon = require('./Icon');
+var Container = require('./Container');
 var STYLES = require('./STYLES');
 
 var Alert = React.createClass({
@@ -39,6 +40,7 @@ var Alert = React.createClass({
         var className = classNames('alert', 'alert-' + style, this.props.className);
         var onClose   = this.props.onClose;
         var closable  = this.props.closable;
+        var style     = this.props.style;
         var inner;
 
         if (!this.state.opened) {
@@ -46,13 +48,15 @@ var Alert = React.createClass({
         }
 
         if (onClose || closable) {
-            inner = <a href="#" onClose={this.onClose} className="alert-btn"><Icon id="x" /></a>;
+            inner = <a href="#" onClick={this.onClose} className="alert-btn"><Icon id="x" /></a>;
         }
 
         return (
-            <div className={className}>
-                {this.props.children}
+            <div className={className} style={style}>
+                <Container>
                 {inner}
+                {this.props.children}
+                </Container>
             </div>
         );
     }
