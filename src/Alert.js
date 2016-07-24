@@ -61,6 +61,17 @@ var Alert = React.createClass({
     }
 });
 
+var AlertButton = React.createClass({
+    render: function() {
+        var { href, className } = this.props;
+        className = classNames('alert-btn', className || '');
+
+        return (
+            <a className={className} href={href}>{this.props.children}</a>
+        );
+    }
+});
+
 /**
  * Create a style of alert
  * @param {String} style
@@ -76,8 +87,8 @@ function createAlertStyle(style) {
 }
 
 module.exports         = Alert;
+module.exports.Button  = AlertButton;
 module.exports.Info    = createAlertStyle('Info');
 module.exports.Danger  = createAlertStyle('Danger');
 module.exports.Success = createAlertStyle('Success');
 module.exports.Warning = createAlertStyle('Warning');
-
