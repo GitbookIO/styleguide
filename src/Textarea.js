@@ -11,7 +11,7 @@ var Textarea = React.createClass({
         disabled:     React.PropTypes.bool,
         autoFocus:    React.PropTypes.bool,
         size:         React.PropTypes.oneOf(SIZES),
-        rows:         React.PropTypes.string,
+        rows:         React.PropTypes.number,
         defaultValue: React.PropTypes.string,
         value:        React.PropTypes.oneOfType([
             React.PropTypes.string,

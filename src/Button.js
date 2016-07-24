@@ -13,10 +13,13 @@ var BUTTONS_STYLES = STYLES.concat([
 var Button = React.createClass({
     propTypes: {
         type:     React.PropTypes.string,
+        name:     React.PropTypes.string,
+        value:    React.PropTypes.string,
         size:     React.PropTypes.oneOf(SIZES),
         style:    React.PropTypes.oneOf(BUTTONS_STYLES),
         href:     React.PropTypes.string, // Makes a link button
         filled:   React.PropTypes.bool,
+        noBorder: React.PropTypes.bool,
         disabled: React.PropTypes.bool,
         active:   React.PropTypes.bool,
         block:    React.PropTypes.bool,
@@ -49,6 +52,7 @@ var Button = React.createClass({
             this.props.className || [], {
                 'btn-fill':        this.props.filled,
                 'btn-block':       this.props.block,
+                'btn-noborder':    this.props.noBorder,
                 'active':          this.props.active,
                 'dropdown-toggle': this.props.dropdownToggle,
                 'tooltipped':      Boolean(title)
@@ -60,6 +64,8 @@ var Button = React.createClass({
         props.href          = this.props.href;
         props.id            = this.props.id;
         props.type          = this.props.type;
+        props.name          = this.props.name;
+        props.value         = this.props.value;
 
         if (props.href) {
             delete props.type;
