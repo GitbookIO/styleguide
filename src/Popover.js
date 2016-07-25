@@ -20,6 +20,7 @@ var Popover =  React.createClass({
 
         return (
             <div className={className}>
+                <div className="popover-arrow"></div>
                 {this.props.children}
             </div>
         );
