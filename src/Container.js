@@ -9,10 +9,10 @@ var Container = React.createClass({
     render: function() {
         var className = classNames('container', {
             'container-fluid': this.props.fluid
-        });
+        }, this.props.className);
 
         return (
-            <div className={className}>
+            <div {...this.props} className={className}>
                 {this.props.children}
             </div>
         );
