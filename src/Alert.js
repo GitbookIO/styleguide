@@ -62,12 +62,20 @@ var Alert = React.createClass({
 });
 
 var AlertButton = React.createClass({
+    onClick: function(e) {
+        if (this.props.onClick) {
+            e.preventDefault();
+            this.props.onClick();
+        }
+    },
+
     render: function() {
         var { href, className } = this.props;
         className = classNames('alert-btn', className || '');
+        href = href || '#';
 
         return (
-            <a className={className} href={href}>{this.props.children}</a>
+            <a className={className} href={href} onClick={this.onClick}>{this.props.children}</a>
         );
     }
 });
