@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-var Button = require('./button');
+var Button = require('./Button');
 
 var ButtonDropdown = React.createClass({
     propTypes: {
