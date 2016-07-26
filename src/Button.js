@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-var Icon = require('./icon');
+var Icon = require('./Icon');
 var STYLES = require('./STYLES');
 var SIZES = require('./SIZES');
 
