@@ -2,10 +2,12 @@ var React = require('react');
 var classNames = require('classnames');
 
 var Button = require('./Button');
+var Icon = require('./Icon');
 
 var ButtonDropdown = React.createClass({
     propTypes: {
-        up: React.PropTypes.bool
+        up:    React.PropTypes.bool,
+        width: React.PropTypes.string
     },
 
     getInitialState: function() {
@@ -98,7 +100,7 @@ var ButtonDropdown = React.createClass({
 
         return <Button.Group {...this.props} className={className}>
             {inner}
-            <DropdownMenu open={this.state.open}>{items}</DropdownMenu>
+            <DropdownMenu open={this.state.open} width={this.props.width} >{items}</DropdownMenu>
         </Button.Group>;
     }
 });
@@ -107,7 +109,8 @@ var ButtonDropdown = React.createClass({
 var DropdownItem = React.createClass({
     propTypes: {
         divider: React.PropTypes.bool,
-        header:  React.PropTypes.bool
+        header:  React.PropTypes.bool,
+        checked: React.PropTypes.bool
     },
 
     onClick: function(e) {
@@ -120,16 +123,16 @@ var DropdownItem = React.createClass({
     },
 
     isInner: function(child) {
-        return (child && (!child.type || child.type == 'i'
-            || child.type == 'span' || child.type.displayName == 'ContextMenuShortcut'
-            || child.type.displayName == 'Icon'));
+        return (!child  || !child.type || child.type.displayName !== 'DropdownMenu');
     },
 
     render: function() {
-        if (this.props.divider) {
+        var { divider, header, checked } = this.props;
+
+        if (divider) {
             return <li className="divider"></li>;
         }
-        if (this.props.header) {
+        if (header) {
             return <li className="dropdown-header">{this.props.children}</li>;
         }
 
@@ -146,20 +149,52 @@ var DropdownItem = React.createClass({
         }, this);
 
         return <li className={this.props.disabled? 'disabled' : ''}>
-            <a {...this.props} href={this.props.href || '#'} onClick={this.props.disabled? null : this.onClick}>{inner}</a>
+            <a {...this.props} href={this.props.href || '#'} onClick={this.props.disabled? null : this.onClick}>
+                {checked? <div className="dropdown-icon pull-left"><Icon id="check" /></div> : ''}
+                {inner}
+            </a>
             {outer}
         </li>;
     }
 });
 
 var DropdownMenu = React.createClass({
+    propTypes: {
+        width: React.PropTypes.string
+    },
+
     render: function() {
-        return <ul className={classNames('dropdown-menu', { open: this.props.open })}>
+        var { width } = this.props;
+        var className = classNames('dropdown-menu', width? 'dropdown-' + width : '',
+            {
+                open: this.props.open
+            }
+        );
+
+        return <ul className={className}>
             {this.props.children}
         </ul>;
     }
 });
 
-module.exports = ButtonDropdown;
-module.exports.Item = DropdownItem;
-module.exports.Menu = DropdownMenu;
+var ItemHeader = React.createClass({
+    render: function() {
+        return <div className="dropdown-itemheader">
+            {this.props.children}
+        </div>;
+    }
+});
+
+var ItemDesc = React.createClass({
+    render: function() {
+        return <div className="dropdown-itemdesc">
+            {this.props.children}
+        </div>;
+    }
+});
+
+module.exports             = ButtonDropdown;
+module.exports.Item        = DropdownItem;
+module.exports.Item.Header = ItemHeader;
+module.exports.Item.Desc   = ItemDesc;
+module.exports.Menu        = DropdownMenu;

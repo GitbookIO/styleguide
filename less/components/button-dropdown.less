@@ -194,6 +194,10 @@
         display: block;
     }
 
+    &.dropdown-md {
+        width: 300px;
+    }
+
     > li {
         margin: 0px;
         padding: 0px;
@@ -246,6 +250,21 @@
                 &.pull-right {
                     margin-left: @gb-padding-xs-horizontal;
                 }
+                &.pull-left {
+                    margin-right: @gb-padding-xs-horizontal;
+                }
+            }
+
+            .dropdown-itemheader {
+                font-weight: bold;
+                margin-left: 20px;
+            }
+
+            .dropdown-itemdesc {
+                opacity: 0.7;
+                white-space: initial;
+                text-overflow: initial;
+                margin-left: 20px;
             }
 
             &:hover {
