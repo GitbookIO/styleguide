@@ -6,21 +6,28 @@
         position: absolute;
         top: 100%;
         z-index: 10;
-        padding-right: 1.5*@gb-border-radius-base;
-        padding-left: 1.5*@gb-border-radius-base;
-        border: 1px solid @gb-palette-gray-outline;
+        padding: 2*@gb-border-radius-base;
+        border: 1px solid @gb-form-control-active-border;
         border-top: 0px;
         background: #fff;
         border-bottom-left-radius: @gb-border-radius-base;
         border-bottom-right-radius: @gb-border-radius-base;
+        margin-top: -(@gb-border-radius-base + 1);
 
         .AutocompleteResult {
             padding: @gb-padding-base-vertical @gb-padding-base-horizontal;
+            border-radius: @gb-border-radius-base;
 
             &.active {
                 background: @gb-brand-primary;
                 color: #fff;
             }
         }
+    }
+
+    > .gb-spinner {
+        position: absolute;
+        top: @gb-padding-base-vertical + (@gb-spinner-size-small/2);
+        right: @gb-padding-base-horizontal;
     }
 }

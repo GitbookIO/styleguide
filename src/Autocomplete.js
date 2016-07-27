@@ -2,6 +2,7 @@ const React = require('react');
 const classNames = require('classnames');
 
 const Input = require('./Input');
+const Spinner = require('./Spinner');
 
 const KEYCODE_ENTER = 13;
 const KEYCODE_UP    = 38;
@@ -127,7 +128,7 @@ const Autocomplete = React.createClass({
     },
 
     render: function() {
-        var { value, focused } = this.state;
+        var { value, focused, loading, results } = this.state;
 
         return (
             <div className="Autocomplete">
@@ -140,7 +141,8 @@ const Autocomplete = React.createClass({
                     onBlur={e => this.onFocusChanged(false)}
                     onKeyDown={this.onKeyDown}
                 />
-                {focused? this.renderResults() : ''}
+                {loading? <Spinner size="sm" centered={false} /> : ''}
+                {focused && results.length > 0? this.renderResults() : ''}
             </div>
         );
     }
