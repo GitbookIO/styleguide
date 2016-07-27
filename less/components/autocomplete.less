@@ -1,0 +1,26 @@
+.Autocomplete {
+    position: relative;
+
+    .AutocompleteResults {
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        z-index: 10;
+        padding-right: 1.5*@gb-border-radius-base;
+        padding-left: 1.5*@gb-border-radius-base;
+        border: 1px solid @gb-palette-gray-outline;
+        border-top: 0px;
+        background: #fff;
+        border-bottom-left-radius: @gb-border-radius-base;
+        border-bottom-right-radius: @gb-border-radius-base;
+
+        .AutocompleteResult {
+            padding: @gb-padding-base-vertical @gb-padding-base-horizontal;
+
+            &.active {
+                background: @gb-brand-primary;
+                color: #fff;
+            }
+        }
+    }
+}

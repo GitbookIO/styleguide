@@ -6,6 +6,9 @@ var SIZES = require('./SIZES');
 var Input = React.createClass({
     propTypes: {
         onChange:     React.PropTypes.func,
+        onFocus:      React.PropTypes.func,
+        onBlur:       React.PropTypes.func,
+        onKeyDown:    React.PropTypes.func,
         name:         React.PropTypes.string,
         type:         React.PropTypes.string,
         placeholder:  React.PropTypes.string,
@@ -41,15 +44,9 @@ var Input = React.createClass({
     },
 
     render: function() {
-        var disabled     = this.props.disabled;
-        var name         = this.props.name;
-        var type         = this.props.type;
-        var placeholder  = this.props.placeholder;
-        var size         = this.props.size;
-        var autoFocus    = this.props.autoFocus;
-        var value        = this.props.value;
-        var defaultValue = this.props.defaultValue;
-        var readOnly     = this.props.readOnly;
+        var { onBlur, onFocus, onKeyDown, value, readOnly, defaultValue,
+            size, autoFocus, placeholder, type,
+            name, disabled } = this.props;
 
         var className = classNames('form-control', 'input-' + size, this.props.className);
 
@@ -57,7 +54,12 @@ var Input = React.createClass({
             type={type} autoFocus={autoFocus}
             className={className} disabled={disabled} readOnly={readOnly}
             name={name} value={value} defaultValue={defaultValue}
-            placeholder={placeholder} onChange={this.onChange} />;
+            placeholder={placeholder}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onKeyDown={onKeyDown}
+            onChange={this.onChange}
+        />;
     }
 });
 
