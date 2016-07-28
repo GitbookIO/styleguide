@@ -8,6 +8,9 @@ var SIZES = require('./SIZES');
 var BUTTONS_STYLES = STYLES.concat([
     'link',
     'text-link',
+    'text-danger',
+    'text-success',
+    'text-warning',
     'count'
 ]);
 
