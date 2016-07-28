@@ -1,17 +1,12 @@
 var React  = require('react');
 var moment = require('moment');
 
-var Body = React.createClass({
+var TimeLine = React.createClass({
     propTypes: {
-        dateMin:  React.PropTypes.number,
-        dateMax:  React.PropTypes.number,
-        valueMin: React.PropTypes.number,
-        valueMax: React.PropTypes.number,
-        width:    React.PropTypes.number,
-        height:   React.PropTypes.number,
-        innerX:   React.PropTypes.number,
-        innerY:   React.PropTypes.number,
-        yBase:    React.PropTypes.number
+        currentX:   React.PropTypes.number,
+        lineTop:    React.PropTypes.number,
+        lineBottom: React.PropTypes.number,
+        points:     React.PropTypes.array
     },
 
     contextTypes: {
@@ -20,95 +15,157 @@ var Body = React.createClass({
         axeColor:    React.PropTypes.string
     },
 
-    innerPosition: function(pX, pY) {
+    getInitialState: function() {
         return {
-            x: this.props.innerX + pX*this.props.width,
-            y: this.props.yBase + (this.props.height * (1 - pY))
+            hover: false
         };
     },
 
-    // Calcul position of a point in the svg
-    getPointPosition: function(point) {
-        return this.innerPosition(
-            (point.date - this.props.dateMin)/(this.props.dateMax - this.props.dateMin),
-            (point.value - this.props.valueMin)/(this.props.valueMax - this.props.valueMin)
-        );
+    setHover: function(state) {
+        this.setState({
+            hover: state
+        });
     },
 
-    drawLine: function(pos) {
-        var yBase  = this.props.yBase;
-        var height = this.props.height;
-        var innerX = this.props.innerX;
+    renderPathLine: function(index) {
+        var lastX = this.props.lastX;
+        if (!Boolean(lastX)) {
+            return null;
+        }
 
-        var y1 = yBase + height;
-        var y2 = yBase;
+        var currentX     = this.props.currentX;
+        var currentPoint = this.props.points[index];
+        var lastPoint    = this.props.lastPoints[index];
 
-        return <line x1={pos.x} x2={pos.x} y1={y1} y2={y2}
-            stroke={this.context.axeColor} strokeWidth={this.context.lineWidth} />;
+        return <line x1={lastX} y1={lastPoint.y} x2={currentX} y2={currentPoint.y}
+            stroke={currentPoint.color} strokeWidth={this.context.lineWidth} />;
     },
 
-    drawLastLine: function(pos) {
-        var yBase  = this.props.yBase;
-        var height = this.props.height;
+    render: function() {
+        var that       = this;
+        var currentX   = this.props.currentX;
+        var lineTop    = this.props.lineTop;
+        var lineBottom = this.props.lineBottom;
+        var points     = this.props.points;
+        var lastPoints = this.props.lastPoints;
 
-        var y1 = yBase + height;
-        var y2 = yBase;
-
-        return <line x1={pos.x} x2={pos.x} y1={y1} y2={y2}
-            stroke={this.context.axeColor} strokeWidth={this.context.lineWidth} />
-    },
-
-    drawSerie: function(serie, i) {
-        var that = this;
+        var hover = this.state.hover;
 
         return (
-            <g key={i}>
-            {serie.points.map(function(point, j) {
-                var isFirstSerie = (i == 0);
-                var isLastPoint  = (j == serie.points.length - 2);
-                var nextPoint    = serie.points[j + 1];
+            <g>
+                <line x1={currentX} x2={currentX} y1={lineTop} y2={lineBottom}
+                    stroke={this.context.axeColor} strokeWidth={this.context.lineWidth} />
 
-                if (!nextPoint) {
-                    return null;
-                }
+                {points.map(function(point, index) {
+                    var color      = point.color;
+                    // Default serie name to index
+                    var dataSerie  = point.serie || index;
 
-                var pos     = that.getPointPosition(point);
-                var nextPos = that.getPointPosition(nextPoint);
-
-                var dataSerie = Boolean(serie.title)? serie.title : i;
-
-                return (
-                    <g key={j}>
-                        {isFirstSerie? that.drawLine(pos) : ''}
-                        {(isFirstSerie && isLastPoint)? that.drawLastLine(nextPos) : ''}
-                        <line x1={pos.x} y1={pos.y} x2={nextPos.x} y2={nextPos.y}
-                            stroke={serie.color} strokeWidth={that.context.lineWidth} />
-                        <circle r={that.context.pointRadius}
-                            fill={serie.color}
-                            strokeWidth={that.context.lineWidth * 2}
-                            stroke="#FFFFFF"
-                            cx={pos.x}
-                            cy={pos.y}
-                            className="serie-point"
-                            data-value={point.value}
-                            data-timestamp={Number(point.date)}
-                            data-serie={dataSerie} />
-                        {isLastPoint?
-                        <circle r={that.context.pointRadius}
-                            fill={serie.color}
-                            strokeWidth={that.context.lineWidth}
-                            stroke="#FFFFFF"
-                            cx={nextPos.x}
-                            cy={nextPos.y}
-                            className="serie-point"
-                            data-value={nextPoint.value}
-                            data-timestamp={Number(nextPoint.date)}
-                            data-serie={dataSerie} />
-                        : ''}
-                    </g>
-                );
-            })}
+                    return (
+                        <g key={index}>
+                            {that.renderPathLine(index)}
+                            <circle key={index}
+                                className={'serie-point'+(hover? ' hover' : '')}
+                                onMouseEnter={that.setHover.bind(that, true)}
+                                onMouseLeave={that.setHover.bind(that, false)}
+                                r={that.context.pointRadius}
+                                fill={color}
+                                strokeWidth={that.context.lineWidth * 2}
+                                stroke="#FFFFFF"
+                                cx={currentX}
+                                cy={point.y}
+                                data-value={point.value}
+                                data-timestamp={Number(point.date)}
+                                data-serie={dataSerie} />
+                            }
+                        </g>
+                    );
+                })}
             </g>
+        );
+    }
+});
+
+var Body = React.createClass({
+    propTypes: {
+        dateMin:   React.PropTypes.number,
+        dateMax:   React.PropTypes.number,
+        valueMin:  React.PropTypes.number,
+        valueMax:  React.PropTypes.number,
+        width:     React.PropTypes.number,
+        height:    React.PropTypes.number,
+        innerX:    React.PropTypes.number,
+        innerY:    React.PropTypes.number,
+        yBase:     React.PropTypes.number
+    },
+
+    contextTypes: {
+        pointRadius:  React.PropTypes.number,
+        defaultColor: React.PropTypes.string,
+        lineWidth:    React.PropTypes.number,
+        axeColor:     React.PropTypes.string
+    },
+
+    // Compute X for a point inside Body
+    innerPositionX: function(pX) {
+        return this.props.innerX + pX*this.props.width;
+    },
+
+    // Compute Y for a point inside Body
+    innerPositionY: function(pY) {
+        return this.props.yBase + (this.props.height * (1 - pY));
+    },
+
+    // Return inner X value for a date
+    getInnerX: function(date) {
+        return this.innerPositionX((date - this.props.dateMin)/(this.props.dateMax - this.props.dateMin));
+    },
+
+    // Return inner Y value for a value
+    getInnerY: function(value) {
+        return this.innerPositionY((value - this.props.valueMin)/(this.props.valueMax - this.props.valueMin));
+    },
+
+    // Return correct mapping for a point to draw in TimeLine
+    formatPoint: function(time, point, index) {
+        return {
+            color: point.color || seriesStyle[index].color || this.context.defaultColor,
+            value: point.value,
+            serie: point.serie || seriesStyle[index].title,
+            date:  time.date,
+            y:     this.getInnerY(point.value)
+        };
+    },
+
+    // Draw this time line
+    drawTimeLine: function(time, i, series) {
+        var that = this;
+
+        // Current time informations
+        var currentX   = that.getInnerX(time.date);
+        var lineTop    = that.props.yBase;
+        var lineBottom = that.props.yBase + that.props.height;
+
+        var points = time.points.map(that.formatPoint.bind(that, time));
+
+        // Last time informations
+        var lastX      = null;
+        var lastPoints = null;
+        var lastTime   = series[i - 1];
+
+        if (Boolean(lastTime)) {
+            lastX      = that.getInnerX(lastTime.date);
+            lastPoints = lastTime.points.map(that.formatPoint.bind(that, lastTime));
+        }
+
+        return (
+            <TimeLine key={i}
+                currentX={currentX}
+                lineTop={lineTop}
+                lineBottom={lineBottom}
+                points={points}
+                lastX={lastX}
+                lastPoints={lastPoints} />
         );
     },
 
@@ -117,7 +174,7 @@ var Body = React.createClass({
 
         return (
             <g>
-            {series.map(this.drawSerie, this)}
+            {series.map(this.drawTimeLine, this)}
             </g>
         );
     }
@@ -343,8 +400,9 @@ var YAxis = React.createClass({
 var TimeGraph = React.createClass({
     propTypes: {
         // Series
-        series:   React.PropTypes.array.isRequired,
-        minValue: React.PropTypes.number,
+        series:      React.PropTypes.array.isRequired,
+        seriesStyle: React.PropTypes.array,
+        minValue:    React.PropTypes.number,
 
         // Autofill
         autoFill:          React.PropTypes.bool,
@@ -371,8 +429,9 @@ var TimeGraph = React.createClass({
     },
 
     childContextTypes: {
-        pointRadius: React.PropTypes.number,
-        lineWidth:   React.PropTypes.number,
+        pointRadius:  React.PropTypes.number,
+        defaultColor: React.PropTypes.string,
+        lineWidth:    React.PropTypes.number,
 
         axeColor:       React.PropTypes.string,
         axeMarkerWidth: React.PropTypes.number,
@@ -413,6 +472,7 @@ var TimeGraph = React.createClass({
     getChildContext: function() {
         return {
             pointRadius:    this.props.pointRadius,
+            defaultColor:   this.props.defaultColor,
             lineWidth:      this.props.lineWidth,
             axeColor:       this.props.axeColor,
             axeMarkerWidth: this.props.axeMarkerWidth,
@@ -436,7 +496,7 @@ var TimeGraph = React.createClass({
         var padding      = props.padding;
         var series       = props.series;
         var minValue     = props.minValue;
-        var defaultColor = props.defaultColor;
+        var seriesStyle  = props.seriesStyle;
 
         // Compute values ranges
         var dateMin  = null;
@@ -444,32 +504,29 @@ var TimeGraph = React.createClass({
         var valueMin = null;
         var valueMax = null;
 
-        series = series.map(function(serie, i) {
-            // Set serie color
-            serie.color  = serie.color || defaultColor;
-            // Map correct values
-            serie.points = serie.points.map(function(point) {
-                // Get values from point
-                var date  = (new Date(point.date)).getTime();
-                var value = point.value;
+        series = series.map(function(time, i) {
+            // Set min/max dates
+            var date = (new Date(time.date)).getTime();
+            dateMin  = Boolean(dateMin)? Math.min(dateMin, date) : date;
+            dateMax  = Boolean(dateMax)? Math.max(dateMax, date) : date;
 
-                // Set min/max values
-                dateMin  = Boolean(dateMin)? Math.min(dateMin, date) : date;
-                dateMax  = Boolean(dateMax)? Math.max(dateMax, date) : date;
+            // Set min/max values
+            var points = time.points;
+            points.forEach(function(point) {
+                var value = point.value;
                 valueMin = Boolean(valueMin)? Math.min(valueMin, value) : value;
                 valueMax = Boolean(valueMax)? Math.max(valueMax, value) : value;
-
-                return {
-                    value: point.value,
-                    date: (new Date(point.date)).getTime()
-                };
-            });
-            // Sort by date
-            serie.points.sort(function(a, b) {
-                return a.date > b.date;
             });
 
-            return serie;
+            return {
+                date:   date,
+                points: points
+            }
+        });
+
+        // Sort by date
+        series.sort(function(a, b) {
+            return a.date > b.date;
         });
 
         // Set minValue if set
@@ -508,30 +565,29 @@ var TimeGraph = React.createClass({
                 timeRange.push(t);
             }
 
-            // Fill series
-            series = series.map(function(serie, i) {
-                // Index in the serie
-                var serieI = 0;
-                var serieLength = serie.points.length;
+            // Fill current serie with existing points or with autoFillValue
+            var nbSeries    = seriesStyle.length;
+            var seriesIndex = 0;
 
-                // Fill current serie with existing points or with autoFillValue
-                serie.points = timeRange.map(function(time) {
-                    var data = null;
+            series = timeRange.map(function(time, i) {
+                var data = series[seriesIndex];
 
-                    if (serieI < serieLength) data = serie.points[serieI];
-                    if (Boolean(data) && data.date === time) {
-                        serieI++;
-                        return data;
+                if (Boolean(data) && (data.date == time)) {
+                    seriesIndex++;
+                    return data;
+                } else {
+                    // Construct missing points
+                    return {
+                        date: time,
+                        points: seriesStyle.map(function(style) {
+                            return {
+                                serie: style.title,
+                                value: autoFillValue,
+                                color: style.color
+                            };
+                        })
                     }
-                    else {
-                        return {
-                            value: autoFillValue,
-                            date: time
-                        };
-                    }
-                });
-
-                return serie;
+                }
             });
         }
 
