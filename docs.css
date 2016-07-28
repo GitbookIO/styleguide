@@ -1811,6 +1811,35 @@ address {
   font-style: normal;
   line-height: 1.42857143;
 }
+.Autocomplete {
+  position: relative;
+}
+.Autocomplete .AutocompleteResults {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  z-index: 10;
+  padding: 6px;
+  border: 1px solid #428bca;
+  border-top: 0px;
+  background: #fff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  margin-top: -4px;
+}
+.Autocomplete .AutocompleteResults .AutocompleteResult {
+  padding: 6px 12px;
+  border-radius: 3px;
+}
+.Autocomplete .AutocompleteResults .AutocompleteResult.active {
+  background: #428bca;
+  color: #fff;
+}
+.Autocomplete > .gb-spinner {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
 .popover {
   position: relative;
   border-radius: 4px;
@@ -2284,6 +2313,10 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
     border-bottom: 0;
   }
+}
+.table-body-expendable .show-more {
+  cursor: pointer;
+  color: #428bca;
 }
 .button-nobackground {
   background: transparent;
@@ -3307,6 +3340,10 @@ a.btn .btn-label,
 .dropdown .dropdown-menu.inner {
   display: block;
 }
+.dropdown-menu.dropdown-md,
+.dropdown .dropdown-menu.dropdown-md {
+  width: 300px;
+}
 .dropdown-menu > li,
 .dropdown .dropdown-menu > li {
   margin: 0px;
@@ -3366,6 +3403,22 @@ a.btn .btn-label,
 .dropdown-menu > li > a .dropdown-icon.pull-right,
 .dropdown .dropdown-menu > li > a .dropdown-icon.pull-right {
   margin-left: 7px;
+}
+.dropdown-menu > li > a .dropdown-icon.pull-left,
+.dropdown .dropdown-menu > li > a .dropdown-icon.pull-left {
+  margin-right: 7px;
+}
+.dropdown-menu > li > a .dropdown-itemheader,
+.dropdown .dropdown-menu > li > a .dropdown-itemheader {
+  font-weight: bold;
+  margin-left: 20px;
+}
+.dropdown-menu > li > a .dropdown-itemdesc,
+.dropdown .dropdown-menu > li > a .dropdown-itemdesc {
+  opacity: 0.7;
+  white-space: initial;
+  text-overflow: initial;
+  margin-left: 20px;
 }
 .dropdown-menu > li > a:hover,
 .dropdown .dropdown-menu > li > a:hover {
@@ -5572,6 +5625,9 @@ select.form-control:focus {
 .SelectFormControl .SelectContainer.inner {
   display: block;
 }
+.SelectFormControl .SelectContainer.dropdown-md {
+  width: 300px;
+}
 .SelectFormControl .SelectContainer > li {
   margin: 0px;
   padding: 0px;
@@ -5619,6 +5675,19 @@ select.form-control:focus {
 }
 .SelectFormControl .SelectContainer > li > a .dropdown-icon.pull-right {
   margin-left: 7px;
+}
+.SelectFormControl .SelectContainer > li > a .dropdown-icon.pull-left {
+  margin-right: 7px;
+}
+.SelectFormControl .SelectContainer > li > a .dropdown-itemheader {
+  font-weight: bold;
+  margin-left: 20px;
+}
+.SelectFormControl .SelectContainer > li > a .dropdown-itemdesc {
+  opacity: 0.7;
+  white-space: initial;
+  text-overflow: initial;
+  margin-left: 20px;
 }
 .SelectFormControl .SelectContainer > li > a:hover {
   text-decoration: none;
@@ -5716,6 +5785,9 @@ select.form-control:focus {
 .SelectFormControl .SelectContainer .GroupOptions.inner {
   display: block;
 }
+.SelectFormControl .SelectContainer .GroupOptions.dropdown-md {
+  width: 300px;
+}
 .SelectFormControl .SelectContainer .GroupOptions > li {
   margin: 0px;
   padding: 0px;
@@ -5763,6 +5835,19 @@ select.form-control:focus {
 }
 .SelectFormControl .SelectContainer .GroupOptions > li > a .dropdown-icon.pull-right {
   margin-left: 7px;
+}
+.SelectFormControl .SelectContainer .GroupOptions > li > a .dropdown-icon.pull-left {
+  margin-right: 7px;
+}
+.SelectFormControl .SelectContainer .GroupOptions > li > a .dropdown-itemheader {
+  font-weight: bold;
+  margin-left: 20px;
+}
+.SelectFormControl .SelectContainer .GroupOptions > li > a .dropdown-itemdesc {
+  opacity: 0.7;
+  white-space: initial;
+  text-overflow: initial;
+  margin-left: 20px;
 }
 .SelectFormControl .SelectContainer .GroupOptions > li > a:hover {
   text-decoration: none;
@@ -5884,6 +5969,9 @@ select.form-control:focus {
 }
 .tags li a .count {
   opacity: 0.5;
+}
+.time-graph {
+  width: 100%;
 }
 .gb-page-wrapper {
   min-height: 100%;
