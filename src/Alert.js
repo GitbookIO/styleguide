@@ -20,6 +20,8 @@ var Alert = React.createClass({
 
     getDefaultProps: function() {
         return {
+            onClose: undefined,
+            closable: false,
             style: STYLES[0]
         };
     },
