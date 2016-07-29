@@ -53,7 +53,7 @@ var TagItem = React.createClass({
         });
 
         if (typeof count !== 'undefined') {
-            inner = <span className="count">| {count}</span>;
+            inner = <span className="count"> | {count}</span>;
         }
 
         return (

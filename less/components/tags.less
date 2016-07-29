@@ -5,13 +5,9 @@
     padding: 0px;
     margin-left: -2px;
 
-    li {
+    .tag {
         float: left;
         margin: 2px 3px;
-
-        &.active a {
-            border-color: @gb-brand-primary;
-        }
 
         a {
             display: block;
@@ -38,6 +34,18 @@
 
             .count {
                 opacity: 0.5;
+            }
+        }
+
+        &.active a {
+            background-color: @gb-brand-primary;
+            color: white;
+        }
+
+        &.active a {
+            &:hover, &:hover {
+                background-color: @gb-brand-primary*0.8;
+                color: white;
             }
         }
     }
