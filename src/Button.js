@@ -17,7 +17,7 @@ var BUTTONS_STYLES = STYLES.concat([
 var Button = React.createClass({
     propTypes: {
         className:  React.PropTypes.string,
-        children: React.PropTypes.node,
+        children:   React.PropTypes.node,
         type:       React.PropTypes.string,
         name:       React.PropTypes.string,
         value:      React.PropTypes.string,
