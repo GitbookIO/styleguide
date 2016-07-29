@@ -20,7 +20,6 @@ var Meta = function (props) {
     return <div className="overview-meta">{ this.props.children }</div>;
 };
 
-
 module.exports = Overview;
 module.exports.Title = Title;
 module.exports.Description = Description;
