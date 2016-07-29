@@ -9,7 +9,9 @@ var Alert = React.createClass({
     propTypes: {
         onClose:  React.PropTypes.func,
         closable: React.PropTypes.bool,
-        style:    React.PropTypes.oneOf(STYLES)
+        style:    React.PropTypes.oneOf(STYLES),
+        children: React.PropTypes.node,
+        className: React.PropTypes.string
     },
 
     getInitialState: function() {
@@ -64,6 +66,13 @@ var Alert = React.createClass({
 });
 
 var AlertButton = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node,
+        className: React.PropTypes.string,
+        href: React.PropTypes.string,
+        onClick:  React.PropTypes.func
+    },
+
     onClick: function(e) {
         if (this.props.onClick) {
             e.preventDefault();

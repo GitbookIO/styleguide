@@ -6,7 +6,8 @@ var ListItem = React.createClass({
         active:    React.PropTypes.bool,
         href:      React.PropTypes.string,
         className: React.PropTypes.string,
-        onClick:   React.PropTypes.func
+        onClick:   React.PropTypes.func,
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {
@@ -37,6 +38,10 @@ var ListItem = React.createClass({
 });
 
 var ListGroup = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <ul className="list-group">

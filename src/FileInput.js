@@ -4,6 +4,7 @@ var Button = require('./Button');
 
 var FileInput = React.createClass({
     propTypes: {
+        children: React.PropTypes.node,
         onChange: React.PropTypes.func,
         name:     React.PropTypes.string,
         accept:   React.PropTypes.string,

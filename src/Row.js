@@ -3,6 +3,10 @@ var React = require('react');
 var SIZES = require('./SIZES');
 
 var Row = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return <div className="row">
             {this.props.children}
@@ -13,6 +17,10 @@ var Row = React.createClass({
 var Container = require('./Container');
 
 var Column = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         var props = this.props;
         var className = SIZES.reduce(function(prev, size) {

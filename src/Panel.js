@@ -5,7 +5,8 @@ var STYLES = require('./STYLES');
 
 var Panel = React.createClass({
     propTypes: {
-        style: React.PropTypes.oneOf(STYLES)
+        style: React.PropTypes.oneOf(STYLES),
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {
@@ -27,7 +28,8 @@ var Panel = React.createClass({
 
 var PanelHeading = React.createClass({
     propTypes: {
-        title: React.PropTypes.string
+        title: React.PropTypes.string,
+        children: React.PropTypes.node
     },
 
     render: function() {
@@ -48,6 +50,10 @@ var PanelHeading = React.createClass({
 });
 
 var PanelTitle = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <h3 className="panel-title">
@@ -58,6 +64,10 @@ var PanelTitle = React.createClass({
 });
 
 var PanelBody = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <div className="panel-body">
@@ -68,6 +78,10 @@ var PanelBody = React.createClass({
 });
 
 var PanelFooter = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <div className="panel-footer">

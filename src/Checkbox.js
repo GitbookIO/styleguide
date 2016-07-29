@@ -9,6 +9,7 @@ var DIRECTIONS = [
 
 var Checkbox = React.createClass({
     propTypes: {
+        children: React.PropTypes.node,
         checked:       React.PropTypes.bool.isRequired,
         onChange:      React.PropTypes.func,
         name:          React.PropTypes.string,

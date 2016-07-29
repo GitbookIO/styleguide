@@ -3,6 +3,7 @@ var classNames = require('classnames');
 
 var FilterItem = React.createClass({
     propTypes: {
+        children: React.PropTypes.node,
         selected:  React.PropTypes.bool,
         href:      React.PropTypes.string,
         className: React.PropTypes.string,
@@ -50,6 +51,10 @@ var FilterItem = React.createClass({
 });
 
 var FilterList = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <ul className="filter-list">

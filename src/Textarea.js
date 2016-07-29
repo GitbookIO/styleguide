@@ -7,6 +7,7 @@ var Textarea = React.createClass({
     propTypes: {
         onChange:     React.PropTypes.func,
         name:         React.PropTypes.string,
+        className:    React.PropTypes.string,
         placeholder:  React.PropTypes.string,
         disabled:     React.PropTypes.bool,
         autoFocus:    React.PropTypes.bool,

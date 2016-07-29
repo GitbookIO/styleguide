@@ -5,7 +5,9 @@ var STYLES = require('./STYLES');
 
 var Label = React.createClass({
     propTypes: {
-        style: React.PropTypes.oneOf(STYLES)
+        style: React.PropTypes.oneOf(STYLES),
+        className: React.PropTypes.string,
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {

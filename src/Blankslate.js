@@ -7,7 +7,8 @@ var Blankslate = React.createClass({
     propTypes: {
         icon:       React.PropTypes.string,
         background: React.PropTypes.bool,
-        full:       React.PropTypes.bool
+        full:       React.PropTypes.bool,
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {

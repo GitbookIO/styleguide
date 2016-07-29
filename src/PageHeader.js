@@ -1,6 +1,10 @@
 var React = require('react');
 
 var PageHeader = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <div className="gb-page-header">
@@ -13,7 +17,8 @@ var PageHeader = React.createClass({
 var Logo = React.createClass({
     propTypes: {
         href: React.PropTypes.string,
-        src:  React.PropTypes.string
+        src:  React.PropTypes.string,
+        children: React.PropTypes.node
     },
 
     render: function() {

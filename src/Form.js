@@ -2,6 +2,10 @@ var React = require('react');
 var classNames = require('classnames');
 
 var Form = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     submit: function() {
         this.refs.form.submit();
     },
@@ -17,7 +21,9 @@ var Form = React.createClass({
 
 var FormGroup = React.createClass({
     propTypes: {
-        error: React.PropTypes.bool
+        error: React.PropTypes.bool,
+        className: React.PropTypes.string,
+        children: React.PropTypes.node
     },
 
     getDefaulProps: function() {
@@ -40,6 +46,10 @@ var FormGroup = React.createClass({
 });
 
 var FormHelpBlock = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <p className="help-block">

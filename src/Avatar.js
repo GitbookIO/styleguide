@@ -7,7 +7,9 @@ var AVATAR_SIZES = SIZES.concat(['button']);
 var Avatar = React.createClass({
     propTypes: {
         src:  React.PropTypes.string.isRequired,
-        size: React.PropTypes.oneOf(AVATAR_SIZES)
+        size: React.PropTypes.oneOf(AVATAR_SIZES),
+        className: React.PropTypes.string,
+        children: React.PropTypes.node
     },
 
     render: function() {

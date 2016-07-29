@@ -150,7 +150,8 @@ const Autocomplete = React.createClass({
 
 const AutocompleteResult = React.createClass({
     propTypes: {
-        active: React.PropTypes.bool
+        active: React.PropTypes.bool,
+        children: React.PropTypes.node
     },
 
     render: function() {

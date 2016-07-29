@@ -5,6 +5,7 @@ var SIZES = require('./SIZES');
 
 var Input = React.createClass({
     propTypes: {
+        className:    React.PropTypes.string,
         onChange:     React.PropTypes.func,
         onFocus:      React.PropTypes.func,
         onBlur:       React.PropTypes.func,

@@ -6,7 +6,9 @@ var SIZES = require('./SIZES');
 var Modal = React.createClass({
     propTypes: {
         size:     React.PropTypes.oneOf(SIZES),
-        backdrop: React.PropTypes.bool
+        backdrop: React.PropTypes.bool,
+        children: React.PropTypes.node,
+        className: React.PropTypes.string
     },
 
     getDefaultProps: function() {
@@ -30,6 +32,10 @@ var Modal = React.createClass({
 });
 
 var ModalBody = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return <div className="modal-body">
             {this.props.children}
@@ -38,6 +44,10 @@ var ModalBody = React.createClass({
 });
 
 var ModalFooter = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return <div className="modal-footer ">
             {this.props.children}
@@ -46,6 +56,11 @@ var ModalFooter = React.createClass({
 });
 
 var ModalHeading = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node,
+        onClose: React.PropTypes.func
+    },
+
     onClose: function(e) {
         e.preventDefault();
         this.props.onClose();
@@ -59,7 +74,7 @@ var ModalHeading = React.createClass({
             </div>;
         }
 
-        return <div class="modal-heading">{this.props.children}</div>;
+        return <div className="modal-heading">{this.props.children}</div>;
     }
 });
 

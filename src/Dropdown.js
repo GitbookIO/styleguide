@@ -6,6 +6,8 @@ var Icon = require('./Icon');
 
 var ButtonDropdown = React.createClass({
     propTypes: {
+        className:  React.PropTypes.string,
+        children: React.PropTypes.node,
         up:    React.PropTypes.bool,
         width: React.PropTypes.string
     },
@@ -108,9 +110,13 @@ var ButtonDropdown = React.createClass({
 
 var DropdownItem = React.createClass({
     propTypes: {
-        divider: React.PropTypes.bool,
-        header:  React.PropTypes.bool,
-        checked: React.PropTypes.bool
+        children:  React.PropTypes.node,
+        onClick:   React.PropTypes.func,
+        href:      React.PropTypes.string,
+        disabled:  React.PropTypes.bool,
+        divider:   React.PropTypes.bool,
+        header:    React.PropTypes.bool,
+        checked:   React.PropTypes.bool
     },
 
     onClick: function(e) {
@@ -160,6 +166,9 @@ var DropdownItem = React.createClass({
 
 var DropdownMenu = React.createClass({
     propTypes: {
+        className:  React.PropTypes.string,
+        children: React.PropTypes.node,
+        open: React.PropTypes.bool,
         width: React.PropTypes.string
     },
 
@@ -178,6 +187,10 @@ var DropdownMenu = React.createClass({
 });
 
 var ItemHeader = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return <div className="dropdown-itemheader">
             {this.props.children}
@@ -186,6 +199,10 @@ var ItemHeader = React.createClass({
 });
 
 var ItemDesc = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return <div className="dropdown-itemdesc">
             {this.props.children}

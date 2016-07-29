@@ -1,6 +1,11 @@
 var React = require('react');
 
 var HTMLPage = React.createClass({
+    propTypes: {
+        lang: React.PropTypes.string,
+        children: React.PropTypes.node
+    },
+
     getDefaultProps: function() {
         return {
             lang: 'en'
@@ -17,6 +22,11 @@ var HTMLPage = React.createClass({
 });
 
 var HTMLHead = React.createClass({
+    propTypes: {
+        charSet: React.PropTypes.string,
+        children: React.PropTypes.node
+    },
+
     getDefaultProps: function() {
         return {
             charSet: 'utf-8'
@@ -34,6 +44,10 @@ var HTMLHead = React.createClass({
 });
 
 var HTMLBody = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <body>{this.props.children}</body>

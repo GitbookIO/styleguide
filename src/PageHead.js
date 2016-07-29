@@ -5,6 +5,10 @@ var Form = require('./Form');
 var Input = require('./Input');
 
 var PageHead = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <div className="pagehead">
@@ -15,6 +19,10 @@ var PageHead = React.createClass({
 });
 
 var HeadTitle = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <h1 className="head-heading">

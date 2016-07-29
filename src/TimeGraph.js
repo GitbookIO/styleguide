@@ -186,7 +186,7 @@ var XAxis = React.createClass({
         dateMin: React.PropTypes.number,
         dateMax: React.PropTypes.number,
         innerX:  React.PropTypes.number,
-        yTop:    React.PropTypes.number,
+        yTop:    React.PropTypes.number
     },
 
     contextTypes: {
@@ -295,7 +295,7 @@ var XAxis = React.createClass({
 
                 return <text key={i} x={x} y={yTop}
                     fontFamily={that.context.textFontFamily} fontSize={that.context.textFontSize}
-                    fill={that.context.textColor} textAnchor="middle">{moment(date).format(valuePerInterval.format)}</text>
+                    fill={that.context.textColor} textAnchor="middle">{moment(date).format(valuePerInterval.format)}</text>;
             })}
             </g>
         );
@@ -521,7 +521,7 @@ var TimeGraph = React.createClass({
             return {
                 date:   date,
                 points: points
-            }
+            };
         });
 
         // Sort by date
@@ -586,7 +586,7 @@ var TimeGraph = React.createClass({
                                 color: style.color
                             };
                         })
-                    }
+                    };
                 }
             });
         }
@@ -639,7 +639,7 @@ var TimeGraph = React.createClass({
         var innerX     = this.state.innerX;
         var innerY     = this.state.innerY;
         var yTop       = this.state.yTop;
-        var yBase      = this.state.yBase
+        var yBase      = this.state.yBase;
 
         return (
             <svg className="time-graph" width={width} height={height} viewBox={'0 0 '+width+' '+height} preserveAspectRatio="xMidYMid meet">

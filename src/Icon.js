@@ -3,7 +3,8 @@ var React = require('react');
 var Icon = React.createClass({
     propTypes: {
         id:   React.PropTypes.string,
-        type: React.PropTypes.string
+        type: React.PropTypes.string,
+        className: React.PropTypes.string
     },
 
     getDefaultProps: function() {

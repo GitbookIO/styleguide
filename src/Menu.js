@@ -5,7 +5,8 @@ var MenuItem = React.createClass({
     propTypes: {
         active:    React.PropTypes.bool,
         href:      React.PropTypes.string,
-        className: React.PropTypes.string
+        className: React.PropTypes.string,
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {
@@ -37,7 +38,8 @@ var MenuItem = React.createClass({
 var Menu = React.createClass({
     propTypes: {
         right: React.PropTypes.bool,
-        left: React.PropTypes.bool
+        left: React.PropTypes.bool,
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {

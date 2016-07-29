@@ -5,7 +5,8 @@ const POSITIONS = ['bottom', 'top'];
 
 var Popover =  React.createClass({
     propTypes: {
-        position: React.PropTypes.oneOf(POSITIONS)
+        position: React.PropTypes.oneOf(POSITIONS),
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {
@@ -28,6 +29,10 @@ var Popover =  React.createClass({
 });
 
 var PopoverContainer =  React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <div className="popover-container">
@@ -38,6 +43,10 @@ var PopoverContainer =  React.createClass({
 });
 
 var PopoverBody =  React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <div className="popover-body">
@@ -49,7 +58,8 @@ var PopoverBody =  React.createClass({
 
 var PopoverHeading =  React.createClass({
     propTypes: {
-        title: React.PropTypes.string
+        title: React.PropTypes.string,
+        children: React.PropTypes.node
     },
 
     render: function() {

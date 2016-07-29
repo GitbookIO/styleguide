@@ -14,7 +14,8 @@ var Tooltip = React.createClass({
     propTypes: {
         title:    React.PropTypes.string.isRequired,
         position: React.PropTypes.string,
-        open:     React.PropTypes.bool
+        open:     React.PropTypes.bool,
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {

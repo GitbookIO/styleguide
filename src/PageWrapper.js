@@ -3,7 +3,8 @@ var classNames = require('classnames');
 
 var PageWrapper = React.createClass({
     propTypes: {
-        withPageHead: React.PropTypes.bool
+        withPageHead: React.PropTypes.bool,
+        children: React.PropTypes.node
     },
 
     render: function() {

@@ -16,19 +16,22 @@ var BUTTONS_STYLES = STYLES.concat([
 
 var Button = React.createClass({
     propTypes: {
-        type:     React.PropTypes.string,
-        name:     React.PropTypes.string,
-        value:    React.PropTypes.string,
-        size:     React.PropTypes.oneOf(SIZES),
-        style:    React.PropTypes.oneOf(BUTTONS_STYLES),
-        href:     React.PropTypes.string, // Makes a link button
-        filled:   React.PropTypes.bool,
-        noBorder: React.PropTypes.bool,
-        disabled: React.PropTypes.bool,
-        active:   React.PropTypes.bool,
-        block:    React.PropTypes.bool,
-        title:    React.PropTypes.string,
-        icon:     React.PropTypes.string
+        className:  React.PropTypes.string,
+        children: React.PropTypes.node,
+        type:       React.PropTypes.string,
+        name:       React.PropTypes.string,
+        value:      React.PropTypes.string,
+        size:       React.PropTypes.oneOf(SIZES),
+        style:      React.PropTypes.oneOf(BUTTONS_STYLES),
+        href:       React.PropTypes.string, // Makes a link button
+        filled:     React.PropTypes.bool,
+        noBorder:   React.PropTypes.bool,
+        disabled:   React.PropTypes.bool,
+        active:     React.PropTypes.bool,
+        block:      React.PropTypes.bool,
+        onClick:    React.PropTypes.func,
+        title:      React.PropTypes.string,
+        icon:       React.PropTypes.string
     },
 
     getDefaultProps: function() {
@@ -81,6 +84,11 @@ var Button = React.createClass({
 });
 
 var ButtonGroup = React.createClass({
+    propTypes: {
+        className:  React.PropTypes.string,
+        children: React.PropTypes.node
+    },
+
     render: function() {
         var className = classNames(
             'btn-group',
@@ -94,6 +102,11 @@ var ButtonGroup = React.createClass({
 });
 
 var ButtonToolbar = React.createClass({
+    propTypes: {
+        className:  React.PropTypes.string,
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return <div className={'btn-toolbar '+(this.props.className || '')}>{this.props.children}</div>;
     }

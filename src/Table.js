@@ -4,7 +4,8 @@ var classNames = require('classnames');
 var Table = React.createClass({
     propTypes: {
         bordered: React.PropTypes.bool,
-        className: React.PropTypes.string
+        className: React.PropTypes.string,
+        children: React.PropTypes.node
     },
 
     getDefaultProps: function() {
@@ -155,7 +156,7 @@ var ExpendableBody = React.createClass({
             </tbody>
         );
     }
-})
+});
 
 module.exports = Table;
 module.exports.ExpendableBody = ExpendableBody;

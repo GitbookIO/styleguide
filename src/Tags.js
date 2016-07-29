@@ -2,6 +2,10 @@ var React = require('react');
 var classNames = require('classnames');
 
 var Tags = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <ul className="tags">
