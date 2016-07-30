@@ -1,7 +1,5 @@
 var React = require('react');
 
-var SearchBar = require('./SearchBar');
-
 var PageHead = React.createClass({
     propTypes: {
         children: React.PropTypes.node
@@ -30,17 +28,5 @@ var HeadTitle = React.createClass({
     }
 });
 
-var HeadSearchBar = React.createClass({
-    // Same propTypes than SearchBar
-    render: function() {
-        return (
-            <div className="hidden-xs hidden-sm pull-right">
-                <SearchBar {...this.props}/>
-            </div>
-        );
-    }
-});
-
 module.exports           = PageHead;
 module.exports.Title     = HeadTitle;
-module.exports.SearchBar = HeadSearchBar;
