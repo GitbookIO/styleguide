@@ -1,0 +1,52 @@
+.tags {
+    list-style: none;
+    .clearfix();
+    margin: 0px;
+    padding: 0px;
+    margin-left: -2px;
+
+    .tag {
+        float: left;
+        margin: 2px 3px;
+
+        a {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 4px 8px;
+            border: 1px solid transparent;
+            border-radius: @gb-border-radius-small;
+            font-size: @gb-font-size-small;
+            border: none;
+            color: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.05);
+            .transition(0.2s ease background);
+
+            &:hover, &:focus {
+                text-decoration: none;
+                background: rgba(0, 0, 0, 0.1);
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .name {
+                font-weight: @gb-font-weight-bold;
+            }
+
+            .count {
+                opacity: 0.5;
+            }
+        }
+
+        &.active a {
+            background-color: @gb-brand-primary;
+            color: white;
+        }
+
+        &.active a {
+            &:hover, &:hover {
+                background-color: @gb-brand-primary*0.8;
+                color: white;
+            }
+        }
+    }
+}

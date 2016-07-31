@@ -6,16 +6,79 @@ order: 10
 
 # Page head
 
-`.pagehead` can be used to display a horrizontal navigation bar:
+`.pagehead` can be used to display a horrizontal navigation bar before main content.
+
+The bar can contains some heading content, a menu or a search form.
 
 {% example html %}
 <div class="pagehead">
     <div class="container">
-        <h1>Explore GitBook</h1>
+        <h1 class="head-heading">Explore GitBook</h1>
 
         <form class="search-bar hidden-xs hidden-sm pull-right" method="get" action="/search">
             <i class="octicon octicon-search"></i><input type="text" name="q" value="" class="form-control" placeholder="Search Books">
         </form>
+    </div>
+</div>
+{% endexample %}
+
+### With menu bar
+
+By default the menu is centered, it can be position on the left or right by adding the classes `.pull-left` or `.pull-right`.
+
+{% example html %}
+<div class="pagehead">
+    <div class="container">
+        <ul class="head-menu pull-right">
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+            <li class="active">
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+            <li>
+                <a href="#terms">
+                    Terms of service
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endexample %}
+
+
+### With an introduction and a menu
+
+{% example html %}
+<div class="pagehead">
+    <div class="head-intro">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p class="lead">Send us an email and receive a response.</p>
+      </div>
+    </div>
+    <div class="container">
+        <ul class="head-menu pull-left">
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+            <li class="active">
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+            <li>
+                <a href="#terms">
+                    Terms of service
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
 {% endexample %}

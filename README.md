@@ -22,5 +22,5 @@ $ git tag X.Y.Z
 $ git push --tags
 
 # Publish on NPM, and publish documentation
-$ npm run release
+$ npm publish
 ```

@@ -1,9 +1,7 @@
 {% assign sorted_pages = site.pages | sort:"order" %}
 
-<div class="panel panel-default">
-    <div class="list-group">
-        {% for p in sorted_pages %}
-        <a href="{{ p.url }}" class="list-group-item {% if p.url == page.url %}active{% endif %}">{{ p.title }}</a>
-        {% endfor %}
-    </div>
+<div class="list-group">
+    {% for p in sorted_pages %}
+    <a href="{{ p.url }}" class="list-group-item {% if p.url == page.url %}active{% endif %}">{{ p.title }}</a>
+    {% endfor %}
 </div>

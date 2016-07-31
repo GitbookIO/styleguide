@@ -3,6 +3,14 @@
     font-size: @font-size;
     line-height: @line-height;
     border-radius: @border-radius;
+
+    // Default size for avatar
+    > .avatar.avatar-button {
+        .avatar-size(@font-size + @padding-vertical);
+        display: block;
+        float: left;
+        margin-right: @padding-horizontal/2;
+    }
 }
 
 .button(@mainColor) {

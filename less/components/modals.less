@@ -1,5 +1,5 @@
 .modal-backdrop {
-    background: rgba(0, 0, 0, 0.55);
+    background: @gb-modal-backdrop-background;
     position: fixed;
     top: 0px;
     bottom: 0px;
@@ -7,10 +7,6 @@
     right: 0px;
     z-index: @gb-zindex-modal;
     overflow-y: auto;
-
-    &.white {
-        background: rgba(255, 255, 255, 0.55);
-    }
 }
 
 .modalSize(@size) {
@@ -43,7 +39,6 @@
     .modal-heading {
         position: relative;
         padding: @gb-modal-padding;
-        border-bottom: 1px solid @gb-modal-innerborder;
 
         h4 {
             margin: 0px;
@@ -72,6 +67,7 @@
     .modal-footer {
         border-top: 1px solid @gb-modal-innerborder;
         padding: @gb-modal-padding;
+        background: @gb-modal-footer-background;
         text-align: right;
 
         .btn+.btn {

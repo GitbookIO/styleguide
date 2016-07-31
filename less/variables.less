@@ -60,6 +60,7 @@
 @gb-zindex-dropdown:              200;
 @gb-zindex-tooltip:               300;
 @gb-zindex-modal:                 500;
+@gb-zindex-popover:               550;
 @gb-zindex-contextmenu:           600;
 
 
@@ -92,21 +93,21 @@
 @gb-brand-danger:                  @gb-palette-red;
 @gb-brand-info:                    @gb-palette-clearblue;
 
-@gb-state-danger-color:           #911;
-@gb-state-danger-background:      #fcdede;
-@gb-state-danger-border:          #d2b2b2;
+@gb-state-danger-background:      #FFD3D3;
+@gb-state-danger-border:          #ff8686;
+@gb-state-danger-color:           #d30000;
 
-@gb-state-warning-color:          #8d7726;
-@gb-state-warning-background:     #fff2d0;
-@gb-state-warning-border:         #d6cdb1;
+@gb-state-warning-background:     #fff9ea;
+@gb-state-warning-border:         #ffdc84;
+@gb-state-warning-color:          #513a00;
 
-@gb-state-info-color:             #246;
-@gb-state-info-background:        #e2eef9;
-@gb-state-info-border:            #bac6d3;
+@gb-state-info-background:        #f4f7f9;
+@gb-state-info-border:            #d3dfe7;
+@gb-state-info-color:             #547e9a;
 
-@gb-state-success-color:          #3c763d;
-@gb-state-success-background:     #dff0d8;
-@gb-state-success-border:         #c0d1d0;
+@gb-state-success-background:     #D8F1CA;
+@gb-state-success-border:         #7fd151;
+@gb-state-success-color:          #4f9527;
 
 ///
 /// Links
@@ -117,7 +118,7 @@
 ///
 /// Body
 ///
-@gb-body-background:               #ffffff;
+@gb-body-background:               #fafafa;
 @gb-body-color:                    #333;
 
 ///
@@ -193,19 +194,18 @@
 ///
 @gb-listgroup-margin:              @gb-margin-base;
 @gb-listgroup-color:               #555;
-@gb-listgroup-background:          #fff;
+@gb-listgroup-background:          transparent;
 @gb-listgroup-hover-background:    #f8f8f8;
-@gb-listgroup-border:              @gb-palette-gray-outline;
 @gb-listgroup-active-color:        @gb-palette-red;
 
 ///
 /// Header
 ///
-@gb-header-background:             #f5f5f5;
-@gb-header-border-color:           #d5d5d5;
+@gb-header-background:             #fff;
+@gb-header-border-color:           #e5e5e5;
 @gb-header-color:                  #555;
 @gb-header-active-color:           @gb-brand-primary;
-@gb-header-shadow:                 ~"inset 0px 1px #fff";
+@gb-header-shadow:                 ~"0 3px 2px -2px rgba(200, 200, 200, 0.15)";
 
 ///
 /// Footer
@@ -218,10 +218,13 @@
 ///
 /// Pagehead
 ///
-@gb-pagehead-background:           @gb-palette-gray;
+@gb-pagehead-background:           @gb-header-background;
 @gb-pagehead-color:                darken(@gb-palette-gray-darker, 15%);
-@gb-pagehead-border:               @gb-palette-gray-dark;
+@gb-pagehead-border:               @gb-header-border-color;
 @gb-pagehead-active-border:        @gb-listgroup-active-color;
+@gb-pagehead-shadow:               @gb-header-shadow;
+@gb-pagehead-search-background:    @gb-body-background;
+@gb-pagehead-search-border:        darken(@gb-pagehead-search-background, 8%);
 
 ///
 /// Blankslate
@@ -245,16 +248,18 @@
 ///
 /// Modal
 ///
-@gb-modal-border:                 rgba(0, 0, 0, 0.65);
-@gb-modal-innerborder:            @gb-palette-gray-dark;
-@gb-modal-radius:                 @gb-border-radius-large;
-@gb-modal-shadow:                 ~"0 5px 15px rgba(0,0,0,.5)";
+@gb-modal-border:                 rgba(0, 0, 0, 0.3);
+@gb-modal-innerborder:            #ddd;
+@gb-modal-radius:                 1px;
+@gb-modal-shadow:                 ~"0 5px 15px rgba(0,0,0,.3)";
 @gb-modal-background:             #fff;
 @gb-modal-padding:                15px;
 @gb-modal-size-small:             400px;
 @gb-modal-size-medium:            600px;
 @gb-modal-size-large:             800px;
 @gb-modal-margin-vertical:        30px;
+@gb-modal-backdrop-background:    rgba(255, 255, 255, 0.7);
+@gb-modal-footer-background:      @gb-palette-gray;
 
 ///
 /// Tooltips
@@ -274,8 +279,8 @@
 /// Alerts
 ///
 @gb-alert-padding:                15px;
-@gb-alert-marging:                @gb-margin-base;
-@gb-alert-radius:                 @gb-border-radius-large;
+@gb-alert-margin:                @gb-margin-base;
+@gb-alert-radius:                 @gb-border-radius-small;
 
 ///
 /// Filter Lists
@@ -293,9 +298,9 @@
 ///
 /// Spinner
 ///
-@gb-spinner-background:           @gb-palette-gray;
+@gb-spinner-background:           transparent;
 @gb-spinner-color:                @gb-brand-primary;
-@gb-spinner-duration:             1.5s;
+@gb-spinner-duration:             500ms;
 @gb-spinner-size-small:           12px;
 @gb-spinner-size-medium:          30px;
 @gb-spinner-size-large:           50px;
@@ -314,6 +319,19 @@
 @gb-pagination-active-color:      @gb-palette-green;
 @gb-pagination-active-border:     @gb-palette-green;
 @gb-pagination-active-background: @gb-pagination-background;
+
+///
+/// Popovers
+///
+@gb-popover-border-radius:        @gb-border-radius-large;
+@gb-popover-border:               @gb-palette-gray-outline;
+@gb-popover-heading-background:   @gb-palette-gray;
+@gb-popover-heading-border:       @gb-palette-gray-dark;
+@gb-popover-heading-font-size:    @gb-font-size-base;
+@gb-popover-padding:              8px 14px;
+@gb-popover-width:                270px;
+@gb-popover-arrow-width:          11px;
+@gb-popover-spacing:              3px;
 
 ///
 /// Code
@@ -396,4 +414,3 @@
 @gb-dl-horizontal-offset:          180px;
 //** Horizontal line color.
 @gb-hr-border:                     @gb-blockquote-border-color;
-

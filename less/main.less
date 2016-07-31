@@ -5,45 +5,51 @@
 
 @import "./fonts/octicons.less";
 
-@import "./utils/reset.less";
-@import "./utils/mixins.less";
-@import "./utils/grid.less";
 @import "./utils/flex.less";
+@import "./utils/grid.less";
 @import "./utils/highlight.less";
+@import "./utils/mixins.less";
 @import "./utils/pull.less";
+@import "./utils/reset.less";
 @import "./utils/sr.less";
 @import "./utils/typography.less";
 
-@import "./components/switch.less";
-@import "./components/code.less";
 @import "./components/links.less";
-@import "./components/tables.less";
-@import "./components/buttons.less";
-@import "./components/tooltips.less";
-@import "./components/button-groups.less";
-@import "./components/button-dropdown.less";
-@import "./components/input-groups.less";
-@import "./components/tooltips.less";
 @import "./components/alerts.less";
-@import "./components/markdown.less";
-@import "./components/panels.less";
-@import "./components/list-groups.less";
-@import "./components/filter-list.less";
-@import "./components/modals.less";
-@import "./components/spinner.less";
-@import "./components/labels.less";
-@import "./components/forms.less";
-@import "./components/tables.less";
-@import "./components/pagehead.less";
-@import "./components/blankslate.less";
-@import "./components/tabs.less";
-@import "./components/pagination.less";
+@import "./components/autocomplete.less";
+@import "./components/avatars.less";
 @import "./components/badges.less";
+@import "./components/blankslate.less";
+@import "./components/button-dropdown.less";
+@import "./components/button-groups.less";
+@import "./components/buttons.less";
+@import "./components/code.less";
+@import "./components/filter-list.less";
+@import "./components/forms.less";
+@import "./components/input-groups.less";
+@import "./components/labels.less";
+@import "./components/list-groups.less";
+@import "./components/markdown.less";
+@import "./components/modals.less";
+@import "./components/overview.less";
+@import "./components/pagehead.less";
+@import "./components/pagination.less";
+@import "./components/panels.less";
+@import "./components/popover.less";
+@import "./components/search-bar.less";
+@import "./components/select.less";
+@import "./components/spinner.less";
+@import "./components/switch.less";
+@import "./components/tables.less";
+@import "./components/tabs.less";
+@import "./components/tags.less";
+@import "./components/time-graph.less";
+@import "./components/tooltips.less";
 
-@import "./layout/wrapper.less";
-@import "./layout/header.less";
 @import "./layout/body.less";
 @import "./layout/footer.less";
+@import "./layout/header.less";
+@import "./layout/wrapper.less";
 
 * {
     .box-sizing(border-box);
@@ -58,7 +64,6 @@ body, html {
     font-weight: @gb-font-weight-base;
     line-height: @gb-line-height-base;
     background: #fff;
-
     letter-spacing: @gb-font-spacing-base;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -72,4 +77,3 @@ hr {
     border: 0;
     border-top: 1px solid #eee;
 }
-

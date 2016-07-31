@@ -24,7 +24,7 @@
 .spinnerSize(@size) {
     width: @size;
     height: @size;
-    border-width: @size/10;
+    border-width: @size/7;
 
     &.spinner-centered {
         display: block;
@@ -40,8 +40,10 @@
 .gb-spinner {
     display: inline-block;
     border-radius: 100%;
-    border: 5px solid @gb-spinner-background;
-    border-bottom-color: @gb-spinner-color;
+    border: 5px solid @gb-spinner-color;
+    border-right-color: @gb-spinner-background;
+    border-top-color: @gb-spinner-background;
+
     .animation (rotate, @gb-spinner-duration, 0s, linear infinite);
 
     .spinnerSize(@gb-spinner-size-medium);
@@ -51,5 +53,11 @@
     }
     &.spinner-lg {
         .spinnerSize(@gb-spinner-size-large);
+    }
+
+    &.spinner-inverse {
+        border-color: #fff;
+        border-right-color: @gb-spinner-background;
+        border-top-color: @gb-spinner-background;
     }
 }

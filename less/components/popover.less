@@ -1,0 +1,104 @@
+.popover {
+    position: relative;
+    border-radius: @gb-popover-border-radius;
+    border: 1px solid @gb-popover-border;
+    width: @gb-popover-width;
+    background: #fff;
+
+    &:after {
+        position: absolute;
+        transform: translate(-50%);
+    }
+
+    .popover-arrow {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: @gb-popover-arrow-width;
+
+        &:after {
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            content: "";
+            border-width: (@gb-popover-arrow-width - 1);
+        }
+    }
+
+    .popover-heading {
+        border-top-left-radius: @gb-popover-border-radius;
+        border-top-right-radius: @gb-popover-border-radius;
+        background: @gb-popover-heading-background;
+        position: relative;
+        padding: @gb-popover-padding;
+        border-bottom: 1px solid @gb-popover-heading-border;
+
+        h4 {
+            margin: 0px;
+            font-size: @gb-popover-heading-font-size;
+        }
+    }
+
+    .popover-body {
+        padding: @gb-popover-padding;
+    }
+
+    &.popover-top .popover-arrow {
+        bottom: -@gb-popover-arrow-width;
+        left: 50%;
+        margin-left: -@gb-popover-arrow-width;
+        border-top-color: @gb-popover-border;
+        border-bottom-width: 0;
+
+        &:after {
+            bottom: 1px;
+            margin-left: -(@gb-popover-arrow-width - 1);
+            content: "";
+            border-top-color: #fff;
+            border-bottom-width: 0;
+        }
+    }
+
+    &.popover-bottom .popover-arrow {
+        top: -@gb-popover-arrow-width;
+        left: 50%;
+        margin-left: -@gb-popover-arrow-width;
+        border-top-width: 0;
+        border-bottom-color: @gb-popover-border;
+
+        &:after {
+            top: 1px;
+            margin-left: -(@gb-popover-arrow-width - 1);
+            content: "";
+            border-top-width: 0;
+            border-bottom-color: @gb-popover-heading-background;
+        }
+    }
+}
+
+.popover-container {
+    position: relative;
+    display: inline-block;
+
+    .popover {
+        position: absolute;
+        z-index: @gb-zindex-popover;
+        transform: translateX(-50%);
+        left: 50%;
+
+        &.popover-top {
+            bottom: 100%;
+            margin-bottom: (@gb-popover-spacing + @gb-popover-arrow-width);
+        }
+        &.popover-bottom {
+            top: 100%;
+            margin-top: (@gb-popover-spacing + @gb-popover-arrow-width);
+        }
+    }
+}
