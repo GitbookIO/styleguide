@@ -100,6 +100,7 @@ var Body = React.createClass({
     },
 
     contextTypes: {
+        seriesStyle:  React.PropTypes.array,
         pointRadius:  React.PropTypes.number,
         defaultColor: React.PropTypes.string,
         lineWidth:    React.PropTypes.number,
@@ -128,10 +129,13 @@ var Body = React.createClass({
 
     // Return correct mapping for a point to draw in TimeLine
     formatPoint: function(time, point, index) {
+        var seriesStyle = this.context.seriesStyle;
+        var serieStyle = seriesStyle[index];
+
         return {
-            color: point.color || seriesStyle[index].color || this.context.defaultColor,
+            color: point.color || (serieStyle? serieStyle.color : null) || this.context.defaultColor,
             value: point.value,
-            serie: point.serie || seriesStyle[index].title,
+            serie: point.serie || (serieStyle? serieStyle.title : index),
             date:  time.date,
             y:     this.getInnerY(point.value)
         };
@@ -429,6 +433,7 @@ var TimeGraph = React.createClass({
     },
 
     childContextTypes: {
+        seriesStyle:  React.PropTypes.array,
         pointRadius:  React.PropTypes.number,
         defaultColor: React.PropTypes.string,
         lineWidth:    React.PropTypes.number,
@@ -471,6 +476,7 @@ var TimeGraph = React.createClass({
 
     getChildContext: function() {
         return {
+            seriesStyle:    this.props.seriesStyle,
             pointRadius:    this.props.pointRadius,
             defaultColor:   this.props.defaultColor,
             lineWidth:      this.props.lineWidth,
@@ -496,6 +502,7 @@ var TimeGraph = React.createClass({
         var padding      = props.padding;
         var series       = props.series;
         var minValue     = props.minValue;
+        var defaultColor = props.defaultColor;
         var seriesStyle  = props.seriesStyle;
 
         // Compute values ranges
@@ -579,11 +586,11 @@ var TimeGraph = React.createClass({
                     // Construct missing points
                     return {
                         date: time,
-                        points: seriesStyle.map(function(style) {
+                        points: seriesStyle.map(function(style, i) {
                             return {
-                                serie: style.title,
+                                serie: style.title || i,
                                 value: autoFillValue,
-                                color: style.color
+                                color: style.color || defaultColor
                             };
                         })
                     };
