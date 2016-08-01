@@ -12,7 +12,7 @@ var Pagination = React.createClass({
         // Minimum number of pages to list
         pagesToList:    React.PropTypes.number,
 
-        // Callback when pae changed (optional)
+        // Callback when page changed (optional)
         onChange:       React.PropTypes.func,
 
         // Current uri
