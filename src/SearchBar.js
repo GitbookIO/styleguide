@@ -1,4 +1,5 @@
 var React = require('react');
+var classNames = require('classnames');
 
 var Icon = require('./Icon');
 var Form = require('./Form');
@@ -6,6 +7,7 @@ var Input = require('./Input');
 
 var SearchBar = React.createClass({
     propTypes: {
+        className:   React.PropTypes.string,
         placeholder: React.PropTypes.string,
         value:       React.PropTypes.string,
         action:      React.PropTypes.string,
@@ -52,7 +54,7 @@ var SearchBar = React.createClass({
         var value = this.state.value;
 
         return (
-            <Form className="search-bar"
+            <Form className={classNames('search-bar', this.props.className)}
                   method={method}
                   action={action}>
                 <Icon id="search" />
