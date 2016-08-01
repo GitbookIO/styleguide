@@ -1,9 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var STYLES = require('./STYLES');
+const STYLES = require('./STYLES');
 
-var Panel = React.createClass({
+const Panel = React.createClass({
     propTypes: {
         style: React.PropTypes.oneOf(STYLES),
         children: React.PropTypes.node
@@ -26,7 +26,7 @@ var Panel = React.createClass({
     }
 });
 
-var PanelHeading = React.createClass({
+const PanelHeading = React.createClass({
     propTypes: {
         title: React.PropTypes.string,
         children: React.PropTypes.node
@@ -49,7 +49,7 @@ var PanelHeading = React.createClass({
     }
 });
 
-var PanelTitle = React.createClass({
+const PanelTitle = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -63,7 +63,21 @@ var PanelTitle = React.createClass({
     }
 });
 
-var PanelBody = React.createClass({
+const PanelToolbar = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
+    render: function() {
+        return (
+            <div className="panel-toolbar">
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
+const PanelBody = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -77,7 +91,7 @@ var PanelBody = React.createClass({
     }
 });
 
-var PanelFooter = React.createClass({
+const PanelFooter = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -96,3 +110,4 @@ module.exports.Heading = PanelHeading;
 module.exports.Title   = PanelTitle;
 module.exports.Body    = PanelBody;
 module.exports.Footer  = PanelFooter;
+module.exports.Toolbar = PanelToolbar;
