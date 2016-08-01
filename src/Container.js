@@ -1,7 +1,7 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var Container = React.createClass({
+const Container = React.createClass({
     propTypes: {
         className:  React.PropTypes.string,
         children: React.PropTypes.node,
@@ -9,12 +9,13 @@ var Container = React.createClass({
     },
 
     render: function() {
-        var className = classNames('container', {
-            'container-fluid': this.props.fluid
-        }, this.props.className);
+        let { fluid, className, ...props } = this.props;
+        className = classNames('container', {
+            'container-fluid': fluid
+        }, className);
 
         return (
-            <div {...this.props} className={className}>
+            <div {...props} className={className}>
                 {this.props.children}
             </div>
         );

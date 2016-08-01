@@ -56,7 +56,7 @@ var Alert = React.createClass({
 
         return (
             <div className={className}>
-                <Container>
+                <Container fluid>
                 {inner}
                 {this.props.children}
                 </Container>
