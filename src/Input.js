@@ -79,6 +79,29 @@ function createInputType(type) {
     });
 }
 
-module.exports          = Input;
-module.exports.Email    = createInputType('Email');
-module.exports.Password = createInputType('Password');
+var InputGroup = React.createClass({
+    render: function() {
+        var className = classNames('input-group', this.props.className || []);
+        return (
+            <div className={className}>
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
+var InputGroupAddon = React.createClass({
+    render: function() {
+        return (
+            <span {...this.props} className="input-group-addon">
+                {this.props.children}
+            </span>
+        );
+    }
+});
+
+module.exports            = Input;
+module.exports.Email      = createInputType('Email');
+module.exports.Password   = createInputType('Password');
+module.exports.Group      = InputGroup;
+module.exports.GroupAddon = InputGroupAddon;
