@@ -1,7 +1,7 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var Form = React.createClass({
+const Form = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -19,7 +19,7 @@ var Form = React.createClass({
     }
 });
 
-var FormGroup = React.createClass({
+const FormGroup = React.createClass({
     propTypes: {
         error: React.PropTypes.bool,
         className: React.PropTypes.string,
@@ -33,7 +33,7 @@ var FormGroup = React.createClass({
     },
 
     render: function() {
-        var className = classNames('form-group', {
+        let className = classNames('form-group', {
             'has-error': this.props.error
         });
 
@@ -45,7 +45,7 @@ var FormGroup = React.createClass({
     }
 });
 
-var FormHelpBlock = React.createClass({
+const FormHelpBlock = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -59,6 +59,30 @@ var FormHelpBlock = React.createClass({
     }
 });
 
+const FormCheckbox = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node,
+        name:     React.PropTypes.string
+    },
+
+    onClick: function() {
+        this.refs.checkbox.click();
+    },
+
+    render: function() {
+        let {children, ...props } = this.props;
+
+        return (
+            <div className="checkbox">
+                <label htmlFor={this.props.name} onClick={this.onClick}>
+                    <input ref="checkbox" type="checkbox" {...props} /> {children}
+                </label>
+            </div>
+        );
+    }
+});
+
 module.exports           = Form;
 module.exports.Group     = FormGroup;
+module.exports.Checkbox  = FormCheckbox;
 module.exports.HelpBlock = FormHelpBlock;
