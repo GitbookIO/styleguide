@@ -13,7 +13,7 @@ Avatars are user and organization profile pictures.
     <img src="https://picturepan2.github.io/spectre/demo/img/avatar-1.png" />
 </figure>
 
-<figure class="avatar">
+<figure class="avatar avatar-md">
     <img src="https://picturepan2.github.io/spectre/demo/img/avatar-3.png" />
     <img src="https://picturepan2.github.io/spectre/demo/img/avatar-4.png" class="avatar-icon" />
 </figure>
@@ -25,5 +25,5 @@ Avatars are user and organization profile pictures.
     <img src="https://picturepan2.github.io/spectre/demo/img/avatar-4.png" class="avatar-icon" />
 </figure>
 
-<figure class="avatar avatar-xl" data-initial="SP"></figure>
+<figure class="avatar avatar-lg" data-initial="SP"></figure>
 {% endexample %}
