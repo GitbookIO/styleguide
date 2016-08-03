@@ -1,15 +1,16 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var SIZES = require('./SIZES');
+const SIZES = require('./SIZES');
 
-var Input = React.createClass({
+const Input = React.createClass({
     propTypes: {
         className:    React.PropTypes.string,
         onChange:     React.PropTypes.func,
         onFocus:      React.PropTypes.func,
         onBlur:       React.PropTypes.func,
         onKeyDown:    React.PropTypes.func,
+        onClick:      React.PropTypes.func,
         name:         React.PropTypes.string,
         type:         React.PropTypes.string,
         placeholder:  React.PropTypes.string,
@@ -45,7 +46,7 @@ var Input = React.createClass({
     },
 
     render: function() {
-        var { onBlur, onFocus, onKeyDown, value, readOnly, defaultValue,
+        var { onBlur, onFocus, onKeyDown, onClick, value, readOnly, defaultValue,
             size, autoFocus, placeholder, type,
             name, disabled } = this.props;
 
@@ -59,6 +60,7 @@ var Input = React.createClass({
             onFocus={onFocus}
             onBlur={onBlur}
             onKeyDown={onKeyDown}
+            onClick={onClick}
             onChange={this.onChange}
         />;
     }
@@ -79,9 +81,14 @@ function createInputType(type) {
     });
 }
 
-var InputGroup = React.createClass({
+const InputGroup = React.createClass({
+    propTypes: {
+        children:  React.PropTypes.node,
+        className: React.PropTypes.string
+    },
+
     render: function() {
-        var className = classNames('input-group', this.props.className || []);
+        var className = classNames('input-group', this.props.className || []);
         return (
             <div className={className}>
                 {this.props.children}
@@ -90,7 +97,11 @@ var InputGroup = React.createClass({
     }
 });
 
-var InputGroupAddon = React.createClass({
+const InputGroupAddon = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
     render: function() {
         return (
             <span {...this.props} className="input-group-addon">
