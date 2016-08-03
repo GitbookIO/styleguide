@@ -8,6 +8,7 @@
             "vars": "all",
             "args": "none"
         } ],
+        "no-extra-boolean-cast": [ 0 ],
         "spaced-comment": [ 2, "always" ],
 
         "react/jsx-uses-vars": 2,
