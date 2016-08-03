@@ -27,25 +27,24 @@ const DateSpan =  React.createClass({
 
     getInitialState: function() {
         return {
-            tick: 0
+            now: 0
         };
     },
 
     tick: function() {
-        // Update "fake" internal state to trigger re-rendering
-        let { tick } = this.state;
-
         this.setState({
-            tick: tick + 1
+            now: Date.now()
         });
     },
 
     componentDidMount: function() {
-        if (this.props.format) {
+        let { refreshInterval, format } = this.props;
+
+        if (format) {
             return;
         }
 
-        this.interval = setInterval(this.tick, this.props.refreshInterval);
+        this.interval = setInterval(this.tick, refreshInterval);
     },
 
     componentWillUnmount: function() {
@@ -58,7 +57,7 @@ const DateSpan =  React.createClass({
 
     render: function() {
         let { date, format } = this.props;
-        let { now } = this.context;
+        let now = this.state.now || this.context.now;
         let displayDate;
 
         // Apply formating if provided
