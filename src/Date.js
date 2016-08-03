@@ -15,8 +15,8 @@ var DateSpan =  React.createClass({
 
     getDefaultProps: function() {
         return {
-            refreshInterval: 10*1000,
-            format:          ''
+            format:          '',
+            refreshInterval: 10*1000
         };
     },
 
@@ -33,11 +33,15 @@ var DateSpan =  React.createClass({
     },
 
     componentDidMount: function() {
-        this.interval = setInterval(this.tick, this.props.refreshInterval);
+        if (!this.props.format) {
+            this.interval = setInterval(this.tick, this.props.refreshInterval);
+        }
     },
 
     componentWillUnmount: function() {
-        clearInterval(this.interval);
+        if (!this.props.format) {
+            clearInterval(this.interval);
+        }
     },
 
     render: function() {
