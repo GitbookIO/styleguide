@@ -48,7 +48,7 @@ const DateSpan =  React.createClass({
     },
 
     componentWillUnmount: function() {
-        if (this.interval) {
+        if (!this.interval) {
             return;
         }
 
