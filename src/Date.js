@@ -27,6 +27,7 @@ var DateSpan =  React.createClass({
     },
 
     tick: function() {
+        // Update "fake" internal state to trigger re-rendering
         this.setState({
             currentDate: Date.now()
         });
