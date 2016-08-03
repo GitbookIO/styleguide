@@ -1,16 +1,21 @@
-var React = require('react');
-var moment = require('moment');
+const React = require('react');
+const moment = require('moment');
 
-var DateSpan =  React.createClass({
+const dateShape = React.PropTypes.oneOfType([
+    React.PropTypes.number,
+    React.PropTypes.string,
+    React.PropTypes.instanceOf(Date)
+]);
+
+const DateSpan =  React.createClass({
     propTypes: {
-        date: React.PropTypes.oneOfType([
-            React.PropTypes.number,
-            React.PropTypes.string,
-            React.PropTypes.instanceOf(Date)
-        ]).isRequired,
-
+        date:            dateShape.isRequired,
         refreshInterval: React.PropTypes.number,
         format:          React.PropTypes.string
+    },
+
+    contextTypes: {
+        now: dateShape
     },
 
     getDefaultProps: function() {
@@ -22,42 +27,72 @@ var DateSpan =  React.createClass({
 
     getInitialState: function() {
         return {
-            currentDate: Date.now()
+            tick: 0
         };
     },
 
     tick: function() {
         // Update "fake" internal state to trigger re-rendering
+        let { tick } = this.state;
+
         this.setState({
-            currentDate: Date.now()
+            tick: tick + 1
         });
     },
 
     componentDidMount: function() {
-        if (!this.props.format) {
-            this.interval = setInterval(this.tick, this.props.refreshInterval);
+        if (this.props.format) {
+            return;
         }
+
+        this.interval = setInterval(this.tick, this.props.refreshInterval);
     },
 
     componentWillUnmount: function() {
-        if (!this.props.format) {
-            clearInterval(this.interval);
+        if (this.interval) {
+            return;
         }
+
+        clearInterval(this.interval);
     },
 
     render: function() {
-        var date   = this.props.date;
-        var format = this.props.format;
+        let { date, format } = this.props;
+        let { now } = this.context;
+        let displayDate;
 
-        // Display interval by default
-        var displayDate = moment(date).fromNow();
         // Apply formating if provided
-        if (Boolean(format)) {
+        if (format) {
             displayDate = moment(date).format(format);
+        } else {
+            displayDate = moment(date).from(now);
         }
 
         return <span>{displayDate}</span>;
     }
 });
 
+const DateContext =  React.createClass({
+    propTypes: {
+        children: React.PropTypes.node,
+        now:      dateShape
+    },
+
+    childContextTypes: {
+        now: dateShape
+    },
+
+    getChildContext: function() {
+        return {
+            now: this.props.now
+        };
+    },
+
+    render: function() {
+        return (React.Children.only(this.props.children));
+    }
+});
+
 module.exports = DateSpan;
+module.exports.shape = dateShape;
+module.exports.Context = DateContext;
