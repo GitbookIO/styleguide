@@ -14,9 +14,22 @@
         }
     }
 
+    /**
+     * Use all width and align button,
+     * it gives less importance to dropdown-toggle
+     */
     &.btn-group-block {
         width: 100%;
-        display: block;
+        .flex-display();
+
+        > .btn {
+            .flex(auto);
+            text-align: center;
+
+            &.dropdown-toggle {
+                .flex(0);
+            }
+        }
     }
 
     .btn + .btn,

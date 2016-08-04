@@ -1,10 +1,10 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var Button = require('./Button');
-var Icon = require('./Icon');
+const Button = require('./Button');
+const Icon = require('./Icon');
 
-var ButtonDropdown = React.createClass({
+const ButtonDropdown = React.createClass({
     propTypes: {
         className:  React.PropTypes.string,
         children: React.PropTypes.node,
@@ -65,14 +65,18 @@ var ButtonDropdown = React.createClass({
     },
 
     render: function() {
-        var that = this;
-        var inner = [];
-        var items = [];
-        var className = classNames('dropdown', this.props.className, {
-            'dropup': this.props.up
+        let that = this;
+        let inner = [];
+        let items = [];
+
+        let { className, children, up, width, ...otherProps } = this.props;
+        let { open } = this.state;
+
+        className = classNames('dropdown', className, {
+            'dropup': up
         });
 
-        inner = React.Children.map(this.props.children, function(child) {
+        inner = React.Children.map(children, function(child) {
             // If the Button is connected through Redux.connect, it is
             // renamed to "Connect(Button...)"
             if (child.type && child.type.displayName.indexOf('Button') !== -1) {
@@ -88,7 +92,7 @@ var ButtonDropdown = React.createClass({
             return null;
         });
 
-        items = React.Children.map(this.props.children, function(child) {
+        items = React.Children.map(children, function(child) {
             if (child.type && child.type.displayName == 'DropdownItem') {
                 return React.cloneElement(child, {
                     onClick: function() {
@@ -100,15 +104,14 @@ var ButtonDropdown = React.createClass({
             return null;
         });
 
-        return <Button.Group {...this.props} className={className}>
+        return <Button.Group {...otherProps} className={className}>
             {inner}
-            <DropdownMenu open={this.state.open} width={this.props.width} >{items}</DropdownMenu>
+            <DropdownMenu open={open} width={width} >{items}</DropdownMenu>
         </Button.Group>;
     }
 });
 
-
-var DropdownItem = React.createClass({
+const DropdownItem = React.createClass({
     propTypes: {
         children:  React.PropTypes.node,
         onClick:   React.PropTypes.func,
@@ -164,7 +167,7 @@ var DropdownItem = React.createClass({
     }
 });
 
-var DropdownMenu = React.createClass({
+const DropdownMenu = React.createClass({
     propTypes: {
         className:  React.PropTypes.string,
         children: React.PropTypes.node,
@@ -186,7 +189,7 @@ var DropdownMenu = React.createClass({
     }
 });
 
-var ItemHeader = React.createClass({
+const ItemHeader = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -198,7 +201,7 @@ var ItemHeader = React.createClass({
     }
 });
 
-var ItemDesc = React.createClass({
+const ItemDesc = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
