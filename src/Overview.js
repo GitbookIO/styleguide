@@ -1,10 +1,10 @@
-var React = require('react');
+const React = require('react');
 
 /**
  * Component to create overviews/intros with a title, description,
  * metas info (links), and a picture.
  */
-var Overview = React.createClass({
+const Overview = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -21,6 +21,16 @@ Overview.Title = React.createClass({
 
     render: function () {
         return <h1 className="overview-title">{ this.props.children }</h1>;
+    }
+});
+
+Overview.Note = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
+    render: function () {
+        return <p className="overview-note">{ this.props.children }</p>;
     }
 });
 

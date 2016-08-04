@@ -1,21 +1,24 @@
-var React = require('react');
+const React = require('react');
+const classNames = require('classnames');
 
 /**
  * Markdown content rendered with clean style.
  *
  * A "convert" prop can be given to convert the markdown to HTML.
  */
-var Markdown = React.createClass({
+const Markdown = React.createClass({
     propTypes: {
-        source:  React.PropTypes.string.isRequired,
-        convert: React.PropTypes.func
+        source:    React.PropTypes.string.isRequired,
+        className: React.PropTypes.string,
+        convert:   React.PropTypes.func
     },
 
     render: function() {
-        var source = this.props.source;
-        var html   = this.props.convert? this.props.convert(source) : source;
+        let { source, convert, className } = this.props;
+        let html = convert? convert(source) : source;
+        className = classNames('gb-markdown', className);
 
-        return <div className="gb-markdown" dangerouslySetInnerHTML={{__html: html}} />;
+        return <div className={className} dangerouslySetInnerHTML={{__html: html}} />;
     }
 });
 
