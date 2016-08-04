@@ -23,7 +23,10 @@ const Button = React.createClass({
         value:          React.PropTypes.string,
         size:           React.PropTypes.oneOf(SIZES),
         style:          React.PropTypes.oneOf(BUTTONS_STYLES),
-        href:           React.PropTypes.string, // Makes a link button
+        // Makes a link button
+        href:           React.PropTypes.string,
+        // For links
+        target:         React.PropTypes.string,
         filled:         React.PropTypes.bool,
         noBorder:       React.PropTypes.bool,
         disabled:       React.PropTypes.bool,
