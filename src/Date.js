@@ -9,9 +9,14 @@ const dateShape = React.PropTypes.oneOfType([
 
 const DateSpan =  React.createClass({
     propTypes: {
+        // Date to display
         date:            dateShape.isRequired,
-        refreshInterval: React.PropTypes.number,
-        format:          React.PropTypes.string
+        // Interval to refresh the display
+        refresh: React.PropTypes.number,
+        // Format for output
+        format:          React.PropTypes.string,
+        // Is the date in UTC or Local
+        utc:             React.PropTypes.bool
     },
 
     contextTypes: {
@@ -20,8 +25,9 @@ const DateSpan =  React.createClass({
 
     getDefaultProps: function() {
         return {
-            format:          '',
-            refreshInterval: 10*1000
+            format:   '',
+            interval: 10*1000,
+            utc:      true
         };
     },
 
@@ -38,13 +44,13 @@ const DateSpan =  React.createClass({
     },
 
     componentDidMount: function() {
-        let { refreshInterval, format } = this.props;
+        let { refresh, format } = this.props;
 
         if (format) {
             return;
         }
 
-        this.interval = setInterval(this.tick, refreshInterval);
+        this.interval = setInterval(this.tick, refresh);
     },
 
     componentWillUnmount: function() {
@@ -56,15 +62,22 @@ const DateSpan =  React.createClass({
     },
 
     render: function() {
-        let { date, format } = this.props;
+        let { date, format, utc } = this.props;
         let now = this.state.now || this.context.now;
         let displayDate;
 
+        // Parse the date
+        if (utc) {
+            date = moment.utc(date);
+        } else {
+            date = moment(date);
+        }
+
         // Apply formating if provided
         if (format) {
-            displayDate = moment(date).format(format);
+            displayDate = date.format(format);
         } else {
-            displayDate = moment(date).from(now);
+            displayDate = date.from(now);
         }
 
         return <span>{displayDate}</span>;
