@@ -10,13 +10,13 @@ const dateShape = React.PropTypes.oneOfType([
 const DateSpan =  React.createClass({
     propTypes: {
         // Date to display
-        date:            dateShape.isRequired,
+        date:    dateShape.isRequired,
         // Interval to refresh the display
         refresh: React.PropTypes.number,
         // Format for output
-        format:          React.PropTypes.string,
+        format:  React.PropTypes.string,
         // Is the date in UTC or Local
-        utc:             React.PropTypes.bool
+        utc:     React.PropTypes.bool
     },
 
     contextTypes: {
@@ -26,7 +26,7 @@ const DateSpan =  React.createClass({
     getDefaultProps: function() {
         return {
             format:   '',
-            interval: 10*1000,
+            refresh: 10*1000,
             utc:      true
         };
     },
