@@ -1,0 +1,44 @@
+.Tree {
+    .TreeNode {
+        .TreeLeaf {
+            padding: 5px 4px;
+            cursor: default;
+            display: block;
+            user-select: none;
+            position: relative;
+            border-left: 3px solid transparent;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &.status-danger {
+                border-left-color: @gb-brand-danger;
+            }
+            &.status-success {
+                border-left-color: @gb-brand-success;
+            }
+            &.status-warning {
+                border-left-color: @gb-brand-warning;
+            }
+            &.status-selected {
+                border-left-color: @gb-brand-primary;
+                background: @gb-tree-selected-background;
+            }
+
+            .TreeToggle {
+                width: 18px;
+                height: 18px;
+                text-align: center;
+                display: block;
+                float: left;
+                line-height: 18px;
+                margin-right: 4px;
+                margin-left: -4px;
+
+                &:hover {
+                    background: rgba(0,0,0,.05);
+                }
+            }
+        }
+    }
+}
