@@ -46,7 +46,9 @@ const DateSpan =  React.createClass({
     componentDidMount: function() {
         let { refresh, format } = this.props;
 
+        // We tick only once to update date from utc to local
         if (format) {
+            setTimeout(this.tick, 1000);
             return;
         }
 
@@ -75,7 +77,12 @@ const DateSpan =  React.createClass({
 
         // Apply formating if provided
         if (format) {
-            displayDate = date.local().format(format);
+            // If client-side, we use the real date
+            if (this.state.now) {
+                date = date.local();
+            }
+
+            displayDate = date.format(format);
         } else {
             displayDate = date.from(now);
         }
