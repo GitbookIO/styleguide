@@ -412,7 +412,7 @@ var Select = React.createClass({
     },
 
     render: function() {
-        var name     = this.props.name;
+        var name   = this.props.name;
         var opened = this.state.opened;
 
         return <div className="SelectFormControl" onClick={e => e.stopPropagation()}>
