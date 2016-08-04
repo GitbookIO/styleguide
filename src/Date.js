@@ -75,7 +75,7 @@ const DateSpan =  React.createClass({
 
         // Apply formating if provided
         if (format) {
-            displayDate = date.format(format);
+            displayDate = date.local().format(format);
         } else {
             displayDate = date.from(now);
         }
