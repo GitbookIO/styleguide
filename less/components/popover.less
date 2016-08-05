@@ -4,6 +4,7 @@
     border: 1px solid @gb-popover-border;
     width: @gb-popover-width;
     background: #fff;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
 
     &:after {
         position: absolute;
@@ -82,6 +83,11 @@
     }
 }
 
+.popover-wrapper {
+    .animation(scale-in, 0.15s, 1);
+    animation-timing-function: cubic-bezier(0.2, 0, 0.13, 1.5);
+}
+
 .popover-container {
     position: relative;
     display: inline-block;
@@ -100,5 +106,34 @@
             top: 100%;
             margin-top: (@gb-popover-spacing + @gb-popover-arrow-width);
         }
+    }
+}
+
+
+@-webkit-keyframes scale-in {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes scale-in {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
     }
 }

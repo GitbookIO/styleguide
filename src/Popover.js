@@ -20,9 +20,11 @@ var Popover =  React.createClass({
         var className = classNames('popover', 'popover-' + position);
 
         return (
-            <div className={className}>
-                <div className="popover-arrow"></div>
-                {this.props.children}
+            <div className="popover-wrapper">
+                <div className={className}>
+                    <div className="popover-arrow"></div>
+                    {this.props.children}
+                </div>
             </div>
         );
     }
