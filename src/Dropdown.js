@@ -79,7 +79,7 @@ const ButtonDropdown = React.createClass({
         inner = React.Children.map(children, function(child) {
             // If the Button is connected through Redux.connect, it is
             // renamed to "Connect(Button...)"
-            if (child.type && child.type.displayName.indexOf('Button') !== -1) {
+            if (child && child.type && child.type.displayName.indexOf('Button') !== -1) {
                 if (!child.props.onClick && !child.props.href) {
                     return React.cloneElement(child, {
                         onNativeClick: that.toggle,
@@ -93,7 +93,7 @@ const ButtonDropdown = React.createClass({
         });
 
         items = React.Children.map(children, function(child) {
-            if (child.type && child.type.displayName == 'DropdownItem') {
+            if (child && child.type && child.type.displayName == 'DropdownItem') {
                 return React.cloneElement(child, {
                     onClick: function() {
                         if (child.props.onClick) child.props.onClick();
