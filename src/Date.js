@@ -1,5 +1,6 @@
 const React = require('react');
 const moment = require('moment');
+require('moment-duration-format');
 
 const dateShape = React.PropTypes.oneOfType([
     React.PropTypes.number,
@@ -7,6 +8,12 @@ const dateShape = React.PropTypes.oneOfType([
     React.PropTypes.instanceOf(Date)
 ]);
 
+/**
+ * Render an updated relative date or with a specific format.
+ *
+ * Relative date: <Date date={new Date(...)} />
+ * With format: <Date date={new Date(...)} format="%Y %M" />
+ */
 const DateSpan =  React.createClass({
     propTypes: {
         // Date to display
@@ -91,7 +98,62 @@ const DateSpan =  React.createClass({
     }
 });
 
-const DateContext =  React.createClass({
+/**
+ * Render an updated duration.
+ *
+ * <Date.Duration duration={6000} />
+ */
+const DateDuration = React.createClass({
+    propTypes: {
+        duration: React.PropTypes.number,
+        format:   React.PropTypes.string,
+        refresh:  React.PropTypes.number
+    },
+
+    getDefaultProps: function() {
+        return {
+            format: 'h [hrs], m [min], s [sec]',
+            refresh: 1000
+        };
+    },
+
+    getInitialState: function() {
+        return {
+            elapsed: 0
+        };
+    },
+
+    tick: function() {
+        let { elapsed } = this.state;
+        let { refresh } = this.props;
+
+        this.setState({
+            elapsed: elapsed + refresh
+        });
+    },
+
+    componentDidMount: function() {
+        let { refresh } = this.props;
+        this.interval = setInterval(this.tick, refresh);
+    },
+
+    componentWillUnmount: function() {
+        clearInterval(this.interval);
+    },
+
+    render: function() {
+        let { duration, format } = this.props;
+        let { elapsed } = this.state;
+
+        duration = duration + elapsed;
+
+        return (
+            <span>{moment.duration(duration).format(format)}</span>
+        );
+    }
+});
+
+const DateContext = React.createClass({
     propTypes: {
         children: React.PropTypes.node,
         now:      dateShape
@@ -112,6 +174,7 @@ const DateContext =  React.createClass({
     }
 });
 
-module.exports = DateSpan;
-module.exports.shape = dateShape;
-module.exports.Context = DateContext;
+module.exports          = DateSpan;
+module.exports.shape    = dateShape;
+module.exports.Context  = DateContext;
+module.exports.Duration = DateDuration;
