@@ -75,7 +75,12 @@ const FormCheckbox = React.createClass({
         return (
             <div className="checkbox">
                 <label htmlFor={this.props.name} onClick={this.onClick}>
-                    <input ref="checkbox" type="checkbox" {...props} /> {children}
+                    <input
+                        ref="checkbox"
+                        type="checkbox"
+                        onClick={e => e.stopPropagation()}
+                        {...props}
+                    /> {children}
                 </label>
             </div>
         );
