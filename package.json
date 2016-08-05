@@ -29,7 +29,7 @@
   },
   "scripts": {
     "lint": "eslint",
-    "build-js": "babel src --out-dir lib",
+    "build-js": "babel src --source-maps inline --out-dir lib",
     "build-css": "lessc ./less/main.less ./css/gitbook.css --include-path='node_modules'",
     "build-css-min": "cssmin ./css/gitbook.css ./css/gitbook.min.css",
     "build-assets": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && rm -rf ./assets/images/logo && cp -R ./node_modules/gitbook-logos/output ./assets/images/logo",
