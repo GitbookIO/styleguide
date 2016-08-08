@@ -59,35 +59,6 @@ const FormHelpBlock = React.createClass({
     }
 });
 
-const FormCheckbox = React.createClass({
-    propTypes: {
-        children: React.PropTypes.node,
-        name:     React.PropTypes.string
-    },
-
-    onClick: function() {
-        this.refs.checkbox.click();
-    },
-
-    render: function() {
-        let {children, ...props } = this.props;
-
-        return (
-            <div className="checkbox">
-                <label htmlFor={this.props.name} onClick={this.onClick}>
-                    <input
-                        ref="checkbox"
-                        type="checkbox"
-                        onClick={e => e.stopPropagation()}
-                        {...props}
-                    /> {children}
-                </label>
-            </div>
-        );
-    }
-});
-
 module.exports           = Form;
 module.exports.Group     = FormGroup;
-module.exports.Checkbox  = FormCheckbox;
 module.exports.HelpBlock = FormHelpBlock;

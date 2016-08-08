@@ -8,66 +8,47 @@ var DIRECTIONS = [
 ];
 
 var Checkbox = React.createClass({
+
     propTypes: {
-        children: React.PropTypes.node,
-        checked:       React.PropTypes.bool.isRequired,
-        onChange:      React.PropTypes.func,
-        name:          React.PropTypes.string,
-        disabled:      React.PropTypes.bool,
-        displaySwitch: React.PropTypes.bool,
-        size:          React.PropTypes.oneOf(SIZES),
-        direction:     React.PropTypes.oneOf(DIRECTIONS)
+        children:        React.PropTypes.node,
+        checked:         React.PropTypes.bool,
+        defaultChecked:  React.PropTypes.bool,
+        onChange:        React.PropTypes.func,
+        name:            React.PropTypes.string,
+        disabled:        React.PropTypes.bool,
+        displaySwitch:   React.PropTypes.bool,
+        size:            React.PropTypes.oneOf(SIZES),
+        direction:       React.PropTypes.oneOf(DIRECTIONS)
     },
 
     getDefaultProps: function() {
         return {
-            checked:       false,
             displaySwitch: true,
             size:          SIZES[0],
             direction:     DIRECTIONS[0]
         };
     },
 
-    getInitialState: function() {
-        return {
-            checked: this.props.checked
-        };
-    },
-
-    componentWillReceiveProps: function(newProps) {
-        this.setState({
-            checked: newProps.checked
-        });
-    },
-
-    onChange: function(e) {
-        var newValue = e.target.value;
-
-        this.setState({
-            checked: newValue
-        });
-
-        if (this.props.onChange) {
-            this.props.onChange(newValue);
-        }
+    onClick: function() {
+        this.refs.checkbox.click();
     },
 
     render: function() {
-        var name      = this.props.name;
-        var disabled  = this.props.disabled;
-        var size      = this.props.size;
-        var direction = this.props.direction;
-        var checked   = this.state.checked;
+        const {size, displaySwitch, direction, children, ...props } = this.props;
 
-        var className = classNames('checkbox', 'switch-' + size, 'switch-' + direction, {
-            'checkbox-switch': this.props.displaySwitch
+        const className = classNames('checkbox', 'switch-' + size, 'switch-' + direction, {
+            'checkbox-switch': displaySwitch
         });
 
         return (
             <div className={className}>
-                <label>
-                    <input type="checkbox" name={name} disabled={disabled} checked={checked} />
-                    <span></span> {this.props.children}
+                <label htmlFor={this.props.name} onClick={this.onClick}>
+                    <input
+                        ref="checkbox"
+                        type="checkbox"
+                        onClick={e => e.stopPropagation()}
+                        {...props}
+                    /> {children}
                 </label>
             </div>
         );
