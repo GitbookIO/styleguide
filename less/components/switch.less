@@ -6,11 +6,18 @@
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
 
+    &.switch-left {
+        input + span {
+            margin-right: @gb-padding-base-horizontal;
+        }
+    }
+
     &.switch-right {
         .clearfix();
 
         input + span {
             float: right;
+            margin-left: @gb-padding-base-horizontal;
         }
     }
 

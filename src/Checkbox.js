@@ -48,7 +48,9 @@ var Checkbox = React.createClass({
                         type="checkbox"
                         onClick={e => e.stopPropagation()}
                         {...props}
-                    /> {children}
+                    />
+                    {displaySwitch? <span /> : null}
+                    {children}
                 </label>
             </div>
         );
