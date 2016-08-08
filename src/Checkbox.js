@@ -38,7 +38,7 @@ var Checkbox = React.createClass({
 
         return (
             <div className={className}>
-                <label htmlFor={this.props.name} onClick={this.onClick}>
+                <label htmlFor={this.props.name}>
                     <input
                         ref="checkbox"
                         type="checkbox"
