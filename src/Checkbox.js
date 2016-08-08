@@ -29,10 +29,6 @@ var Checkbox = React.createClass({
         };
     },
 
-    onClick: function() {
-        this.refs.checkbox.click();
-    },
-
     render: function() {
         const {size, displaySwitch, direction, children, ...props } = this.props;
 
@@ -46,7 +42,6 @@ var Checkbox = React.createClass({
                     <input
                         ref="checkbox"
                         type="checkbox"
-                        onClick={e => e.stopPropagation()}
                         {...props}
                     />
                     {displaySwitch? <span /> : null}
