@@ -1,13 +1,13 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var SIZES = require('./SIZES');
-var DIRECTIONS = [
+const SIZES = require('./SIZES');
+const DIRECTIONS = [
     'left',
     'right'
 ];
 
-var Checkbox = React.createClass({
+const Checkbox = React.createClass({
 
     propTypes: {
         children:        React.PropTypes.node,
@@ -29,6 +29,11 @@ var Checkbox = React.createClass({
         };
     },
 
+    onSwitchClick: function(event) {
+        event.stopPropagation();
+        this.refs.checkbox.click();
+    },
+
     render: function() {
         const {size, displaySwitch, direction, children, ...props } = this.props;
 
@@ -44,8 +49,8 @@ var Checkbox = React.createClass({
                         type="checkbox"
                         {...props}
                     />
-                    {displaySwitch? <span /> : null}
-                    {children}
+                    {displaySwitch? <span onClick={this.onSwitchClick} /> : null}
+                    <div className="checkbox-inline-label" onClick={this.onSwitchClick}>{children}</div>
                 </label>
             </div>
         );
