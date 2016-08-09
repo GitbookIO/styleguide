@@ -21,7 +21,7 @@ var Pagination = React.createClass({
 
     getDefaultProps: function() {
         return {
-            getURL:      function() { return '#'; },
+            getURL:      (page => '?page=' + page),
             pagesToList: 5
         };
     },
