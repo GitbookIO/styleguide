@@ -1,9 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
 const POSITIONS = ['bottom', 'top'];
 
-var Popover =  React.createClass({
+const Popover =  React.createClass({
     propTypes: {
         position: React.PropTypes.oneOf(POSITIONS),
         children: React.PropTypes.node
@@ -16,8 +16,8 @@ var Popover =  React.createClass({
     },
 
     render: function() {
-        var position  = this.props.position;
-        var className = classNames('popover', 'popover-' + position);
+        let { position } = this.props;
+        let className = classNames('popover', 'popover-' + position);
 
         return (
             <div className="popover-wrapper">
@@ -30,21 +30,25 @@ var Popover =  React.createClass({
     }
 });
 
-var PopoverContainer =  React.createClass({
+const PopoverContainer =  React.createClass({
     propTypes: {
-        children: React.PropTypes.node
+        children:  React.PropTypes.node,
+        className: React.PropTypes.string
     },
 
     render: function() {
+        let { className } = this.props;
+        className = classNames('popover-container', className);
+
         return (
-            <div className="popover-container">
+            <div className={className}>
                 {this.props.children}
             </div>
         );
     }
 });
 
-var PopoverBody =  React.createClass({
+const PopoverBody =  React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -58,7 +62,7 @@ var PopoverBody =  React.createClass({
     }
 });
 
-var PopoverHeading =  React.createClass({
+const PopoverHeading =  React.createClass({
     propTypes: {
         title: React.PropTypes.string,
         children: React.PropTypes.node
