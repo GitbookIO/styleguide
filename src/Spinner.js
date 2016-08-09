@@ -1,9 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var SIZES = require('./SIZES');
+const SIZES = require('./SIZES');
 
-var Spinner = React.createClass({
+const Spinner = React.createClass({
     propTypes: {
         centered: React.PropTypes.bool,
         size:     React.PropTypes.oneOf(SIZES)
@@ -17,7 +17,7 @@ var Spinner = React.createClass({
     },
 
     render: function() {
-        var className = classNames('gb-spinner', 'spinner-' + this.props.size, {
+        let className = classNames('gb-spinner', 'spinner-' + this.props.size, {
             'spinner-inverse':  this.props.inverse,
             'spinner-centered': this.props.centered
         });
@@ -26,5 +26,16 @@ var Spinner = React.createClass({
     }
 });
 
-module.exports = Spinner;
+/**
+ * Block div representing a loading area
+ */
+const SpinnerSlate = React.createClass({
+    render: function() {
+        return <div className="gb-spinner-slate">
+            <Spinner {...this.props} />
+        </div>;
+    }
+});
 
+module.exports = Spinner;
+module.exports.Slate = SpinnerSlate;
