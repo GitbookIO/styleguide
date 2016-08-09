@@ -69,7 +69,7 @@ const TabsItem = React.createClass({
 
         return (
             <li className={classNames({ active: active })}>
-                <a href={href}>{children}</a>
+                <a href={href} onClick={this.onClick}>{children}</a>
             </li>
         );
     }
