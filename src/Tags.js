@@ -1,7 +1,8 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
+const Icon = require('./Icon');
 
-var Tags = React.createClass({
+const Tags = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -15,23 +16,26 @@ var Tags = React.createClass({
     }
 });
 
-var TagItem = React.createClass({
+const TagItem = React.createClass({
     propTypes: {
         title:   React.PropTypes.string,
         href:    React.PropTypes.string,
         active:  React.PropTypes.bool,
+        onClick: React.PropTypes.func,
+        // count and showX are exclusive
         count:   React.PropTypes.number,
-        onClick: React.PropTypes.func
+        showX:   React.PropTypes.bool
     },
 
     getDefaultProps: function() {
         return {
-            href: '#'
+            href: '#',
+            showX: false
         };
     },
 
     onClick: function(e) {
-        var onClick  = this.props.onClick;
+        const { onClick }  = this.props;
 
         if (!onClick) {
             return;
@@ -42,18 +46,17 @@ var TagItem = React.createClass({
     },
 
     render: function() {
-        var active = this.props.active;
-        var count    = this.props.count;
-        var title    = this.props.title;
-        var href     = this.props.href;
-        var inner    = '';
+        const { active, count, showX, title, href } = this.props;
 
-        var className = classNames('tag', {
+        const className = classNames('tag', {
             'active': active
         });
 
-        if (typeof count !== 'undefined') {
-            inner = <span className="count"> | {count}</span>;
+        let inner = '';
+        if (showX) {
+            inner = <span className="extra"> <Icon id="x"/></span>;
+        } else if (typeof count !== 'undefined') {
+            inner = <span className="extra"> | {count}</span>;
         }
 
         return (
