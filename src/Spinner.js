@@ -6,6 +6,7 @@ const SIZES = require('./SIZES');
 const Spinner = React.createClass({
     propTypes: {
         centered: React.PropTypes.bool,
+        inverse:  React.PropTypes.bool,
         size:     React.PropTypes.oneOf(SIZES)
     },
 
