@@ -2429,20 +2429,35 @@ a:visited {
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  /**
+     * Use all width and align button,
+     * it gives less importance to dropdown-toggle
+     */
 }
 .btn-group > .btn {
   position: relative;
   float: left;
 }
-.btn-group > .btn:hover,
-.btn-group > .btn:focus,
-.btn-group > .btn:active,
-.btn-group > .btn.active {
-  z-index: 2;
-}
 .btn-group.btn-group-block {
   width: 100%;
-  display: block;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+}
+.btn-group.btn-group-block > .btn {
+  -webkit-flex: auto;
+  -moz-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  text-align: center;
+}
+.btn-group.btn-group-block > .btn.dropdown-toggle {
+  -webkit-flex: 0;
+  -moz-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
 }
 .btn-group .btn + .btn,
 .btn-group .btn-group + .btn {
@@ -3140,6 +3155,10 @@ ul.filter-list li .filter-item {
   text-overflow: ellipsis;
   white-space: nowrap;
   border-radius: 4px;
+}
+.filter-list li .filter-item .avatar,
+ul.filter-list li .filter-item .avatar {
+  margin-right: 4px;
 }
 .filter-list li .filter-item .count,
 ul.filter-list li .filter-item .count {
@@ -4332,30 +4351,39 @@ a.label:hover {
   padding: 30px 0px;
   padding-bottom: 15px;
 }
-.overview-title {
+.overview .overview-title {
   margin: 0 0 10px;
   font-weight: 500;
 }
-.overview-description {
+.overview .overview-title .avatar {
+  width: 36px;
+  height: 36px;
+  top: 4px;
+}
+.overview .overview-description {
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.4;
 }
 @media (min-width: 750px) {
-  .overview-description {
+  .overview .overview-description {
     font-size: 21px;
   }
 }
-.overview-description a {
+.overview .overview-description a {
   color: inherit;
 }
-.overview-meta {
+.overview .overview-note {
+  color: #999;
+  margin: 0px;
+}
+.overview .overview-meta {
   display: inline-block;
   margin-right: 10px;
   font-size: 18px;
 }
-.overview-meta a {
+.overview .overview-meta a {
   color: inherit;
 }
 .pagehead {
@@ -4555,6 +4583,7 @@ a.label:hover {
   border-bottom: 1px solid #e5e5e5;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
+  background: #fff;
 }
 .panel .panel-heading .panel-title {
   margin: 0px;
@@ -4631,12 +4660,20 @@ a.label:hover {
   color: #333;
   border-color: #d4d4d4;
 }
+.panel.panel-default > .table {
+  border-top: 1px solid #d4d4d4;
+  margin-top: -1px;
+}
 .panel.panel-danger {
   border-color: #ff8686;
 }
 .panel.panel-danger .panel-heading {
   color: #d30000;
   border-color: #ff8686;
+}
+.panel.panel-danger > .table {
+  border-top: 1px solid #ff8686;
+  margin-top: -1px;
 }
 .panel.panel-warning {
   border-color: #ffdc84;
@@ -4645,6 +4682,10 @@ a.label:hover {
   color: #513a00;
   border-color: #ffdc84;
 }
+.panel.panel-warning > .table {
+  border-top: 1px solid #ffdc84;
+  margin-top: -1px;
+}
 .panel.panel-info {
   border-color: #d3dfe7;
 }
@@ -4652,12 +4693,20 @@ a.label:hover {
   color: #547e9a;
   border-color: #d3dfe7;
 }
+.panel.panel-info > .table {
+  border-top: 1px solid #d3dfe7;
+  margin-top: -1px;
+}
 .panel.panel-success {
   border-color: #7fd151;
 }
 .panel.panel-success .panel-heading {
   color: #4f9527;
   border-color: #7fd151;
+}
+.panel.panel-success > .table {
+  border-top: 1px solid #7fd151;
+  margin-top: -1px;
 }
 .panel > .table,
 .panel > .table-responsive > .table,
@@ -4806,6 +4855,7 @@ a.label:hover {
   border: 1px solid #d4d4d4;
   width: 270px;
   background: #fff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 .popover:after {
   position: absolute;
@@ -4873,6 +4923,12 @@ a.label:hover {
   border-top-width: 0;
   border-bottom-color: #f5f5f5;
 }
+.popover-wrapper {
+  -webkit-animation: scale-in 0.15s 1 ease;
+  -moz-animation: scale-in 0.15s 1 ease;
+  -ms-animation: scale-in 0.15s 1 ease;
+  animation-timing-function: cubic-bezier(0.2, 0, 0.13, 1.5);
+}
 .popover-container {
   position: relative;
   display: inline-block;
@@ -4890,6 +4946,30 @@ a.label:hover {
 .popover-container .popover.popover-bottom {
   top: 100%;
   margin-top: 14px;
+}
+@-webkit-keyframes scale-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 /* Search Bar */
 .search-bar {
@@ -5404,6 +5484,14 @@ a.label:hover {
   border-right-color: transparent;
   border-top-color: transparent;
 }
+.gb-spinner-slate {
+  min-height: 40px;
+  display: block;
+  position: relative;
+}
+.checkbox-inline-label {
+  display: inline-block;
+}
 .checkbox-switch,
 .checkbox.checkbox-switch,
 .form-group .checkbox.checkbox-switch {
@@ -5419,6 +5507,11 @@ a.label:hover {
   tap-highlight-color: transparent;
   /* accessibility styles */
   /* reset accessibility style on hover */
+}
+.checkbox-switch.switch-left input + span,
+.checkbox.checkbox-switch.switch-left input + span,
+.form-group .checkbox.checkbox-switch.switch-left input + span {
+  margin-right: 12px;
 }
 .checkbox-switch.switch-right,
 .checkbox.checkbox-switch.switch-right,
@@ -5443,6 +5536,7 @@ a.label:hover {
 .checkbox.checkbox-switch.switch-right input + span,
 .form-group .checkbox.checkbox-switch.switch-right input + span {
   float: right;
+  margin-left: 12px;
 }
 .checkbox-switch.switch-xs input + span,
 .checkbox.checkbox-switch.switch-xs input + span,
@@ -6007,6 +6101,43 @@ table th[class*="col-"] {
   -ms-transform: translateX(0%);
   -o-transform: translateX(0%);
   transform: translateX(0%);
+}
+.Tree .TreeNode .TreeLeaf {
+  padding: 5px 4px;
+  cursor: default;
+  display: block;
+  user-select: none;
+  position: relative;
+  border-left: 3px solid transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Tree .TreeNode .TreeLeaf.status-danger {
+  border-left-color: #dd4b39;
+}
+.Tree .TreeNode .TreeLeaf.status-success {
+  border-left-color: #5cb85c;
+}
+.Tree .TreeNode .TreeLeaf.status-warning {
+  border-left-color: #f0ad4e;
+}
+.Tree .TreeNode .TreeLeaf.status-selected {
+  border-left-color: #428bca;
+  background: #dcdfe1;
+}
+.Tree .TreeNode .TreeLeaf .TreeToggle {
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  display: block;
+  float: left;
+  line-height: 18px;
+  margin-right: 4px;
+  margin-left: -4px;
+}
+.Tree .TreeNode .TreeLeaf .TreeToggle:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 .gb-page-body .gb-page-inner {
   margin: 30px 0;
