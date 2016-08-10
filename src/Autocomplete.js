@@ -32,9 +32,9 @@ const Autocomplete = React.createClass({
      * Typed value changed, we fetch the new autocomplete result
      */
     onInputChanged: function(e) {
-        var that = this;
-        var onFetch = this.props.onFetch;
-        var value  = e.target.value;
+        const that = this;
+        const onFetch = this.props.onFetch;
+        const value  = e.target.value;
 
         this.setState({
             value: value,
@@ -59,13 +59,18 @@ const Autocomplete = React.createClass({
     },
 
     /**
-     * Submit current value
+     * Submit value at cursor
      */
     onEnter: function() {
-        var { value, cursor, results } = this.state;
-        var onChange = this.props.onChange;
+        this.onSelect(this.state.cursor);
+    },
 
-        var selected = results[cursor];
+    /**
+     * Submit a value
+     */
+    onSelect: function (index) {
+        const { value, results } = this.state;
+        const selected = results[index];
 
         this.setState({
             cursor: null,
@@ -73,14 +78,14 @@ const Autocomplete = React.createClass({
             value: ''
         });
 
-        onChange(value, selected);
+        this.props.onChange(value, selected);
     },
 
     /**
      * User pressed a key in text input
      */
     onKeyDown: function(e) {
-        var { cursor, results } = this.state;
+        let { cursor, results } = this.state;
 
         if (e.keyCode === KEYCODE_ENTER && cursor >= 0) {
             e.preventDefault();
@@ -111,15 +116,16 @@ const Autocomplete = React.createClass({
      * Render the suggestions
      */
     renderResults: function() {
-        var { results, value, cursor } = this.state;
-        var ResultComponent = this.props.result;
+        const { results, value, cursor } = this.state;
+        const ResultComponent = this.props.result;
 
         return (
             <div className="AutocompleteResults">
                 {results.map(function(result, i) {
-                    var isActive = (i === cursor);
+                    const isActive = (i === cursor);
 
-                    return <AutocompleteResult key={value+'-'+i} active={isActive}>
+                    return <AutocompleteResult key={value+'-'+i} active={isActive}
+                                               onClick={e => this.onSelect(i)}>
                         <ResultComponent result={result} index={i} active={isActive} />
                     </AutocompleteResult>;
                 })}
@@ -128,7 +134,7 @@ const Autocomplete = React.createClass({
     },
 
     render: function() {
-        var { value, focused, loading, results } = this.state;
+        const { value, focused, loading, results } = this.state;
 
         return (
             <div className="Autocomplete">
@@ -151,12 +157,14 @@ const Autocomplete = React.createClass({
 const AutocompleteResult = React.createClass({
     propTypes: {
         active: React.PropTypes.bool,
+        onClick: React.PropTypes.func,
         children: React.PropTypes.node
     },
 
     render: function() {
         return (
-            <div className={classNames('AutocompleteResult', { active: this.props.active })}>
+            <div className={classNames('AutocompleteResult', { active: this.props.active })}
+                 onClick={this.props.onClick}>
                 {this.props.children}
             </div>
         );
