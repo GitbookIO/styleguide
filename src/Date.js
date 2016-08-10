@@ -134,7 +134,9 @@ const DateDuration = React.createClass({
 
     componentDidMount: function() {
         let { refresh } = this.props;
-        this.interval = setInterval(this.tick, refresh);
+        if (refresh > 0) {
+            this.interval = setInterval(this.tick, refresh);
+        }
     },
 
     componentWillUnmount: function() {
