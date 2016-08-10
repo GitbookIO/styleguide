@@ -23,7 +23,7 @@ const Spinner = React.createClass({
             'spinner-centered': this.props.centered
         });
 
-        return <div className={className}></div>;
+        return <span className={className}></span>;
     }
 });
 
