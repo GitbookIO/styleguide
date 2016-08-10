@@ -116,6 +116,7 @@ const Autocomplete = React.createClass({
      * Render the suggestions
      */
     renderResults: function() {
+        const that = this;
         const { results, value, cursor } = this.state;
         const ResultComponent = this.props.result;
 
@@ -125,7 +126,7 @@ const Autocomplete = React.createClass({
                     const isActive = (i === cursor);
 
                     return <AutocompleteResult key={value+'-'+i} active={isActive}
-                                               onClick={e => this.onSelect(i)}>
+                                               onClick={e => that.onSelect(i)}>
                         <ResultComponent result={result} index={i} active={isActive} />
                     </AutocompleteResult>;
                 })}
@@ -164,7 +165,7 @@ const AutocompleteResult = React.createClass({
     render: function() {
         return (
             <div className={classNames('AutocompleteResult', { active: this.props.active })}
-                 onClick={this.props.onClick}>
+                 onMouseDown={this.props.onClick}>
                 {this.props.children}
             </div>
         );
