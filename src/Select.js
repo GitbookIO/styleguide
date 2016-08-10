@@ -222,35 +222,44 @@ var Select = React.createClass({
     /**
      * Toggle an option
      */
-    onToggleOption: function(value, e) {
+    onToggleOption: function(addValue, e) {
         if (e) {
             e.preventDefault();
         }
 
-        var acceptMultiple = this.props.multiple;
-        var currentValue   = this.state.value;
+        let { value, multiple } = this.state;
+        let { onChange } = this.props;
+        let newState, newValue;
 
-        if (acceptMultiple) {
-            var newValue = currentValue;
+        if (multiple) {
+            newValue = value;
 
             // Add to selection if not yet selected
-            if (!this.hasValue(value)) {
-                newValue = currentValue.concat([value]);
-            } else if (currentValue.length > 1) {
+            if (!this.hasValue(addValue)) {
+                newValue = value.concat([addValue]);
+            } else if (value.length > 1) {
                 // Unselect if many options are selected
-                var removeIndex = newValue.indexOf(value);
+                var removeIndex = newValue.indexOf(addValue);
                 newValue.splice(removeIndex, 1);
             }
 
-            this.setState({
+            newState = {
                 value: newValue
-            });
+            };
         } else {
-            this.setState({
-                value:  value,
+            newValue = addValue;
+
+            newState = {
+                value:  addValue,
                 opened: false
-            });
+            };
         }
+
+        this.setState(newState, function() {
+            if (onChange) {
+                onChange(newValue);
+            }
+        });
     },
 
     /**
