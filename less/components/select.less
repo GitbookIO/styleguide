@@ -1,18 +1,27 @@
 .SelectFormControl {
-    .form-control();
     position: relative;
     padding: 0;
     border: none;
+    display: inline-block;
 
-    button.btn {
+    &.block {
+        display: block;
         width: 100%;
-        text-align: left;
 
-        .caret {
-            position: absolute;
-            top: 50%;
-            margin-top: -2px;
-            right: 12px;
+        .SelectContainer {
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        button {
+            text-align: left;
+
+            .caret {
+                position: absolute;
+                top: 50%;
+                margin-top: -2px;
+                right: 12px;
+            }
         }
     }
 
@@ -28,10 +37,9 @@
         .dropdown-menu();
         position: absolute;
         top: 100%;
-        right: 0;
+        left: 0;
         margin-top: -1px;
-        min-width: 100%;
-        max-width: 100%;
+        text-align: left;
 
         .SelectSearch {
             padding: 4px 8px;

@@ -1,9 +1,9 @@
-var React      = require('react');
-var classNames = require('classnames');
+const React      = require('react');
+const classNames = require('classnames');
 
-var SIZES        = require('./SIZES');
-var Button       = require('./Button');
-var Input        = require('./Input');
+const SIZES        = require('./SIZES');
+const Button       = require('./Button');
+const Input        = require('./Input');
 
 const DEFAULT_SEARCH_PLACEHOLDER = 'Search';
 
@@ -30,6 +30,9 @@ function defaultFilter(query, item, i) {
 function defaultComponent({option}) {
     return <span>{option}</span>;
 }
+defaultComponent.propTypes = {
+    option: itemShape
+};
 
 /**
  * Default render to string for input
@@ -99,7 +102,10 @@ var Select = React.createClass({
         multiple:       React.PropTypes.bool,
 
         // Size of the select to display
-        size:           React.PropTypes.oneOf(SIZES)
+        size:           React.PropTypes.oneOf(SIZES),
+
+        // Take the whole width
+        block:          React.PropTypes.bool
     },
 
     getDefaultProps: function() {
@@ -109,6 +115,7 @@ var Select = React.createClass({
             delimiter:         ',',
             size:              SIZES[0],
             multiple:          false,
+            block:             false,
             filter:            defaultFilter,
             component:         defaultComponent,
             renderToString:    defaultRenderToString,
@@ -298,17 +305,14 @@ var Select = React.createClass({
      * Render button to open select
      */
     renderButton: function() {
-        var ComponentSelection = this.props.componentSelection || this.props.component;
-        var disabled           = this.props.disabled;
-        var acceptMultiple     = this.props.multiple;
-        var placeholder        = this.props.placeholder;
-        var opened             = this.state.opened;
-        var value              = this.state.value;
+        let { disabled, block, multiple, placeholder } = this.props;
+        let { value, opened } = this.state;
+        let ComponentSelection = this.props.componentSelection || this.props.component;
 
         var inner;
 
         if (value) {
-            var values = acceptMultiple? value : [value];
+            var values = multiple? value : [value];
             inner      = (
                 <span className="SelectSelections">
                 {values.map(function(val, i) {
@@ -327,9 +331,8 @@ var Select = React.createClass({
         }
 
         return (
-            <Button size={this.props.size} disabled={disabled} active={opened} onClick={this.onToggle}>
-                {inner}
-                <span className="caret"></span>
+            <Button size={this.props.size} block={block} disabled={disabled} active={opened} onClick={this.onToggle}>
+                {inner} <Button.Caret />
             </Button>
         );
     },
@@ -338,11 +341,15 @@ var Select = React.createClass({
      * Render button to open select
      */
     renderSearch: function() {
-        var query = this.state.query;
+        let { query } = this.state;
 
         return (
             <div className="SelectSearch">
-                <Input ref="searchInput" value={query} onChange={this.onSearchChanged} placeholder={this.props.placeholder} />
+                <Input ref="searchInput"
+                    value={query}
+                    onChange={this.onSearchChanged}
+                    placeholder={this.props.placeholder}
+                />
             </div>
         );
     },
@@ -351,9 +358,9 @@ var Select = React.createClass({
      * Render the options selector
      */
     renderGroup: function(group, index) {
-        var query     = this.state.query;
-        var Component = this.props.component;
-        var filter    = this.props.filter;
+        let { query } = this.state;
+        let { filter } = this.props;
+        let Component = this.props.component;
         var count     = 0;
 
         var options = group.options.map(function(item, i) {
@@ -412,10 +419,14 @@ var Select = React.createClass({
     },
 
     render: function() {
-        var name   = this.props.name;
-        var opened = this.state.opened;
+        let { name, block } = this.props;
+        let { opened } = this.state;
 
-        return <div className="SelectFormControl" onClick={e => e.stopPropagation()}>
+        let className = classNames('SelectFormControl', {
+            'block': block
+        });
+
+        return <div className={className} onClick={e => e.stopPropagation()}>
             <input type="hidden" name={name} value={this.getStringValue()} />
             {this.renderButton()}
             {opened? this.renderGroups() : ''}
