@@ -1,6 +1,8 @@
 const React = require('react');
 const classNames = require('classnames');
 
+const Link = require('./Link');
+
 const POSITIONS = ['bottom', 'top'];
 
 /**
@@ -12,6 +14,10 @@ const POSITIONS = ['bottom', 'top'];
  *      <Popover>
  *         <Popover.Heading title="Hello" />
  *         <Popover.Body>...</Popover.Body>
+ *         <Popover.Controls>
+ *           <Popover.Control onClick={...}>Say Hello</Popover.Control>
+ *           <Popover.Control onClick={...}>Say World</Popover.Control>
+ *         </Popover.Controls>
  *      </Popover>
  *   : null}
  * </Popover.Container>
@@ -99,7 +105,40 @@ const PopoverHeading =  React.createClass({
     }
 });
 
+const PopoverControl =  React.createClass({
+    propTypes: {
+        children: React.PropTypes.node,
+        onClick:  React.PropTypes.func
+    },
+
+    render: function() {
+        let { onClick } = this.props;
+
+        return (
+            <Link className="control" onClick={onClick}>
+                {this.props.children}
+            </Link>
+        );
+    }
+});
+
+const PopoverControls =  React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
+    render: function() {
+        return (
+            <div className="popover-controls">
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
 module.exports           = Popover;
 module.exports.Body      = PopoverBody;
 module.exports.Heading   = PopoverHeading;
 module.exports.Container = PopoverContainer;
+module.exports.Control   = PopoverControl;
+module.exports.Controls  = PopoverControls;

@@ -11,6 +11,12 @@ const Link = React.createClass({
         onClick:    React.PropTypes.func
     },
 
+    getDefaultProps: function() {
+        return {
+            href: '#'
+        };
+    },
+
     onClick: function(e) {
         let { onClick } = this.props;
 

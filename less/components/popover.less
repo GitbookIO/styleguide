@@ -50,6 +50,24 @@
         padding: @gb-popover-padding;
     }
 
+    .popover-controls {
+        text-align: center;
+
+        .control {
+            color: @gb-body-color;
+            display: inline-block;
+            text-transform: uppercase;
+            margin: @gb-padding-base-vertical (@gb-padding-base-horizontal/2);
+            opacity: 0.6;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+                opacity: 1;
+            }
+        }
+    }
+
     &.popover-top .popover-arrow {
         bottom: -@gb-popover-arrow-width;
         left: 50%;
