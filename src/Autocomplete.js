@@ -10,12 +10,15 @@ const KEYCODE_DOWN  = 40;
 
 const Autocomplete = React.createClass({
     propTypes: {
-        onFetch:     React.PropTypes.func,
-        result:      React.PropTypes.func,
-        value:       React.PropTypes.string,
-        placeholder: React.PropTypes.string,
-        size:        React.PropTypes.string,
-        onChange:    React.PropTypes.func
+        onFetch:      React.PropTypes.func,
+        renderResult: React.PropTypes.func,
+        // Called when onEnter on the input (no result selected)
+        // query -> ()
+        onEnter:      React.PropTypes.func,
+        value:        React.PropTypes.string,
+        placeholder:  React.PropTypes.string,
+        size:         React.PropTypes.string,
+        onChange:     React.PropTypes.func
     },
 
     getInitialState: function() {
@@ -62,6 +65,19 @@ const Autocomplete = React.createClass({
      * Submit value at cursor
      */
     onEnter: function() {
+        const { cursor, value } = this.state;
+        const { onEnter } = this.props;
+        if (cursor >= 0) {
+            this.onSelect(cursor);
+        } else if (onEnter) {
+            onEnter(value);
+            this.setState({
+                focused: false,
+                cursor: null,
+                results: [],
+                value: ''
+            });
+        }
         this.onSelect(this.state.cursor);
     },
 
@@ -87,7 +103,7 @@ const Autocomplete = React.createClass({
     onKeyDown: function(e) {
         let { cursor, results } = this.state;
 
-        if (e.keyCode === KEYCODE_ENTER && cursor >= 0) {
+        if (e.keyCode === KEYCODE_ENTER) {
             e.preventDefault();
             this.onEnter();
         }
@@ -118,7 +134,7 @@ const Autocomplete = React.createClass({
     renderResults: function() {
         const that = this;
         const { results, value, cursor } = this.state;
-        const ResultComponent = this.props.result;
+        const ResultComponent = this.props.renderResult;
 
         return (
             <div className="AutocompleteResults">
@@ -126,7 +142,7 @@ const Autocomplete = React.createClass({
                     const isActive = (i === cursor);
 
                     return <AutocompleteResult key={value+'-'+i} active={isActive}
-                                               onClick={e => that.onSelect(i)}>
+                                                onClick={e => that.onSelect(i)}>
                         <ResultComponent result={result} index={i} active={isActive} />
                     </AutocompleteResult>;
                 })}
@@ -163,10 +179,11 @@ const AutocompleteResult = React.createClass({
     },
 
     render: function() {
+        const { active, children, onClick } = this.props;
         return (
-            <div className={classNames('AutocompleteResult', { active: this.props.active })}
-                 onMouseDown={this.props.onClick}>
-                {this.props.children}
+            <div className={classNames('AutocompleteResult', { active: active })}
+                 onMouseDown={onClick}>
+                {children}
             </div>
         );
     }
