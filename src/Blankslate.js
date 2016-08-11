@@ -1,9 +1,19 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var Icon = require('./Icon');
+const Icon = require('./Icon');
 
-var Blankslate = React.createClass({
+/**
+ * Blankslate represent an emptycontent
+ *
+ * <Blankslate icon="book">
+ *      <h3>No books</h3>
+ *      <p>Create a book et get strated</p>
+ * </Blankslate>
+ */
+
+
+const Blankslate = React.createClass({
     propTypes: {
         icon:       React.PropTypes.string,
         background: React.PropTypes.bool,
@@ -28,9 +38,9 @@ var Blankslate = React.createClass({
 
         if (icon) {
             inner = (
-                <div className="icon">
+                <BlankSlateIcon>
                     <Icon id={icon} />
-                </div>
+                </BlankSlateIcon>
             );
         }
 
@@ -43,4 +53,19 @@ var Blankslate = React.createClass({
     }
 });
 
-module.exports = Blankslate;
+const BlankSlateIcon = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
+    render: function() {
+        return (
+            <div className="icon">
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
+module.exports      = Blankslate;
+module.exports.Icon = BlankSlateIcon;
