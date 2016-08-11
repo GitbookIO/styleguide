@@ -1,9 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var SIZES = require('./SIZES');
+const SIZES = require('./SIZES');
 
-var Textarea = React.createClass({
+const Textarea = React.createClass({
     propTypes: {
         onChange:     React.PropTypes.func,
         name:         React.PropTypes.string,
@@ -13,6 +13,7 @@ var Textarea = React.createClass({
         autoFocus:    React.PropTypes.bool,
         size:         React.PropTypes.oneOf(SIZES),
         rows:         React.PropTypes.number,
+        maxLength:    React.PropTypes.number,
         defaultValue: React.PropTypes.string,
         value:        React.PropTypes.oneOfType([
             React.PropTypes.string,
@@ -41,19 +42,16 @@ var Textarea = React.createClass({
     },
 
     render: function() {
-        var disabled     = this.props.disabled;
-        var name         = this.props.name;
-        var placeholder  = this.props.placeholder;
-        var size         = this.props.size;
-        var autoFocus    = this.props.autoFocus;
-        var value        = this.props.value;
-        var defaultValue = this.props.defaultValue;
-        var rows         = this.props.rows;
+        const {
+            disabled, name, placeholder, size, rows,
+            autoFocus, value, defaultValue, maxLength
+        } = this.props;
 
-        var className = classNames('form-control', 'input-' + size, this.props.className);
+
+        const className = classNames('form-control', 'input-' + size, this.props.className);
 
         return <textarea ref="textarea"
-            className={className} rows={rows}
+            className={className} rows={rows} maxLength={maxLength}
             autoFocus={autoFocus} disabled={disabled}
             name={name} value={value} defaultValue={defaultValue}
             placeholder={placeholder} onChange={this.onChange}></textarea>;
