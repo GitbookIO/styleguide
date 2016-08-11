@@ -3,6 +3,20 @@ const classNames = require('classnames');
 
 const POSITIONS = ['bottom', 'top'];
 
+/**
+ * Pop content with controls over content:
+ *
+ * <Popover.Container>
+ *   <Button>Open</Button>
+ *   {open?
+ *      <Popover>
+ *         <Popover.Heading title="Hello" />
+ *         <Popover.Body>...</Popover.Body>
+ *      </Popover>
+ *   : null}
+ * </Popover.Container>
+ */
+
 const Popover =  React.createClass({
     propTypes: {
         position: React.PropTypes.oneOf(POSITIONS),
