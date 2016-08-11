@@ -78,7 +78,6 @@ const Autocomplete = React.createClass({
                 value: ''
             });
         }
-        this.onSelect(this.state.cursor);
     },
 
     /**
