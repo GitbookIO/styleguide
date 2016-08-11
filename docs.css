@@ -1921,6 +1921,10 @@ a:visited {
   background: #428bca;
   color: #fff;
 }
+.Autocomplete .AutocompleteResults .AutocompleteResult:hover {
+  background: #428bca;
+  color: #fff;
+}
 .Autocomplete > .gb-spinner {
   position: absolute;
   top: 12px;
@@ -4998,83 +5002,23 @@ a.label:hover {
   background: transparent;
 }
 .SelectFormControl {
-  width: 100%;
-  border-radius: 2px;
-  font-size: 1.1rem;
-  border: 1px solid #d4d4d4;
-  background: #fff;
-  outline: none;
-  color: #333;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  border-radius: 3px;
   position: relative;
   padding: 0;
   border: none;
+  display: inline-block;
 }
-.SelectFormControl:focus,
-.SelectFormControl.focus {
-  outline: none;
-  border-color: #428bca;
-  background: #fff;
-}
-.SelectFormControl:disabled,
-.SelectFormControl.disabled {
-  border-color: #d4d4d4;
-  background: #f5f5f5;
-}
-.SelectFormControl > .avatar.avatar-button {
-  width: 20px;
-  height: 20px;
+.SelectFormControl.block {
   display: block;
-  float: left;
-  margin-right: 6px;
-}
-.SelectFormControl.input-lg {
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.3333333;
-  border-radius: 4px;
-}
-.SelectFormControl.input-lg > .avatar.avatar-button {
-  width: 28px;
-  height: 28px;
-  display: block;
-  float: left;
-  margin-right: 8px;
-}
-.SelectFormControl.input-sm {
-  padding: 5px 10px;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 2px;
-}
-.SelectFormControl.input-sm > .avatar.avatar-button {
-  width: 17px;
-  height: 17px;
-  display: block;
-  float: left;
-  margin-right: 5px;
-}
-.SelectFormControl.input-xs {
-  padding: 2px 7px;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 2px;
-}
-.SelectFormControl.input-xs > .avatar.avatar-button {
-  width: 14px;
-  height: 14px;
-  display: block;
-  float: left;
-  margin-right: 3.5px;
-}
-.SelectFormControl button.btn {
   width: 100%;
+}
+.SelectFormControl.block .SelectContainer {
+  min-width: 100%;
+  max-width: 100%;
+}
+.SelectFormControl.block button {
   text-align: left;
 }
-.SelectFormControl button.btn .caret {
+.SelectFormControl.block button .caret {
   position: absolute;
   top: 50%;
   margin-top: -2px;
@@ -5104,10 +5048,9 @@ a.label:hover {
   padding-bottom: 5px;
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
   margin-top: -1px;
-  min-width: 100%;
-  max-width: 100%;
+  text-align: left;
 }
 .SelectFormControl .SelectContainer.open,
 .SelectFormControl .SelectContainer.inner {
@@ -5906,7 +5849,7 @@ table th[class*="col-"] {
 .tags .tag a .name {
   font-weight: 500;
 }
-.tags .tag a .count {
+.tags .tag a .extra {
   opacity: 0.5;
 }
 .tags .tag.active a {
