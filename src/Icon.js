@@ -1,26 +1,35 @@
-var React = require('react');
+const React = require('react');
+const classNames = require('classnames');
 
-var Icon = React.createClass({
+const Icon = React.createClass({
     propTypes: {
-        id:   React.PropTypes.string,
-        type: React.PropTypes.string,
-        className: React.PropTypes.string
+        // Icon of the icon in the collection
+        id:        React.PropTypes.string,
+        // Type of collection
+        type:      React.PropTypes.string,
+        // Extra className
+        className: React.PropTypes.string,
+        // Is the icon spinning?
+        spin:      React.PropTypes.bool
     },
 
     getDefaultProps: function() {
         return {
-            type: 'octicon'
+            type: 'octicon',
+            spin: false
         };
     },
 
     render: function() {
-        var type      = this.props.type;
-        var id        = this.props.id;
-        var className = this.props.className;
+        let { type, id, className, spin } = this.props;
 
-        if (!className) {
-            className = type + ' ' + type + '-' + id;
-        }
+        className = classNames(
+            type + ' ' + type + '-' + id,
+            className,
+            {
+                'icon-spin': spin
+            }
+        );
 
         return <i className={className}></i>;
     }
