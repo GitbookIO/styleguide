@@ -4899,6 +4899,21 @@ a.label:hover {
 .popover .popover-body {
   padding: 8px 14px;
 }
+.popover .popover-controls {
+  text-align: center;
+}
+.popover .popover-controls .control {
+  color: #333;
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 6px 6px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.popover .popover-controls .control:hover {
+  text-decoration: none;
+  opacity: 1;
+}
 .popover.popover-top .popover-arrow {
   bottom: -11px;
   left: 50%;
