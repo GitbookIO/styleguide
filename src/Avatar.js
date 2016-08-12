@@ -1,31 +1,45 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var SIZES = require('./SIZES');
-var AVATAR_SIZES = SIZES.concat(['button']);
+const SIZES = require('./SIZES');
+const AVATAR_SIZES = SIZES.concat(['button']);
 
-var Avatar = React.createClass({
+const Avatar = React.createClass({
     propTypes: {
-        src:  React.PropTypes.string,
+        src:       React.PropTypes.string,
         // No src fallbacks on text
-        text: React.PropTypes.string,
-        size: React.PropTypes.oneOf(AVATAR_SIZES),
+        text:      React.PropTypes.string,
+        size:      React.PropTypes.oneOf(AVATAR_SIZES),
         className: React.PropTypes.string,
-        children: React.PropTypes.node
+        children:  React.PropTypes.node
     },
 
     render: function() {
-        var src = this.props.src;
-        var size = this.props.size;
-        var className = classNames('avatar', size? 'avatar-' + size : '', this.props.className);
+        let { src, size, className, text, children } = this.props;
+        className = classNames('avatar', size? 'avatar-' + size : '', className);
 
         return (
-            <figure className={className} data-initial={this.props.text}>
+            <figure className={className} data-initial={text}>
                 { src ? <img src={src} /> : null }
-                {this.props.children}
+                {children}
             </figure>
         );
     }
 });
 
+const AvatarIcon = React.createClass({
+    propTypes: {
+        src: React.PropTypes.string,
+        className: React.PropTypes.string
+    },
+
+    render: function() {
+        let { src, className } = this.props;
+        className = classNames('avatar-icon', className);
+
+        return <img src={src} className={className} />;
+    }
+});
+
 module.exports = Avatar;
+module.exports.Icon = AvatarIcon;
