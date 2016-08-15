@@ -1,5 +1,5 @@
 var React = require('react');
-
+var classNames = require('classnames');
 var SIZES = require('./SIZES');
 
 var Row = React.createClass({
@@ -18,25 +18,29 @@ var Container = require('./Container');
 
 var Column = React.createClass({
     propTypes: {
-        children: React.PropTypes.node
+        children: React.PropTypes.node,
+        // oneOf(SIZES): React.PropTypes.number,
+        offset:   React.PropTypes.number
     },
 
     render: function() {
-        var props = this.props;
-        var className = SIZES.reduce(function(prev, size) {
-            var prop = props[size];
-            if (!prop) {
-                return prev;
+        var { offset, children } = this.props;
+
+        var className = classNames(SIZES.reduce((list, size) => {
+            var col = this.props[size];
+
+            if (col) {
+                list.push(['col', size, col].join('-'));
+            }
+            if (col && offset) {
+                list.push(['col', size, 'offset', offset].join('-'));
             }
 
-            return (
-                prev +
-                ' col-' + size + '-' + prop
-            );
-        }, '');
+            return list;
+        }, []));
 
         return <div className={className}>
-            {this.props.children}
+            { children }
         </div>;
     }
 });
