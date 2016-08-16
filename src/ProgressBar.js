@@ -114,7 +114,7 @@ function calculatePercent(percent) {
     percent = percent || 0;
 
     // How much of remaining bar we advance
-    let progress = 0.1 + Math.random() * 0.2;
+    let progress = 0.1 + Math.random() * 0.3;
 
     return percent +  progress * (1 - percent);
 }
