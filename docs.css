@@ -1648,6 +1648,11 @@ p.after {
   margin-bottom: 10px;
   color: #737373;
 }
+.help-block a,
+.help-block a:visited {
+  color: inherit;
+  text-decoration: underline;
+}
 small,
 .small {
   font-size: 85%;
@@ -4989,6 +4994,33 @@ a.label:hover {
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+}
+.progress-bar {
+  pointer-events: none;
+  transition: 400ms linear all;
+}
+.progress-bar .bar {
+  background: #428bca;
+  height: 2px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: none;
+  width: 100%;
+  border-radius: 0 1px 1px 0;
+  transition: width 350ms;
+}
+.progress-bar .progress-bar-shadow {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 2px;
+  border-radius: 50%;
+  opacity: .45;
+  box-shadow: #428bca 1px 0 6px 1px;
 }
 /* Search Bar */
 .search-bar {
