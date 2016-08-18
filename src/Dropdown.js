@@ -4,6 +4,26 @@ const classNames = require('classnames');
 const Button = require('./Button');
 const Icon = require('./Icon');
 
+/**
+ * Dropdown (or up). Automatically bound to child Button.
+ * See ButtonDropdown implementation to wrap something else than a button.
+ *
+ *  <Dropdown>
+ *
+ *      <Button ... />
+ *
+ *      <Dropdown.Item header>Category 1</Dropdown.Item>
+ *      <Dropdown.Item href={...}> ... </Dropdown.Item>
+ *      <Dropdown.Item href={...}> ... </Dropdown.Item>
+ *
+ *      <Dropdown.Item divider />
+ *      <Dropdown.Item header>Category 2</Dropdown.Item>
+ *      <Dropdown.Item href={...}> ... </Dropdown.Item>
+ *      <Dropdown.Item href={...}> ... </Dropdown.Item>
+ *
+ *  </Dropdown>
+ */
+
 const ButtonDropdown = React.createClass({
     propTypes: {
         className:  React.PropTypes.string,
