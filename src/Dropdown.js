@@ -104,19 +104,22 @@ const ButtonDropdown = React.createClass({
             return null;
         });
 
-        let content = (
+        const content = (
             <Button.Group {...otherProps} className={className}>
                 {inner}
-                {open? <DropdownMenu width={width} >{items}</DropdownMenu> : null}
             </Button.Group>
         );
 
         // Wrap in a backdrop when open
         if (open) {
-            content = <Backdrop onClose={this.close}>{content}</Backdrop>;
+            return (
+                <Backdrop wrapper={content} onClose={this.close}>
+                    {open? <DropdownMenu width={width} >{items}</DropdownMenu> : null}
+                </Backdrop>
+            );
+        } else {
+            return content;
         }
-
-        return content;
     }
 });
 

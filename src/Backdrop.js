@@ -18,13 +18,15 @@ const Backdrop = React.createClass({
         zIndex:   React.PropTypes.number,
         // Callback when backdrop is closed
         onClose:  React.PropTypes.func.isRequired,
-        children: React.PropTypes.node.isRequired
+        children: React.PropTypes.node.isRequired,
+        wrapper:  React.PropTypes.node
     },
 
     getDefaultProps: function() {
         return {
             escape: true,
-            zIndex: 200
+            zIndex: 200,
+            wrapper: <div />
         };
     },
 
@@ -50,7 +52,7 @@ const Backdrop = React.createClass({
     },
 
     render: function() {
-        const { zIndex } = this.props;
+        const { zIndex, wrapper } = this.props;
         const style = {
             zIndex,
             position: 'fixed',
@@ -60,11 +62,10 @@ const Backdrop = React.createClass({
             height: '100%'
         };
 
-        return (
-            <div>
-                <div style={style} onClick={this.onClose}></div>
-                {this.props.children}
-            </div>
+        return React.cloneElement(wrapper, {},
+            <div style={style} onClick={this.onClose}></div>,
+            wrapper.props.children,
+            this.props.children
         );
     }
 });
