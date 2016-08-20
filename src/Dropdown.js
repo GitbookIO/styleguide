@@ -1,8 +1,9 @@
-const React = require('react');
+const React      = require('react');
 const classNames = require('classnames');
 
-const Button = require('./Button');
-const Icon = require('./Icon');
+const Button   = require('./Button');
+const Icon     = require('./Icon');
+const Backdrop = require('./Backdrop');
 
 /**
  * Dropdown (or up). Automatically bound to child Button.
@@ -61,29 +62,6 @@ const ButtonDropdown = React.createClass({
         });
     },
 
-    /**
-     * Bind a random click in the window to close the dropdown
-     */
-    bindWindowClick: function() {
-        if (this.state.open) {
-            window.addEventListener('click', this.close);
-        } else {
-            window.removeEventListener('click', this.close);
-        }
-    },
-
-    componentDidUpdate: function() {
-        this.bindWindowClick();
-    },
-
-    componentDidMount: function() {
-        this.bindWindowClick();
-    },
-
-    componentWillUnmount: function() {
-        window.removeEventListener('click', this.close);
-    },
-
     render: function() {
         let that = this;
         let inner = [];
@@ -116,7 +94,9 @@ const ButtonDropdown = React.createClass({
             if (child && child.type && child.type.displayName == 'DropdownItem') {
                 return React.cloneElement(child, {
                     onClick: function() {
-                        if (child.props.onClick) child.props.onClick();
+                        if (child.props.onClick) {
+                            child.props.onClick();
+                        }
                         that.close();
                     }
                 });
@@ -124,10 +104,19 @@ const ButtonDropdown = React.createClass({
             return null;
         });
 
-        return <Button.Group {...otherProps} className={className}>
-            {inner}
-            <DropdownMenu open={open} width={width} >{items}</DropdownMenu>
-        </Button.Group>;
+        let content = (
+            <Button.Group {...otherProps} className={className}>
+                {inner}
+                {open? <DropdownMenu width={width} >{items}</DropdownMenu> : null}
+            </Button.Group>
+        );
+
+        // Wrap in a backdrop when open
+        if (open) {
+            content = <Backdrop onClose={this.close}>{content}</Backdrop>;
+        }
+
+        return content;
     }
 });
 
@@ -142,7 +131,7 @@ const DropdownItem = React.createClass({
         checked:   React.PropTypes.bool
     },
 
-    onClick: function(e) {
+    onClick(e) {
         if (!this.props.href) {
             e.preventDefault();
             e.stopPropagation();
@@ -151,11 +140,11 @@ const DropdownItem = React.createClass({
         }
     },
 
-    isInner: function(child) {
+    isInner(child) {
         return (!child  || !child.type || child.type.displayName !== 'DropdownMenu');
     },
 
-    render: function() {
+    render() {
         var { divider, header, checked } = this.props;
 
         if (divider) {
@@ -189,13 +178,20 @@ const DropdownItem = React.createClass({
 
 const DropdownMenu = React.createClass({
     propTypes: {
-        className:  React.PropTypes.string,
-        children: React.PropTypes.node,
-        open: React.PropTypes.bool,
-        width: React.PropTypes.string
+        className: React.PropTypes.string,
+        children:  React.PropTypes.node,
+        open:      React.PropTypes.bool,
+        width:     React.PropTypes.string
     },
 
-    render: function() {
+    getDefaultProps() {
+        return {
+            open:  true,
+            width: null
+        };
+    },
+
+    render() {
         var { width } = this.props;
         var className = classNames('dropdown-menu', width? 'dropdown-' + width : '',
             {
@@ -214,7 +210,7 @@ const ItemHeader = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return <div className="dropdown-itemheader">
             {this.props.children}
         </div>;
@@ -226,7 +222,7 @@ const ItemDesc = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return <div className="dropdown-itemdesc">
             {this.props.children}
         </div>;
