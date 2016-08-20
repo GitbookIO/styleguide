@@ -1,9 +1,10 @@
 const React      = require('react');
 const classNames = require('classnames');
 
-const SIZES        = require('./SIZES');
-const Button       = require('./Button');
-const Input        = require('./Input');
+const SIZES    = require('./SIZES');
+const Button   = require('./Button');
+const Input    = require('./Input');
+const Backdrop = require('./Backdrop');
 
 const DEFAULT_SEARCH_PLACEHOLDER = 'Search';
 
@@ -196,27 +197,20 @@ var Select = React.createClass({
     },
 
     /**
-     * Bind a random click in the window to close the dropdown
+     * Focus the search if open
      */
-    bindWindowClick: function() {
+    focusOnOpen: function() {
         if (this.state.opened) {
             this.focusSearch();
-            window.addEventListener('click', this.close);
-        } else {
-            window.removeEventListener('click', this.close);
         }
     },
 
     componentDidUpdate: function() {
-        this.bindWindowClick();
+        this.focusOnOpen();
     },
 
     componentDidMount: function() {
-        this.bindWindowClick();
-    },
-
-    componentWillUnmount: function() {
-        window.removeEventListener('click', this.close);
+        this.focusOnOpen();
     },
 
     /**
@@ -438,7 +432,7 @@ var Select = React.createClass({
         return <div className={className} onClick={e => e.stopPropagation()}>
             <input type="hidden" name={name} value={this.getStringValue()} />
             {this.renderButton()}
-            {opened? this.renderGroups() : ''}
+            {opened? <Backdrop onClose={this.close}>{this.renderGroups()}</Backdrop> : ''}
         </div>;
     }
 });
