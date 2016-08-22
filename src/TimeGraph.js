@@ -6,6 +6,8 @@ var TimeLine = React.createClass({
         currentX:   React.PropTypes.number,
         lineTop:    React.PropTypes.number,
         lineBottom: React.PropTypes.number,
+        lastX:      React.PropTypes.number,
+        lastPoints: React.PropTypes.array,
         points:     React.PropTypes.array
     },
 
@@ -47,7 +49,6 @@ var TimeLine = React.createClass({
         var lineTop    = this.props.lineTop;
         var lineBottom = this.props.lineBottom;
         var points     = this.props.points;
-        var lastPoints = this.props.lastPoints;
 
         var hover = this.state.hover;
 
@@ -96,7 +97,8 @@ var Body = React.createClass({
         height:    React.PropTypes.number,
         innerX:    React.PropTypes.number,
         innerY:    React.PropTypes.number,
-        yBase:     React.PropTypes.number
+        yBase:     React.PropTypes.number,
+        series:    React.PropTypes.array
     },
 
     contextTypes: {
@@ -133,7 +135,7 @@ var Body = React.createClass({
         var serieStyle = seriesStyle[index];
 
         return {
-            color: point.color || (serieStyle? serieStyle.color : null) || this.context.defaultColor,
+            color: point.color || (serieStyle? serieStyle.color : null) || this.context.defaultColor,
             value: point.value,
             serie: point.serie || (serieStyle? serieStyle.title : index),
             date:  time.date,
@@ -308,12 +310,13 @@ var XAxis = React.createClass({
 
 var YAxis = React.createClass({
     propTypes: {
-        length:   React.PropTypes.number,
-        valueMin: React.PropTypes.number,
-        valueMax: React.PropTypes.number,
-        innerX:   React.PropTypes.number,
-        innerY:   React.PropTypes.number,
-        yBase:    React.PropTypes.number
+        length:       React.PropTypes.number,
+        valueMin:     React.PropTypes.number,
+        valueMax:     React.PropTypes.number,
+        innerX:       React.PropTypes.number,
+        innerY:       React.PropTypes.number,
+        yBase:        React.PropTypes.number,
+        axeYInterval: React.PropTypes.number
     },
 
     // Computes the optimal tick step for the Y axis
@@ -360,7 +363,7 @@ var YAxis = React.createClass({
         var yBase        = this.props.yBase;
 
         var hPerValue    = length/(valueMax - valueMin);
-        var axeYInterval = ((valueMax - valueMin) * hPerValue) / (this.context.textFontSize * 4);
+        axeYInterval = ((valueMax - valueMin) * hPerValue) / (this.context.textFontSize * 4);
 
         // Calcul perfect value per interval (1, 10, 100, 1000, ...)
         var valuePerInterval = that.optimalTickStep(axeYInterval);
@@ -573,7 +576,6 @@ var TimeGraph = React.createClass({
             }
 
             // Fill current serie with existing points or with autoFillValue
-            var nbSeries    = seriesStyle.length;
             var seriesIndex = 0;
 
             series = timeRange.map(function(time, i) {

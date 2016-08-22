@@ -30,7 +30,7 @@
     "less": "^2.7.1"
   },
   "scripts": {
-    "lint": "eslint",
+    "lint": "eslint ./src",
     "build-js": "babel src --source-maps inline --out-dir lib",
     "build-css": "lessc ./less/main.less ./css/gitbook.css --include-path='node_modules'",
     "build-css-min": "cssmin ./css/gitbook.css ./css/gitbook.min.css",

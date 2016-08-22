@@ -1,5 +1,5 @@
 const React = require('react');
-const { bool, number } = React.PropTypes;
+const { bool } = React.PropTypes;
 
 /**
  * Displays a progress bar (YouTube-like) at the top of container
