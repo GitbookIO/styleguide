@@ -29,7 +29,7 @@ By default the menu is centered, it can be position on the left or right by addi
 {% example html %}
 <div class="pagehead">
     <div class="container">
-        <ul class="head-menu pull-right">
+        <ul class="menu pull-right">
             <li>
                 <a href="#about">
                     About
@@ -62,7 +62,7 @@ By default the menu is centered, it can be position on the left or right by addi
       </div>
     </div>
     <div class="container">
-        <ul class="head-menu pull-left">
+        <ul class="menu pull-left">
             <li>
                 <a href="#about">
                     About
@@ -163,4 +163,3 @@ Justified navigation:
     </ul>
 </div>
 {% endexample %}
-
