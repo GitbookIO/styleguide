@@ -1687,7 +1687,7 @@ small,
   text-transform: capitalize;
 }
 .text-warning {
-  color: #513a00;
+  color: #4c4a42;
 }
 .text-danger {
   color: #d30000;
@@ -1871,9 +1871,9 @@ a:visited {
   color: #d30000;
 }
 .alert.alert-warning {
-  background: #fff9ea;
+  background: #ffefc6;
   border-color: #ffdc84;
-  color: #513a00;
+  color: #4c4a42;
 }
 .alert.alert-info {
   background: #f4f7f9;
@@ -2002,8 +2002,8 @@ a:visited {
   letter-spacing: initial;
 }
 .badge.badge-warning {
-  background-color: #fff9ea;
-  color: #513a00;
+  background-color: #ffefc6;
+  color: #4c4a42;
   border-color: #ffdc84;
 }
 .badge.badge-info {
@@ -2516,7 +2516,8 @@ a:visited {
 .btn-toolbar > .btn,
 .btn-toolbar > .btn-group,
 .btn-toolbar > .input-group,
-.btn-toolbar > .popover-container {
+.btn-toolbar > .popover-container,
+.btn-toolbar > .SelectFormControl {
   float: left;
   margin-left: 5px;
 }
@@ -3882,8 +3883,8 @@ select.form-control:focus {
   background-color: #eee;
 }
 .label.label-warning {
-  color: #654900;
-  background-color: #fffffe;
+  color: #57554b;
+  background-color: #fff5da;
   border-color: #ffe298;
 }
 .label.label-info {
@@ -4688,7 +4689,7 @@ a.label:hover {
   border-color: #ffdc84;
 }
 .panel.panel-warning .panel-heading {
-  color: #513a00;
+  color: #4c4a42;
   border-color: #ffdc84;
 }
 .panel.panel-warning > .table {
