@@ -536,7 +536,7 @@ var TimeGraph = React.createClass({
 
         // Sort by date
         series.sort(function(a, b) {
-            return a.date > b.date;
+            return a.date - b.date;
         });
 
         // Set minValue if set
