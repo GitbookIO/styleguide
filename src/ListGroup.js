@@ -1,7 +1,7 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var ListItem = React.createClass({
+const ListItem = React.createClass({
     propTypes: {
         active:    React.PropTypes.bool,
         href:      React.PropTypes.string,
@@ -10,14 +10,14 @@ var ListItem = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             active: false,
             href:   '#'
         };
     },
 
-    onClick: function(e) {
+    onClick(e) {
         if (!this.props.onClick) {
             return;
         }
@@ -26,8 +26,8 @@ var ListItem = React.createClass({
         this.props.onClick();
     },
 
-    render: function() {
-        var className = classNames('list-group-item', this.props.className, {
+    render() {
+        const className = classNames('list-group-item', this.props.className, {
             active: this.props.active
         });
 
@@ -37,12 +37,12 @@ var ListItem = React.createClass({
     }
 });
 
-var ListGroup = React.createClass({
+const ListGroup = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <ul className="list-group">
                 {this.props.children}

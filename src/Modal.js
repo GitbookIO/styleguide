@@ -11,14 +11,14 @@ const Modal = React.createClass({
         className: React.PropTypes.string
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             size: 'md',
             backdrop: true
         };
     },
 
-    render: function() {
+    render() {
         let className = classNames('modal',
             'modal-' + this.props.size,
             this.props.className, {
@@ -38,7 +38,7 @@ const ModalBackdrop = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="modal-backdrop ">
                 {this.props.children}
@@ -52,7 +52,7 @@ const ModalBody = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="modal-body">
                 {this.props.children}
@@ -66,7 +66,7 @@ const ModalFooter = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="modal-footer ">
                 {this.props.children}
@@ -82,12 +82,12 @@ const ModalHeading = React.createClass({
         title:    React.PropTypes.string
     },
 
-    onClose: function(e) {
+    onClose(e) {
         e.preventDefault();
         this.props.onClose();
     },
 
-    render: function() {
+    render() {
         if (this.props.title) {
             return (
                 <div className="modal-heading">

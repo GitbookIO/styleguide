@@ -1,7 +1,7 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var FilterItem = React.createClass({
+const FilterItem = React.createClass({
     propTypes: {
         children: React.PropTypes.node,
         selected:  React.PropTypes.bool,
@@ -11,14 +11,14 @@ var FilterItem = React.createClass({
         onClick:   React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             selected: false,
             href:   '#'
         };
     },
 
-    onClick: function(e) {
+    onClick(e) {
         if (!this.props.onClick) {
             return;
         }
@@ -27,13 +27,13 @@ var FilterItem = React.createClass({
         this.props.onClick();
     },
 
-    render: function() {
-        var className = classNames('filter-item', this.props.className, {
+    render() {
+        const className = classNames('filter-item', this.props.className, {
             selected: this.props.selected
         });
-        var count = this.props.count;
-        var href  = this.props.href;
-        var inner = '';
+        const count = this.props.count;
+        const href  = this.props.href;
+        let inner = '';
 
         if (typeof count !== 'undefined') {
             inner = <span className="count">{count}</span>;
@@ -50,12 +50,12 @@ var FilterItem = React.createClass({
     }
 });
 
-var FilterList = React.createClass({
+const FilterList = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <ul className="filter-list">
                 {this.props.children}

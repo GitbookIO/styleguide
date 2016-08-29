@@ -1,11 +1,11 @@
-var React = require('react');
+const React = require('react');
 
-var PageInner = React.createClass({
+const PageInner = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="gb-page-inner">
                 {this.props.children}

@@ -38,15 +38,15 @@ const Tree = React.createClass({
         depth: React.PropTypes.number
     },
 
-    getChildContext: function() {
-        let depth = this.props.depth || this.context.depth || 0;
+    getChildContext() {
+        const depth = this.props.depth || this.context.depth || 0;
 
         return {
             depth: (depth + 1)
         };
     },
 
-    render: function() {
+    render() {
         return (
             <div className="Tree">
                 {this.props.children}
@@ -60,7 +60,7 @@ const TreeNode = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="TreeNode">
                 {this.props.children}
@@ -83,14 +83,14 @@ const TreeLeaf = React.createClass({
         depth: React.PropTypes.number
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             href: '#'
         };
     },
 
-    onClick: function(event) {
-        let { onClick } = this.props;
+    onClick(event) {
+        const { onClick } = this.props;
         if (!onClick) {
             return;
         }
@@ -99,9 +99,9 @@ const TreeLeaf = React.createClass({
         onClick();
     },
 
-    render: function() {
+    render() {
         let { href, status } = this.props;
-        let { depth } = this.context;
+        const { depth } = this.context;
 
         let style = {
             paddingLeft: (PADDING_INITIAL + depth*DEPTH_PADDING)
@@ -127,8 +127,8 @@ const TreeToggle = React.createClass({
         onClick: React.PropTypes.func
     },
 
-    onClick: function(event) {
-        let { onClick } = this.props;
+    onClick(event) {
+        const { onClick } = this.props;
 
         event.preventDefault();
         event.stopPropagation();
@@ -136,10 +136,10 @@ const TreeToggle = React.createClass({
         if (onClick) onClick();
     },
 
-    render: function() {
-        let { active } = this.props;
+    render() {
+        const { active } = this.props;
         let className = classNames('TreeToggle', {
-            active: active
+            active
         });
 
         return (

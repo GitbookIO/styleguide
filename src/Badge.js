@@ -1,24 +1,24 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var STYLES = require('./STYLES');
+const STYLES = require('./STYLES');
 
-var Badge = React.createClass({
+const Badge = React.createClass({
     propTypes: {
         style: React.PropTypes.oneOf(STYLES),
         className: React.PropTypes.string,
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             style: STYLES[0]
         };
     },
 
-    render: function() {
-        var style     = this.props.style;
-        var className = classNames('badge', 'badge-' + style, this.props.className);
+    render() {
+        const style     = this.props.style;
+        const className = classNames('badge', 'badge-' + style, this.props.className);
 
         return (
             <span className={className}>
@@ -36,7 +36,7 @@ var Badge = React.createClass({
 function createBadgeStyle(style) {
     return React.createClass({
         displayName: Badge.displayName + style,
-        render: function() {
+        render() {
             return <Badge {...this.props} style={style.toLowerCase()} />;
         }
     });

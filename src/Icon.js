@@ -13,14 +13,14 @@ const Icon = React.createClass({
         spin:      React.PropTypes.bool
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             type: 'octicon',
             spin: false
         };
     },
 
-    render: function() {
+    render() {
         let { type, id, className, spin } = this.props;
 
         className = classNames(

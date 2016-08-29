@@ -10,13 +10,13 @@ const ProgressBar = React.createClass({
         show:  bool
     },
 
-    getDefaultProps: function () {
+    getDefaultProps () {
         return {
             show: false
         };
     },
 
-    getInitialState: function () {
+    getInitialState () {
         return {
             size: 0,
             disappearDelayHide: false, // when dispappear, first transition then display none
@@ -25,7 +25,7 @@ const ProgressBar = React.createClass({
         };
     },
 
-    componentWillReceiveProps: function (nextProps) {
+    componentWillReceiveProps (nextProps) {
         const { show } = nextProps;
 
         if (show) {
@@ -35,11 +35,11 @@ const ProgressBar = React.createClass({
         }
     },
 
-    shouldComponentUpdate: function (nextProps, nextState) {
+    shouldComponentUpdate (nextProps, nextState) {
         return true; // !shallowEqual(nextState, this.state)
     },
 
-    show: function () {
+    show () {
         let { size, percent } = this.state;
 
         const appearDelayWidth = size === 0;
@@ -60,7 +60,7 @@ const ProgressBar = React.createClass({
         }
     },
 
-    hide: function () {
+    hide () {
         let { size } = this.state;
 
         if (--size < 0) {
@@ -82,7 +82,7 @@ const ProgressBar = React.createClass({
         }, 500);
     },
 
-    getBarStyle: function () {
+    getBarStyle () {
         const { disappearDelayHide, appearDelayWidth, percent } = this.state;
 
         return {
@@ -91,7 +91,7 @@ const ProgressBar = React.createClass({
         };
     },
 
-    getShadowStyle: function () {
+    getShadowStyle () {
         const { percent, disappearDelayHide } = this.state;
 
         return {
@@ -99,7 +99,7 @@ const ProgressBar = React.createClass({
         };
     },
 
-    render: function () {
+    render () {
         return <div className="progress-bar">
             <div className="bar" style={this.getBarStyle()}>
                 <div className="progress-bar-shadow"
@@ -114,11 +114,9 @@ function calculatePercent(percent) {
     percent = percent || 0;
 
     // How much of remaining bar we advance
-    let progress = 0.1 + Math.random() * 0.3;
+    const progress = 0.1 + Math.random() * 0.3;
 
     return percent +  progress * (1 - percent);
 }
-
-
 
 module.exports = ProgressBar;

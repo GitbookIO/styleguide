@@ -1,7 +1,7 @@
-var React  = require('react');
-var moment = require('moment');
+const React  = require('react');
+const moment = require('moment');
 
-var TimeLine = React.createClass({
+const TimeLine = React.createClass({
     propTypes: {
         currentX:   React.PropTypes.number,
         lineTop:    React.PropTypes.number,
@@ -17,19 +17,19 @@ var TimeLine = React.createClass({
         axeColor:    React.PropTypes.string
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             hover: false
         };
     },
 
-    setHover: function(state) {
+    setHover(state) {
         this.setState({
             hover: state
         });
     },
 
-    renderPathLine: function(index) {
+    renderPathLine(index) {
         var lastX = this.props.lastX;
         if (!Boolean(lastX)) {
             return null;
@@ -43,7 +43,7 @@ var TimeLine = React.createClass({
             stroke={currentPoint.color} strokeWidth={this.context.lineWidth} />;
     },
 
-    render: function() {
+    render() {
         var that       = this;
         var currentX   = this.props.currentX;
         var lineTop    = this.props.lineTop;
@@ -110,27 +110,27 @@ var Body = React.createClass({
     },
 
     // Compute X for a point inside Body
-    innerPositionX: function(pX) {
+    innerPositionX(pX) {
         return this.props.innerX + pX*this.props.width;
     },
 
     // Compute Y for a point inside Body
-    innerPositionY: function(pY) {
+    innerPositionY(pY) {
         return this.props.yBase + (this.props.height * (1 - pY));
     },
 
     // Return inner X value for a date
-    getInnerX: function(date) {
+    getInnerX(date) {
         return this.innerPositionX((date - this.props.dateMin)/(this.props.dateMax - this.props.dateMin));
     },
 
     // Return inner Y value for a value
-    getInnerY: function(value) {
+    getInnerY(value) {
         return this.innerPositionY((value - this.props.valueMin)/(this.props.valueMax - this.props.valueMin));
     },
 
     // Return correct mapping for a point to draw in TimeLine
-    formatPoint: function(time, point, index) {
+    formatPoint(time, point, index) {
         var seriesStyle = this.context.seriesStyle;
         var serieStyle = seriesStyle[index];
 
@@ -144,7 +144,7 @@ var Body = React.createClass({
     },
 
     // Draw this time line
-    drawTimeLine: function(time, i, series) {
+    drawTimeLine(time, i, series) {
         var that = this;
 
         // Current time informations
@@ -175,7 +175,7 @@ var Body = React.createClass({
         );
     },
 
-    render: function() {
+    render() {
         var series = this.props.series;
 
         return (
@@ -201,7 +201,7 @@ var XAxis = React.createClass({
         textFontFamily: React.PropTypes.string
     },
 
-    getValuePerInterval: function() {
+    getValuePerInterval() {
         var dateMin = this.props.dateMin;
         var dateMax = this.props.dateMax;
 
@@ -261,14 +261,14 @@ var XAxis = React.createClass({
         })
         .map(function(interval) {
             var count = (dateMax - dateMin)/interval.interval;
-            return { count: count, interval: interval };
+            return { count, interval };
         })
         .sort(function(a, b) {
             return a.count > b.count;
         })[0].interval;
     },
 
-    render: function() {
+    render() {
         var that    = this;
         var dateMin = this.props.dateMin;
         var dateMax = this.props.dateMax;
@@ -322,7 +322,7 @@ var YAxis = React.createClass({
     // Computes the optimal tick step for the Y axis
     // We assume: range = Math.abs(upper - lower)
     // i.e: range should not be negative
-    optimalTickStep: function(maxTicks) {
+    optimalTickStep(maxTicks) {
         var valueMin = this.props.valueMin;
         var valueMax = this.props.valueMax;
 
@@ -352,7 +352,7 @@ var YAxis = React.createClass({
         textFontFamily: React.PropTypes.string
     },
 
-    render: function() {
+    render() {
         var that         = this;
         var valueMin     = this.props.valueMin;
         var valueMax     = this.props.valueMax;
@@ -449,7 +449,7 @@ var TimeGraph = React.createClass({
         textFontFamily: React.PropTypes.string
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             // Autofill
             autoFill:          false,
@@ -477,7 +477,7 @@ var TimeGraph = React.createClass({
         };
     },
 
-    getChildContext: function() {
+    getChildContext() {
         return {
             seriesStyle:    this.props.seriesStyle,
             pointRadius:    this.props.pointRadius,
@@ -491,15 +491,15 @@ var TimeGraph = React.createClass({
         };
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return this.getStateFromProps(this.props);
     },
 
-    componentWillReceiveProps: function(nextProps) {
+    componentWillReceiveProps(nextProps) {
         this.setState(this.getStateFromProps(nextProps));
     },
 
-    getStateFromProps: function(props) {
+    getStateFromProps(props) {
         var width        = props.width;
         var height       = props.height;
         var padding      = props.padding;
@@ -529,8 +529,8 @@ var TimeGraph = React.createClass({
             });
 
             return {
-                date:   date,
-                points: points
+                date,
+                points
             };
         });
 
@@ -619,23 +619,23 @@ var TimeGraph = React.createClass({
         var yTop  = height - padding;
 
         return {
-            width:      width,
-            height:     height,
-            series:     series,
-            dateMin:    dateMin,
-            dateMax:    dateMax,
-            valueMin:   valueMin,
-            valueMax:   valueMax,
-            axeXLength: axeXLength,
-            axeYLength: axeYLength,
-            innerX:     innerX,
-            innerY:     innerY,
-            yTop:       yTop,
-            yBase:      yBase
+            width,
+            height,
+            series,
+            dateMin,
+            dateMax,
+            valueMin,
+            valueMax,
+            axeXLength,
+            axeYLength,
+            innerX,
+            innerY,
+            yTop,
+            yBase
         };
     },
 
-    render: function() {
+    render() {
         var width      = this.state.width;
         var height     = this.state.height;
         var series     = this.state.series;

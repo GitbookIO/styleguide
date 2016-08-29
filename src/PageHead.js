@@ -1,11 +1,11 @@
-var React = require('react');
+const React = require('react');
 
-var PageHead = React.createClass({
+const PageHead = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="pagehead">
                 {this.props.children}
@@ -14,12 +14,12 @@ var PageHead = React.createClass({
     }
 });
 
-var HeadTitle = React.createClass({
+const HeadTitle = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <h1 className="head-heading">
                 {this.props.children}

@@ -29,14 +29,14 @@ const Popover =  React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             position: POSITIONS[0]
         };
     },
 
-    render: function() {
-        let { position } = this.props;
+    render() {
+        const { position } = this.props;
         let className = classNames('popover', 'popover-' + position);
 
         return (
@@ -56,7 +56,7 @@ const PopoverContainer =  React.createClass({
         className: React.PropTypes.string
     },
 
-    render: function() {
+    render() {
         let { className } = this.props;
         className = classNames('popover-container', className);
 
@@ -73,7 +73,7 @@ const PopoverBody =  React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="popover-body">
                 {this.props.children}
@@ -88,7 +88,7 @@ const PopoverHeading =  React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         if (this.props.title) {
             return (
                 <div className="popover-heading">
@@ -111,7 +111,7 @@ const PopoverControl =  React.createClass({
         onClick:  React.PropTypes.func
     },
 
-    render: function() {
+    render() {
         let { onClick } = this.props;
 
         return (
@@ -127,7 +127,7 @@ const PopoverControls =  React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="popover-controls">
                 {this.props.children}

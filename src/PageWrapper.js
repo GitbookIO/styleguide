@@ -1,14 +1,14 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var PageWrapper = React.createClass({
+const PageWrapper = React.createClass({
     propTypes: {
         withPageHead: React.PropTypes.bool,
         children: React.PropTypes.node
     },
 
-    render: function() {
-        var className = classNames('gb-page-wrapper', {
+    render() {
+        const className = classNames('gb-page-wrapper', {
             'with-pagehead': this.props.withPageHead
         });
 

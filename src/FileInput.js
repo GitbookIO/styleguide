@@ -1,8 +1,7 @@
-var React = require('react');
+const React = require('react');
+const Button = require('./Button');
 
-var Button = require('./Button');
-
-var FileInput = React.createClass({
+const FileInput = React.createClass({
     propTypes: {
         children: React.PropTypes.node,
         onChange: React.PropTypes.func,
@@ -14,17 +13,17 @@ var FileInput = React.createClass({
     /**
      * Click this button
      */
-    click: function() {
+    click() {
         this.refs.input.click();
     },
 
-    onChange: function(e) {
+    onChange(e) {
         if (this.props.onChange) {
             this.props.onChange(e);
         }
     },
 
-    render: function() {
+    render() {
         return (
             <Button {...this.props} onClick={this.click}>
                 <input type="file" ref="input" name={this.props.name} style={{display: 'none'}} accept={this.props.accept} />

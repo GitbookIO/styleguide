@@ -30,7 +30,7 @@ const DateSpan =  React.createClass({
         now: dateShape
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             format:   '',
             refresh: 10*1000,
@@ -38,20 +38,20 @@ const DateSpan =  React.createClass({
         };
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             now: 0
         };
     },
 
-    tick: function() {
+    tick() {
         this.setState({
             now: Date.now()
         });
     },
 
-    componentDidMount: function() {
-        let { refresh, format } = this.props;
+    componentDidMount() {
+        const { refresh, format } = this.props;
 
         // We tick only once to update date from utc to local
         if (format) {
@@ -62,7 +62,7 @@ const DateSpan =  React.createClass({
         this.interval = setInterval(this.tick, refresh);
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
         if (!this.interval) {
             return;
         }
@@ -70,9 +70,9 @@ const DateSpan =  React.createClass({
         clearInterval(this.interval);
     },
 
-    render: function() {
+    render() {
+        const now = this.state.now || this.context.now;
         let { date, format, utc } = this.props;
-        let now = this.state.now || this.context.now;
         let displayDate;
 
         // Parse the date
@@ -110,42 +110,42 @@ const DateDuration = React.createClass({
         refresh:  React.PropTypes.number
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             format: 'h [hrs], m [min], s [sec]',
             refresh: 1000
         };
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             elapsed: 0
         };
     },
 
-    tick: function() {
-        let { elapsed } = this.state;
-        let { refresh } = this.props;
+    tick() {
+        const { elapsed } = this.state;
+        const { refresh } = this.props;
 
         this.setState({
             elapsed: elapsed + refresh
         });
     },
 
-    componentDidMount: function() {
-        let { refresh } = this.props;
+    componentDidMount() {
+        const { refresh } = this.props;
         if (refresh > 0) {
             this.interval = setInterval(this.tick, refresh);
         }
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
         clearInterval(this.interval);
     },
 
-    render: function() {
+    render() {
         let { duration, format } = this.props;
-        let { elapsed } = this.state;
+        const { elapsed } = this.state;
 
         duration = duration + elapsed;
 
@@ -165,13 +165,13 @@ const DateContext = React.createClass({
         now: dateShape
     },
 
-    getChildContext: function() {
+    getChildContext() {
         return {
             now: this.props.now
         };
     },
 
-    render: function() {
+    render() {
         return (React.Children.only(this.props.children));
     }
 });

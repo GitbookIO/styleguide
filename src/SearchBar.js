@@ -1,11 +1,11 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var Icon = require('./Icon');
-var Form = require('./Form');
-var Input = require('./Input');
+const Icon = require('./Icon');
+const Form = require('./Form');
+const Input = require('./Input');
 
-var SearchBar = React.createClass({
+const SearchBar = React.createClass({
     propTypes: {
         className:   React.PropTypes.string,
         placeholder: React.PropTypes.string,
@@ -17,41 +17,39 @@ var SearchBar = React.createClass({
         onChange:    React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             method: 'get'
         };
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             value: this.props.value
         };
     },
 
-    onChange: function(e) {
-        var newValue = e.target.value;
+    onChange(e) {
+        const { value } = e.target;
 
-        this.setState({
-            value: newValue
-        });
+        this.setState({ value });
 
         if (this.props.onChange) {
-            this.props.onChange(newValue);
+            this.props.onChange(value);
         }
     },
 
-    onSubmit: function(e) {
+    onSubmit(e) {
         if (this.props.onSubmit) {
             e.preventDefault();
             this.props.onSubmit(this.state.value);
         }
     },
 
-    render: function() {
-        var {action, placeholder,
-            name, method} = this.props;
-        var value = this.state.value;
+    render() {
+        const { action, placeholder,
+            name, method } = this.props;
+        const { value } = this.state;
 
         return (
             <Form className={classNames('search-bar', this.props.className)}

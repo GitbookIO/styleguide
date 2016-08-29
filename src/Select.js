@@ -53,7 +53,7 @@ function defaultRenderToString(item, i) {
  *     <Select.Option key="fr">French</Select.Option>
  * </Select>
  */
-var Select = React.createClass({
+const Select = React.createClass({
     propTypes: {
         // Current value of the select
         value:          React.PropTypes.oneOfType([
@@ -109,7 +109,7 @@ var Select = React.createClass({
         block:          React.PropTypes.bool
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             disabled:          false,
             search:            true,
@@ -125,7 +125,7 @@ var Select = React.createClass({
         };
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             value:    this.props.value,
             query:    '',
@@ -134,7 +134,7 @@ var Select = React.createClass({
         };
     },
 
-    componentWillReceiveProps: function(newProps) {
+    componentWillReceiveProps(newProps) {
         this.setState({
             value:  newProps.value,
             groups: this.propsToGroups(newProps),
@@ -147,23 +147,22 @@ var Select = React.createClass({
      * @param {Object} props
      * @return {Array<groupShape>}
      */
-    propsToGroups: function(props) {
-        var options = this.props.options;
-        var groups = this.props.groups;
+    propsToGroups(props) {
+        const { options, groups  } = this.props;
 
         if (groups) {
             return groups;
         }
 
         return [
-            { options: options }
+            { options }
         ];
     },
 
     /**
      * Search query changed
      */
-    onSearchChanged: function(e) {
+    onSearchChanged(e) {
         this.setState({
             query: e.target.value
         });
@@ -172,7 +171,7 @@ var Select = React.createClass({
     /**
      * Toggle (close/open) the select
      */
-    onToggle: function() {
+    onToggle() {
         this.setState({
             opened: !this.state.opened
         });
@@ -181,7 +180,7 @@ var Select = React.createClass({
     /**
      * Close the select
      */
-    close: function() {
+    close() {
         this.setState({
             opened: false
         });
@@ -190,7 +189,7 @@ var Select = React.createClass({
     /**
      * Open the select
      */
-    open: function() {
+    open() {
         this.setState({
             opened: false
         });
@@ -199,30 +198,30 @@ var Select = React.createClass({
     /**
      * Focus the search if open
      */
-    focusOnOpen: function() {
+    focusOnOpen() {
         if (this.state.opened) {
             this.focusSearch();
         }
     },
 
-    componentDidUpdate: function() {
+    componentDidUpdate() {
         this.focusOnOpen();
     },
 
-    componentDidMount: function() {
+    componentDidMount() {
         this.focusOnOpen();
     },
 
     /**
      * Toggle an option
      */
-    onToggleOption: function(addValue, e) {
+    onToggleOption(addValue, e) {
         if (e) {
             e.preventDefault();
         }
 
-        let { value, multiple } = this.state;
-        let { onChange } = this.props;
+        const { value, multiple } = this.state;
+        const { onChange } = this.props;
         let newState, newValue;
 
         if (multiple) {
@@ -233,8 +232,9 @@ var Select = React.createClass({
                 newValue = value.concat([addValue]);
             } else if (value.length > 1) {
                 // Unselect if many options are selected
-                var removeIndex = newValue.indexOf(addValue);
-                newValue.splice(removeIndex, 1);
+                newValue.splice(
+                    newValue.indexOf(addValue),
+                    1);
             }
 
             newState = {
@@ -260,9 +260,8 @@ var Select = React.createClass({
      * Get current value as a string (for hidden input)
      * @return {String}
      */
-    getStringValue: function() {
-        var value = this.state.value;
-        var renderToString = this.props.renderToString;
+    getStringValue() {
+        const { value, renderToString } = this.props;
 
         if (!value) {
             return '';
@@ -282,8 +281,8 @@ var Select = React.createClass({
      * @param {String} value
      * @return {Boolean}
      */
-    hasValue: function(value) {
-        var currentValue = this.state.value;
+    hasValue(value) {
+        const currentValue = this.state.value;
 
         if (!this.props.multiple) {
             return (currentValue === value);
@@ -295,35 +294,33 @@ var Select = React.createClass({
     /**
      * Focus the search input
      */
-    focusSearch: function() {
-        var input = this.refs.searchInput;
-        if (!input) {
+    focusSearch() {
+        const { searchInput } = this.refs;
+        if (!searchInput) {
             return;
         }
 
-        input.focus();
+        searchInput.focus();
     },
 
     /**
      * Render button to open select
      */
-    renderButton: function() {
+    renderButton() {
         let { disabled, block, multiple, placeholder } = this.props;
         let { value, opened } = this.state;
         let ComponentSelection = this.props.componentSelection || this.props.component;
 
-        var inner;
+        let inner;
 
         if (value) {
-            var values = multiple? value : [value];
+            const values = multiple? value : [value];
             inner      = (
                 <span className="SelectSelections">
                 {values.map(function(val, i) {
-                    var inner = <ComponentSelection option={val} index={i} />;
-
                     return (
                         <span key={i} className="SelectSelection">
-                            {inner}
+                            <ComponentSelection option={val} index={i} />
                         </span>
                     );
                 })}
@@ -343,7 +340,7 @@ var Select = React.createClass({
     /**
      * Render button to open select
      */
-    renderSearch: function() {
+    renderSearch() {
         let { query } = this.state;
 
         return (
@@ -360,26 +357,26 @@ var Select = React.createClass({
     /**
      * Render the options selector
      */
-    renderGroup: function(group, index) {
-        let { query } = this.state;
-        let { filter } = this.props;
+    renderGroup(group, index) {
+        const { query } = this.state;
+        const { filter } = this.props;
         let Component = this.props.component;
-        var count     = 0;
+        let count     = 0;
 
-        var options = group.options.map(function(item, i) {
+        const options = group.options.map(function(item, i) {
             if (!filter(query, item, i)) {
                 return '';
             }
 
             count++;
 
-            var inner = <Component option={item} index={i} />;
-            var isSelected = this.hasValue(item);
-            var onClick = this.onToggleOption.bind(this, item);
-
             return (
-                <div key={i} className={classNames('SelectOption', { active: isSelected})} onClick={onClick}>
-                    {inner}
+                <div
+                    key={i}
+                    className={classNames('SelectOption', { active: this.hasValue(item) })}
+                    onClick={e => this.onToggleOption(item)}
+                >
+                    <Component option={item} index={i} />
                 </div>
             );
         }, this);
@@ -402,12 +399,11 @@ var Select = React.createClass({
     /**
      * Render the groups
      */
-    renderGroups: function() {
-        var opened = this.state.opened;
-        var groups = this.state.groups;
-        var search = this.props.search;
+    renderGroups() {
+        const { opened, groups } = this.state;
+        const { search } = this.props;
 
-        var className = classNames('SelectContainer', {
+        const className = classNames('SelectContainer', {
             'open': opened
         });
 
@@ -421,19 +417,21 @@ var Select = React.createClass({
         );
     },
 
-    render: function() {
+    render() {
         let { name, block } = this.props;
-        let { opened } = this.state;
+        const { opened } = this.state;
 
         let className = classNames('SelectFormControl', {
-            'block': block
+            block
         });
 
-        return <div className={className} onClick={e => e.stopPropagation()}>
-            <input type="hidden" name={name} value={this.getStringValue()} />
-            {this.renderButton()}
-            {opened? <Backdrop onClose={this.close}>{this.renderGroups()}</Backdrop> : ''}
-        </div>;
+        return (
+            <div className={className} onClick={e => e.stopPropagation()}>
+                <input type="hidden" name={name} value={this.getStringValue()} />
+                {this.renderButton()}
+                {opened? <Backdrop onClose={this.close}>{this.renderGroups()}</Backdrop> : ''}
+            </div>
+        );
     }
 });
 

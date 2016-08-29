@@ -1,24 +1,24 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var STYLES = require('./STYLES');
+const STYLES = require('./STYLES');
 
-var Label = React.createClass({
+const Label = React.createClass({
     propTypes: {
         style: React.PropTypes.oneOf(STYLES),
         className: React.PropTypes.string,
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             style: STYLES[0]
         };
     },
 
-    render: function() {
-        var style     = this.props.style;
-        var className = classNames('label', 'label-' + style, this.props.className);
+    render() {
+        const style     = this.props.style;
+        const className = classNames('label', 'label-' + style, this.props.className);
 
         return (
             <span className={className}>
@@ -36,7 +36,7 @@ var Label = React.createClass({
 function createLabelStyle(style) {
     return React.createClass({
         displayName: Label.displayName + style,
-        render: function() {
+        render() {
             return <Label {...this.props} style={style.toLowerCase()} />;
         }
     });

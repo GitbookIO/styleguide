@@ -7,7 +7,7 @@ const Tags = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <ul className="tags">
                 {this.props.children}
@@ -27,14 +27,14 @@ const TagItem = React.createClass({
         showX:   React.PropTypes.bool
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             href: '#',
             showX: false
         };
     },
 
-    onClick: function(e) {
+    onClick(e) {
         const { onClick }  = this.props;
 
         if (!onClick) {
@@ -45,11 +45,11 @@ const TagItem = React.createClass({
         onClick();
     },
 
-    render: function() {
+    render() {
         const { active, count, showX, title, href } = this.props;
 
         const className = classNames('tag', {
-            'active': active
+            active
         });
 
         let inner = '';

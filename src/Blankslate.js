@@ -21,17 +21,17 @@ const Blankslate = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             background: false,
             full:       true
         };
     },
 
-    render: function() {
-        var inner;
-        var icon = this.props.icon;
-        var className = classNames('blankslate', {
+    render() {
+        let inner;
+        const icon = this.props.icon;
+        const className = classNames('blankslate', {
             'with-background': this.props.background,
             'full-width':      this.props.full
         });
@@ -58,7 +58,7 @@ const BlankSlateIcon = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="icon">
                 {this.props.children}

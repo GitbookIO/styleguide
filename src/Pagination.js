@@ -1,7 +1,7 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var Pagination = React.createClass({
+const Pagination = React.createClass({
     propTypes: {
         // Index of current page
         page:           React.PropTypes.number.isRequired,
@@ -19,7 +19,7 @@ var Pagination = React.createClass({
         getURL:         React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             getURL:      (page => '?page=' + page),
             pagesToList: 5
@@ -30,7 +30,7 @@ var Pagination = React.createClass({
      * Clicked to select a page
      * @param  {Number} i
      */
-    onSelectPage: function(i, e) {
+    onSelectPage(i, e) {
         if (this.props.onChange) {
             e.preventDefault();
             return this.props.onChange(i);
@@ -43,23 +43,23 @@ var Pagination = React.createClass({
      * @param {String} text
      * @return {React.Element}
      */
-    renderPageItem: function(i, text) {
-        var page      = this.props.page;
-        var isActive  = (i === page);
-        var className = classNames({
+    renderPageItem(i, text) {
+        const page      = this.props.page;
+        const isActive  = (i === page);
+        const className = classNames({
             active: isActive
         });
-        var uri = this.props.getURL(i);
+        const uri = this.props.getURL(i);
 
         return <li key={i} className={className}>
             <a href={uri} onClick={this.onSelectPage.bind(this, i)}>{text || i}</a>
         </li>;
     },
 
-    render: function() {
-        var page        = this.props.page;
-        var pages       = this.props.pages;
-        var pagesToList = this.props.pagesToList;
+    render() {
+        let page        = this.props.page;
+        const pages       = this.props.pages;
+        const pagesToList = this.props.pagesToList;
 
         if (pages < 2) {
             return <div />;
@@ -68,10 +68,10 @@ var Pagination = React.createClass({
         if (page < 0) page = 0;
         if (page >= pages) page = (pages - 1);
 
-        var startRange = Math.max(0, page - pagesToList);
-        var maxRange   = pages;
-        var endRange   = Math.min(maxRange, page + pagesToList);
-        var pagesRange = Array.apply(null, {length: pages}).map(Number.call, Number).slice(startRange, endRange);
+        const startRange = Math.max(0, page - pagesToList);
+        const maxRange   = pages;
+        const endRange   = Math.min(maxRange, page + pagesToList);
+        const pagesRange = Array.from(Array(pages)).map(Number.call, Number).slice(startRange, endRange);
 
         return (
             <div className="pagination">

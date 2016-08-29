@@ -22,7 +22,7 @@ const Backdrop = React.createClass({
         wrapper:  React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             escape: true,
             zIndex: 200,
@@ -30,12 +30,12 @@ const Backdrop = React.createClass({
         };
     },
 
-    onClose: function() {
+    onClose() {
         const { onClose } = this.props;
         onClose();
     },
 
-    onKeyDown: function(event) {
+    onKeyDown(event) {
         const { escape } = this.props;
 
         if (event.keyCode === 27 && escape) {
@@ -43,15 +43,15 @@ const Backdrop = React.createClass({
         }
     },
 
-    componentDidMount: function() {
+    componentDidMount() {
         window.addEventListener('keydown', this.onKeyDown);
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
         window.removeEventListener('keydown', this.onKeyDown);
     },
 
-    render: function() {
+    render() {
         const { zIndex, wrapper } = this.props;
         const style = {
             zIndex,

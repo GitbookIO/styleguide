@@ -1,11 +1,11 @@
-var React = require('react');
+const React = require('react');
 
-var PageBody = React.createClass({
+const PageBody = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="gb-page-body">
                 {this.props.children}

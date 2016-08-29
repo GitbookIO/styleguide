@@ -39,7 +39,7 @@ const Button = React.createClass({
         onNativeClick:  React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             style:    'default',
             size:     'md',
@@ -50,13 +50,13 @@ const Button = React.createClass({
         };
     },
 
-    onClick: function(e) {
+    onClick(e) {
         if (this.props.onClick) {
             this.props.onClick();
         }
     },
 
-    render: function() {
+    render() {
         let { title, icon, filled, block, noBorder, active, dropdownToggle,
             style, size, className, children,
             onNativeClick, onClick, ...props } = this.props;
@@ -70,7 +70,7 @@ const Button = React.createClass({
                 'btn-fill':        filled,
                 'btn-block':       block,
                 'btn-noborder':    noBorder,
-                'active':          active,
+                active,
                 'dropdown-toggle': dropdownToggle,
                 'tooltipped':      Boolean(title)
             }
@@ -96,7 +96,7 @@ const ButtonGroup = React.createClass({
         block:     React.PropTypes.bool
     },
 
-    render: function() {
+    render() {
         let { className, pull, children, block } = this.props;
 
         className = classNames(
@@ -118,13 +118,13 @@ const ButtonToolbar = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return <div className={'btn-toolbar '+(this.props.className || '')}>{this.props.children}</div>;
     }
 });
 
 const ButtonCaret = React.createClass({
-    render: function() {
+    render() {
         return <span className="caret" />;
     }
 });
