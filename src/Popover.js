@@ -57,11 +57,11 @@ const PopoverContainer =  React.createClass({
     },
 
     render() {
-        let { className } = this.props;
+        let { className, ...props } = this.props;
         className = classNames('popover-container', className);
 
         return (
-            <div className={className}>
+            <div className={className} {...props} >
                 {this.props.children}
             </div>
         );
