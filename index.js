@@ -1,7 +1,9 @@
-var path = require('path');
+'use strict';
+
+const path = require('path');
 
 function moduleContainer(mod) {
-    var pkgPath = require.resolve(mod+'/package.json');
+    const pkgPath = require.resolve(mod+'/package.json');
     return path.resolve(
         path.dirname(pkgPath)
         , '..');
