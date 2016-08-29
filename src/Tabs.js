@@ -56,7 +56,7 @@ const TabsItem = React.createClass({
     },
 
     onClick(event) {
-        let { onClick } = this.props;
+        const { onClick } = this.props;
 
         if (onClick) {
             event.preventDefault();

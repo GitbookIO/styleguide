@@ -51,7 +51,7 @@ const DateSpan =  React.createClass({
     },
 
     componentDidMount() {
-        let { refresh, format } = this.props;
+        const { refresh, format } = this.props;
 
         // We tick only once to update date from utc to local
         if (format) {
@@ -71,8 +71,8 @@ const DateSpan =  React.createClass({
     },
 
     render() {
+        const now = this.state.now || this.context.now;
         let { date, format, utc } = this.props;
-        let now = this.state.now || this.context.now;
         let displayDate;
 
         // Parse the date
@@ -124,8 +124,8 @@ const DateDuration = React.createClass({
     },
 
     tick() {
-        let { elapsed } = this.state;
-        let { refresh } = this.props;
+        const { elapsed } = this.state;
+        const { refresh } = this.props;
 
         this.setState({
             elapsed: elapsed + refresh
@@ -133,7 +133,7 @@ const DateDuration = React.createClass({
     },
 
     componentDidMount() {
-        let { refresh } = this.props;
+        const { refresh } = this.props;
         if (refresh > 0) {
             this.interval = setInterval(this.tick, refresh);
         }
@@ -145,7 +145,7 @@ const DateDuration = React.createClass({
 
     render() {
         let { duration, format } = this.props;
-        let { elapsed } = this.state;
+        const { elapsed } = this.state;
 
         duration = duration + elapsed;
 

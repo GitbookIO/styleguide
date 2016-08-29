@@ -16,7 +16,7 @@ const Panel = React.createClass({
     },
 
     render() {
-        var style = this.props.style;
+        const style = this.props.style;
 
         return (
             <div className={classNames('panel', 'panel-' + style)}>
@@ -33,8 +33,8 @@ const PanelHeading = React.createClass({
     },
 
     render() {
-        var title = this.props.title;
-        var inner = '';
+        const title = this.props.title;
+        let inner = '';
 
         if (title) {
             inner = <PanelTitle>{title}</PanelTitle>;

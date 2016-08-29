@@ -1,11 +1,11 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var Icon = require('./Icon');
-var Container = require('./Container');
-var STYLES = require('./STYLES');
+const Icon = require('./Icon');
+const Container = require('./Container');
+const STYLES = require('./STYLES');
 
-var Alert = React.createClass({
+const Alert = React.createClass({
     propTypes: {
         onClose:  React.PropTypes.func,
         closable: React.PropTypes.bool,
@@ -30,7 +30,7 @@ var Alert = React.createClass({
 
     onClose(e) {
         e.preventDefault();
-        var onClose = this.props.onClose;
+        const onClose = this.props.onClose;
 
         this.setState({
             opened: false
@@ -40,11 +40,11 @@ var Alert = React.createClass({
     },
 
     render() {
-        var style     = this.props.style;
-        var className = classNames('alert', 'alert-' + style, this.props.className);
-        var onClose   = this.props.onClose;
-        var closable  = this.props.closable;
-        var inner;
+        const style     = this.props.style;
+        const className = classNames('alert', 'alert-' + style, this.props.className);
+        const onClose   = this.props.onClose;
+        const closable  = this.props.closable;
+        let inner;
 
         if (!this.state.opened) {
             return <div />;
@@ -65,7 +65,7 @@ var Alert = React.createClass({
     }
 });
 
-var AlertButton = React.createClass({
+const AlertButton = React.createClass({
     propTypes: {
         children: React.PropTypes.node,
         className: React.PropTypes.string,
@@ -81,7 +81,7 @@ var AlertButton = React.createClass({
     },
 
     render() {
-        var { href, className } = this.props;
+        let { href, className } = this.props;
         className = classNames('alert-btn', className || '');
         href = href || '#';
 

@@ -1,8 +1,7 @@
-var React = require('react');
+const React = require('react');
+const Button = require('./Button');
 
-var Button = require('./Button');
-
-var FileInput = React.createClass({
+const FileInput = React.createClass({
     propTypes: {
         children: React.PropTypes.node,
         onChange: React.PropTypes.func,

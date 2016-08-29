@@ -1,7 +1,7 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var POSITIONS = {
+const POSITIONS = {
     BOTTOM_RIGHT: 'e',
     BOTTOM_LEFT:  'w',
     TOP_LEFT:     'nw',
@@ -10,7 +10,7 @@ var POSITIONS = {
     TOP:          'n'
 };
 
-var Tooltip = React.createClass({
+const Tooltip = React.createClass({
     propTypes: {
         title:    React.PropTypes.string.isRequired,
         position: React.PropTypes.string,
@@ -26,7 +26,7 @@ var Tooltip = React.createClass({
     },
 
     render() {
-        var className = classNames(
+        const className = classNames(
             'tooltipped-overlay',
             'tooltipped-' + this.props.position,
             'tooltipped',

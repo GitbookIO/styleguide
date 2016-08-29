@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var PageInner = React.createClass({
+const PageInner = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },

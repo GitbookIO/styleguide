@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var HTMLPage = React.createClass({
+const HTMLPage = React.createClass({
     propTypes: {
         lang: React.PropTypes.string,
         children: React.PropTypes.node
@@ -21,7 +21,7 @@ var HTMLPage = React.createClass({
     }
 });
 
-var HTMLHead = React.createClass({
+const HTMLHead = React.createClass({
     propTypes: {
         charSet: React.PropTypes.string,
         children: React.PropTypes.node
@@ -43,7 +43,7 @@ var HTMLHead = React.createClass({
     }
 });
 
-var HTMLBody = React.createClass({
+const HTMLBody = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },

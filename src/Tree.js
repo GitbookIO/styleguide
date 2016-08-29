@@ -39,7 +39,7 @@ const Tree = React.createClass({
     },
 
     getChildContext() {
-        let depth = this.props.depth || this.context.depth || 0;
+        const depth = this.props.depth || this.context.depth || 0;
 
         return {
             depth: (depth + 1)
@@ -90,7 +90,7 @@ const TreeLeaf = React.createClass({
     },
 
     onClick(event) {
-        let { onClick } = this.props;
+        const { onClick } = this.props;
         if (!onClick) {
             return;
         }
@@ -101,7 +101,7 @@ const TreeLeaf = React.createClass({
 
     render() {
         let { href, status } = this.props;
-        let { depth } = this.context;
+        const { depth } = this.context;
 
         let style = {
             paddingLeft: (PADDING_INITIAL + depth*DEPTH_PADDING)
@@ -128,7 +128,7 @@ const TreeToggle = React.createClass({
     },
 
     onClick(event) {
-        let { onClick } = this.props;
+        const { onClick } = this.props;
 
         event.preventDefault();
         event.stopPropagation();
@@ -137,7 +137,7 @@ const TreeToggle = React.createClass({
     },
 
     render() {
-        let { active } = this.props;
+        const { active } = this.props;
         let className = classNames('TreeToggle', {
             active
         });

@@ -1,7 +1,7 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var ListItem = React.createClass({
+const ListItem = React.createClass({
     propTypes: {
         active:    React.PropTypes.bool,
         href:      React.PropTypes.string,
@@ -27,7 +27,7 @@ var ListItem = React.createClass({
     },
 
     render() {
-        var className = classNames('list-group-item', this.props.className, {
+        const className = classNames('list-group-item', this.props.className, {
             active: this.props.active
         });
 
@@ -37,7 +37,7 @@ var ListItem = React.createClass({
     }
 });
 
-var ListGroup = React.createClass({
+const ListGroup = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },

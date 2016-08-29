@@ -1,19 +1,30 @@
 
-// const OFF = 0;
+const OFF = 0;
 // const WARNING = 1;
 const ERROR = 2;
 
 module.exports = {
+    'extends': 'eslint:recommended',
+    'env': {
+        'node':    true,
+        'browser': true,
+        'es6':     true
+    },
+    'plugins': [
+        'react'
+    ],
     'rules': {
         // Use indentation of 4 spaces
         'indent': [ ERROR, 4 ],
+
+        // File should end with a new line
+        'eol-last': ERROR,
 
         // Use single quotes
         'quotes': [ ERROR, 'single' ],
 
         // Use unix line break (\n and not \r\n)
         'linebreak-style': [ ERROR, 'unix' ],
-
 
         // Require object shorthand (see spec/object-shorthand.js)
         'object-shorthand': [ ERROR, 'always' ],
@@ -27,8 +38,17 @@ module.exports = {
             'args': 'none'
         } ],
 
-        'no-extra-boolean-cast': [ 0 ],
-        'spaced-comment': [ 2, 'always' ],
+        'no-extra-boolean-cast': [ OFF ],
+        'spaced-comment': [ ERROR, 'always' ],
+
+        // ES6
+        // Use const and let instead of var
+        'no-var':               ERROR,
+        'no-void':              ERROR,
+        'prefer-spread':        ERROR,
+        'no-useless-call':      ERROR,
+        'no-use-before-define': [ ERROR, { 'functions': false } ],
+        'prefer-const':         [ ERROR, { 'destructuring': 'all' } ],
 
         // React configuration
         'react/jsx-uses-vars':            ERROR,
@@ -46,7 +66,11 @@ module.exports = {
 
         // Specify whether double or single quotes should be used in JSX attributes
         // http://eslint.org/docs/rules/jsx-quotes
-        'jsx-quotes': [ERROR, 'prefer-double']
+        'jsx-quotes': [ ERROR, 'prefer-double' ],
+
+        // Disallow yodo condition
+        // http://eslint.org/docs/rules/yoda
+        'yoda': [ ERROR, 'never' ]
     },
     'parserOptions': {
         'ecmaVersion': 5,
@@ -55,13 +79,5 @@ module.exports = {
             'jsx': true,
             'experimentalObjectRestSpread': true
         }
-    },
-    'env': {
-        'node': true,
-        'browser': true
-    },
-    'plugins': [
-        'react'
-    ],
-    'extends': 'eslint:recommended'
+    }
 };

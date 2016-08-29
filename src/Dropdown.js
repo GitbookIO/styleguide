@@ -63,12 +63,12 @@ const ButtonDropdown = React.createClass({
     },
 
     render() {
-        let that = this;
+        const that = this;
         let inner = [];
         let items = [];
 
         let { className, children, up, width, ...otherProps } = this.props;
-        let { open } = this.state;
+        const { open } = this.state;
 
         className = classNames('dropdown', className, {
             'dropup': up
@@ -148,7 +148,7 @@ const DropdownItem = React.createClass({
     },
 
     render() {
-        var { divider, header, checked } = this.props;
+        const { divider, header, checked } = this.props;
 
         if (divider) {
             return <li className="divider"></li>;
@@ -157,7 +157,7 @@ const DropdownItem = React.createClass({
             return <li className="dropdown-header">{this.props.children}</li>;
         }
 
-        var inner = [], outer = [];
+        let inner = [], outer = [];
 
         inner = React.Children.map(this.props.children, function(child) {
             if (this.isInner(child)) return child;
@@ -195,8 +195,8 @@ const DropdownMenu = React.createClass({
     },
 
     render() {
-        var { width } = this.props;
-        var className = classNames('dropdown-menu', width? 'dropdown-' + width : '',
+        const { width } = this.props;
+        const className = classNames('dropdown-menu', width? 'dropdown-' + width : '',
             {
                 open: this.props.open
             }

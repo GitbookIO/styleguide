@@ -1,7 +1,7 @@
-var React  = require('react');
-var moment = require('moment');
+const React  = require('react');
+const moment = require('moment');
 
-var TimeLine = React.createClass({
+const TimeLine = React.createClass({
     propTypes: {
         currentX:   React.PropTypes.number,
         lineTop:    React.PropTypes.number,

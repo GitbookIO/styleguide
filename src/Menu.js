@@ -1,7 +1,7 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var MenuItem = React.createClass({
+const MenuItem = React.createClass({
     propTypes: {
         active:    React.PropTypes.bool,
         href:      React.PropTypes.string,
@@ -17,8 +17,8 @@ var MenuItem = React.createClass({
     },
 
     render() {
-        var inner;
-        var className = classNames(this.props.className || '', {
+        let inner;
+        const className = classNames(this.props.className || '', {
             'active': this.props.active
         });
 
@@ -35,7 +35,7 @@ var MenuItem = React.createClass({
     }
 });
 
-var Menu = React.createClass({
+const Menu = React.createClass({
     propTypes: {
         right: React.PropTypes.bool,
         left: React.PropTypes.bool,
@@ -50,7 +50,7 @@ var Menu = React.createClass({
     },
 
     render() {
-        var className = classNames('menu', {
+        const className = classNames('menu', {
             'pull-right': this.props.right,
             'pull-left': this.props.left
         });

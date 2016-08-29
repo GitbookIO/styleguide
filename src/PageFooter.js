@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var PageFooter = React.createClass({
+const PageFooter = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },

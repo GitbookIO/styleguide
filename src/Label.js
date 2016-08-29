@@ -1,9 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var STYLES = require('./STYLES');
+const STYLES = require('./STYLES');
 
-var Label = React.createClass({
+const Label = React.createClass({
     propTypes: {
         style: React.PropTypes.oneOf(STYLES),
         className: React.PropTypes.string,
@@ -17,8 +17,8 @@ var Label = React.createClass({
     },
 
     render() {
-        var style     = this.props.style;
-        var className = classNames('label', 'label-' + style, this.props.className);
+        const style     = this.props.style;
+        const className = classNames('label', 'label-' + style, this.props.className);
 
         return (
             <span className={className}>

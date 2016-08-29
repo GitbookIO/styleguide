@@ -15,7 +15,7 @@ const Markdown = React.createClass({
 
     render() {
         let { source, convert, className } = this.props;
-        let html = convert? convert(source) : source;
+        const html = convert? convert(source) : source;
         className = classNames('gb-markdown', className);
 
         return <div className={className} dangerouslySetInnerHTML={{__html: html}} />;

@@ -1,9 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
+const React = require('react');
+const classNames = require('classnames');
 
-var STYLES = require('./STYLES');
+const STYLES = require('./STYLES');
 
-var Badge = React.createClass({
+const Badge = React.createClass({
     propTypes: {
         style: React.PropTypes.oneOf(STYLES),
         className: React.PropTypes.string,
@@ -17,8 +17,8 @@ var Badge = React.createClass({
     },
 
     render() {
-        var style     = this.props.style;
-        var className = classNames('badge', 'badge-' + style, this.props.className);
+        const style     = this.props.style;
+        const className = classNames('badge', 'badge-' + style, this.props.className);
 
         return (
             <span className={className}>

@@ -1,7 +1,7 @@
-var React      = require('react');
-var classNames = require('classnames');
+const React      = require('react');
+const classNames = require('classnames');
 
-var Table = React.createClass({
+const Table = React.createClass({
     propTypes: {
         bordered: React.PropTypes.bool,
         className: React.PropTypes.string,
@@ -16,7 +16,7 @@ var Table = React.createClass({
     },
 
     render() {
-        var className = classNames(
+        const className = classNames(
             'table',
             { 'table-bordered': this.props.bordered },
             this.props.className
@@ -50,7 +50,7 @@ var Table = React.createClass({
  * The `center` props allows for centering all values rendered by default.
  */
 
-var ExpendableBody = React.createClass({
+const ExpendableBody = React.createClass({
     propTypes: {
         data:      React.PropTypes.array.isRequired,
         display:   React.PropTypes.number,
@@ -80,7 +80,7 @@ var ExpendableBody = React.createClass({
     },
 
     defaultRenderRow(item, i) {
-        var className = classNames({
+        const className = classNames({
             'text-center': this.props.center
         });
 
@@ -104,20 +104,18 @@ var ExpendableBody = React.createClass({
     },
 
     showMore() {
-        var step         = this.props.step;
-        var currentLimit = this.state.limit;
+        const { step } = this.props;
+        const { limit } = this.state;
 
         this.setState({
-            limit: currentLimit + step
+            limit: limit + step
         });
     },
 
     renderShowMore() {
-        var data    = this.props.data;
-        var colSpan = this.props.cols;
-        var step    = this.props.step;
-        var limit   = this.state.limit;
-        var length  = data.length;
+        let { data, cols, step } = this.props;
+        const { limit } = this.state;
+        const length  = data.length;
 
         // Don't display when everything's on the screen
         if (limit >= length) {
@@ -126,12 +124,12 @@ var ExpendableBody = React.createClass({
 
         // Try to get colSpan from data if array
         if (Boolean(length) && this.isArray(data[0])) {
-            colSpan = data[0].length.toString();
+            cols = data[0].length.toString();
         }
 
         return (
             <tr>
-                <td className="text-center" colSpan={colSpan}>
+                <td className="text-center" colSpan={cols}>
                     <div className="show-more" onClick={this.showMore}>
                         Show {step} more ({length - limit})
                     </div>
@@ -141,13 +139,13 @@ var ExpendableBody = React.createClass({
     },
 
     renderRow(item, i) {
-        var renderRow = this.props.renderRow || this.defaultRenderRow;
+        const renderRow = this.props.renderRow || this.defaultRenderRow;
         return renderRow(item, i);
     },
 
     render() {
-        var data  = this.props.data;
-        var limit = this.state.limit;
+        const { data }   = this.props;
+        const { limit } = this.state;
 
         return (
             <tbody className="table-body-expendable">

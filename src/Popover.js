@@ -36,7 +36,7 @@ const Popover =  React.createClass({
     },
 
     render() {
-        let { position } = this.props;
+        const { position } = this.props;
         let className = classNames('popover', 'popover-' + position);
 
         return (

@@ -29,9 +29,9 @@ const Blankslate = React.createClass({
     },
 
     render() {
-        var inner;
-        var icon = this.props.icon;
-        var className = classNames('blankslate', {
+        let inner;
+        const icon = this.props.icon;
+        const className = classNames('blankslate', {
             'with-background': this.props.background,
             'full-width':      this.props.full
         });

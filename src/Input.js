@@ -46,11 +46,11 @@ const Input = React.createClass({
     },
 
     render() {
-        var { onBlur, onFocus, onKeyDown, onClick, value, readOnly, defaultValue,
+        const { onBlur, onFocus, onKeyDown, onClick, value, readOnly, defaultValue,
             size, autoFocus, placeholder, type,
             name, disabled } = this.props;
 
-        var className = classNames('form-control', 'input-' + size, this.props.className);
+        const className = classNames('form-control', 'input-' + size, this.props.className);
 
         return <input ref="input"
             type={type} autoFocus={autoFocus}
@@ -88,7 +88,7 @@ const InputGroup = React.createClass({
     },
 
     render() {
-        var className = classNames('input-group', this.props.className || []);
+        const className = classNames('input-group', this.props.className || []);
         return (
             <div className={className}>
                 {this.props.children}

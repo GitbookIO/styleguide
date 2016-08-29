@@ -18,7 +18,7 @@ const Link = React.createClass({
     },
 
     onClick(e) {
-        let { onClick } = this.props;
+        const { onClick } = this.props;
 
         if (onClick) {
             e.preventDefault();
