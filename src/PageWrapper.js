@@ -7,7 +7,7 @@ var PageWrapper = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         var className = classNames('gb-page-wrapper', {
             'with-pagehead': this.props.withPageHead
         });

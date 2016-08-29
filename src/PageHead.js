@@ -5,7 +5,7 @@ var PageHead = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="pagehead">
                 {this.props.children}
@@ -19,7 +19,7 @@ var HeadTitle = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <h1 className="head-heading">
                 {this.props.children}

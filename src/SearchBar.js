@@ -17,19 +17,19 @@ var SearchBar = React.createClass({
         onChange:    React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             method: 'get'
         };
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             value: this.props.value
         };
     },
 
-    onChange: function(e) {
+    onChange(e) {
         var newValue = e.target.value;
 
         this.setState({
@@ -41,14 +41,14 @@ var SearchBar = React.createClass({
         }
     },
 
-    onSubmit: function(e) {
+    onSubmit(e) {
         if (this.props.onSubmit) {
             e.preventDefault();
             this.props.onSubmit(this.state.value);
         }
     },
 
-    render: function() {
+    render() {
         var {action, placeholder,
             name, method} = this.props;
         var value = this.state.value;

@@ -38,7 +38,7 @@ const Tree = React.createClass({
         depth: React.PropTypes.number
     },
 
-    getChildContext: function() {
+    getChildContext() {
         let depth = this.props.depth || this.context.depth || 0;
 
         return {
@@ -46,7 +46,7 @@ const Tree = React.createClass({
         };
     },
 
-    render: function() {
+    render() {
         return (
             <div className="Tree">
                 {this.props.children}
@@ -60,7 +60,7 @@ const TreeNode = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="TreeNode">
                 {this.props.children}
@@ -83,13 +83,13 @@ const TreeLeaf = React.createClass({
         depth: React.PropTypes.number
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             href: '#'
         };
     },
 
-    onClick: function(event) {
+    onClick(event) {
         let { onClick } = this.props;
         if (!onClick) {
             return;
@@ -99,7 +99,7 @@ const TreeLeaf = React.createClass({
         onClick();
     },
 
-    render: function() {
+    render() {
         let { href, status } = this.props;
         let { depth } = this.context;
 
@@ -127,7 +127,7 @@ const TreeToggle = React.createClass({
         onClick: React.PropTypes.func
     },
 
-    onClick: function(event) {
+    onClick(event) {
         let { onClick } = this.props;
 
         event.preventDefault();
@@ -136,10 +136,10 @@ const TreeToggle = React.createClass({
         if (onClick) onClick();
     },
 
-    render: function() {
+    render() {
         let { active } = this.props;
         let className = classNames('TreeToggle', {
-            active: active
+            active
         });
 
         return (

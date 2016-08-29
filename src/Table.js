@@ -8,14 +8,14 @@ var Table = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             bordered: false,
             className: ''
         };
     },
 
-    render: function() {
+    render() {
         var className = classNames(
             'table',
             { 'table-bordered': this.props.bordered },
@@ -60,7 +60,7 @@ var ExpendableBody = React.createClass({
         center:    React.PropTypes.bool
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             display:   5,
             step:      5,
@@ -69,17 +69,17 @@ var ExpendableBody = React.createClass({
         };
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             limit: this.props.display
         };
     },
 
-    isArray: function(o) {
+    isArray(o) {
         return Object.prototype.toString.call(o) == '[object Array]';
     },
 
-    defaultRenderRow: function(item, i) {
+    defaultRenderRow(item, i) {
         var className = classNames({
             'text-center': this.props.center
         });
@@ -103,7 +103,7 @@ var ExpendableBody = React.createClass({
         }
     },
 
-    showMore: function() {
+    showMore() {
         var step         = this.props.step;
         var currentLimit = this.state.limit;
 
@@ -112,7 +112,7 @@ var ExpendableBody = React.createClass({
         });
     },
 
-    renderShowMore: function() {
+    renderShowMore() {
         var data    = this.props.data;
         var colSpan = this.props.cols;
         var step    = this.props.step;
@@ -140,12 +140,12 @@ var ExpendableBody = React.createClass({
         );
     },
 
-    renderRow: function(item, i) {
+    renderRow(item, i) {
         var renderRow = this.props.renderRow || this.defaultRenderRow;
         return renderRow(item, i);
     },
 
-    render: function() {
+    render() {
         var data  = this.props.data;
         var limit = this.state.limit;
 

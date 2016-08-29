@@ -18,7 +18,7 @@ const Tabs = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="tabs">
                 {this.props.children}
@@ -32,7 +32,7 @@ const TabsNav = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="tabs-nav">
                 {this.props.children}
@@ -49,13 +49,13 @@ const TabsItem = React.createClass({
         onClick:  React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             href: '#'
         };
     },
 
-    onClick: function(event) {
+    onClick(event) {
         let { onClick } = this.props;
 
         if (onClick) {
@@ -64,11 +64,11 @@ const TabsItem = React.createClass({
         }
     },
 
-    render: function() {
+    render() {
         let { children, href, active } = this.props;
 
         return (
-            <li className={classNames({ active: active })}>
+            <li className={classNames({ active })}>
                 <a href={href} onClick={this.onClick}>{children}</a>
             </li>
         );
@@ -80,7 +80,7 @@ const TabsContent = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="tabs-content">
                 {this.props.children}

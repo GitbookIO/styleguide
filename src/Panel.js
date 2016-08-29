@@ -9,13 +9,13 @@ const Panel = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             style: STYLES[0]
         };
     },
 
-    render: function() {
+    render() {
         var style = this.props.style;
 
         return (
@@ -32,7 +32,7 @@ const PanelHeading = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         var title = this.props.title;
         var inner = '';
 
@@ -54,7 +54,7 @@ const PanelTitle = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <h3 className="panel-title">
                 {this.props.children}
@@ -68,7 +68,7 @@ const PanelToolbar = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="panel-toolbar">
                 {this.props.children}
@@ -82,7 +82,7 @@ const PanelBody = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="panel-body">
                 {this.props.children}
@@ -96,7 +96,7 @@ const PanelFooter = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="panel-footer">
                 {this.props.children}

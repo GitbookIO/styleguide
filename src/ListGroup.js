@@ -10,14 +10,14 @@ var ListItem = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             active: false,
             href:   '#'
         };
     },
 
-    onClick: function(e) {
+    onClick(e) {
         if (!this.props.onClick) {
             return;
         }
@@ -26,7 +26,7 @@ var ListItem = React.createClass({
         this.props.onClick();
     },
 
-    render: function() {
+    render() {
         var className = classNames('list-group-item', this.props.className, {
             active: this.props.active
         });
@@ -42,7 +42,7 @@ var ListGroup = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <ul className="list-group">
                 {this.props.children}

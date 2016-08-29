@@ -28,24 +28,24 @@ const Input = React.createClass({
     /**
      * Focus this input
      */
-    focus: function() {
+    focus() {
         this.refs.input.focus();
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             type: 'text',
             size: SIZES[0]
         };
     },
 
-    onChange: function(e) {
+    onChange(e) {
         if (this.props.onChange) {
             this.props.onChange(e);
         }
     },
 
-    render: function() {
+    render() {
         var { onBlur, onFocus, onKeyDown, onClick, value, readOnly, defaultValue,
             size, autoFocus, placeholder, type,
             name, disabled } = this.props;
@@ -75,7 +75,7 @@ const Input = React.createClass({
 function createInputType(type) {
     return React.createClass({
         displayName: Input.displayName + type,
-        render: function() {
+        render() {
             return <Input {...this.props} type={type.toLowerCase()} />;
         }
     });
@@ -87,7 +87,7 @@ const InputGroup = React.createClass({
         className: React.PropTypes.string
     },
 
-    render: function() {
+    render() {
         var className = classNames('input-group', this.props.className || []);
         return (
             <div className={className}>
@@ -102,7 +102,7 @@ const InputGroupAddon = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <span {...this.props} className="input-group-addon">
                 {this.props.children}

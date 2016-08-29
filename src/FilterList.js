@@ -11,14 +11,14 @@ var FilterItem = React.createClass({
         onClick:   React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             selected: false,
             href:   '#'
         };
     },
 
-    onClick: function(e) {
+    onClick(e) {
         if (!this.props.onClick) {
             return;
         }
@@ -27,7 +27,7 @@ var FilterItem = React.createClass({
         this.props.onClick();
     },
 
-    render: function() {
+    render() {
         var className = classNames('filter-item', this.props.className, {
             selected: this.props.selected
         });
@@ -55,7 +55,7 @@ var FilterList = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <ul className="filter-list">
                 {this.props.children}

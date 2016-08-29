@@ -5,7 +5,7 @@ var PageFooter = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="gb-page-footer">
                 {this.props.children}

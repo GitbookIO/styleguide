@@ -10,14 +10,14 @@ const Spinner = React.createClass({
         size:     React.PropTypes.oneOf(SIZES)
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             centered: true,
             size: 'md'
         };
     },
 
-    render: function() {
+    render() {
         let className = classNames('gb-spinner', 'spinner-' + this.props.size, {
             'spinner-inverse':  this.props.inverse,
             'spinner-centered': this.props.centered
@@ -31,7 +31,7 @@ const Spinner = React.createClass({
  * Block div representing a loading area
  */
 const SpinnerSlate = React.createClass({
-    render: function() {
+    render() {
         return <div className="gb-spinner-slate">
             <Spinner {...this.props} />
         </div>;

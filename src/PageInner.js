@@ -5,7 +5,7 @@ var PageInner = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="gb-page-inner">
                 {this.props.children}

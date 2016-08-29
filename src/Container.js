@@ -8,7 +8,7 @@ const Container = React.createClass({
         fluid: React.PropTypes.bool
     },
 
-    render: function() {
+    render() {
         let { fluid, className, ...props } = this.props;
         className = classNames('container', {
             'container-fluid': fluid

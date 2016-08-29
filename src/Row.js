@@ -7,7 +7,7 @@ var Row = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return <div className="row">
             {this.props.children}
         </div>;
@@ -23,7 +23,7 @@ var Column = React.createClass({
         offset:   React.PropTypes.number
     },
 
-    render: function() {
+    render() {
         var { offset, children } = this.props;
 
         var className = classNames(SIZES.reduce((list, size) => {

@@ -11,13 +11,13 @@ const Link = React.createClass({
         onClick:    React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             href: '#'
         };
     },
 
-    onClick: function(e) {
+    onClick(e) {
         let { onClick } = this.props;
 
         if (onClick) {
@@ -26,7 +26,7 @@ const Link = React.createClass({
         }
     },
 
-    render: function() {
+    render() {
         let { href, className, children, muted, underlined, ...props } = this.props;
 
         className = classNames(className, {

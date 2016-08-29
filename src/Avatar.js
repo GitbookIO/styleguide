@@ -14,7 +14,7 @@ const Avatar = React.createClass({
         children:  React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         let { src, size, className, text, children } = this.props;
         className = classNames('avatar', size? 'avatar-' + size : '', className);
 
@@ -33,7 +33,7 @@ const AvatarIcon = React.createClass({
         className: React.PropTypes.string
     },
 
-    render: function() {
+    render() {
         let { src, className } = this.props;
         className = classNames('avatar-icon', className);
 

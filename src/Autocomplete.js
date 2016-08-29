@@ -21,7 +21,7 @@ const Autocomplete = React.createClass({
         onChange:     React.PropTypes.func
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             value:   this.props.value || '',
             cursor:  null,
@@ -34,20 +34,20 @@ const Autocomplete = React.createClass({
     /**
      * Typed value changed, we fetch the new autocomplete result
      */
-    onInputChanged: function(e) {
+    onInputChanged(e) {
         const that = this;
         const onFetch = this.props.onFetch;
         const value  = e.target.value;
 
         this.setState({
-            value: value,
+            value,
             loading: true
         });
 
         onFetch(value, function(results) {
             that.setState({
                 loading: false,
-                results: results
+                results
             });
         });
     },
@@ -55,7 +55,7 @@ const Autocomplete = React.createClass({
     /**
      * User is focusing/blur the input
      */
-    onFocusChanged: function(isFocused) {
+    onFocusChanged(isFocused) {
         this.setState({
             focused: isFocused
         });
@@ -64,7 +64,7 @@ const Autocomplete = React.createClass({
     /**
      * Submit value at cursor
      */
-    onEnter: function() {
+    onEnter() {
         const { cursor, value } = this.state;
         const { onEnter } = this.props;
         if (cursor >= 0) {
@@ -83,7 +83,7 @@ const Autocomplete = React.createClass({
     /**
      * Submit a value
      */
-    onSelect: function (index) {
+    onSelect (index) {
         const { value, results } = this.state;
         const selected = results[index];
 
@@ -99,7 +99,7 @@ const Autocomplete = React.createClass({
     /**
      * User pressed a key in text input
      */
-    onKeyDown: function(e) {
+    onKeyDown(e) {
         let { cursor, results } = this.state;
 
         if (e.keyCode === KEYCODE_ENTER) {
@@ -123,14 +123,14 @@ const Autocomplete = React.createClass({
         }
 
         this.setState({
-            cursor: cursor
+            cursor
         });
     },
 
     /**
      * Render the suggestions
      */
-    renderResults: function() {
+    renderResults() {
         const that = this;
         const { results, value, cursor } = this.state;
         const ResultComponent = this.props.renderResult;
@@ -149,7 +149,7 @@ const Autocomplete = React.createClass({
         );
     },
 
-    render: function() {
+    render() {
         const { value, focused, loading, results } = this.state;
 
         return (
@@ -177,10 +177,10 @@ const AutocompleteResult = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         const { active, children, onClick } = this.props;
         return (
-            <div className={classNames('AutocompleteResult', { active: active })}
+            <div className={classNames('AutocompleteResult', { active })}
                  onMouseDown={onClick}>
                 {children}
             </div>

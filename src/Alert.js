@@ -14,13 +14,13 @@ var Alert = React.createClass({
         className: React.PropTypes.string
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             opened: true
         };
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             onClose: undefined,
             closable: false,
@@ -28,7 +28,7 @@ var Alert = React.createClass({
         };
     },
 
-    onClose: function(e) {
+    onClose(e) {
         e.preventDefault();
         var onClose = this.props.onClose;
 
@@ -39,7 +39,7 @@ var Alert = React.createClass({
         });
     },
 
-    render: function() {
+    render() {
         var style     = this.props.style;
         var className = classNames('alert', 'alert-' + style, this.props.className);
         var onClose   = this.props.onClose;
@@ -73,14 +73,14 @@ var AlertButton = React.createClass({
         onClick:  React.PropTypes.func
     },
 
-    onClick: function(e) {
+    onClick(e) {
         if (this.props.onClick) {
             e.preventDefault();
             this.props.onClick();
         }
     },
 
-    render: function() {
+    render() {
         var { href, className } = this.props;
         className = classNames('alert-btn', className || '');
         href = href || '#';
@@ -99,7 +99,7 @@ var AlertButton = React.createClass({
 function createAlertStyle(style) {
     return React.createClass({
         displayName: Alert.displayName + style,
-        render: function() {
+        render() {
             return <Alert {...this.props} style={style.toLowerCase()} />;
         }
     });

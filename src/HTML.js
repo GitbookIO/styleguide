@@ -6,13 +6,13 @@ var HTMLPage = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             lang: 'en'
         };
     },
 
-    render: function() {
+    render() {
         return (
             <html lang={this.props.lang}>
                 {this.props.children}
@@ -27,13 +27,13 @@ var HTMLHead = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             charSet: 'utf-8'
         };
     },
 
-    render: function() {
+    render() {
         return (
             <head>
                 <meta charSet={this.props.charSet} />
@@ -48,7 +48,7 @@ var HTMLBody = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <body>{this.props.children}</body>
         );

@@ -9,7 +9,7 @@ const Overview = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function () {
+    render () {
         return <div className="overview">{ this.props.children }</div>;
     }
 });
@@ -19,7 +19,7 @@ Overview.Title = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function () {
+    render () {
         return <h1 className="overview-title">{ this.props.children }</h1>;
     }
 });
@@ -29,7 +29,7 @@ Overview.Note = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function () {
+    render () {
         return <p className="overview-note">{ this.props.children }</p>;
     }
 });
@@ -39,7 +39,7 @@ Overview.Description = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function () {
+    render () {
         return <p className="overview-description">{ this.props.children }</p>;
     }
 });
@@ -49,7 +49,7 @@ Overview.Meta = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function () {
+    render () {
         return <div className="overview-meta">{ this.props.children }</div>;
     }
 });

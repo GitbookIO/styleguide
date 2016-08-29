@@ -44,7 +44,7 @@
     "prepublish": "NODE_ENV=production npm run build",
     "postpublish": "npm run docs-deploy",
     "test-js-spec": "eslint ./spec",
-    "test": "npm run test-js-spec"
+    "test": "npm run test-js-spec; npn run lint"
   },
   "repository": {
     "type": "git",

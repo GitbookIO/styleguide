@@ -33,7 +33,7 @@ const ButtonDropdown = React.createClass({
         width: React.PropTypes.string
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             open: false
         };
@@ -43,7 +43,7 @@ const ButtonDropdown = React.createClass({
      * Toggle the dopdown
      * @param  {Event} e?
      */
-    toggle: function(e) {
+    toggle(e) {
         if (e) {
             e.stopPropagation();
         }
@@ -56,13 +56,13 @@ const ButtonDropdown = React.createClass({
     /**
      * Close the dropdown
      */
-    close: function() {
+    close() {
         this.setState({
             open: false
         });
     },
 
-    render: function() {
+    render() {
         let that = this;
         let inner = [];
         let items = [];
@@ -93,7 +93,7 @@ const ButtonDropdown = React.createClass({
         items = React.Children.map(children, function(child) {
             if (child && child.type && child.type.displayName == 'DropdownItem') {
                 return React.cloneElement(child, {
-                    onClick: function() {
+                    onClick() {
                         if (child.props.onClick) {
                             child.props.onClick();
                         }

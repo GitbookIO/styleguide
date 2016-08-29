@@ -18,14 +18,14 @@ var Tooltip = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             open:     false,
             position: POSITIONS.BOTTOM
         };
     },
 
-    render: function() {
+    render() {
         var className = classNames(
             'tooltipped-overlay',
             'tooltipped-' + this.props.position,

@@ -24,24 +24,24 @@ const Textarea = React.createClass({
     /**
      * Focus this input
      */
-    focus: function() {
+    focus() {
         this.refs.textarea.focus();
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             size: SIZES[0],
             rows: 3
         };
     },
 
-    onChange: function(e) {
+    onChange(e) {
         if (this.props.onChange) {
             this.props.onChange(e);
         }
     },
 
-    render: function() {
+    render() {
         const {
             disabled, name, placeholder, size, rows,
             autoFocus, value, defaultValue, maxLength

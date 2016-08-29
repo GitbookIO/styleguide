@@ -21,7 +21,7 @@ const Checkbox = React.createClass({
         direction:       React.PropTypes.oneOf(DIRECTIONS)
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             displaySwitch: true,
             size:          SIZES[0],
@@ -29,12 +29,12 @@ const Checkbox = React.createClass({
         };
     },
 
-    onSwitchClick: function(event) {
+    onSwitchClick(event) {
         event.stopPropagation();
         this.refs.checkbox.click();
     },
 
-    render: function() {
+    render() {
         const {size, displaySwitch, direction, children, ...props } = this.props;
 
         const className = classNames('checkbox', 'switch-' + size, 'switch-' + direction, {

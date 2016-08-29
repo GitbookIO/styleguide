@@ -5,7 +5,7 @@ var PageBody = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="gb-page-body">
                 {this.props.children}

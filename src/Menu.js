@@ -9,14 +9,14 @@ var MenuItem = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             active: false,
             href:   null
         };
     },
 
-    render: function() {
+    render() {
         var inner;
         var className = classNames(this.props.className || '', {
             'active': this.props.active
@@ -42,14 +42,14 @@ var Menu = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             active: false,
             href:   null
         };
     },
 
-    render: function() {
+    render() {
         var className = classNames('menu', {
             'pull-right': this.props.right,
             'pull-left': this.props.left

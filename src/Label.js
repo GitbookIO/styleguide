@@ -10,13 +10,13 @@ var Label = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             style: STYLES[0]
         };
     },
 
-    render: function() {
+    render() {
         var style     = this.props.style;
         var className = classNames('label', 'label-' + style, this.props.className);
 
@@ -36,7 +36,7 @@ var Label = React.createClass({
 function createLabelStyle(style) {
     return React.createClass({
         displayName: Label.displayName + style,
-        render: function() {
+        render() {
             return <Label {...this.props} style={style.toLowerCase()} />;
         }
     });

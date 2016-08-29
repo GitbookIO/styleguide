@@ -10,13 +10,13 @@ var Badge = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             style: STYLES[0]
         };
     },
 
-    render: function() {
+    render() {
         var style     = this.props.style;
         var className = classNames('badge', 'badge-' + style, this.props.className);
 
@@ -36,7 +36,7 @@ var Badge = React.createClass({
 function createBadgeStyle(style) {
     return React.createClass({
         displayName: Badge.displayName + style,
-        render: function() {
+        render() {
             return <Badge {...this.props} style={style.toLowerCase()} />;
         }
     });

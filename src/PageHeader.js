@@ -5,7 +5,7 @@ var PageHeader = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <div className="gb-page-header">
                 {this.props.children}
@@ -21,7 +21,7 @@ var Logo = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         var src  = this.props.src;
         var href = this.props.href;
 

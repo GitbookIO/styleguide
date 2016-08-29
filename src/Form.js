@@ -6,11 +6,11 @@ const Form = React.createClass({
         children: React.PropTypes.node
     },
 
-    submit: function() {
+    submit() {
         this.refs.form.submit();
     },
 
-    render: function() {
+    render() {
         return (
             <form ref="form" {...this.props}>
                 {this.props.children}
@@ -26,13 +26,13 @@ const FormGroup = React.createClass({
         children: React.PropTypes.node
     },
 
-    getDefaulProps: function() {
+    getDefaulProps() {
         return {
             error: false
         };
     },
 
-    render: function() {
+    render() {
         let className = classNames('form-group', {
             'has-error': this.props.error
         }, this.props.className);
@@ -50,7 +50,7 @@ const FormHelpBlock = React.createClass({
         children: React.PropTypes.node
     },
 
-    render: function() {
+    render() {
         return (
             <p className="help-block">
                 {this.props.children}

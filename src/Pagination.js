@@ -19,7 +19,7 @@ var Pagination = React.createClass({
         getURL:         React.PropTypes.func
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             getURL:      (page => '?page=' + page),
             pagesToList: 5
@@ -30,7 +30,7 @@ var Pagination = React.createClass({
      * Clicked to select a page
      * @param  {Number} i
      */
-    onSelectPage: function(i, e) {
+    onSelectPage(i, e) {
         if (this.props.onChange) {
             e.preventDefault();
             return this.props.onChange(i);
@@ -43,7 +43,7 @@ var Pagination = React.createClass({
      * @param {String} text
      * @return {React.Element}
      */
-    renderPageItem: function(i, text) {
+    renderPageItem(i, text) {
         var page      = this.props.page;
         var isActive  = (i === page);
         var className = classNames({
@@ -56,7 +56,7 @@ var Pagination = React.createClass({
         </li>;
     },
 
-    render: function() {
+    render() {
         var page        = this.props.page;
         var pages       = this.props.pages;
         var pagesToList = this.props.pagesToList;
