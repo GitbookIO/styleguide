@@ -42,7 +42,9 @@
     "docs-serve": "npm run docs; http-server -p 9090 ./docs/_site/",
     "docs-deploy": "npm run docs; gh-pages -d ./docs/_site/",
     "prepublish": "NODE_ENV=production npm run build",
-    "postpublish": "npm run docs-deploy"
+    "postpublish": "npm run docs-deploy",
+    "test-js-spec": "eslint ./spec",
+    "test": "npm run test-js-spec"
   },
   "repository": {
     "type": "git",
