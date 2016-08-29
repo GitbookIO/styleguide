@@ -6,7 +6,7 @@ order: 2
 
 # Writing
 
-The user experienced greatly depends on clear, concise, and consistent texts. We follow a set of guidelines concerning writing style and terminology to adress this concern.
+The user experience greatly depends on clear, concise, and consistent texts. We follow a set of guidelines concerning writing style and terminology to address this concern.
 
 ## Terminology
 
