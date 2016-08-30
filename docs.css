@@ -4859,7 +4859,7 @@ a.label:hover {
   border: 0;
   margin-bottom: 0;
 }
-.popover {
+.popover-card {
   position: relative;
   border-radius: 4px;
   border: 1px solid #d4d4d4;
@@ -4867,11 +4867,11 @@ a.label:hover {
   background: #fff;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
-.popover:after {
+.popover-card:after {
   position: absolute;
   transform: translate(-50%);
 }
-.popover .popover-arrow {
+.popover-card .popover-arrow {
   position: absolute;
   display: block;
   width: 0;
@@ -4880,7 +4880,7 @@ a.label:hover {
   border-style: solid;
   border-width: 11px;
 }
-.popover .popover-arrow:after {
+.popover-card .popover-arrow:after {
   position: absolute;
   display: block;
   width: 0;
@@ -4890,7 +4890,7 @@ a.label:hover {
   content: "";
   border-width: 10px;
 }
-.popover .popover-heading {
+.popover-card .popover-heading {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   background: #f5f5f5;
@@ -4898,17 +4898,17 @@ a.label:hover {
   padding: 8px 14px;
   border-bottom: 1px solid #e5e5e5;
 }
-.popover .popover-heading h4 {
+.popover-card .popover-heading h4 {
   margin: 0px;
   font-size: 14px;
 }
-.popover .popover-body {
+.popover-card .popover-body {
   padding: 8px 14px;
 }
-.popover .popover-controls {
+.popover-card .popover-controls {
   text-align: center;
 }
-.popover .popover-controls .control {
+.popover-card .popover-controls .control {
   color: #333;
   display: inline-block;
   text-transform: uppercase;
@@ -4916,32 +4916,32 @@ a.label:hover {
   opacity: 0.6;
   cursor: pointer;
 }
-.popover .popover-controls .control:hover {
+.popover-card .popover-controls .control:hover {
   text-decoration: none;
   opacity: 1;
 }
-.popover.popover-top .popover-arrow {
+.popover-top .popover-arrow {
   bottom: -11px;
   left: 50%;
   margin-left: -11px;
   border-top-color: #d4d4d4;
   border-bottom-width: 0;
 }
-.popover.popover-top .popover-arrow:after {
+.popover-top .popover-arrow:after {
   bottom: 1px;
   margin-left: -10px;
   content: "";
   border-top-color: #fff;
   border-bottom-width: 0;
 }
-.popover.popover-bottom .popover-arrow {
+.popover-bottom .popover-arrow {
   top: -11px;
   left: 50%;
   margin-left: -11px;
   border-top-width: 0;
   border-bottom-color: #d4d4d4;
 }
-.popover.popover-bottom .popover-arrow:after {
+.popover-bottom .popover-arrow:after {
   top: 1px;
   margin-left: -10px;
   content: "";
@@ -4966,11 +4966,11 @@ a.label:hover {
 }
 .popover-container .popover.popover-top {
   bottom: 100%;
-  margin-bottom: 14px;
+  padding-bottom: 14px;
 }
 .popover-container .popover.popover-bottom {
   top: 100%;
-  margin-top: 14px;
+  padding-top: 14px;
 }
 @-webkit-keyframes scale-in {
   0% {
