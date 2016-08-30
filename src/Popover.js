@@ -42,10 +42,10 @@ const Popover =  React.createClass({
         return (
             <div className="popover-wrapper">
                 <div className={className}>
-                    <div className="popover-card">
+                    <PopoverCard>
                         <div className="popover-arrow"></div>
                         {this.props.children}
-                    </div>
+                    </PopoverCard>
                 </div>
             </div>
         );
@@ -64,6 +64,21 @@ const PopoverContainer =  React.createClass({
 
         return (
             <div className={className} {...props} >
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
+// The actual element that looks like a popup card.
+const PopoverCard =  React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
+    render() {
+        return (
+            <div className="popover-card" {...this.props}>
                 {this.props.children}
             </div>
         );
@@ -139,6 +154,7 @@ const PopoverControls =  React.createClass({
 });
 
 module.exports           = Popover;
+module.exports.Card      = PopoverCard;
 module.exports.Body      = PopoverBody;
 module.exports.Heading   = PopoverHeading;
 module.exports.Container = PopoverContainer;
