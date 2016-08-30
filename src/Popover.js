@@ -37,13 +37,15 @@ const Popover =  React.createClass({
 
     render() {
         const { position } = this.props;
-        let className = classNames('popover', 'popover-' + position);
+        const className = classNames('popover', 'popover-' + position);
 
         return (
             <div className="popover-wrapper">
                 <div className={className}>
-                    <div className="popover-arrow"></div>
-                    {this.props.children}
+                    <div className="popover-card">
+                        <div className="popover-arrow"></div>
+                        {this.props.children}
+                    </div>
                 </div>
             </div>
         );
@@ -112,7 +114,7 @@ const PopoverControl =  React.createClass({
     },
 
     render() {
-        let { onClick } = this.props;
+        const { onClick } = this.props;
 
         return (
             <Link className="control" onClick={onClick}>
