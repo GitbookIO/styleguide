@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Styleguide for GitBook websites (CSS, Less, Logos)">
-        <meta name="author" content="GitBook <contact@gitbook.com>">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
         <title>Javascript</title>
 
@@ -86,27 +86,27 @@
 
 <p>Each JS project should include eslint dependencies in the <code class="highlighter-rouge">package.json</code>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-    <span class="p">...</span>
-    <span class="s2">"devDependencies"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"gitbook-styleguide"</span><span class="err">:</span> <span class="s2">"*"</span><span class="p">,</span>
-        <span class="s2">"eslint"</span><span class="err">:</span> <span class="s2">"*"</span>
-    <span class="p">},</span>
-    <span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"lint"</span><span class="err">:</span> <span class="s2">"eslint ./"</span><span class="p">,</span>
-        <span class="s2">"test"</span><span class="err">:</span> <span class="s2">"npm run lint"</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">js
+{
+    ...
+    "devDependencies": {
+        "gitbook-styleguide": "*",
+        "eslint": "*"
+    },
+    "scripts": {
+        "lint": "eslint ./",
+        "test": "npm run lint"
+    }
+}
+</code></p>
 
 <p>and an <code class="highlighter-rouge">.eslintrc</code> configuration file:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-    <span class="s2">"extends"</span><span class="err">:</span> <span class="s2">"gitbook-styleguide/eslint"</span>
-<span class="p">}</span>
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">js
+{
+    "extends": "gitbook-styleguide/eslint"
+}
+</code></p>
 
                                 </div>
                             </div>
