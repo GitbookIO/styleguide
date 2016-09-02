@@ -62,7 +62,7 @@ const Button = React.createClass({
             onNativeClick, onClick, ...props } = this.props;
 
 
-        let inner = icon? <Icon className={icon} /> : '';
+        let inner = icon ? <Icon className={icon} /> : '';
 
         props.className = classNames(
             'btn', 'btn-' + style, 'btn-' + size,
@@ -77,7 +77,7 @@ const Button = React.createClass({
         );
         props['aria-label'] = title;
         props.role          = 'button';
-        props.onClick       = onNativeClick? onNativeClick : onClick;
+        props.onClick       = onNativeClick ? onNativeClick : onClick;
 
         if (props.href) {
             delete props.type;
@@ -102,7 +102,7 @@ const ButtonGroup = React.createClass({
         className = classNames(
             'btn-group',
             className,
-            pull? 'pull-' + pull : '',
+            pull ? 'pull-' + pull : '',
             {
                 'btn-group-block': block
             }
@@ -119,7 +119,7 @@ const ButtonToolbar = React.createClass({
     },
 
     render() {
-        return <div className={'btn-toolbar '+(this.props.className || '')}>{this.props.children}</div>;
+        return <div className={'btn-toolbar ' + (this.props.className || '')}>{this.props.children}</div>;
     }
 });
 

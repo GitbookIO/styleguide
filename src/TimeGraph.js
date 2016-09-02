@@ -66,7 +66,7 @@ const TimeLine = React.createClass({
                         <g key={index}>
                             {that.renderPathLine(index)}
                             <circle key={index}
-                                className={'serie-point'+(hover? ' hover' : '')}
+                                className={'serie-point' + (hover ? ' hover' : '')}
                                 onMouseEnter={that.setHover.bind(that, true)}
                                 onMouseLeave={that.setHover.bind(that, false)}
                                 r={that.context.pointRadius}
@@ -111,7 +111,7 @@ var Body = React.createClass({
 
     // Compute X for a point inside Body
     innerPositionX(pX) {
-        return this.props.innerX + pX*this.props.width;
+        return this.props.innerX + pX * this.props.width;
     },
 
     // Compute Y for a point inside Body
@@ -121,12 +121,12 @@ var Body = React.createClass({
 
     // Return inner X value for a date
     getInnerX(date) {
-        return this.innerPositionX((date - this.props.dateMin)/(this.props.dateMax - this.props.dateMin));
+        return this.innerPositionX((date - this.props.dateMin) / (this.props.dateMax - this.props.dateMin));
     },
 
     // Return inner Y value for a value
     getInnerY(value) {
-        return this.innerPositionY((value - this.props.valueMin)/(this.props.valueMax - this.props.valueMin));
+        return this.innerPositionY((value - this.props.valueMin) / (this.props.valueMax - this.props.valueMin));
     },
 
     // Return correct mapping for a point to draw in TimeLine
@@ -135,9 +135,9 @@ var Body = React.createClass({
         var serieStyle = seriesStyle[index];
 
         return {
-            color: point.color || (serieStyle? serieStyle.color : null) || this.context.defaultColor,
+            color: point.color || (serieStyle ? serieStyle.color : null) || this.context.defaultColor,
             value: point.value,
-            serie: point.serie || (serieStyle? serieStyle.title : index),
+            serie: point.serie || (serieStyle ? serieStyle.title : index),
             date:  time.date,
             y:     this.getInnerY(point.value)
         };
@@ -221,46 +221,46 @@ var XAxis = React.createClass({
             },
             {
                 format: 'H:mm:ss',
-                interval: 1*1000
+                interval: 1 * 1000
             },
             {
                 format: 'H:mm',
-                interval: 60*1000
+                interval: 60 * 1000
             },
             {
                 format: 'H',
-                interval: 60*60*1000
+                interval: 60 * 60 * 1000
             },
             {
                 format: 'DD/MM',
-                interval: 1*24*60*60*1000
+                interval: 1 * 24 * 60 * 60 * 1000
             },
             {
                 format: 'DD/MM',
-                interval: 7*24*60*60*1000
+                interval: 7 * 24 * 60 * 60 * 1000
             },
             {
                 format: 'DD/MM',
-                interval: 30*24*60*60*1000
+                interval: 30 * 24 * 60 * 60 * 1000
             },
             {
                 format: 'YYYY',
-                interval: 365*24*60*60*1000
+                interval: 365 * 24 * 60 * 60 * 1000
             },
             {
                 format: 'YYYY',
-                interval: 10*365*24*60*60*1000
+                interval: 10 * 365 * 24 * 60 * 60 * 1000
             },
             {
                 format: 'YYYY',
-                interval: 100*365*24*60*60*1000
+                interval: 100 * 365 * 24 * 60 * 60 * 1000
             }
         ].filter(function(interval) {
-            var count = (dateMax - dateMin)/interval.interval;
+            var count = (dateMax - dateMin) / interval.interval;
             return count > 1;
         })
         .map(function(interval) {
-            var count = (dateMax - dateMin)/interval.interval;
+            var count = (dateMax - dateMin) / interval.interval;
             return { count, interval };
         })
         .sort(function(a, b) {
@@ -278,7 +278,7 @@ var XAxis = React.createClass({
 
         // Compute intervals for rendering dates
         var valuePerInterval = this.getValuePerInterval();
-        var wPerMS           = length/(dateMax - dateMin);
+        var wPerMS           = length / (dateMax - dateMin);
         var axeXInterval     = ((dateMax - dateMin) * wPerMS) / (this.context.textFontSize * 10);
 
         // Construct range of intervals
@@ -362,14 +362,14 @@ var YAxis = React.createClass({
         var innerY       = this.props.innerY;
         var yBase        = this.props.yBase;
 
-        var hPerValue    = length/(valueMax - valueMin);
+        var hPerValue    = length / (valueMax - valueMin);
         axeYInterval = ((valueMax - valueMin) * hPerValue) / (this.context.textFontSize * 4);
 
         // Calcul perfect value per interval (1, 10, 100, 1000, ...)
         var valuePerInterval = that.optimalTickStep(axeYInterval);
         // Construct range of intervals
         var intervalRange = [];
-        for (var i = 0; i < axeYInterval+1; i++) {
+        for (var i = 0; i < axeYInterval + 1; i++) {
             intervalRange.push(i);
         }
 
@@ -385,7 +385,7 @@ var YAxis = React.createClass({
                         return null;
                     }
 
-                    var textX  = innerX - (2*that.context.axeMarkerWidth);
+                    var textX  = innerX - (2 * that.context.axeMarkerWidth);
                     var lineX1 = innerX - that.context.axeMarkerWidth;
                     var lineX2 = innerX;
 
@@ -517,15 +517,15 @@ var TimeGraph = React.createClass({
         series = series.map(function(time, i) {
             // Set min/max dates
             var date = (new Date(time.date)).getTime();
-            dateMin  = Boolean(dateMin)? Math.min(dateMin, date) : date;
-            dateMax  = Boolean(dateMax)? Math.max(dateMax, date) : date;
+            dateMin  = Boolean(dateMin) ? Math.min(dateMin, date) : date;
+            dateMax  = Boolean(dateMax) ? Math.max(dateMax, date) : date;
 
             // Set min/max values
             var points = time.points;
             points.forEach(function(point) {
                 var value = point.value;
-                valueMin = Boolean(valueMin)? Math.min(valueMin, value) : value;
-                valueMax = Boolean(valueMax)? Math.max(valueMax, value) : value;
+                valueMin = Boolean(valueMin) ? Math.min(valueMin, value) : value;
+                valueMax = Boolean(valueMax) ? Math.max(valueMax, value) : value;
             });
 
             return {
@@ -559,11 +559,11 @@ var TimeGraph = React.createClass({
                 autoFillEndTime = new Date(autoFillEndTime).getTime();
             }
             // Set start and end time depending on options
-            dateMin = Boolean(autoFillStartTime)? autoFillStartTime : dateMin;
-            dateMax = Boolean(autoFillEndTime)? autoFillEndTime : dateMax;
+            dateMin = Boolean(autoFillStartTime) ? autoFillStartTime : dateMin;
+            dateMax = Boolean(autoFillEndTime) ? autoFillEndTime : dateMax;
 
             // Set endTime to construct serie
-            var serieEndTime = Boolean(autoFillEndTime)? dateMax : dateMax + autoFillInterval;
+            var serieEndTime = Boolean(autoFillEndTime) ? dateMax : dateMax + autoFillInterval;
 
             // Set valueMin and valueMax
             valueMin = Math.min(valueMin, autoFillValue);
@@ -608,8 +608,8 @@ var TimeGraph = React.createClass({
         var axeXHeight = props.textFontSize * 3;
         var axeYWidth  = valueMax.toFixed(0).length * props.textFontSize * 1.5 + props.axeMarkerWidth;
 
-        var axeXLength = width - 2*padding - axeYWidth;
-        var axeYLength = height - 2*padding - axeXHeight;
+        var axeXLength = width - 2 * padding - axeYWidth;
+        var axeYLength = height - 2 * padding - axeXHeight;
 
         // Compute body size
         var innerX = axeYWidth + padding;
@@ -651,7 +651,7 @@ var TimeGraph = React.createClass({
         var yBase      = this.state.yBase;
 
         return (
-            <svg className="time-graph" width={width} height={height} viewBox={'0 0 '+width+' '+height} preserveAspectRatio="xMidYMid meet">
+            <svg className="time-graph" width={width} height={height} viewBox={'0 0 ' + width + ' ' + height} preserveAspectRatio="xMidYMid meet">
                 <XAxis length={axeXLength}
                     dateMin={dateMin}
                     dateMax={dateMax}

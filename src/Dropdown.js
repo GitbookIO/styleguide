@@ -114,7 +114,7 @@ const ButtonDropdown = React.createClass({
         if (open) {
             return (
                 <Backdrop wrapper={content} onClose={this.close}>
-                    {open? <DropdownMenu width={width} >{items}</DropdownMenu> : null}
+                    {open ? <DropdownMenu width={width} >{items}</DropdownMenu> : null}
                 </Backdrop>
             );
         } else {
@@ -144,7 +144,7 @@ const DropdownItem = React.createClass({
     },
 
     isInner(child) {
-        return (!child  || !child.type || child.type.displayName !== 'DropdownMenu');
+        return (!child || !child.type || child.type.displayName !== 'DropdownMenu');
     },
 
     render() {
@@ -169,9 +169,9 @@ const DropdownItem = React.createClass({
             return null;
         }, this);
 
-        return <li className={this.props.disabled? 'disabled' : ''}>
-            <a {...this.props} href={this.props.href || '#'} onClick={this.props.disabled? null : this.onClick}>
-                {checked? <div className="dropdown-icon pull-left"><Icon id="check" /></div> : ''}
+        return <li className={this.props.disabled ? 'disabled' : ''}>
+            <a {...this.props} href={this.props.href || '#'} onClick={this.props.disabled ? null : this.onClick}>
+                {checked ? <div className="dropdown-icon pull-left"><Icon id="check" /></div> : ''}
                 {inner}
             </a>
             {outer}
@@ -196,7 +196,7 @@ const DropdownMenu = React.createClass({
 
     render() {
         const { width } = this.props;
-        const className = classNames('dropdown-menu', width? 'dropdown-' + width : '',
+        const className = classNames('dropdown-menu', width ? 'dropdown-' + width : '',
             {
                 open: this.props.open
             }

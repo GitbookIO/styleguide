@@ -92,7 +92,7 @@ const ModalHeading = React.createClass({
             return (
                 <div className="modal-heading">
                     <h4>{this.props.title}</h4>
-                    {this.props.onClose? <a href="#" onClick={this.onClose} className="modal-close">&times;</a> : ''}
+                    {this.props.onClose ? <a href="#" onClick={this.onClose} className="modal-close">&times;</a> : ''}
                 </div>
             );
         }

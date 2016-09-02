@@ -33,7 +33,7 @@ const DateSpan =  React.createClass({
     getDefaultProps() {
         return {
             format:   '',
-            refresh: 10*1000,
+            refresh: 10 * 1000,
             utc:      true
         };
     },

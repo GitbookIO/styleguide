@@ -138,7 +138,7 @@ const Select = React.createClass({
         this.setState({
             value:  newProps.value,
             groups: this.propsToGroups(newProps),
-            opened: newProps.disabled? false : this.state.opened
+            opened: newProps.disabled ? false : this.state.opened
         });
     },
 
@@ -148,7 +148,7 @@ const Select = React.createClass({
      * @return {Array<groupShape>}
      */
     propsToGroups(props) {
-        const { options, groups  } = this.props;
+        const { options, groups } = this.props;
 
         if (groups) {
             return groups;
@@ -314,7 +314,7 @@ const Select = React.createClass({
         let inner;
 
         if (value) {
-            const values = multiple? value : [value];
+            const values = multiple ? value : [value];
             inner      = (
                 <span className="SelectSelections">
                 {values.map(function(val, i) {
@@ -388,7 +388,7 @@ const Select = React.createClass({
 
         return (
             <div key={index} className="SelectOptGroup">
-                {group.label? <div className="GroupLabel">{group.label}</div> : ''}
+                {group.label ? <div className="GroupLabel">{group.label}</div> : ''}
                 <div className="GroupOptions">
                     {options}
                 </div>
@@ -409,7 +409,7 @@ const Select = React.createClass({
 
         return (
             <div className={className}>
-                {search? this.renderSearch() : ''}
+                {search ? this.renderSearch() : ''}
                 <div className="SelectGroups">
                     {groups.map(this.renderGroup)}
                 </div>
@@ -429,7 +429,7 @@ const Select = React.createClass({
             <div className={className} onClick={e => e.stopPropagation()}>
                 <input type="hidden" name={name} value={this.getStringValue()} />
                 {this.renderButton()}
-                {opened? <Backdrop onClose={this.close}>{this.renderGroups()}</Backdrop> : ''}
+                {opened ? <Backdrop onClose={this.close}>{this.renderGroups()}</Backdrop> : ''}
             </div>
         );
     }
