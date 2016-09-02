@@ -261,7 +261,8 @@ const Select = React.createClass({
      * @return {String}
      */
     getStringValue() {
-        const { value, renderToString } = this.props;
+        const { renderToString } = this.props;
+        const { value } = this.state;
 
         if (!value) {
             return '';
