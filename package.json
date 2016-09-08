@@ -1,6 +1,6 @@
 {
   "name": "gitbook-styleguide",
-  "version": "6.0.5",
+  "version": "6.0.6",
   "main": "./index.js",
   "author": "GitBook <contact@gitbook.com>",
   "homepage": "http://styleguide.gitbook.com/",
