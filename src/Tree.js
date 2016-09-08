@@ -104,10 +104,10 @@ const TreeLeaf = React.createClass({
         const { depth } = this.context;
 
         let style = {
-            paddingLeft: (PADDING_INITIAL + depth*DEPTH_PADDING)
+            paddingLeft: (PADDING_INITIAL + depth * DEPTH_PADDING)
         };
 
-        let className = classNames('TreeLeaf', status? 'status-' + status : '');
+        let className = classNames('TreeLeaf', status ? 'status-' + status : '');
 
         return (
             <a className={className} href={href} style={style}>
@@ -144,7 +144,7 @@ const TreeToggle = React.createClass({
 
         return (
             <span className={className}>
-                <Icon id={active? 'triangle-down' : 'triangle-right'} />
+                <Icon id={active ? 'triangle-down' : 'triangle-right'} />
             </span>
         );
     }

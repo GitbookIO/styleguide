@@ -16,7 +16,7 @@ const Avatar = React.createClass({
 
     render() {
         let { src, size, className, text, children } = this.props;
-        className = classNames('avatar', size? 'avatar-' + size : '', className);
+        className = classNames('avatar', size ? 'avatar-' + size : '', className);
 
         return (
             <figure className={className} data-initial={text}>

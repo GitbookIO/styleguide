@@ -49,7 +49,7 @@ const Checkbox = React.createClass({
                         type="checkbox"
                         {...props}
                     />
-                    {displaySwitch? <span onClick={this.onSwitchClick} /> : null}
+                    {displaySwitch ? <span onClick={this.onSwitchClick} /> : null}
                     <div className="checkbox-inline-label" onClick={this.onSwitchClick}>{children}</div>
                 </label>
             </div>

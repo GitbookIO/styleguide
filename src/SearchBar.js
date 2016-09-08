@@ -29,6 +29,12 @@ const SearchBar = React.createClass({
         };
     },
 
+    componentWillReceiveProps(newProps) {
+        this.setState({
+            value: newProps.value
+        });
+    },
+
     onChange(e) {
         const { value } = e.target;
 
@@ -47,8 +53,7 @@ const SearchBar = React.createClass({
     },
 
     render() {
-        const { action, placeholder,
-            name, method } = this.props;
+        const { action, placeholder, name, method } = this.props;
         const { value } = this.state;
 
         return (

@@ -279,26 +279,25 @@ const XAxis = React.createClass({
                 format: 'YYYY',
                 interval: 100 * 365 * 24 * 60 * 60 * 1000
             }
-        ].filter(function(interval) {
+        ].filter((interval) => {
             const count = (dateMax - dateMin) / interval.interval;
             return count > 1;
         })
-        .map(function(interval) {
+        .map((interval) => {
             const count = (dateMax - dateMin) / interval.interval;
             return { count, interval };
         })
-        .sort(function(a, b) {
-            return a.count > b.count;
-        })[0].interval;
+        .sort((a, b) => a.count > b.count)[0].interval;
     },
 
     render() {
-        const that    = this;
-        const dateMin = this.props.dateMin;
-        const dateMax = this.props.dateMax;
-        const length  = this.props.length;
-        const innerX  = this.props.innerX;
-        const yTop    = this.props.yTop;
+        const {
+            dateMin,
+            dateMax,
+            length,
+            innerX,
+            yTop
+        } = this.props;
 
         // Compute intervals for rendering dates
         const valuePerInterval = this.getValuePerInterval();
@@ -313,7 +312,7 @@ const XAxis = React.createClass({
 
         return (
             <g>
-            {intervalRange.map(function(i) {
+            {intervalRange.map((i) => {
                 const value = i * valuePerInterval.interval;
                 const date  = new Date(dateMin + value);
 
@@ -324,8 +323,8 @@ const XAxis = React.createClass({
                 }
 
                 return <text key={i} x={x} y={yTop}
-                    fontFamily={that.context.textFontFamily} fontSize={that.context.textFontSize}
-                    fill={that.context.textColor} textAnchor="middle">{moment(date).format(valuePerInterval.format)}</text>;
+                    fontFamily={this.context.textFontFamily} fontSize={this.context.textFontSize}
+                    fill={this.context.textColor} textAnchor="middle">{moment(date).format(valuePerInterval.format)}</text>;
             })}
             </g>
         );
@@ -377,20 +376,21 @@ const YAxis = React.createClass({
     },
 
     render() {
-        const that       = this;
-        const valueMin   = this.props.valueMin;
-        const valueMax   = this.props.valueMax;
-        const length     = this.props.length;
-        const innerX     = this.props.innerX;
-        const innerY     = this.props.innerY;
-        const yBase      = this.props.yBase;
-        let axeYInterval = this.props.axeYInterval;
+        const {
+            valueMin,
+            valueMax,
+            length,
+            innerX,
+            innerY,
+            yBase
+        } = this.props;
+        let { axeYInterval } = this.props;
 
         const hPerValue    = length / (valueMax - valueMin);
         axeYInterval = ((valueMax - valueMin) * hPerValue) / (this.context.textFontSize * 4);
 
         // Calcul perfect value per interval (1, 10, 100, 1000, ...)
-        const valuePerInterval = that.optimalTickStep(axeYInterval);
+        const valuePerInterval = this.optimalTickStep(axeYInterval);
         // Construct range of intervals
         const intervalRange = [];
         for (let i = 0; i < axeYInterval + 1; i++) {
@@ -399,7 +399,7 @@ const YAxis = React.createClass({
 
         return (
             <g>
-                {intervalRange.map(function(i) {
+                {intervalRange.map((i) => {
                     const value        = i * valuePerInterval;
                     const y            = innerY - (value * hPerValue);
                     const displayValue = value + valueMin;
@@ -409,17 +409,17 @@ const YAxis = React.createClass({
                         return null;
                     }
 
-                    const textX  = innerX - (2 * that.context.axeMarkerWidth);
-                    const lineX1 = innerX - that.context.axeMarkerWidth;
+                    const textX  = innerX - (2 * this.context.axeMarkerWidth);
+                    const lineX1 = innerX - this.context.axeMarkerWidth;
                     const lineX2 = innerX;
 
                     return (
                         <g key={i}>
                             <text x={textX} y={y}
-                                fontFamily={that.context.textFontFamily} fontSize={that.context.textFontSize}
-                                textAnchor="end" fill={that.context.textColor}>{displayValue}</text>
+                                fontFamily={this.context.textFontFamily} fontSize={this.context.textFontSize}
+                                textAnchor="end" fill={this.context.textColor}>{displayValue}</text>
                             <line x1={lineX1} x2={lineX2} y1={y} y2={y}
-                                stroke={that.context.axeColor} strokeWidth={that.context.lineWidth} />
+                                stroke={this.context.axeColor} strokeWidth={this.context.lineWidth} />
                         </g>
                     );
                 })}

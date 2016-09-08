@@ -76,19 +76,19 @@ const Pagination = React.createClass({
         return (
             <div className="pagination">
                 <ul className="pagination-pages">
-                    {startRange === 0? '' : this.renderPageItem(0)}
-                    {startRange === 0? '' : <li><span className="separator">...</span></li>}
+                    {startRange === 0 ? '' : this.renderPageItem(0)}
+                    {startRange === 0 ? '' : <li><span className="separator">...</span></li>}
 
                     {pagesRange.map(function(i) {
                         return this.renderPageItem(i);
                     }, this)}
 
-                    {endRange === maxRange? '' : <li><span className="separator">...</span></li>}
-                    {endRange === maxRange? '' : this.renderPageItem(maxRange)}
+                    {endRange === maxRange ? '' : <li><span className="separator">...</span></li>}
+                    {endRange === maxRange ? '' : this.renderPageItem(maxRange)}
                 </ul>
                 <ul className="pagination-nav">
-                    {page < 1? '' : this.renderPageItem(page - 1, '« previous page')}
-                    {page >= (maxRange - 1)? '' : this.renderPageItem(page + 1, 'next page »')}
+                    {page < 1 ? '' : this.renderPageItem(page - 1, '« previous page')}
+                    {page >= (maxRange - 1) ? '' : this.renderPageItem(page + 1, 'next page »')}
                 </ul>
             </div>
         );

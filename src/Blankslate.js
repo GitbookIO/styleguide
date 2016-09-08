@@ -67,5 +67,29 @@ const BlankSlateIcon = React.createClass({
     }
 });
 
-module.exports      = Blankslate;
-module.exports.Icon = BlankSlateIcon;
+/*
+ * A full space layout with a blanksate
+ */
+const BlankSlateLayout = React.createClass({
+    propTypes: {
+        background: React.PropTypes.bool,
+        children:   React.PropTypes.node
+    },
+
+    render() {
+        const { children, background } = this.props;
+        const className = classNames('blankslate-layout', {
+            'with-background': background
+        });
+
+        return (
+            <div className={className}>
+                {children}
+            </div>
+        );
+    }
+});
+
+module.exports        = Blankslate;
+module.exports.Layout = BlankSlateLayout;
+module.exports.Icon   = BlankSlateIcon;

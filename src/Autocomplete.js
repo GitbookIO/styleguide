@@ -83,7 +83,7 @@ const Autocomplete = React.createClass({
     /**
      * Submit a value
      */
-    onSelect (index) {
+    onSelect(index) {
         const { value, results } = this.state;
         const selected = results[index];
 
@@ -140,7 +140,7 @@ const Autocomplete = React.createClass({
                 {results.map(function(result, i) {
                     const isActive = (i === cursor);
 
-                    return <AutocompleteResult key={value+'-'+i} active={isActive}
+                    return <AutocompleteResult key={value + '-' + i} active={isActive}
                                                 onClick={e => that.onSelect(i)}>
                         <ResultComponent result={result} index={i} active={isActive} />
                     </AutocompleteResult>;
@@ -163,8 +163,8 @@ const Autocomplete = React.createClass({
                     onBlur={e => this.onFocusChanged(false)}
                     onKeyDown={this.onKeyDown}
                 />
-                {loading? <Spinner size="sm" centered={false} /> : ''}
-                {focused && results.length > 0? this.renderResults() : ''}
+                {loading ? <Spinner size="sm" centered={false} /> : ''}
+                {focused && results.length > 0 ? this.renderResults() : ''}
             </div>
         );
     }
