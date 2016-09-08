@@ -663,6 +663,7 @@ const TimeGraph = React.createClass({
     },
 
     renderTooltip() {
+        const { width } = this.props;
         const { hovered } = this.state;
         if (!hovered) {
             return null;
@@ -679,19 +680,30 @@ const TimeGraph = React.createClass({
         let pointsDateStr = (new Date(points[0].date)).toLocaleString();
         pointsDateStr = pointsDateStr.split(' ')[0].split('-').join('/');
 
+        const tooltipStyle = {
+            top: tooltipY - 20
+        };
+        // Set tooltip to right or left depending on values position in TimeGraph
+        if (x > (width / 2)) {
+            tooltipStyle.right = (width - x + 15);
+        }
+        else {
+            tooltipStyle.left = x + 15;
+        }
+
         return (
-            <div className="time-graph-tooltip" style={{ left: x + 10, top: tooltipY - 20 }}>
+            <div className="time-graph-tooltip" style={tooltipStyle}>
                 <h6 className="points-date">
                     <DateSpan date={new Date(points[0].date)} format="dddd, MMMM D, YYYY" />
                 </h6>
                 <table className="points-details">
                     <tbody>
                         <tr className="points-colors">
-                        {points.map(point => <td style={{ backgroundColor: point.color }}></td>)}
+                        {points.map((point, index) => <td key={index} style={{ backgroundColor: point.color }}></td>)}
                         </tr>
 
                         <tr className="points-values">
-                        {points.map(point => <td><b>{point.value}</b> {point.serie}</td>)}
+                        {points.map((point, index) => <td key={index}><b>{point.value}</b> {point.serie}</td>)}
                         </tr>
                     </tbody>
                 </table>
