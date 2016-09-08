@@ -1,6 +1,8 @@
 const React  = require('react');
 const moment = require('moment');
 
+const DateSpan = require('./Date');
+
 const TimeLine = React.createClass({
     propTypes: {
         currentX:   React.PropTypes.number,
@@ -8,7 +10,8 @@ const TimeLine = React.createClass({
         lineBottom: React.PropTypes.number,
         lastX:      React.PropTypes.number,
         lastPoints: React.PropTypes.array,
-        points:     React.PropTypes.array
+        points:     React.PropTypes.array,
+        setHovered: React.PropTypes.func
     },
 
     contextTypes: {
@@ -23,7 +26,14 @@ const TimeLine = React.createClass({
         };
     },
 
-    setHovered(state) {
+    setHovered(state, params) {
+        // Send global state hovered parameters
+        if (!state) {
+            params = null;
+        }
+
+        this.props.setHovered(params);
+
         this.setState({
             hovered: state
         });
@@ -44,18 +54,14 @@ const TimeLine = React.createClass({
     },
 
     render() {
-        const that       = this;
-        const currentX   = this.props.currentX;
-        const lineTop    = this.props.lineTop;
-        const lineBottom = this.props.lineBottom;
-        const points     = this.props.points;
-        const hovered    = this.state.hovered;
-
-        // Compute Y to display tooltip
-        const sumPointsY = points.reduce(function(total, point) {
-            return total + point.y;
-        }, 0);
-        const tooltipY = Math.floor(sumPointsY / points.length);
+        const that = this;
+        const { hovered } = this.state;
+        const {
+            currentX,
+            lineTop,
+            lineBottom,
+            points
+        } = this.props;
 
         // Increase points radius if hovered
         let pointRadius = this.context.pointRadius;
@@ -63,39 +69,18 @@ const TimeLine = React.createClass({
             pointRadius += 2;
         }
 
-        // Pretty display date
-        let pointsDateStr = (new Date(points[0].date)).toLocaleString();
-        pointsDateStr = pointsDateStr.split(' ')[0].split('-').join('/');
+        const hoveredParams = {
+            x: currentX,
+            points
+        };
 
         return (
             <g>
                 <line x1={currentX} x2={currentX} y1={lineTop} y2={lineBottom}
                     stroke={this.context.axeColor} strokeWidth={this.context.lineWidth} />
 
-                {hovered ?
-                <foreignObject x={currentX + 10} y={tooltipY + 10}>
-                    <div className="time-graph-tooltip">
-                        <h6 className="points-date text-center">{pointsDateStr}</h6>
-                        <table>
-                        {points.map(function(point, index) {
-                            return (
-                                <tr className="point-details">
-                                    <td>
-                                        <span className="point-color" style={{ backgroundColor: point.color }}></span>{point.serie}
-                                    </td>
-                                    <td>
-                                        <span className="point-value"><b>{point.value}</b></span>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                        </table>
-                    </div>
-                </foreignObject>
-                : null}
-
-                {points.map(function(point, index) {
-                    const color      = point.color;
+                {points.map((point, index) => {
+                    const color = point.color;
                     // Default serie name to index
                     const dataSerie  = point.serie || index;
 
@@ -103,7 +88,7 @@ const TimeLine = React.createClass({
                         <g key={index}>
                             {that.renderPathLine(index)}
                             <circle key={index}
-                                onMouseEnter={that.setHovered.bind(that, true)}
+                                onMouseEnter={that.setHovered.bind(that, true, hoveredParams)}
                                 onMouseLeave={that.setHovered.bind(that, false)}
                                 className={'serie-point' + (hovered ? ' hovered' : '')}
                                 r={pointRadius}
@@ -126,16 +111,17 @@ const TimeLine = React.createClass({
 
 const Body = React.createClass({
     propTypes: {
-        dateMin:   React.PropTypes.number,
-        dateMax:   React.PropTypes.number,
-        valueMin:  React.PropTypes.number,
-        valueMax:  React.PropTypes.number,
-        width:     React.PropTypes.number,
-        height:    React.PropTypes.number,
-        innerX:    React.PropTypes.number,
-        innerY:    React.PropTypes.number,
-        yBase:     React.PropTypes.number,
-        series:    React.PropTypes.array
+        dateMin:    React.PropTypes.number,
+        dateMax:    React.PropTypes.number,
+        valueMin:   React.PropTypes.number,
+        valueMax:   React.PropTypes.number,
+        width:      React.PropTypes.number,
+        height:     React.PropTypes.number,
+        innerX:     React.PropTypes.number,
+        innerY:     React.PropTypes.number,
+        yBase:      React.PropTypes.number,
+        series:     React.PropTypes.array,
+        setHovered: React.PropTypes.func
     },
 
     contextTypes: {
@@ -208,7 +194,8 @@ const Body = React.createClass({
                 lineBottom={lineBottom}
                 points={points}
                 lastX={lastX}
-                lastPoints={lastPoints} />
+                lastPoints={lastPoints}
+                setHovered={that.props.setHovered} />
         );
     },
 
@@ -655,6 +642,9 @@ const TimeGraph = React.createClass({
         const yBase = padding;
         const yTop  = height - padding;
 
+        // No tooltip by default
+        const hovered = null;
+
         return {
             width,
             height,
@@ -668,8 +658,52 @@ const TimeGraph = React.createClass({
             innerX,
             innerY,
             yTop,
-            yBase
+            yBase,
+            hovered
         };
+    },
+
+    setHovered(params) {
+        this.setState({
+            hovered: params
+        });
+    },
+
+    renderTooltip() {
+        const { hovered } = this.state;
+        if (!hovered) {
+            return null;
+        }
+
+        const { x, points } = hovered;
+
+        const sumPointsY = points.reduce((total, point) => {
+            return total + point.y;
+        }, 0);
+        const tooltipY = Math.floor(sumPointsY / points.length);
+
+        // Pretty display date
+        let pointsDateStr = (new Date(points[0].date)).toLocaleString();
+        pointsDateStr = pointsDateStr.split(' ')[0].split('-').join('/');
+
+        return (
+            <div className="time-graph-tooltip" style={{ left: x + 10, top: tooltipY - 20 }}>
+                <h6 className="points-date">
+                    <DateSpan date={new Date(points[0].date)} format="dddd, MMMM D, YYYY" />
+                </h6>
+                <table className="points-details">
+                    <tbody>
+                        <tr className="points-colors">
+                        {points.map(point => <td style={{ backgroundColor: point.color }}></td>)}
+                        </tr>
+
+                        <tr className="points-values">
+                        {points.map(point => <td><b>{point.value}</b> {point.serie}</td>)}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        );
     },
 
     render() {
@@ -690,29 +724,33 @@ const TimeGraph = React.createClass({
         } = this.state;
 
         return (
-            <svg className="time-graph" width={width} height={height} viewBox={'0 0 ' + width + ' ' + height} preserveAspectRatio="xMidYMid meet">
-                <XAxis length={axeXLength}
-                    dateMin={dateMin}
-                    dateMax={dateMax}
-                    innerX={innerX}
-                    yTop={yTop} />
-                <YAxis length={axeYLength}
-                    valueMin={valueMin}
-                    valueMax={valueMax}
-                    innerX={innerX}
-                    innerY={innerY}
-                    yBase={yBase} />
-                <Body series={series}
-                    dateMin={dateMin}
-                    dateMax={dateMax}
-                    valueMin={valueMin}
-                    valueMax={valueMax}
-                    width={axeXLength}
-                    height={axeYLength}
-                    innerX={innerX}
-                    innerY={innerY}
-                    yBase={yBase} />
-            </svg>
+            <div className="time-graph">
+                {this.renderTooltip()}
+                <svg width={width} height={height} viewBox={'0 0 ' + width + ' ' + height} preserveAspectRatio="xMidYMid meet">
+                    <XAxis length={axeXLength}
+                        dateMin={dateMin}
+                        dateMax={dateMax}
+                        innerX={innerX}
+                        yTop={yTop} />
+                    <YAxis length={axeYLength}
+                        valueMin={valueMin}
+                        valueMax={valueMax}
+                        innerX={innerX}
+                        innerY={innerY}
+                        yBase={yBase} />
+                    <Body series={series}
+                        dateMin={dateMin}
+                        dateMax={dateMax}
+                        valueMin={valueMin}
+                        valueMax={valueMax}
+                        width={axeXLength}
+                        height={axeYLength}
+                        innerX={innerX}
+                        innerY={innerY}
+                        yBase={yBase}
+                        setHovered={this.setHovered} />
+                </svg>
+            </div>
         );
     }
 });

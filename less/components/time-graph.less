@@ -3,24 +3,19 @@
 
     .time-graph-tooltip {
         position: fixed;
-        padding: 10px;
-        background-color: rgba(250, 250, 250, 0.85);
-        min-width: 100px;
-        border-radius: 3px;
+        padding: 0 @gb-padding-base-horizontal @gb-padding-base-vertical;
+        background-color: @gb-tooltip-background;
+        color: @gb-tooltip-color;
+        border-radius: @gb-tooltip-radius;
 
-        .point-details {
-            .point-color {
-                display: inline-block;
-                width: 6px;
-                height: 6px;
-                border-radius: 100%;
-                vertical-align: middle;
-                margin-right: 5px;
+        .points-details {
+            .points-colors > td {
+                height: 2px;
             }
 
-            & > td {
-                padding: 0 5px;
-                white-space: nowrap;
+            .points-values > td {
+                padding-right: 20px;
+                font-size: @gb-font-size-small;
             }
         }
 
