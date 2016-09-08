@@ -45,7 +45,7 @@ const TimeLine = React.createClass({
             return null;
         }
 
-        const currentX     = this.props.currentX;
+        const { currentX } = this.props;
         const currentPoint = this.props.points[index];
         const lastPoint    = this.props.lastPoints[index];
 
@@ -54,7 +54,6 @@ const TimeLine = React.createClass({
     },
 
     render() {
-        const that = this;
         const { hovered } = this.state;
         const {
             currentX,
@@ -86,14 +85,14 @@ const TimeLine = React.createClass({
 
                     return (
                         <g key={index}>
-                            {that.renderPathLine(index)}
+                            {this.renderPathLine(index)}
                             <circle key={index}
-                                onMouseEnter={that.setHovered.bind(that, true, hoveredParams)}
-                                onMouseLeave={that.setHovered.bind(that, false)}
+                                onMouseEnter={this.setHovered.bind(this, true, hoveredParams)}
+                                onMouseLeave={this.setHovered.bind(this, false)}
                                 className={'serie-point' + (hovered ? ' hovered' : '')}
                                 r={pointRadius}
                                 fill={color}
-                                strokeWidth={that.context.lineWidth * 2}
+                                strokeWidth={this.context.lineWidth * 2}
                                 stroke="#FFFFFF"
                                 cx={currentX}
                                 cy={point.y}
@@ -168,14 +167,12 @@ const Body = React.createClass({
 
     // Draw this time line
     drawTimeLine(time, i, series) {
-        const that = this;
-
         // Current time informations
-        const currentX   = that.getInnerX(time.date);
-        const lineTop    = that.props.yBase;
-        const lineBottom = that.props.yBase + that.props.height;
+        const currentX   = this.getInnerX(time.date);
+        const lineTop    = this.props.yBase;
+        const lineBottom = this.props.yBase + this.props.height;
 
-        const points = time.points.map(that.formatPoint.bind(that, time));
+        const points = time.points.map(this.formatPoint.bind(this, time));
 
         // Last time informations
         let lastX      = null;
@@ -183,8 +180,8 @@ const Body = React.createClass({
         const lastTime = series[i - 1];
 
         if (Boolean(lastTime)) {
-            lastX      = that.getInnerX(lastTime.date);
-            lastPoints = lastTime.points.map(that.formatPoint.bind(that, lastTime));
+            lastX      = this.getInnerX(lastTime.date);
+            lastPoints = lastTime.points.map(this.formatPoint.bind(this, lastTime));
         }
 
         return (
@@ -195,7 +192,7 @@ const Body = React.createClass({
                 points={points}
                 lastX={lastX}
                 lastPoints={lastPoints}
-                setHovered={that.props.setHovered} />
+                setHovered={this.props.setHovered} />
         );
     },
 
@@ -538,7 +535,7 @@ const TimeGraph = React.createClass({
         let valueMin = null;
         let valueMax = null;
 
-        series = series.map(function(time, i) {
+        series = series.map((time, i) => {
             // Set min/max dates
             const date = (new Date(time.date)).getTime();
             dateMin  = Boolean(dateMin) ? Math.min(dateMin, date) : date;
@@ -546,7 +543,7 @@ const TimeGraph = React.createClass({
 
             // Set min/max values
             const points = time.points;
-            points.forEach(function(point) {
+            points.forEach((point) => {
                 const value = point.value;
                 valueMin = Boolean(valueMin) ? Math.min(valueMin, value) : value;
                 valueMax = Boolean(valueMax) ? Math.max(valueMax, value) : value;
@@ -559,9 +556,7 @@ const TimeGraph = React.createClass({
         });
 
         // Sort by date
-        series.sort(function(a, b) {
-            return a.date - b.date;
-        });
+        series.sort((a, b) => a.date - b.date);
 
         // Set minValue if set
         if (typeof minValue != 'undefined' && minValue < valueMin) {
@@ -602,7 +597,7 @@ const TimeGraph = React.createClass({
             // Fill current serie with existing points or with autoFillValue
             let seriesIndex = 0;
 
-            series = timeRange.map(function(time, i) {
+            series = timeRange.map((time, i) => {
                 const data = series[seriesIndex];
 
                 if (Boolean(data) && (data.date == time)) {
@@ -612,13 +607,11 @@ const TimeGraph = React.createClass({
                     // Construct missing points
                     return {
                         date: time,
-                        points: seriesStyle.map(function(style, serieI) {
-                            return {
-                                serie: style.title || serieI,
-                                value: autoFillValue,
-                                color: style.color || defaultColor
-                            };
-                        })
+                        points: seriesStyle.map((style, serieI) => ({
+                            serie: style.title || serieI,
+                            value: autoFillValue,
+                            color: style.color || defaultColor
+                        }))
                     };
                 }
             });
