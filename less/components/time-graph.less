@@ -1,3 +1,30 @@
 .time-graph {
+    position: relative;
     width: 100%;
+
+    svg {
+        width: 100%;
+    }
+
+    .time-graph-tooltip {
+        position: absolute;
+        padding: 0 @gb-padding-base-horizontal @gb-padding-base-vertical;
+        background-color: @gb-tooltip-background;
+        color: @gb-tooltip-color;
+        border-radius: @gb-tooltip-radius;
+        z-index: @gb-zindex-tooltip;
+
+        .points-details {
+            .points-colors > td {
+                height: 2px;
+            }
+
+            .points-values > td {
+                padding-right: 20px;
+                font-size: @gb-font-size-small;
+                white-space: nowrap;
+            }
+        }
+
+    }
 }
