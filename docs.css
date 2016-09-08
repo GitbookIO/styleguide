@@ -5910,7 +5910,27 @@ table th[class*="col-"] {
   color: white;
 }
 .time-graph {
+  position: relative;
   width: 100%;
+}
+.time-graph svg {
+  width: 100%;
+}
+.time-graph .time-graph-tooltip {
+  position: absolute;
+  padding: 0 12px 6px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  z-index: 300;
+}
+.time-graph .time-graph-tooltip .points-details .points-colors > td {
+  height: 2px;
+}
+.time-graph .time-graph-tooltip .points-details .points-values > td {
+  padding-right: 20px;
+  font-size: 12px;
+  white-space: nowrap;
 }
 .tooltipped {
   display: inline;

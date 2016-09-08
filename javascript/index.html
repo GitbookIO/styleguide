@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="Styleguide for GitBook websites (CSS, Less, Logos)">
+        <meta name="author" content="GitBook <contact@gitbook.com>">
 
         <title>Javascript</title>
 
@@ -84,10 +84,9 @@
 
 <p>JS style is enforced using Eslint. Instal the plugins for your editor (Atom, Sublime Text or emacs).</p>
 
-<p>Each JS project should include eslint dependencies in the <code class="highlighter-rouge">package.json</code>:</p>
+<p>Each JS project should include eslint dependencies in the <code>package.json</code>:</p>
 
-<p><code class="highlighter-rouge">js
-{
+<pre><code class="language-js">{
     ...
     "devDependencies": {
         "gitbook-styleguide": "*",
@@ -98,15 +97,14 @@
         "test": "npm run lint"
     }
 }
-</code></p>
+</code></pre>
 
-<p>and an <code class="highlighter-rouge">.eslintrc</code> configuration file:</p>
+<p>and an <code>.eslintrc</code> configuration file:</p>
 
-<p><code class="highlighter-rouge">js
-{
+<pre><code class="language-js">{
     "extends": "gitbook-styleguide/eslint"
 }
-</code></p>
+</code></pre>
 
                                 </div>
                             </div>
