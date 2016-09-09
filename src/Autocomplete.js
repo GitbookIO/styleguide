@@ -15,6 +15,7 @@ const Autocomplete = React.createClass({
         // Called when onEnter on the input (no result selected)
         // query -> ()
         onEnter:      React.PropTypes.func,
+        onPaste:      React.PropTypes.func,
         value:        React.PropTypes.string,
         placeholder:  React.PropTypes.string,
         size:         React.PropTypes.string,
@@ -150,6 +151,7 @@ const Autocomplete = React.createClass({
     },
 
     render() {
+        const { onPaste } = this.props;
         const { value, focused, loading, results } = this.state;
 
         return (
@@ -161,6 +163,7 @@ const Autocomplete = React.createClass({
                     onChange={this.onInputChanged}
                     onFocus={e => this.onFocusChanged(true)}
                     onBlur={e => this.onFocusChanged(false)}
+                    onPaste={onPaste}
                     onKeyDown={this.onKeyDown}
                 />
                 {loading ? <Spinner size="sm" centered={false} /> : ''}

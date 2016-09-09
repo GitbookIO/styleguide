@@ -9,6 +9,7 @@ const Input = React.createClass({
         onChange:     React.PropTypes.func,
         onFocus:      React.PropTypes.func,
         onBlur:       React.PropTypes.func,
+        onPaste:      React.PropTypes.func,
         onKeyDown:    React.PropTypes.func,
         onClick:      React.PropTypes.func,
         name:         React.PropTypes.string,
@@ -46,7 +47,7 @@ const Input = React.createClass({
     },
 
     render() {
-        const { onBlur, onFocus, onKeyDown, onClick, value, readOnly, defaultValue,
+        const { onPaste, onBlur, onFocus, onKeyDown, onClick, value, readOnly, defaultValue,
             size, autoFocus, placeholder, type,
             name, disabled } = this.props;
 
@@ -61,6 +62,7 @@ const Input = React.createClass({
             onBlur={onBlur}
             onKeyDown={onKeyDown}
             onClick={onClick}
+            onPaste={onPaste}
             onChange={this.onChange}
         />;
     }
