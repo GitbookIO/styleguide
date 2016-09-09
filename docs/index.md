@@ -8,7 +8,7 @@ order: 1
 
 GitBook Styleguide is a collection of styling, components and rules; which are being used by the GitBook team on our official websites such as [gitbook.com](https://www.gitbook.com).
 
-This styleguide is open to criticsms and feedback, feel free to [post an issue](https://github.com/GitbookIO/styleguide.gitbook.com) on GitHub.
+This styleguide is open to criticsms and feedback, feel free to [post an issue](https://github.com/GitbookIO/styleguide) on GitHub.
 
 # Installation
 
