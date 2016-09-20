@@ -8,7 +8,7 @@ const Icon = require('./Icon');
  *
  * <Blankslate icon="book">
  *      <h3>No books</h3>
- *      <p>Create a book et get strated</p>
+ *      <p>Create a book to get started</p>
  * </Blankslate>
  */
 
