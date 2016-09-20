@@ -185,4 +185,14 @@ Dropdown menu can be added to `.btn-group`.
 </div>
 {% endexample %}
 
+# Hidden text button
+
+Use `.hidden-text-expander` to indicate and toggle hidden text.
+
+{% example html %}
+<span class="hidden-text-expander">
+  <button type="button" class="ellipsis-expander">&hellip;</button>
+</span>
+{% endexample %}
+
 

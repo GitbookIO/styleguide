@@ -221,3 +221,27 @@
     }
 }
 
+/* Hidden text expander */
+.hidden-text-expander a,
+.ellipsis-expander {
+    display: inline-block;
+    height: @gb-button-expander-height;
+    padding: 0 @gb-padding-small-vertical @gb-padding-small-vertical;
+    font-size: @gb-font-size-small;
+    font-weight: @gb-font-weight-bold;
+    line-height: @gb-button-expander-line-height;
+    color: #555;
+    text-decoration: none;
+    vertical-align: middle;
+    background: @gb-button-expander-background;
+    border: 0;
+    border-radius: @gb-border-radius-small;
+
+    &:hover {
+        background-color: @gb-button-expander-background-hover;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}

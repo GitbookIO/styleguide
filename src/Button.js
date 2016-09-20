@@ -175,8 +175,29 @@ const ButtonCaret = React.createClass({
     }
 });
 
-module.exports         = Button;
-module.exports.Group   = ButtonGroup;
-module.exports.Toolbar = ButtonToolbar;
-module.exports.Caret   = ButtonCaret;
-module.exports.STYLES  = BUTTONS_STYLES;
+const ButtonTextExpander = React.createClass({
+    propTypes: {
+        onClick: React.PropTypes.func
+    },
+
+    onClick(e) {
+        if (this.props.onClick) {
+            this.props.onClick();
+        }
+    },
+
+    render() {
+        return (
+            <span className="hidden-text-expander">
+                <button type="button" className="ellipsis-expander" onClick={this.onClick}>&hellip;</button>
+            </span>
+        );
+    }
+});
+
+module.exports              = Button;
+module.exports.Group        = ButtonGroup;
+module.exports.Toolbar      = ButtonToolbar;
+module.exports.Caret        = ButtonCaret;
+module.exports.TextExpander = ButtonTextExpander;
+module.exports.STYLES       = BUTTONS_STYLES;
