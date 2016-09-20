@@ -110,7 +110,7 @@ const Button = React.createClass({
         let input;
 
         if (clicked && this.isFormButton()) {
-            input = <input name={name} value={value} />;
+            input = <input type="hidden" name={name} value={value} />;
         }
 
         if (props.href) {
