@@ -69,12 +69,12 @@ const Button = React.createClass({
             (onNativeClick ? onNativeClick : onClick)(e);
         }
 
-        if (!this.isFormButton() || clicked) {
-            this.setState({
+        if (!this.isFormButton()) {
+            return;
+        } else if (clicked) {
+            return this.setState({
                 clicked: false
             });
-
-            return;
         }
 
         // Add this submitting button's value to the form as hidden
