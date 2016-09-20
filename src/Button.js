@@ -77,7 +77,10 @@ const Button = React.createClass({
             return;
         }
 
-        // Handle PJAX type form, where we need to have the value as an input
+        // Add this submitting button's value to the form as hidden
+        // input, fixes issues with PJAX[1] in Firefox[2]
+        // [1]: https://github.com/defunkt/jquery-pjax/pull/295
+        // [2]: http://stackoverflow.com/questions/38277900/formdata-object-does-not-add-submit-type-inputs-from-form-while-on-firefox
         this.setState({
             clicked: true
         }, () => {
