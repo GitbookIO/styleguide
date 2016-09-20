@@ -3097,6 +3097,30 @@ a.btn .btn-label,
   opacity: 0.6;
   font-weight: 500;
 }
+/* Hidden text expander */
+.hidden-text-expander a,
+.ellipsis-expander {
+  display: inline-block;
+  height: 12px;
+  padding: 0 5px 5px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 6px;
+  color: #555;
+  text-decoration: none;
+  vertical-align: middle;
+  background: #ddd;
+  border: 0;
+  border-radius: 2px;
+}
+.hidden-text-expander a:hover,
+.ellipsis-expander:hover {
+  background-color: #ccc;
+}
+.hidden-text-expander a:focus,
+.ellipsis-expander:focus {
+  outline: 0;
+}
 code,
 kbd,
 pre,
