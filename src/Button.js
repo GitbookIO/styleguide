@@ -65,7 +65,8 @@ const Button = React.createClass({
         const { clicked } = this.state;
 
         if (this.props.onClick && !clicked) {
-            this.props.onClick();
+            const { onNativeClick, onClick } = this.props;
+            (onNativeClick ? onNativeClick : onClick)(e);
         }
 
         if (!this.isFormButton() || clicked) {
@@ -91,9 +92,11 @@ const Button = React.createClass({
 
     render() {
         const { clicked } = this.state;
-        let { title, icon, filled, block, noBorder, active, dropdownToggle,
+        const {
+            title, icon, filled, block, noBorder, active, dropdownToggle,
             style, size, className, children, name, value,
-            onNativeClick, onClick, ...props } = this.props;
+            ...props
+        } = this.props;
 
 
         let inner = icon ? <Icon className={icon} /> : '';
@@ -111,7 +114,7 @@ const Button = React.createClass({
         );
         props['aria-label'] = title;
         props.role          = 'button';
-        props.onClick       = onNativeClick ? onNativeClick : onClick;
+        props.onClick       = this.onClick;
 
         let input;
 
