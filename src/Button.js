@@ -19,12 +19,17 @@ const Button = React.createClass({
         className:      React.PropTypes.string,
         children:       React.PropTypes.node,
         type:           React.PropTypes.string,
-        name:           React.PropTypes.string,
-        value:          React.PropTypes.string,
         size:           React.PropTypes.oneOf(SIZES),
         style:          React.PropTypes.oneOf(BUTTONS_STYLES),
         // Makes a link button
         href:           React.PropTypes.string,
+        // Form button
+        value:          React.PropTypes.oneOfType([
+            React.PropTypes.string,
+            React.PropTypes.bool,
+            React.PropTypes.number
+        ]),
+        name:           React.PropTypes.string,
         // For links
         target:         React.PropTypes.string,
         filled:         React.PropTypes.bool,
@@ -51,14 +56,37 @@ const Button = React.createClass({
     },
 
     onClick(e) {
+        const { clicked } = this.state;
+
         if (this.props.onClick) {
             this.props.onClick();
         }
+
+        if (!this.isFormButton() || clicked) {
+            this.setState({
+                clicked: false
+            });
+
+            return;
+        }
+
+        // Handle PJAX type form, where we need to have the value as an input
+        this.setState({
+            clicked: true
+        }, () => {
+            this.refs.button.click();
+        });
+    },
+
+    isFormButton() {
+        const { type, name } = this.props;
+        return type === 'submit' && name;
     },
 
     render() {
+        const { clicked } = this.state;
         let { title, icon, filled, block, noBorder, active, dropdownToggle,
-            style, size, className, children,
+            style, size, className, children, name, value,
             onNativeClick, onClick, ...props } = this.props;
 
 
@@ -79,11 +107,17 @@ const Button = React.createClass({
         props.role          = 'button';
         props.onClick       = onNativeClick ? onNativeClick : onClick;
 
+        let input;
+
+        if (clicked && this.isFormButton()) {
+            input = <input name={name} value={value} />;
+        }
+
         if (props.href) {
             delete props.type;
             return <a {...props}>{inner} {children}</a>;
         } else {
-            return <button {...props}>{inner} {children}</button>;
+            return <button {...props}>{inner} {children}{input}</button>;
         }
     }
 });
