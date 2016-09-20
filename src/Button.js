@@ -117,7 +117,7 @@ const Button = React.createClass({
             delete props.type;
             return <a {...props}>{inner} {children}</a>;
         } else {
-            return <button {...props}>{inner} {children}{input}</button>;
+            return <button ref="button" {...props}>{inner} {children}{input}</button>;
         }
     }
 });
