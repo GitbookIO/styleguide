@@ -85,7 +85,7 @@ const ButtonDropdown = React.createClass({
             ) {
                 if (!child.props.onClick && !child.props.href) {
                     return React.cloneElement(child, {
-                        onNativeClick: that.toggle,
+                        onClick: that.toggle,
                         dropdownToggle: true
                     });
                 }

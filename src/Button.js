@@ -40,8 +40,7 @@ const Button = React.createClass({
         dropdownToggle: React.PropTypes.bool,
         onClick:        React.PropTypes.func,
         title:          React.PropTypes.string,
-        icon:           React.PropTypes.string,
-        onNativeClick:  React.PropTypes.func
+        icon:           React.PropTypes.string
     },
 
     getInitialState() {
@@ -65,8 +64,7 @@ const Button = React.createClass({
         const { clicked } = this.state;
 
         if (this.props.onClick && !clicked) {
-            const { onNativeClick, onClick } = this.props;
-            (onNativeClick ? onNativeClick : onClick)(e);
+            this.props.onClick(e);
         }
 
         if (!this.isFormButton()) {
