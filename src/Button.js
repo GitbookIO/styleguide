@@ -44,6 +44,12 @@ const Button = React.createClass({
         onNativeClick:  React.PropTypes.func
     },
 
+    getInitialState() {
+        return {
+            clicked: false
+        };
+    },
+
     getDefaultProps() {
         return {
             style:    'default',
