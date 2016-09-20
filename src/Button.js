@@ -58,7 +58,7 @@ const Button = React.createClass({
     onClick(e) {
         const { clicked } = this.state;
 
-        if (this.props.onClick) {
+        if (this.props.onClick && !clicked) {
             this.props.onClick();
         }
 
