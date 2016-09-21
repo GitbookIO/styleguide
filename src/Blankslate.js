@@ -38,9 +38,9 @@ const Blankslate = React.createClass({
 
         if (icon) {
             inner = (
-                <BlankSlateIcon>
+                <BlankslateIcon>
                     <Icon id={icon} />
-                </BlankSlateIcon>
+                </BlankslateIcon>
             );
         }
 
@@ -53,7 +53,7 @@ const Blankslate = React.createClass({
     }
 });
 
-const BlankSlateIcon = React.createClass({
+const BlankslateIcon = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
@@ -70,7 +70,7 @@ const BlankSlateIcon = React.createClass({
 /*
  * A full space layout with a blanksate
  */
-const BlankSlateLayout = React.createClass({
+const BlankslateLayout = React.createClass({
     propTypes: {
         background: React.PropTypes.bool,
         children:   React.PropTypes.node
@@ -91,5 +91,5 @@ const BlankSlateLayout = React.createClass({
 });
 
 module.exports        = Blankslate;
-module.exports.Layout = BlankSlateLayout;
-module.exports.Icon   = BlankSlateIcon;
+module.exports.Layout = BlankslateLayout;
+module.exports.Icon   = BlankslateIcon;
