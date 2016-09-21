@@ -35,12 +35,12 @@ const Link = React.createClass({
         });
 
         return (
-            <a
-                {...props}
-                className={className}
-                href={href}
-                onClick={this.onClick}
-            >{children}</a>
+            <a className={className}
+               href={href}
+               onClick={this.onClick}
+               {...props} >
+                {children}
+            </a>
         );
     }
 });
