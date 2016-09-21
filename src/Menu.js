@@ -13,7 +13,8 @@ const MenuItem = React.createClass({
         active:    React.PropTypes.bool,
         href:      React.PropTypes.string,
         className: React.PropTypes.string,
-        children: React.PropTypes.node
+        onClick:   React.PropTypes.func,
+        children:  React.PropTypes.node
     },
 
     getDefaultProps() {
@@ -24,19 +25,17 @@ const MenuItem = React.createClass({
     },
 
     render() {
-        let inner;
+        const { href, onClick } = this.props;
         const className = classNames(this.props.className || '', {
             'active': this.props.active
         });
 
-        if (this.props.href) {
-            inner = <a href={this.props.href}>{this.props.children}</a>;
-        } else {
-            inner = this.props.children;
-        }
-
         return (
-            <li className={className}>{inner}</li>
+            <li className={className}>
+                <a href={href || '#'} onClick={onClick}>
+                    {this.props.children}
+                </a>
+            </li>
         );
     }
 });
