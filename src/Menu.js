@@ -1,6 +1,13 @@
 const React = require('react');
 const classNames = require('classnames');
 
+/**
+ *   <Menu>
+ *       <Menu.Item>...</Menu.Item>
+ *       <Menu.Item>...</Menu.Item>
+ *       <Menu.Item>...</Menu.Item>
+ *   </Menu>
+ */
 const MenuItem = React.createClass({
     propTypes: {
         active:    React.PropTypes.bool,
@@ -25,9 +32,8 @@ const MenuItem = React.createClass({
         if (this.props.href) {
             inner = <a href={this.props.href}>{this.props.children}</a>;
         } else {
-            inner = <span>{this.props.children}</span>;
+            inner = this.props.children;
         }
-
 
         return (
             <li className={className}>{inner}</li>
