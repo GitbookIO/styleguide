@@ -9,20 +9,27 @@ const Backdrop = require('./Backdrop');
  * Dropdown (or up). Automatically bound to child Button.
  * See ButtonDropdown implementation to wrap something else than a button.
  *
- *  <Dropdown>
+ * <Dropdown>
  *
- *      <Button ... />
+ *     <Button ... />
  *
- *      <Dropdown.Item header>Category 1</Dropdown.Item>
- *      <Dropdown.Item href={...}> ... </Dropdown.Item>
- *      <Dropdown.Item href={...}> ... </Dropdown.Item>
+ *     <Dropdown.Item header>Category 1</Dropdown.Item>
+ *     <Dropdown.Item href={...}> ... </Dropdown.Item>
+ *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *
- *      <Dropdown.Item divider />
- *      <Dropdown.Item header>Category 2</Dropdown.Item>
- *      <Dropdown.Item href={...}> ... </Dropdown.Item>
- *      <Dropdown.Item href={...}> ... </Dropdown.Item>
+ *     <Dropdown.Item divider />
+ *     <Dropdown.Item header>Category 2</Dropdown.Item>
+ *     <Dropdown.Item href={...}> ... </Dropdown.Item>
+ *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *
- *  </Dropdown>
+ *     <Dropdown.Item>
+ *         A submenu
+ *         <Dropdown.Menu open={false}> // CSS takes care of display on hover
+ *             <Dropdown.Item href={...}> Subitem </Dropdown.Item>
+ *         </Dropdown.Menu>
+ *     </Dropdown.Item>
+ *
+ * </Dropdown>
  */
 
 const ButtonDropdown = React.createClass({
