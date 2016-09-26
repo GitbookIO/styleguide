@@ -3,9 +3,9 @@ const classNames = require('classnames');
 
 const Container = React.createClass({
     propTypes: {
-        className:  React.PropTypes.string,
-        children: React.PropTypes.node,
-        fluid: React.PropTypes.bool
+        className: React.PropTypes.string,
+        children:  React.PropTypes.node,
+        fluid:     React.PropTypes.bool
     },
 
     render() {

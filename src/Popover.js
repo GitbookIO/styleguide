@@ -109,7 +109,7 @@ const PopoverHeading =  React.createClass({
         if (this.props.title) {
             return (
                 <div className="popover-heading">
-                    <h4>{this.props.title}</h4>
+                    <span className="popover-title">{this.props.title}</span>
                 </div>
             );
         }
