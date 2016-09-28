@@ -4922,9 +4922,10 @@ a.label:hover {
   padding: 8px 14px;
   border-bottom: 1px solid #e5e5e5;
 }
-.popover-card .popover-heading h4 {
+.popover-card .popover-title {
   margin: 0px;
   font-size: 14px;
+  font-weight: 500;
 }
 .popover-card .popover-body {
   padding: 8px 14px;
