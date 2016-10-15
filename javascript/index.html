@@ -84,29 +84,27 @@
 
 <p>JS style is enforced using Eslint. Instal the plugins for your editor (Atom, Sublime Text or emacs).</p>
 
-<p>Each JS project should include eslint dependencies in the <code class="highlighter-rouge">package.json</code>:</p>
+<p>Each JS project should include eslint dependencies in the <code>package.json</code>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-    <span class="p">...</span>
-    <span class="s2">"devDependencies"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"gitbook-styleguide"</span><span class="err">:</span> <span class="s2">"*"</span><span class="p">,</span>
-        <span class="s2">"eslint"</span><span class="err">:</span> <span class="s2">"*"</span>
-    <span class="p">},</span>
-    <span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"lint"</span><span class="err">:</span> <span class="s2">"eslint ./"</span><span class="p">,</span>
-        <span class="s2">"test"</span><span class="err">:</span> <span class="s2">"npm run lint"</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<pre><code class="language-js">{
+    ...
+    "devDependencies": {
+        "gitbook-styleguide": "*",
+        "eslint": "*"
+    },
+    "scripts": {
+        "lint": "eslint ./",
+        "test": "npm run lint"
+    }
+}
 </code></pre>
-</div>
 
-<p>and an <code class="highlighter-rouge">.eslintrc</code> configuration file:</p>
+<p>and an <code>.eslintrc</code> configuration file:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-    <span class="s2">"extends"</span><span class="err">:</span> <span class="s2">"gitbook-styleguide/eslint"</span>
-<span class="p">}</span>
+<pre><code class="language-js">{
+    "extends": "gitbook-styleguide/eslint"
+}
 </code></pre>
-</div>
 
                                 </div>
                             </div>
