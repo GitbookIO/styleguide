@@ -26,11 +26,14 @@ const Input = React.createClass({
         ])
     },
 
-    /**
-     * Focus this input
+    /*
+        APIs for parent component
      */
     focus() {
         this.refs.input.focus();
+    },
+    blur() {
+        this.refs.input.blur();
     },
 
     getDefaultProps() {

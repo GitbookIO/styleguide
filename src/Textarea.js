@@ -21,11 +21,14 @@ const Textarea = React.createClass({
         ])
     },
 
-    /**
-     * Focus this input
+    /*
+        APIs for parent component
      */
     focus() {
         this.refs.textarea.focus();
+    },
+    blur() {
+        this.refs.textarea.blur();
     },
 
     getDefaultProps() {
