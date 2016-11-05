@@ -14,13 +14,13 @@
 }
 
 .button(@mainColor) {
-    background: linear-gradient(@mainColor, darken(@mainColor, @gb-button-gradient));
-    border-color: darken(@mainColor, 1.5 * @gb-button-gradient);
+    background: @mainColor;
+    border-color: @mainColor;
     color: #fff;
 
     &:hover, &:focus {
-        background: linear-gradient(@mainColor, darken(@mainColor, 1.5 * @gb-button-gradient));
-        border-color: darken(@mainColor, 2 * @gb-button-gradient);
+        background: darken(@mainColor, @gb-button-gradient);
+        border-color: darken(@mainColor, @gb-button-gradient);
     }
 
     .caret {
@@ -47,29 +47,6 @@
 .button-class(@className, @mainColor) {
     &.btn-@{className} {
         .button(@mainColor);
-
-        &.btn-outline {
-            background: #fff;
-            color: @mainColor;
-            border-color: @mainColor;
-
-            .caret {
-                border-top-color: @mainColor;
-            }
-
-            &:hover, &:focus {
-                background: @mainColor;
-                color: #fff;
-
-                .caret {
-                    border-top-color: #fff;
-                }
-            }
-        }
-    }
-
-    &.btn-text-@{className} {
-        color: darken(@mainColor, @gb-button-gradient);
     }
 }
 
@@ -102,6 +79,7 @@
     text-shadow: none;
     cursor: pointer;
     display: inline-block;
+    font-weight: @gb-font-weight-bold;
 
     .caret {
         border-top-color: @gb-body-color;
