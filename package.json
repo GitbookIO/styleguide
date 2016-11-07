@@ -34,17 +34,14 @@
   "scripts": {
     "lint": "eslint ./src",
     "build-js": "babel src --source-maps inline --out-dir lib",
-    "build-css": "lessc ./less/main.less ./css/gitbook.css --include-path='node_modules'",
-    "build-css-min": "cssmin ./css/gitbook.css ./css/gitbook.min.css",
-    "build-assets": "cp -R ./node_modules/octicons/octicons ./assets/fonts/ && rm -rf ./assets/images/logo && cp -R ./node_modules/gitbook-logos/output ./assets/images/logo",
-    "build": "npm run build-css; npm run build-js; npm run build-assets",
-    "docs-css": "lessc ./docs/less/main.less ./docs/_site/docs.css --include-path='node_modules'",
-    "docs": "next",
+    "build-css": "lessc ./less/main.less ./static/css/gitbook.css --include-path='node_modules'",
+    "build-css-min": "cssmin ./static/css/gitbook.css ./static/css/gitbook.min.css",
+    "build-static": "cp -R ./node_modules/octicons/octicons ./static/fonts/ && rm -rf ./static/images/logo && cp -R ./node_modules/gitbook-logos/output ./static/images/logo",
+    "build": "npm run build-css; npm run build-js; npm run build-static",
+    "docs": "npm run build-css; next",
     "docs-build": "next build",
-    "prepublish": "NODE_ENV=production npm run build",
-    "postpublish": "npm run docs-deploy",
     "test": "npm run lint",
-    "start": "npm run docs"
+    "start": "next start"
   },
   "repository": {
     "type": "git",

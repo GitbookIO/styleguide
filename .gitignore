@@ -24,14 +24,12 @@ build/Release
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
 
+.next
 .publish
 .release
-docs/_site
-docs/_data/*
-!docs/_data/.gitkeep
-assets/fonts/octicons
-assets/images/logo
+
+static/fonts/octicons
+static/images/logo
 lib
 css
-
-.next
+icons/*.js

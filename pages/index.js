@@ -1,5 +1,10 @@
 const React = require('react');
+const Page = require('./components/Page');
 
 module.exports = () => {
-    return <div>GitBook Styleguide</div>;
+    return (
+        <Page active="introduction">
+
+        </Page>
+    );
 };
