@@ -40,6 +40,7 @@
     "build": "npm run build-css; npm run build-js; npm run build-assets",
     "docs-css": "lessc ./docs/less/main.less ./docs/_site/docs.css --include-path='node_modules'",
     "docs": "next",
+    "docs-build": "next build",
     "prepublish": "NODE_ENV=production npm run build",
     "postpublish": "npm run docs-deploy",
     "test": "npm run lint",
