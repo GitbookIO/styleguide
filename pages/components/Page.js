@@ -41,6 +41,7 @@ const Page = React.createClass({
                 <Head>
                     <title>{title}</title>
                     <link rel="stylesheet" href="/static/css/gitbook.css" />
+                    <meta charSet="UTF-8" />
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.js"></script>
                     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/mode/javascript/javascript.min.js"></script>

@@ -8,12 +8,15 @@
   "bugs": "https://github.com/GitbookIO/styleguide/issues",
   "license": "Apache-2.0",
   "dependencies": {
+    "babel-standalone": "^6.18.2",
     "classnames": "^2.2.5",
+    "codemirror": "^5.20.2",
     "gitbook-markdown-css": "1.0.1",
     "moment": "^2.14.1",
     "moment-duration-format": "^1.3.0",
     "octicons": "3.4.1",
-    "react": "^15.2.0"
+    "react": "^15.2.0",
+    "react-highlight": "^0.9.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
