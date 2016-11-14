@@ -14,6 +14,7 @@ const LogoText = require('../../icons/LogoText');
 const Menu = ({active}) => (
     <ListGroup>
         <ListGroup.Item active={active == 'introduction'} href="/">Introduction</ListGroup.Item>
+        <ListGroup.Item active={active == 'icons'} href="/icons">Logos and Icons</ListGroup.Item>
         <ListGroup.Item active={active == 'buttons'} href="/buttons">Buttons</ListGroup.Item>
         <ListGroup.Item active={active == 'forms'} href="/forms">Forms</ListGroup.Item>
         <ListGroup.Item active={active == 'alerts'} href="/alerts">Alerts</ListGroup.Item>
@@ -41,6 +42,7 @@ const Page = React.createClass({
                 <Head>
                     <title>{title}</title>
                     <link rel="stylesheet" href="/static/css/gitbook.css" />
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css" />
                     <meta charSet="UTF-8" />
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 </Head>
