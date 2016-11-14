@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+const { StickyContainer, Sticky } = require('react-sticky');
 const PageWrapper = require('../../src/PageWrapper');
 const PageInner = require('../../src/PageInner');
 const PageBody = require('../../src/PageBody');
@@ -54,18 +55,22 @@ const Page = React.createClass({
                 </PageHeader>
                 <PageBody>
                     <PageInner>
-                        <Container>
-                            <Row>
-                                <Row.Col md={3}>
-                                    <Panel>
-                                        <Menu active={active} />
-                                    </Panel>
-                                </Row.Col>
-                                <Row.Col md={9}>
-                                    {children}
-                                </Row.Col>
-                            </Row>
-                        </Container>
+                        <StickyContainer>
+                            <Container>
+                                <Row>
+                                    <Row.Col md={3}>
+                                        <Sticky stickyStyle={{ marginTop: 20 }}>
+                                            <Panel>
+                                                <Menu active={active} />
+                                            </Panel>
+                                        </Sticky>
+                                    </Row.Col>
+                                    <Row.Col md={9}>
+                                        {children}
+                                    </Row.Col>
+                                </Row>
+                            </Container>
+                        </StickyContainer>
                     </PageInner>
                 </PageBody>
                 <PageFooter>
