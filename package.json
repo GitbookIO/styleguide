@@ -29,17 +29,19 @@
     "gitbook-logos": "git+https://github.com/GitbookIO/logos.git#2.0.2",
     "less": "^2.7.1",
     "next": "1.1.1",
-    "roboto-fontface": "^0.6.0"
+    "roboto-fontface": "^0.6.0",
+    "watch": "^1.0.1"
   },
   "scripts": {
     "lint": "eslint ./src",
-    "build-js": "babel src --source-maps inline --out-dir lib",
-    "build-css": "lessc ./less/main.less ./static/css/gitbook.css --include-path='node_modules'",
-    "build-css-min": "cssmin ./static/css/gitbook.css ./static/css/gitbook.min.css",
-    "build-static": "cp -R ./node_modules/octicons/octicons ./static/fonts/ && rm -rf ./static/images/logo && cp -R ./node_modules/gitbook-logos/output ./static/images/logo",
-    "build": "npm run build-css; npm run build-js; npm run build-static",
-    "docs": "npm run build-css; next",
-    "docs-build": "next build",
+    "watch": "npm run css:watch",
+    "css:watch": "watch 'npm run css:build' ./less",
+    "css:build": "lessc ./less/main.less ./static/css/gitbook.css --include-path='node_modules'",
+    "js:build": "babel src --source-maps inline --out-dir lib",
+    "assets:build": "cp -R ./node_modules/octicons/octicons ./static/fonts/ && rm -rf ./static/images/logo && cp -R ./node_modules/gitbook-logos/output ./static/images/logo",
+    "build": "npm run css:build; npm run js:build; npm run assets:build; npm run docs:build",
+    "docs:serve": "npm run css:build; parallelshell 'npm run css:watch' 'next'",
+    "docs:build": "next build",
     "test": "npm run lint",
     "start": "next start"
   },
