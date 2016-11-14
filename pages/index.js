@@ -1,10 +1,12 @@
-const React = require('react');
+import React from 'react';
 const Page = require('./components/Page');
+const Button = require('../src/Button');
 
-module.exports = () => {
+export default () => {
     return (
-        <Page active="introduction">
-
+        <Page title="Alerts" active="alerts">
+            <button onClick={e => alert('Hello')}>Hello World</button>
+            <Button onClick={e => alert('Hello')}>Hello World 2</Button>
         </Page>
     );
 };

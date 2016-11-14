@@ -11,7 +11,7 @@ const SCOPE = { React, Alert };
 const EXAMPLE_DEFAULT = '<Alert.Info>Flash message goes here.</Alert.Info>';
 const EXAMPLE_DANGER = '<Alert.Danger>This is an alert!</Alert.Danger>';
 
-module.exports = () => {
+export default () => {
     return (
         <Page title="Alerts" active="alerts">
             <Panel>

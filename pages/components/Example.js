@@ -1,8 +1,25 @@
 const React = require('react');
+const Slate = require('slate');
+const Prism = require('slate-prism');
 const { transform } = require('babel-standalone');
-const Highlight = require('react-highlight');
 
+const Alert = require('../../src/Alert');
 const Panel = require('../../src/Panel');
+
+const STYLE_PRE_ERROR = {
+    padding: 0,
+    background: 'none',
+    color: 'inherit',
+    border: 'none',
+    margin: 0
+};
+
+const plugins = [
+    Prism({
+        onlyIn: node => true,
+        getSyntax: node => 'javascript'
+    })
+];
 
 function evalCode(code, scope) {
     // Wrap multiline JSX
@@ -33,9 +50,34 @@ const Example = React.createClass({
         };
     },
 
+    // Setup initial state for editor
+    getInitialState() {
+        const { source } = this.props;
+        return {
+            state: Slate.Plain.deserialize(source)
+        };
+    },
+
+    // Editor has been modified
+    onChange(state) {
+        this.setState({ state });
+    },
+
     render() {
-        const { title, children, source, scope } = this.props;
-        const result = evalCode(source, scope);
+        const { title, children, scope } = this.props;
+        const { state } = this.state;
+        const source = Slate.Plain.serialize(state);
+
+        let result;
+        try {
+            result = evalCode(source, scope);
+        } catch (error) {
+            result = (
+                <Alert.Danger>
+                    <pre style={STYLE_PRE_ERROR}>{error.message}</pre>
+                </Alert.Danger>
+            );
+        }
 
         return (
             <Panel>
@@ -45,7 +87,13 @@ const Example = React.createClass({
                     {result}
                 </Panel.Body>
                 <Panel.Body>
-                    <Highlight className="javascript">{source}</Highlight>
+                    <pre>
+                        <Slate.Editor
+                            state={state}
+                            plugins={plugins}
+                            onChange={this.onChange}
+                        />
+                    </pre>
                 </Panel.Body>
             </Panel>
         );

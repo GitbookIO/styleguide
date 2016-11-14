@@ -25,7 +25,7 @@ const EXAMPLE_BLOCK =
 <Button block>Secondary button</Button>`;
 
 
-module.exports = () => {
+export default () => {
     return (
         <Page title="Buttons" active="buttons">
             <Panel>
