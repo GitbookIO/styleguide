@@ -2,6 +2,7 @@ const React = require('react');
 
 const Page = require('./components/Page');
 const Example = require('./components/Example');
+const CodeEditor = require('./components/CodeEditor');
 
 const Panel = require('../src/Panel');
 const Alert = require('../src/Alert');
@@ -18,9 +19,7 @@ export default () => {
                 <Panel.Heading title="Alerts" />
                 <Panel.Body>
                     <p>Flash messages, or alerts, inform users of successful or pending actions. Use them sparingly. Don’t show more than one at a time.</p>
-                    <pre>
-                        const Alert = require('gitbook-styleguide/lib/Alert');
-                    </pre>
+                    <CodeEditor source="const Alert = require('gitbook-styleguide/lib/Alert');" />
                 </Panel.Body>
             </Panel>
 

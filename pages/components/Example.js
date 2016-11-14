@@ -1,10 +1,9 @@
 const React = require('react');
-const Slate = require('slate');
-const Prism = require('slate-prism');
 const { transform } = require('babel-standalone');
 
 const Alert = require('../../src/Alert');
 const Panel = require('../../src/Panel');
+const CodeEditor = require('./CodeEditor');
 
 const STYLE_PRE_ERROR = {
     padding: 0,
@@ -13,13 +12,6 @@ const STYLE_PRE_ERROR = {
     border: 'none',
     margin: 0
 };
-
-const plugins = [
-    Prism({
-        onlyIn: node => true,
-        getSyntax: node => 'javascript'
-    })
-];
 
 function evalCode(code, scope) {
     // Wrap multiline JSX
@@ -53,20 +45,17 @@ const Example = React.createClass({
     // Setup initial state for editor
     getInitialState() {
         const { source } = this.props;
-        return {
-            state: Slate.Plain.deserialize(source)
-        };
+        return { source };
     },
 
     // Editor has been modified
-    onChange(state) {
-        this.setState({ state });
+    onChange(source) {
+        this.setState({ source });
     },
 
     render() {
         const { title, children, scope } = this.props;
-        const { state } = this.state;
-        const source = Slate.Plain.serialize(state);
+        const { source } = this.state;
 
         let result;
         try {
@@ -87,13 +76,7 @@ const Example = React.createClass({
                     {result}
                 </Panel.Body>
                 <Panel.Body>
-                    <pre>
-                        <Slate.Editor
-                            state={state}
-                            plugins={plugins}
-                            onChange={this.onChange}
-                        />
-                    </pre>
+                    <CodeEditor source={source} onChange={this.onChange} />
                 </Panel.Body>
             </Panel>
         );

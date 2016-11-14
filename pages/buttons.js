@@ -2,6 +2,7 @@ const React = require('react');
 
 const Page = require('./components/Page');
 const Example = require('./components/Example');
+const CodeEditor = require('./components/CodeEditor');
 
 const Panel = require('../src/Panel');
 const Button = require('../src/Button');
@@ -34,9 +35,7 @@ export default () => {
                 <Panel.Heading title="Buttons" />
                 <Panel.Body>
                     <p>Buttons are used for actions, like in forms, while textual hyperlinks are used for destinations, or moving from one page to another.</p>
-                    <pre>
-                        const Button = require('gitbook-styleguide/lib/Button');
-                    </pre>
+                    <CodeEditor source="const Button = require('gitbook-styleguide/lib/Button');" />
                 </Panel.Body>
             </Panel>
 

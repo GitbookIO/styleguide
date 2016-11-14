@@ -4,10 +4,10 @@ const Page = require('./components/Page');
 const Panel = require('../src/Panel');
 const Container = require('../src/Container');
 const Row = require('../src/Row');
-
 const LogoText = require('../icons/LogoText');
 const Logo = require('../icons/Logo');
 
+const CodeEditor = require('./components/CodeEditor');
 
 const LOGOS = [
     { id: 'LogoText', component: LogoText },
@@ -70,9 +70,7 @@ export default () => {
                 <Panel.Heading title="Logos and Icons" />
                 <Panel.Body>
                     <p>The styleguide provides all logos and icons as react component (rendered as an SVG).</p>
-                    <pre>
-                        const LogoText = require('gitbook-styleguide/icons/LogoText');
-                    </pre>
+                    <CodeEditor source="const LogoText = require('gitbook-styleguide/lib/LogoText');" />
                 </Panel.Body>
             </Panel>
             <IconsSet icons={LOGOS} />
