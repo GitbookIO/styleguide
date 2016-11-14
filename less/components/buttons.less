@@ -11,6 +11,11 @@
     display: inline-block;
     font-weight: @gb-font-weight-bold;
 
+    /* States */
+    &:hover {
+        background: @gb-button-hover-background;
+    }
+
     /* Sizes */
     .button-size(
         @gb-padding-base-vertical;
@@ -58,6 +63,11 @@
     }
     &.btn-danger {
         .button(@gb-brand-danger);
+    }
+    &.btn-secondary {
+        background: #fff;
+        border: 1px solid @gb-palette-gray;
+        color: rgb(110, 115, 125); // @gb-palette-gray;
     }
 
     /* Block Buttons */

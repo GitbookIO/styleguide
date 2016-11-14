@@ -7,6 +7,8 @@ const CodeEditor = require('./components/CodeEditor');
 const Panel = require('../src/Panel');
 const Button = require('../src/Button');
 
+const SCOPE = {React, Button};
+
 const EXAMPLE_DEFAULT =
 `<Button>Button button</Button>
 <Button href="#">Link button</Button>`;
@@ -27,6 +29,23 @@ const EXAMPLE_BLOCK =
 `<Button block style="primary">Primary block button</Button>
 <Button block>Secondary button</Button>`;
 
+const EXAMPLE_GROUP =
+`<Button.Toolbar>
+    <Button.Group>
+        <Button>Button</Button>
+        <Button>Button</Button>
+    </Button.Group>
+    <Button.Group>
+        <Button size="sm">Button</Button>
+        <Button size="sm">Button</Button>
+    </Button.Group>
+</Button.Toolbar>`;
+
+const EXAMPLE_GROUP_JUSTIFIED =
+`<Button.Group block>
+    <Button>Button</Button>
+    <Button>Button</Button>
+</Button.Group>`;
 
 export default () => {
     return (
@@ -39,18 +58,26 @@ export default () => {
                 </Panel.Body>
             </Panel>
 
-            <Example title="Default buttons" source={EXAMPLE_DEFAULT} scope={{React, Button}}></Example>
+            <Example title="Default buttons" source={EXAMPLE_DEFAULT} scope={SCOPE}></Example>
 
-            <Example title="Sizes" source={EXAMPLE_SIZES} scope={{React, Button}}>
+            <Example title="Sizes" source={EXAMPLE_SIZES} scope={SCOPE}>
                 Buttons are availables in multiples sizes: Large, Normal, Small and Extra-Small.
             </Example>
 
-            <Example title="Styles" source={EXAMPLE_STYLES} scope={{React, Button}}>
+            <Example title="Styles" source={EXAMPLE_STYLES} scope={SCOPE}>
                 Buttons can be filled to indicate a more important action:
             </Example>
 
-            <Example title="Block buttons" source={EXAMPLE_BLOCK} scope={{React, Button}}>
+            <Example title="Block buttons" source={EXAMPLE_BLOCK} scope={SCOPE}>
                 Create block level buttons—those that span the full width of a parent:
+            </Example>
+
+            <Example title="Button groups" source={EXAMPLE_GROUP} scope={SCOPE}>
+                Have a hankering for a series of buttons that are attached to one another? Wrap them in a `Button.Group` and the buttons will be rounded and spaced automatically.
+            </Example>
+
+            <Example title="Justified Button groups" source={EXAMPLE_GROUP_JUSTIFIED} scope={SCOPE}>
+                Button groups can be justified, to make a group of buttons stretch at equal sizes to span the entire width of its parent. Also works with button dropdowns within the button group.
             </Example>
         </Page>
     );
