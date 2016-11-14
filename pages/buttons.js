@@ -13,11 +13,13 @@ const EXAMPLE_DEFAULT =
 const EXAMPLE_SIZES =
 `<Button size="lg">Large button</Button>
 <Button size="md">Normal button</Button>
-<Button size="sm">Small button</Button>`;
+<Button size="sm">Small button</Button>
+<Button size="xs">Extra small button</Button>`;
 
 const EXAMPLE_STYLES =
 `<Button style="primary">Primary button</Button>
 <Button style="success">Success button</Button>
+<Button style="danger">Danger button</Button>
 <Button style="secondary">Secondary button</Button>`;
 
 const EXAMPLE_BLOCK =

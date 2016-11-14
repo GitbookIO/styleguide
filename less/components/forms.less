@@ -51,20 +51,20 @@ select.form-control {
     cursor: pointer;
     position: relative;
 
-    background-image: url(@gb-form-select-caret), linear-gradient(@gb-button-background, darken(@gb-button-background, 6%));
+    background-image: url(@gb-form-select-caret), @gb-button-background;
     background-repeat: no-repeat;
     background-position-y: 12px;
     background-position-x: right;
 
     &:hover {
-        background-image: url(@gb-form-select-caret), linear-gradient(@gb-button-background, darken(@gb-button-background, 10%));
+        background-image: url(@gb-form-select-caret), @gb-button-hover-background;
         background-repeat: no-repeat;
         background-position-y: 12px;
         background-position-x: right;
     }
 
     &:focus {
-        background-image: url(@gb-form-select-caret), linear-gradient(@gb-button-background, darken(@gb-button-background, 10%));
+        background-image: url(@gb-form-select-caret), @gb-button-hover-background;
         background-repeat: no-repeat;
         background-position-y: 12px;
         background-position-x: right;
@@ -146,4 +146,3 @@ select.form-control {
         vertical-align: middle;
     }
 }
-

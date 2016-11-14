@@ -28,7 +28,7 @@ node_modules
 .publish
 .release
 
-static/fonts/octicons
+static/fonts/
 static/images/logo
 lib
 css
