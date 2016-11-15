@@ -10,7 +10,7 @@ const Container = require('../../src/Container');
 const Panel = require('../../src/Panel');
 const Row = require('../../src/Row');
 const Button = require('../../src/Button');
-const Icon = require('../../src/Icon');
+const Octicon = require('../../src/Octicon');
 const ListGroup = require('../../src/ListGroup');
 const LogoText = require('../../icons/LogoText');
 
@@ -56,7 +56,7 @@ const Page = React.createClass({
                     <Container>
                         <a href="/"><LogoText /></a>
                         <Button href="https://github.com/GitbookIO/styleguide" className="pull-right hidden-xs">
-                            <Icon id="octoface" /> GitHub
+                            <Octicon id="octoface" size="sm" /> GitHub
                         </Button>
                     </Container>
                 </PageHeader>
