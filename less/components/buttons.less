@@ -15,6 +15,12 @@
     &:hover {
         background: @gb-button-hover-background;
     }
+    &:focus, &:active, &:hover {
+        outline: none;
+    }
+    &:active, &.active {
+        background: @gb-button-hover-background;
+    }
 
     /* Sizes */
     .button-size(
