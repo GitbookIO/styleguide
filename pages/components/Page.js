@@ -9,6 +9,8 @@ const PageFooter = require('../../src/PageFooter');
 const Container = require('../../src/Container');
 const Panel = require('../../src/Panel');
 const Row = require('../../src/Row');
+const Button = require('../../src/Button');
+const Icon = require('../../src/Icon');
 const ListGroup = require('../../src/ListGroup');
 const LogoText = require('../../icons/LogoText');
 
@@ -26,7 +28,9 @@ const Menu = ({active}) => (
         <ListGroup.Item active={active == 'popover'} href="/popover">Popover</ListGroup.Item>
     </ListGroup>
 );
-
+Menu.propTypes = {
+    active: React.PropTypes.bool
+};
 
 const Page = React.createClass({
     propTypes: {
@@ -51,6 +55,9 @@ const Page = React.createClass({
                 <PageHeader>
                     <Container>
                         <a href="/"><LogoText /></a>
+                        <Button href="https://github.com/GitbookIO/styleguide" className="pull-right hidden-xs">
+                            <Icon id="octoface" /> GitHub
+                        </Button>
                     </Container>
                 </PageHeader>
                 <PageBody>
