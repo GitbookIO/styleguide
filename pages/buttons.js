@@ -32,6 +32,12 @@ const EXAMPLE_STYLES =
     <Button style="link">Link button</Button>
 </Button.Toolbar>`;
 
+const EXAMPLE_STYLE_COUNT =
+`<Button.Group>
+    <Button>Star</Button>
+    <Button href="#" style="count">10</Button>
+</Button.Group>`;
+
 const EXAMPLE_BLOCK =
 `<Button block style="primary">Primary block button</Button>
 <Button block>Secondary button</Button>`;
@@ -73,6 +79,10 @@ export default () => {
 
             <Example title="Styles" source={EXAMPLE_STYLES} scope={SCOPE}>
                 Buttons can be filled to indicate a more important action:
+            </Example>
+
+            <Example title="Counts" source={EXAMPLE_STYLE_COUNT} scope={SCOPE}>
+                Buttons with a count.
             </Example>
 
             <Example title="Block buttons" source={EXAMPLE_BLOCK} scope={SCOPE}>
