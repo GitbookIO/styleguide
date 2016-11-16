@@ -26,7 +26,10 @@ const EXAMPLE_DEFAULT =
         <label>Email address</label>
         <Input name="email" placeholder="john@doe.com" />
     </Form.Group>
-    <Button type="submit">Subscribe</Button>
+    <Form.Actions>
+        <Button type="submit" style="primary">Submit</Button>
+        <Button type="cancel" style="secondary">Cancel</Button>
+    </Form.Actions>
 </Form>`;
 
 const EXAMPLE_SIZES =
