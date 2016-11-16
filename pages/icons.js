@@ -16,8 +16,8 @@ const SOURCE_IMPORT =
 const  = require('gitbook-styleguide/lib/');`;
 
 const LOGOS = [
-    { source: '<LogoText />', component: LogoText },
-    { source: '<Logo />', component: Logo }
+    { source: '<LogoText />', component: () => <LogoText size="md" /> },
+    { source: '<Logo />', component: () => <Logo size="md" /> }
 ];
 
 const OCTICONS = Object.keys(octicons)

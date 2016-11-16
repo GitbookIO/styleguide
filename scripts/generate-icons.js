@@ -30,11 +30,11 @@ var React = require('react');
 var SVGIcon = require('../lib/SVGIcon')
 var svg = ${JSON.stringify(svg)}
 
-var ${componentName} = function() {
-    return React.createElement(SVGIcon, {
+var ${componentName} = function(props) {
+    return React.createElement(SVGIcon, Object.assign({}, props || {}, {
         className: "${componentName}",
         svg: svg
-    });
+    }));
 };
 module.exports = ${componentName};
 `;
