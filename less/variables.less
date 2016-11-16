@@ -344,15 +344,22 @@
 ///
 /// Popovers
 ///
-@gb-popover-border-radius:        @gb-border-radius-large;
+@gb-popover-box-shadow:           ~"0 2px 15px 0 rgba(140, 144, 155, 0.5)";
+@gb-popover-border-radius:        @gb-border-radius-small;
 @gb-popover-border:               @gb-palette-gray-outline;
-@gb-popover-heading-background:   @gb-palette-gray;
-@gb-popover-heading-border:       @gb-palette-gray-dark;
+@gb-popover-background:           #fff;
+@gb-popover-heading-background:   @gb-popover-background;
+@gb-popover-heading-border:       @gb-popover-heading-background;
 @gb-popover-heading-font-size:    @gb-font-size-base;
+@gb-popover-padding-v:            20px;
+@gb-popover-padding-h:            20px;
 @gb-popover-padding:              8px 14px;
 @gb-popover-width:                270px;
 @gb-popover-arrow-width:          11px;
 @gb-popover-spacing:              3px;
+
+@gb-popover-control-color:        @gb-palette-gray-dark;
+@gb-popover-control-active-color: @gb-palette-darkgray;
 
 ///
 /// Code

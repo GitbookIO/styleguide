@@ -6,7 +6,8 @@
     border: 1px solid @gb-popover-border;
     width: @gb-popover-width;
     background: #fff;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    box-shadow: @gb-popover-box-shadow;
+    background: @gb-popover-background;
 
     &:after {
         position: absolute;
@@ -37,10 +38,10 @@
     .popover-heading {
         border-top-left-radius: @gb-popover-border-radius;
         border-top-right-radius: @gb-popover-border-radius;
+        border-bottom: 1px solid @gb-popover-heading-border;
         background: @gb-popover-heading-background;
         position: relative;
-        padding: @gb-popover-padding;
-        border-bottom: 1px solid @gb-popover-heading-border;
+        padding: @gb-popover-padding-h @gb-popover-padding-v;
     }
 
     .popover-title {
@@ -50,23 +51,34 @@
     }
 
     .popover-body {
-        padding: @gb-popover-padding;
+        padding: @gb-popover-padding-h @gb-popover-padding-v;
+    }
+
+    .popover-heading + .popover-body {
+        padding-top: 0px;
     }
 
     .popover-controls {
         text-align: center;
+        padding: 0px (@gb-popover-padding-h / 2);
 
         .control {
             color: @gb-body-color;
             display: inline-block;
             text-transform: uppercase;
-            margin: @gb-padding-base-vertical (@gb-padding-base-horizontal/2);
-            opacity: 0.6;
             cursor: pointer;
+            padding: (@gb-popover-padding-h / 2) @gb-popover-padding-v;
+            padding-bottom: (@gb-popover-padding-v - 2);
+            border-bottom: 2px solid transparent;
+            color: @gb-popover-control-color;
 
-            &:hover {
+            &:hover, &:focus {
                 text-decoration: none;
-                opacity: 1;
+            }
+
+            &.active {
+                color: @gb-popover-control-active-color;
+                border-bottom-color: @gb-brand-primary;
             }
         }
     }

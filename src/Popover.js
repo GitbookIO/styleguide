@@ -125,15 +125,17 @@ const PopoverHeading =  React.createClass({
 const PopoverControl =  React.createClass({
     propTypes: {
         children: React.PropTypes.node,
-        onClick:  React.PropTypes.func
+        onClick:  React.PropTypes.func,
+        active:   React.PropTypes.bool
     },
 
     render() {
-        const { onClick } = this.props;
+        const { onClick, children, active } = this.props;
+        const className = classNames('control', { active });
 
         return (
-            <Link className="control" onClick={onClick}>
-                {this.props.children}
+            <Link className={className} onClick={onClick}>
+                {children}
             </Link>
         );
     }

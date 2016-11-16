@@ -26,7 +26,7 @@ const Menu = ({active}) => (
         <ListGroup.Item active={active == 'modals'} href="/modals">Modals</ListGroup.Item>
         <ListGroup.Item active={active == 'tooltips'} href="/tooltips">Tooltips</ListGroup.Item>
         <ListGroup.Item active={active == 'panels'} href="/panels">Panels</ListGroup.Item>
-        <ListGroup.Item active={active == 'popover'} href="/popover">Popover</ListGroup.Item>
+        <ListGroup.Item active={active == 'popovers'} href="/popovers">Popovers</ListGroup.Item>
     </ListGroup>
 );
 Menu.propTypes = {
