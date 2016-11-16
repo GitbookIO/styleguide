@@ -6,8 +6,11 @@ const CodeEditor = require('./components/CodeEditor');
 
 const Panel = require('../src/Panel');
 const Popover = require('../src/Popover');
+const Input = require('../src/Input');
+const Icon = require('../src/Icon');
+const Button = require('../src/Button');
 
-const SCOPE = { React, Panel, Popover };
+const SCOPE = { React, Panel, Popover, Button, Input, Icon };
 
 const EXAMPLE_IMPORT =
 'const Popover = require(\'gitbook-styleguide/lib/Popover\');';
@@ -28,6 +31,31 @@ const EXAMPLE_DEFAULT =
     </Popover.Controls>
 </Popover>`;
 
+const EXAMPLE_WITH_INPUT =
+`<Popover>
+    <Popover.Heading>
+        <Popover.Title>
+            <Icon id="pencil" /> Edit title
+        </Popover.Title>
+    </Popover.Heading>
+    <Popover.Body>
+        <Input placeholder="Some title" />
+    </Popover.Body>
+</Popover>`;
+
+const EXAMPLE_BUTTON =
+`<Popover.Container>
+    <Button onClick={event => this.setState({ open: !this.state.open })}>
+        Toggle Popover
+    </Button>
+    {this.state.open? (<Popover>
+        <Popover.Heading title="Hello" />
+        <Popover.Body>
+            Inner body of the popover.
+        </Popover.Body>
+    </Popover>) : null}
+</Popover.Container>`;
+
 export default () => {
     return (
         <Page title="Popovers" active="popovers">
@@ -42,6 +70,10 @@ export default () => {
             </Panel>
 
             <Example title="Example" source={EXAMPLE_DEFAULT} scope={SCOPE} />
+
+            <Example title="With an input" source={EXAMPLE_WITH_INPUT} scope={SCOPE} />
+
+            <Example title="With button and state" source={EXAMPLE_BUTTON} scope={SCOPE} />
         </Page>
     );
 };

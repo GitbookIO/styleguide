@@ -13,19 +13,25 @@ const STYLE_PRE_ERROR = {
     margin: 0
 };
 
-function evalCode(code, scope) {
-    // Wrap multiline JSX
-    code = `<div>${code}</div>`;
-
+function evalCode(code, scope, initialState = {}) {
     // Wrap in a function
-    code = `
-        (({${Object.keys(scope).join(',')}}) => ${code});
-    `;
+    code =
+`(React.createClass({
+    getInitialState() {
+        return ${JSON.stringify(initialState)};
+    },
+
+    render() {
+        const {${Object.keys(scope).join(',')}} = this.props;
+        return <div>${code}</div>
+    }
+}))`;
 
     // Compile with babel
     code = transform(code, { presets: ['es2015', 'react', 'stage-1'] }).code;
 
-    return eval(code)(scope);
+    const Component = eval(code);
+    return <Component {...scope} />;
 }
 
 const Example = React.createClass({

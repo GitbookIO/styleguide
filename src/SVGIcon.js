@@ -23,7 +23,7 @@ const SVGIcon = React.createClass({
 
     render() {
         const { svg, size, className } = this.props;
-        const cl = classNames('SVGIcon', 'size-' + size, className);
+        const cl = classNames('Icon', 'SVGIcon', 'size-' + size, className);
 
         return <span className={cl} dangerouslySetInnerHTML={{ __html: svg }}></span>;
     }

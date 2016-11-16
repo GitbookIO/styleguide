@@ -99,6 +99,20 @@ const PopoverBody =  React.createClass({
     }
 });
 
+const PopoverTitle =  React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
+    render() {
+        return (
+            <div className="popover-title">
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
 const PopoverHeading =  React.createClass({
     propTypes: {
         title: React.PropTypes.string,
@@ -106,17 +120,15 @@ const PopoverHeading =  React.createClass({
     },
 
     render() {
-        if (this.props.title) {
-            return (
-                <div className="popover-heading">
-                    <span className="popover-title">{this.props.title}</span>
-                </div>
-            );
+        let { title, children } = this.props;
+
+        if (title) {
+            children = <PopoverTitle>{title}</PopoverTitle>;
         }
 
         return (
-            <div className="popover-header">
-                {this.props.children}
+            <div className="popover-heading">
+                {children}
             </div>
         );
     }
@@ -159,6 +171,7 @@ module.exports           = Popover;
 module.exports.Card      = PopoverCard;
 module.exports.Body      = PopoverBody;
 module.exports.Heading   = PopoverHeading;
+module.exports.Title     = PopoverTitle;
 module.exports.Container = PopoverContainer;
 module.exports.Control   = PopoverControl;
 module.exports.Controls  = PopoverControls;
