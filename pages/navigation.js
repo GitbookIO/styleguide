@@ -9,8 +9,22 @@ const FilterList = require('../src/FilterList');
 const Octicon = require('../src/Octicon');
 const ListGroup = require('../src/ListGroup');
 const Pagination = require('../src/Pagination');
+const PageHead = require('../src/PageHead');
+const Menu = require('../src/Menu');
+const SearchBar = require('../src/SearchBar');
+const Row = require('../src/Row');
+const Container = require('../src/Container');
 
-const SCOPE = { React, FilterList, Panel, ListGroup, Octicon, Pagination };
+const SCOPE = { React, FilterList, Panel, ListGroup, Octicon,
+    Pagination, PageHead, Menu, SearchBar, Row, Container };
+
+const EXAMPLE_IMPORTS =
+`const FilterList = require('gitbook-styleguide/lib/FilterList');
+const Menu = require('gitbook-styleguide/lib/Menu');
+const SearchBar = require('gitbook-styleguide/lib/SearchBar');
+const PageHead = require('gitbook-styleguide/lib/PageHead');
+const Pagination = require('gitbook-styleguide/lib/Pagination');
+const ListGroup = require('gitbook-styleguide/lib/ListGroup');`;
 
 const EXAMPLE_MENU =
 `<Panel>
@@ -27,6 +41,31 @@ const EXAMPLE_MENU =
     </ListGroup>
 </Panel>`;
 
+const EXAMPLE_PAGEHEAD_MENU =
+`<PageHead>
+    <Menu right>
+        <Menu.Item>About</Menu.Item>
+        <Menu.Item active>Contact</Menu.Item>
+        <Menu.Item>Terms of Service</Menu.Item>
+    </Menu>
+</PageHead>`;
+
+const EXAMPLE_PAGEHEAD_SEARCH =
+`<PageHead>
+    <Container>
+        <Row>
+            <Row.Col md={8}>
+                <PageHead.Title>
+                    <Octicon id="star" size="sm" /> Explore GitBook
+                </PageHead.Title>
+            </Row.Col>
+            <Row.Col md={4}>
+                <SearchBar placeholder="Search books" />
+            </Row.Col>
+        </Row>
+    </Container>
+</PageHead>`;
+
 const EXAMPLE_FILTERLIST =
 `<FilterList>
     <FilterList.Item selected={true} count={21}>First filter</FilterList.Item>
@@ -41,12 +80,20 @@ export default () => {
     return (
         <Page title="Navigation" active="navigation">
             <Panel>
-                <Panel.Heading title="Alerts" />
+                <Panel.Heading title="Navigation" />
                 <Panel.Body>
                     <p>This styleguide comes with several navigation components. Some were designed with singular purposes, while others were design to be more flexible and appear quite frequently.</p>
-                    <CodeEditor source="const FilterList = require('gitbook-styleguide/lib/FilterList');" />
+                    <CodeEditor source={EXAMPLE_IMPORTS} />
                 </Panel.Body>
             </Panel>
+
+            <Example title="Page head with menu" source={EXAMPLE_PAGEHEAD_MENU} scope={SCOPE}>
+
+            </Example>
+
+            <Example title="Page head with search bar" source={EXAMPLE_PAGEHEAD_SEARCH} scope={SCOPE}>
+
+            </Example>
 
             <Example title="Menu" source={EXAMPLE_MENU} scope={SCOPE}>
                 The menu is a vertical list of navigational links. It should be put in a panel.

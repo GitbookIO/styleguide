@@ -5,18 +5,20 @@
     margin-top: 13px;
     background: @gb-pagehead-search-background;
     border: 1px solid @gb-pagehead-search-border;
+    border-radius: @gb-pagehead-search-border-radius;
+    color: @gb-pagehead-search-color;
     position: relative;
     cursor: text;
 
-    i {
+    .SVGIcon {
         position: absolute;
         left: 8px;
-        font-size: 16px;
         line-height: 34px;
-        color: #bbb;
+        color: inherit;
     }
 
     input {
+        color: inherit;
         border: none;
         .box-shadow(none);
         height: 34px;

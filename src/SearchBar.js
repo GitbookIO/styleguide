@@ -1,7 +1,7 @@
 const React = require('react');
 const classNames = require('classnames');
 
-const Icon = require('./Icon');
+const Octicon = require('./Octicon');
 const Form = require('./Form');
 const Input = require('./Input');
 
@@ -60,7 +60,7 @@ const SearchBar = React.createClass({
             <Form className={classNames('search-bar', this.props.className)}
                   method={method}
                   action={action}>
-                <Icon id="search" />
+                <Octicon id="search" size="sm" />
                 <Input name={name}
                        value={value}
                        onChange={this.onChange}
