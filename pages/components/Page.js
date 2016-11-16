@@ -20,6 +20,7 @@ const Menu = ({active}) => (
         <ListGroup.Item active={active == 'icons'} href="/icons">Logos and Icons</ListGroup.Item>
         <ListGroup.Item active={active == 'buttons'} href="/buttons">Buttons</ListGroup.Item>
         <ListGroup.Item active={active == 'forms'} href="/forms">Forms</ListGroup.Item>
+        <ListGroup.Item active={active == 'navigation'} href="/navigation">Navigation</ListGroup.Item>
         <ListGroup.Item active={active == 'alerts'} href="/alerts">Alerts</ListGroup.Item>
         <ListGroup.Item active={active == 'blankslates'} href="/blankslates">Blankslates</ListGroup.Item>
         <ListGroup.Item active={active == 'modals'} href="/modals">Modals</ListGroup.Item>
