@@ -41,6 +41,17 @@ const EXAMPLE_STYLE_COUNT =
     <Button href="#" style="count">{this.state.count}</Button>
 </Button.Group>`;
 
+const EXAMPLE_STATES =
+`<Button.Toolbar>
+    <Button>Default</Button>
+    <Button active>Active</Button>
+    <Button disabled>Disabled</Button>
+
+    <Button style="primary">Default</Button>
+    <Button style="primary" active>Active</Button>
+    <Button style="primary" disabled>Disabled</Button>
+</Button.Toolbar>`;
+
 const EXAMPLE_BLOCK =
 `<Button block style="primary">Primary block button</Button>
 <Button block>Secondary button</Button>`;
@@ -86,6 +97,10 @@ export default () => {
 
             <Example title="Counts" source={EXAMPLE_STYLE_COUNT} scope={SCOPE} state={{ count: 0 }}>
                 Buttons with a count.
+            </Example>
+
+            <Example title="States" source={EXAMPLE_STATES} scope={SCOPE}>
+                Buttons can have different states:
             </Example>
 
             <Example title="Block buttons" source={EXAMPLE_BLOCK} scope={SCOPE}>

@@ -21,6 +21,11 @@
     &:active, &.active {
         background: @gb-button-hover-background;
     }
+    &.disabled, &.disabled:hover {
+        cursor: default;
+        background: @gb-button-background;
+        color: @gb-palette-gray-dark;
+    }
 
     /* Sizes */
     .button-size(
@@ -118,13 +123,19 @@
     border-color: @color;
     color: #fff;
 
-    &:hover, &:focus {
+    &:hover, &:focus, &.active {
         background: darken(@color, @gb-button-gradient);
         border-color: darken(@color, @gb-button-gradient);
     }
 
     .caret {
         border-top-color: #fff;
+    }
+
+    &.disabled, &.disabled:hover {
+        color: #fff;
+        background: fadeout(@color, @gb-button-disabled-fadeout);
+        border-color: fadeout(@color, @gb-button-disabled-fadeout);
     }
 }
 

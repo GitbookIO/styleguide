@@ -97,7 +97,7 @@ const Button = React.createClass({
         const { clicked } = this.state;
         const {
             title, icon, filled, block, noBorder, active, dropdownToggle,
-            style, size, className, children, name, value,
+            style, size, className, children, name, value, disabled,
             ...props
         } = this.props;
 
@@ -110,7 +110,7 @@ const Button = React.createClass({
                 'btn-fill':        filled,
                 'btn-block':       block,
                 'btn-noborder':    noBorder,
-                active,
+                active, disabled,
                 'dropdown-toggle': dropdownToggle,
                 'tooltipped':      Boolean(title)
             }
