@@ -67,7 +67,7 @@ const EXAMPLE_PAGEHEAD_SEARCH =
         <Row>
             <Row.Col md={8}>
                 <PageHead.Title>
-                    < id="star" size="sm" /> Explore GitBook
+                    <Icon id="star" size="sm" /> Explore GitBook
                 </PageHead.Title>
             </Row.Col>
             <Row.Col md={4}>

@@ -76,9 +76,7 @@ export default () => {
                 </Panel.Body>
             </Panel>
 
-            <Example title="Example form" source={EXAMPLE_DEFAULT} scope={SCOPE}>
-
-            </Example>
+            <Example title="Layout" source={EXAMPLE_DEFAULT} scope={SCOPE} />
 
             <Example title="Sizing" source={EXAMPLE_SIZES} scope={SCOPE}>
                 Make inputs smaller, larger, or full-width with an additional property.
