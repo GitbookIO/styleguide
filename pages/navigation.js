@@ -8,8 +8,9 @@ const Panel = require('../src/Panel');
 const FilterList = require('../src/FilterList');
 const Octicon = require('../src/Octicon');
 const ListGroup = require('../src/ListGroup');
+const Pagination = require('../src/Pagination');
 
-const SCOPE = { React, FilterList, Panel, ListGroup, Octicon };
+const SCOPE = { React, FilterList, Panel, ListGroup, Octicon, Pagination };
 
 const EXAMPLE_MENU =
 `<Panel>
@@ -33,6 +34,9 @@ const EXAMPLE_FILTERLIST =
     <FilterList.Item>Third filter</FilterList.Item>
 </FilterList>`;
 
+const EXAMPLE_PAGINATION =
+'<Pagination page={4} pages={20} />';
+
 export default () => {
     return (
         <Page title="Navigation" active="navigation">
@@ -50,6 +54,10 @@ export default () => {
 
             <Example title="Filter list" source={EXAMPLE_FILTERLIST} scope={SCOPE}>
                 A vertical list of filters. Grey text on white background. Selecting a filter from the list will fill its background with blue and make the text white.
+            </Example>
+
+            <Example title="Pagination" source={EXAMPLE_PAGINATION} scope={SCOPE}>
+
             </Example>
         </Page>
     );
