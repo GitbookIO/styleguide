@@ -6,14 +6,14 @@ const CodeEditor = require('./components/CodeEditor');
 
 const Panel = require('../src/Panel');
 const Alert = require('../src/Alert');
-const Octicon = require('../src/Octicon');
+const Icon = require('../src/Icon');
 
-const SCOPE = { React, Alert, Octicon };
+const SCOPE = { React, Alert };
 
 const EXAMPLE_DEFAULT = '<Alert.Info>Flash message goes here.</Alert.Info>';
 const EXAMPLE_DANGER =
 `<Alert.Danger>
-    <Octicon id="alert" size="sm" /> This is an alert!
+    <Icon id="alert" size="sm" /> This is an alert!
 </Alert.Danger>`;
 
 export default () => {

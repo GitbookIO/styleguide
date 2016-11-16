@@ -6,7 +6,7 @@ const CodeEditor = require('./components/CodeEditor');
 
 const Panel = require('../src/Panel');
 const FilterList = require('../src/FilterList');
-const Octicon = require('../src/Octicon');
+const Icon = require('../src/Icon');
 const ListGroup = require('../src/ListGroup');
 const Pagination = require('../src/Pagination');
 const PageHead = require('../src/PageHead');
@@ -15,7 +15,7 @@ const SearchBar = require('../src/SearchBar');
 const Row = require('../src/Row');
 const Container = require('../src/Container');
 
-const SCOPE = { React, FilterList, Panel, ListGroup, Octicon,
+const SCOPE = { React, FilterList, Panel, ListGroup, Icon,
     Pagination, PageHead, Menu, SearchBar, Row, Container };
 
 const EXAMPLE_IMPORTS =
@@ -30,13 +30,13 @@ const EXAMPLE_MENU =
 `<Panel>
     <ListGroup>
         <ListGroup.Item active={true}>
-            <Octicon id="gear" size="sm" /> Account
+            <Icon id="gear" size="sm" /> Account
         </ListGroup.Item>
         <ListGroup.Item>
-            <Octicon id="person" size="sm" /> Profile
+            <Icon id="person" size="sm" /> Profile
         </ListGroup.Item>
         <ListGroup.Item>
-            <Octicon id="mail" size="sm" /> Notifications
+            <Icon id="mail" size="sm" /> Notifications
         </ListGroup.Item>
     </ListGroup>
 </Panel>`;
@@ -67,7 +67,7 @@ const EXAMPLE_PAGEHEAD_SEARCH =
         <Row>
             <Row.Col md={8}>
                 <PageHead.Title>
-                    <Octicon id="star" size="sm" /> Explore GitBook
+                    < id="star" size="sm" /> Explore GitBook
                 </PageHead.Title>
             </Row.Col>
             <Row.Col md={4}>

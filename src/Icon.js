@@ -1,7 +1,31 @@
 const React = require('react');
 const classNames = require('classnames');
-const Octicon = require('./octicon');
+const octicons = require('octicons');
 
+const SVGIcon = require('./SVGIcon');
+
+/**
+ * Render an octicon SVG using GithUb's library
+ * @type {ReactClass}
+ */
+const Octicon = React.createClass({
+    propTypes: {
+        id: React.PropTypes.string
+    },
+
+    render() {
+        const { id, ...props } = this.props;
+        const icon = octicons[id];
+        const svg = icon.toSVG();
+
+        return <SVGIcon svg={svg} {...props} />;
+    }
+});
+
+/**
+ * Render an icon from octicon or font-awesome
+ * @type {ReactClass}
+ */
 const Icon = React.createClass({
     propTypes: {
         // Icon of the icon in the collection

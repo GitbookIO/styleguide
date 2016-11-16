@@ -5,7 +5,7 @@ const Page = require('./components/Page');
 const Panel = require('../src/Panel');
 const Container = require('../src/Container');
 const Row = require('../src/Row');
-const Octicon = require('../src/Octicon');
+const Icon = require('../src/Icon');
 const LogoText = require('../icons/LogoText');
 const Logo = require('../icons/Logo');
 
@@ -13,7 +13,7 @@ const CodeEditor = require('./components/CodeEditor');
 
 const SOURCE_IMPORT =
 `const LogoText = require('gitbook-styleguide/lib/LogoText');
-const Octicon = require('gitbook-styleguide/lib/Octicon');`;
+const  = require('gitbook-styleguide/lib/');`;
 
 const LOGOS = [
     { source: '<LogoText />', component: LogoText },
@@ -23,8 +23,8 @@ const LOGOS = [
 const OCTICONS = Object.keys(octicons)
     .map(id => {
         return {
-            source: `<Octicon id="${id}" />`,
-            component: () => <Octicon id={id} />
+            source: `<Icon id="${id}" />`,
+            component: () => <Icon id={id} size="md" />
         };
     });
 
@@ -56,11 +56,11 @@ const IconsSet = React.createClass({
                                         {<cell.component />}
                                     </div>
                                 </Panel.Body>
-                                <Panel.Footer>
+                                <Panel.Body>
                                     <div style={{textAlign: 'center'}}>
                                         <code>{cell.source}</code>
                                     </div>
-                                </Panel.Footer>
+                                </Panel.Body>
                             </Panel>
                         </Row.Col>
                     );
