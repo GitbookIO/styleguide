@@ -6,8 +6,9 @@ const CodeEditor = require('./components/CodeEditor');
 
 const Panel = require('../src/Panel');
 const Button = require('../src/Button');
+const Icon = require('../src/Icon');
 
-const SCOPE = {React, Button};
+const SCOPE = { React, Button, Icon };
 
 const EXAMPLE_DEFAULT =
 `<Button.Toolbar>
@@ -34,8 +35,10 @@ const EXAMPLE_STYLES =
 
 const EXAMPLE_STYLE_COUNT =
 `<Button.Group>
-    <Button>Star</Button>
-    <Button href="#" style="count">10</Button>
+    <Button onClick={event => this.setState({ count: this.state.count + 1 })}>
+        <Icon id="star" /> Star
+    </Button>
+    <Button href="#" style="count">{this.state.count}</Button>
 </Button.Group>`;
 
 const EXAMPLE_BLOCK =
@@ -81,7 +84,7 @@ export default () => {
                 Buttons can be filled to indicate a more important action:
             </Example>
 
-            <Example title="Counts" source={EXAMPLE_STYLE_COUNT} scope={SCOPE}>
+            <Example title="Counts" source={EXAMPLE_STYLE_COUNT} scope={SCOPE} state={{ count: 0 }}>
                 Buttons with a count.
             </Example>
 

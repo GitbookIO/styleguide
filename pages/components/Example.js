@@ -39,7 +39,8 @@ const Example = React.createClass({
         title:    React.PropTypes.string,
         source:   React.PropTypes.string,
         children: React.PropTypes.node,
-        scope:    React.PropTypes.object
+        scope:    React.PropTypes.object,
+        state:    React.PropTypes.object
     },
 
     getDefaultProps() {
@@ -60,12 +61,12 @@ const Example = React.createClass({
     },
 
     render() {
-        const { title, children, scope } = this.props;
+        const { title, children, scope, state } = this.props;
         const { source } = this.state;
 
         let result;
         try {
-            result = evalCode(source, scope);
+            result = evalCode(source, scope, state);
         } catch (error) {
             result = (
                 <Alert.Danger>
