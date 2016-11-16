@@ -10,20 +10,27 @@ const Button = require('../src/Button');
 const SCOPE = {React, Button};
 
 const EXAMPLE_DEFAULT =
-`<Button>Button button</Button>
-<Button href="#">Link button</Button>`;
+`<Button.Toolbar>
+    <Button>Button button</Button>
+    <Button href="#">Link button</Button>
+</Button.Toolbar>`;
 
 const EXAMPLE_SIZES =
-`<Button size="lg">Large button</Button>
-<Button size="md">Normal button</Button>
-<Button size="sm">Small button</Button>
-<Button size="xs">Extra small button</Button>`;
+`<Button.Toolbar>
+    <Button size="lg">Large button</Button>
+    <Button size="md">Normal button</Button>
+    <Button size="sm">Small button</Button>
+    <Button size="xs">Extra small button</Button>
+</Button.Toolbar>`;
 
 const EXAMPLE_STYLES =
-`<Button style="primary">Primary button</Button>
-<Button style="success">Success button</Button>
-<Button style="danger">Danger button</Button>
-<Button style="secondary">Secondary button</Button>`;
+`<Button.Toolbar>
+    <Button style="primary">Primary button</Button>
+    <Button style="success">Success button</Button>
+    <Button style="danger">Danger button</Button>
+    <Button style="secondary">Secondary button</Button>
+    <Button style="link">Link button</Button>
+</Button.Toolbar>`;
 
 const EXAMPLE_BLOCK =
 `<Button block style="primary">Primary block button</Button>

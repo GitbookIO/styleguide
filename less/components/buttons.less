@@ -75,6 +75,19 @@
         border: 1px solid @gb-palette-gray;
         color: rgb(110, 115, 125); // @gb-palette-gray;
     }
+    &.btn-link {
+        text-shadow: none;
+        color: @gb-link-color;
+        border: none;
+        background: none;
+        .box-shadow(none);
+
+        &:hover, &:focus {
+            color: @gb-link-hover-color;
+            outline: none;
+            text-decoration: underline;
+        }
+    }
 
     /* Block Buttons */
     &.btn-block {
