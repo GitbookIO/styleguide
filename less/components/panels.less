@@ -20,17 +20,15 @@
     border: 1px solid transparent;
     border-radius: @gb-panel-radius;
     color: @gb-panel-color;
-    .box-shadow(~"0 1px 1px rgba(0,0,0,0.05)");
+    .box-shadow(@gb-panel-box-shadow);
 
     .btn-toolbar + & {
         margin-top: @gb-margin-base;
     }
 
     .panel-heading {
-        padding: 10px 5px;
-        margin-right: 15px;
-        margin-left: 15px;
-        border-bottom: 1px solid @gb-palette-gray-dark;
+        padding: 10px @gb-panel-padding;
+        border-bottom: 1px solid @gb-palette-gray-outline;
         border-top-right-radius: @gb-panel-radius;
         border-top-left-radius: @gb-panel-radius;
         background: #fff;
@@ -94,14 +92,6 @@
 
     .panel-body {
         padding: @gb-panel-padding;
-    }
-
-    .panel-footer {
-        padding: 10px @gb-panel-padding;
-        background-color: @gb-palette-gray-light;
-        border-top: 1px solid #ddd;
-        border-bottom-right-radius: 1px;
-        border-bottom-left-radius: 1px;
     }
 
     &.panel-default {
