@@ -43,11 +43,22 @@ const EXAMPLE_MENU =
 
 const EXAMPLE_PAGEHEAD_MENU =
 `<PageHead>
-    <Menu right>
-        <Menu.Item>About</Menu.Item>
-        <Menu.Item active>Contact</Menu.Item>
-        <Menu.Item>Terms of Service</Menu.Item>
-    </Menu>
+    <Container>
+        <Row>
+            <Row.Col md={5}>
+                <PageHead.Title>
+                    Contact GitBook
+                </PageHead.Title>
+            </Row.Col>
+            <Row.Col md={7}>
+                <Menu right>
+                    <Menu.Item>About</Menu.Item>
+                    <Menu.Item active>Contact</Menu.Item>
+                    <Menu.Item>Terms of Service</Menu.Item>
+                </Menu>
+            </Row.Col>
+        </Row>
+    </Container>
 </PageHead>`;
 
 const EXAMPLE_PAGEHEAD_SEARCH =
