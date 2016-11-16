@@ -55,7 +55,7 @@ const Page = React.createClass({
 
                 <PageHeader>
                     <Container>
-                        <a href="/"><LogoText /></a>
+                        <a href="/"><LogoText size="md" /></a>
                         <Button href="https://github.com/GitbookIO/styleguide" className="pull-right hidden-xs">
                             <Icon id="octoface" size="sm" /> GitHub
                         </Button>
