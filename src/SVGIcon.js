@@ -3,6 +3,11 @@ const classNames = require('classnames');
 
 const SIZES = require('./SIZES');
 
+/**
+ * An icon using an internal SVG.
+ *
+ * @type {ReactClass}
+ */
 const SVGIcon = React.createClass({
     propTypes: {
         svg:       React.PropTypes.string,
@@ -12,7 +17,7 @@ const SVGIcon = React.createClass({
 
     getDefaultProps() {
         return {
-            size: 'md'
+            size: 'sm'
         };
     },
 

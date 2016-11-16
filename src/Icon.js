@@ -1,5 +1,6 @@
 const React = require('react');
 const classNames = require('classnames');
+const Octicon = require('./octicon');
 
 const Icon = React.createClass({
     propTypes: {
@@ -21,7 +22,11 @@ const Icon = React.createClass({
     },
 
     render() {
-        let { type, id, className, spin } = this.props;
+        let { type, id, className, spin, ...props } = this.props;
+
+        if (type == 'octicon') {
+            return <Octicon id={id} {...props} />;
+        }
 
         className = classNames(
             type + ' ' + type + '-' + id,
