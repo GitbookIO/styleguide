@@ -16,7 +16,8 @@
     "octicons": "5.0.1",
     "react-sticky": "^5.0.5",
     "slate": "^0.14.16",
-    "slate-prism": "^0.2.0"
+    "slate-prism": "^0.2.0",
+    "roboto-fontface": "^0.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
@@ -30,7 +31,6 @@
     "less": "^2.7.1",
     "next": "1.1.1",
     "parallelshell": "^2.0.0",
-    "roboto-fontface": "^0.6.0",
     "watch": "^1.0.1"
   },
   "scripts": {
