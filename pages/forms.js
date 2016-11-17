@@ -115,9 +115,9 @@ const EXAMPLE_SELECT_COMPLEX =
 
 export default () => {
     return (
-        <Page title="Forms" active="forms">
+        <Page title="Forms and Inputs" active="forms">
             <Panel>
-                <Panel.Heading title="Forms" />
+                <Panel.Heading title="Forms and Inputs" />
                 <Panel.Body>
                     <p>
                         These components are the basic building blocks for creating forms.{' '}
