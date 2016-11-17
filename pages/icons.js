@@ -12,8 +12,8 @@ const Logo = require('../icons/Logo');
 const CodeEditor = require('./components/CodeEditor');
 
 const SOURCE_IMPORT =
-`const LogoText = require('gitbook-styleguide/lib/LogoText');
-const  = require('gitbook-styleguide/lib/');`;
+`const LogoText = require('gitbook-styleguide/icons/LogoText');
+const Logo = require('gitbook-styleguide/icons/Logo');`;
 
 const LOGOS = [
     { source: '<LogoText />', component: () => <LogoText size="md" /> },

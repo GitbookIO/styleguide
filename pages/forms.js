@@ -6,11 +6,13 @@ const CodeEditor = require('./components/CodeEditor');
 
 const Panel = require('../src/Panel');
 const Form = require('../src/Form');
+const Icon = require('../src/Icon');
 const Input = require('../src/Input');
 const Button = require('../src/Button');
 const Select = require('../src/Select');
+const Checkbox = require('../src/Checkbox');
 
-const SCOPE = { React, Form, Input, Button, Select };
+const SCOPE = { React, Form, Input, Icon, Button, Select, Checkbox };
 
 const EXAMPLE_IMPORT =
 `const Form = require('gitbook-styleguide/lib/Form');
@@ -60,6 +62,32 @@ const EXAMPLE_STATES =
     </Form.Group>
 </Form>`;
 
+const EXAMPLE_CHECKBOX =
+`<Form>
+    <Checkbox name="something" checked>
+        Something to check (with control state)
+    </Checkbox>
+    <Checkbox name="something" size="lg">
+        Something to check (Large)
+    </Checkbox>
+    <Checkbox name="something" direction="right">
+        Something to check (On the right)
+    </Checkbox>
+</Form>`;
+
+const EXAMPLE_INPUTGROUP =
+`<Form>
+    <Form.Group>
+        <label>Email address</label>
+        <Input.Group>
+            <Input.GroupAddon>
+                @
+            </Input.GroupAddon>
+            <Input name="email" placeholder="Enter an email" />
+        </Input.Group>
+    </Form.Group>
+</Form>`;
+
 const EXAMPLE_SELECT_COMPLEX =
 `<Select
     name="countries"
@@ -98,7 +126,13 @@ export default () => {
                 States can be used to signal an error on a field.
             </Example>
 
-            <Example title="Complex Select" source={EXAMPLE_SELECT} scope={SCOPE}>
+            <Example title="Checkbox" source={EXAMPLE_CHECKBOX} scope={SCOPE} />
+
+            <Example title="Input Groups" source={EXAMPLE_INPUTGROUP} scope={SCOPE}>
+                Extend form controls by adding text or buttons before, after, or on both sides of any text-based input.
+            </Example>
+
+            <Example title="Select" source={EXAMPLE_SELECT} scope={SCOPE}>
                 HTML select are replaced by an input allowing more options (search, multiple values, custom renderers with icons, etc).
             </Example>
 
