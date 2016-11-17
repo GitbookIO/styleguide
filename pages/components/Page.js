@@ -1,4 +1,4 @@
-import React from 'react';
+const React = require('react');
 import Head from 'next/head';
 const { StickyContainer, Sticky } = require('react-sticky');
 const PageWrapper = require('../../src/PageWrapper');
@@ -13,6 +13,8 @@ const Button = require('../../src/Button');
 const Icon = require('../../src/Icon');
 const ListGroup = require('../../src/ListGroup');
 const LogoText = require('../../icons/LogoText');
+
+const Footer = require('./Footer');
 
 const Menu = ({active}) => (
     <ListGroup>
@@ -81,9 +83,7 @@ const Page = React.createClass({
                         </StickyContainer>
                     </PageInner>
                 </PageBody>
-                <PageFooter>
-
-                </PageFooter>
+                <Footer />
             </PageWrapper>
         );
     }
