@@ -24,6 +24,23 @@ const EXAMPLE_DEFAULT =
      This one is open
 </Tooltip>`;
 
+const EXAMPLE_POSITIONS =
+`<Tooltip title="Bottom right" open position={Tooltip.POSITIONS.BOTTOM_RIGHT}>
+    <code>Bottom right</code>
+</Tooltip>
+<Tooltip title="Top right" open position={Tooltip.POSITIONS.TOP_RIGHT}>
+    <code>Top right</code>
+</Tooltip>
+<Tooltip title="Bottom" open position={Tooltip.POSITIONS.BOTTOM}>
+    <code>Bottom</code>
+</Tooltip>
+<Tooltip title="Bottom left" open position={Tooltip.POSITIONS.BOTTOM_LEFT}>
+    <code>Bottom left</code>
+</Tooltip>
+<Tooltip title="Top" open position={Tooltip.POSITIONS.TOP}>
+    <code>Top</code>
+</Tooltip>`;
+
 const EXAMPLE_BUTTONS =
 `<Button.Toolbar>
     <Button title="Hello 1">Do something</Button>
@@ -41,6 +58,7 @@ export default () => {
             </Panel>
 
             <Example title="Example" source={EXAMPLE_DEFAULT} scope={SCOPE}></Example>
+            <Example title="Positions" source={EXAMPLE_POSITIONS} scope={SCOPE}></Example>
             <Example title="Buttons" source={EXAMPLE_BUTTONS} scope={SCOPE}></Example>
         </Page>
     );
