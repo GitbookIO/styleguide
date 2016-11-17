@@ -8,7 +8,7 @@ const Panel = require('../src/Panel');
 const Alert = require('../src/Alert');
 const Icon = require('../src/Icon');
 
-const SCOPE = { React, Alert };
+const SCOPE = { React, Alert, Icon };
 
 const EXAMPLE_DEFAULT = '<Alert.Info>Flash message goes here.</Alert.Info>';
 const EXAMPLE_DANGER =
