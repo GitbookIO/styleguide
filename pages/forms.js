@@ -48,6 +48,18 @@ const EXAMPLE_SELECT =
     ]}
 />`;
 
+const EXAMPLE_STATES =
+`<Form>
+    <Form.Group error>
+        <label>Name</label>
+        <Input name="name" placeholder="This field has an error" />
+    </Form.Group>
+    <Form.Group>
+        <label>Email address</label>
+        <Input name="email" disabled placeholder="This field is disabled" />
+    </Form.Group>
+</Form>`;
+
 const EXAMPLE_SELECT_COMPLEX =
 `<Select
     name="countries"
@@ -80,6 +92,10 @@ export default () => {
 
             <Example title="Sizing" source={EXAMPLE_SIZES} scope={SCOPE}>
                 Make inputs smaller, larger, or full-width with an additional property.
+            </Example>
+
+            <Example title="States" source={EXAMPLE_STATES} scope={SCOPE}>
+                States can be used to signal an error on a field.
             </Example>
 
             <Example title="Complex Select" source={EXAMPLE_SELECT} scope={SCOPE}>
