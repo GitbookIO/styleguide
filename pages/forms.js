@@ -11,8 +11,9 @@ const Input = require('../src/Input');
 const Button = require('../src/Button');
 const Select = require('../src/Select');
 const Checkbox = require('../src/Checkbox');
+const Textarea = require('../src/Textarea');
 
-const SCOPE = { React, Form, Input, Icon, Button, Select, Checkbox };
+const SCOPE = { React, Form, Input, Icon, Button, Select, Checkbox, Textarea };
 
 const EXAMPLE_IMPORT =
 `const Form = require('gitbook-styleguide/lib/Form');
@@ -27,6 +28,10 @@ const EXAMPLE_DEFAULT =
     <Form.Group>
         <label>Email address</label>
         <Input name="email" placeholder="john@doe.com" />
+    </Form.Group>
+    <Form.Group>
+        <label>Message</label>
+        <Textarea placeholder="Some message" />
     </Form.Group>
     <Form.Actions>
         <Button type="submit" style="primary">Submit</Button>
@@ -59,6 +64,14 @@ const EXAMPLE_STATES =
     <Form.Group>
         <label>Email address</label>
         <Input name="email" disabled placeholder="This field is disabled" />
+    </Form.Group>
+    <Form.Group>
+        <label>Email address</label>
+        <Input name="email" focus placeholder="This field is focus" />
+    </Form.Group>
+    <Form.Group>
+        <label>Email address</label>
+        <Input name="email" readOnly placeholder="This field is read only" />
     </Form.Group>
 </Form>`;
 
