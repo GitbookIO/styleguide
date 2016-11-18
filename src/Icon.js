@@ -201,6 +201,7 @@ const Icon = React.createClass({
         let { type, id, className, spin } = this.props;
 
         className = classNames(
+            'Icon',
             type + ' ' + type + '-' + id,
             className,
             {
