@@ -40,7 +40,7 @@
     "css:build": "lessc ./less/main.less ./static/css/gitbook.css --include-path='node_modules'",
     "js:build": "babel src --source-maps inline --out-dir lib",
     "js:icons:build": "node ./scripts/generate-icons.js",
-    "assets:octicons": "rm -rf ./static/fonts/octicons; cp -R ./node_modules/octicons/octicons ./assets/fonts/octicons",
+    "assets:octicons": "rm -rf ./static/fonts/octicons; cp -R ./node_modules/octicons/octicons ./static/fonts/octicons",
     "assets:roboto": "rm -rf ./static/fonts/roboto; cp -R ./node_modules/roboto-fontface/fonts/ ./static/fonts/roboto",
     "assets:build": "mkdir -p ./static/fonts; npm run assets:roboto; npm run assets:octicons",
     "build": "npm run css:build; npm run js:build; npm run js:icons:build; npm run assets:build; npm run docs:build",
