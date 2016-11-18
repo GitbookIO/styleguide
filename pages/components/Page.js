@@ -5,7 +5,6 @@ const PageWrapper = require('../../src/PageWrapper');
 const PageInner = require('../../src/PageInner');
 const PageBody = require('../../src/PageBody');
 const PageHeader = require('../../src/PageHeader');
-const PageFooter = require('../../src/PageFooter');
 const Container = require('../../src/Container');
 const Panel = require('../../src/Panel');
 const Row = require('../../src/Row');
@@ -28,6 +27,7 @@ const Menu = ({active}) => (
         <ListGroup.Item active={active == 'modals'} href="/modals">Modals</ListGroup.Item>
         <ListGroup.Item active={active == 'tooltips'} href="/tooltips">Tooltips</ListGroup.Item>
         <ListGroup.Item active={active == 'panels'} href="/panels">Panels</ListGroup.Item>
+        <ListGroup.Item active={active == 'dropdowns'} href="/dropdowns">Dropdowns</ListGroup.Item>
         <ListGroup.Item active={active == 'popovers'} href="/popovers">Popovers</ListGroup.Item>
         <ListGroup.Item active={active == 'autocomplete'} href="/autocomplete">Autocomplete</ListGroup.Item>
     </ListGroup>
