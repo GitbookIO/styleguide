@@ -5,7 +5,7 @@ const IS_DEV = require('./is-dev');
  * @param {String} message
  */
 
-export default function warning(message, ...more) {
+module.exports = function warning(message, ...more) {
     if (!IS_DEV) {
         return;
     }
@@ -22,4 +22,4 @@ export default function warning(message, ...more) {
     } catch (x) {
     // This error is only for debugging
     }
-}
+};
