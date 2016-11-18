@@ -1,5 +1,4 @@
 const React = require('react');
-const octicons = require('octicons');
 
 const Page = require('./components/Page');
 const Panel = require('../src/Panel');
@@ -13,18 +12,19 @@ const CodeEditor = require('./components/CodeEditor');
 
 const SOURCE_IMPORT =
 `const LogoText = require('gitbook-styleguide/icons/LogoText');
-const Logo = require('gitbook-styleguide/icons/Logo');`;
+const Logo = require('gitbook-styleguide/icons/Logo');
+const Icon = require('gitbook-styleguide/icons/Icon');`;
 
 const LOGOS = [
     { source: '<LogoText />', component: () => <LogoText size="md" /> },
     { source: '<Logo />', component: () => <Logo size="md" /> }
 ];
 
-const OCTICONS = Object.keys(octicons)
+const OCTICONS = Icon.OCTICONS
     .map(id => {
         return {
             source: `<Icon id="${id}" />`,
-            component: () => <Icon id={id} size="md" />
+            component: () => <span style={{ fontSize: 32 }}><Icon id={id} size="md" /></span>
         };
     });
 

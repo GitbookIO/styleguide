@@ -2726,9 +2726,9 @@ object.omit@^2.0.0:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
 
-octicons@5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/octicons/-/octicons-5.0.1.tgz#0fa0c4fd3680d251266f073736539317cb846e4f"
+octicons@3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/octicons/-/octicons-3.4.1.tgz#042c3e433a0176212da3f2e61a4867e7b95557b1"
 
 on-finished@~2.3.0:
   version "2.3.0"
