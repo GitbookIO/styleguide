@@ -46,6 +46,7 @@
     "build": "npm run css:build; npm run js:build; npm run js:icons:build; npm run assets:build; npm run docs:build",
     "docs:serve": "npm run css:build; parallelshell 'npm run css:watch' 'next'",
     "docs:build": "next build",
+    "prepublish": "npm run build",
     "test": "npm run lint",
     "start": "next start"
   },
