@@ -51,13 +51,15 @@ const Pagination = React.createClass({
         });
         const uri = this.props.getURL(i);
 
-        return <li key={i} className={className}>
-            <a href={uri} onClick={this.onSelectPage.bind(this, i)}>{text || i}</a>
-        </li>;
+        return (
+            <li key={i} className={className}>
+                <a href={uri} onClick={this.onSelectPage.bind(this, i)}>{text || (i + 1)}</a>
+            </li>
+        );
     },
 
     render() {
-        let page        = this.props.page;
+        let page          = this.props.page;
         const pages       = this.props.pages;
         const pagesToList = this.props.pagesToList;
 

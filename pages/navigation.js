@@ -8,6 +8,7 @@ const Panel = require('../src/Panel');
 const FilterList = require('../src/FilterList');
 const Icon = require('../src/Icon');
 const ListGroup = require('../src/ListGroup');
+const Overview = require('../src/Overview');
 const Pagination = require('../src/Pagination');
 const PageHead = require('../src/PageHead');
 const Menu = require('../src/Menu');
@@ -15,7 +16,7 @@ const SearchBar = require('../src/SearchBar');
 const Row = require('../src/Row');
 const Container = require('../src/Container');
 
-const SCOPE = { React, FilterList, Panel, ListGroup, Icon,
+const SCOPE = { React, FilterList, Panel, ListGroup, Icon, Overview,
     Pagination, PageHead, Menu, SearchBar, Row, Container };
 
 const EXAMPLE_IMPORTS =
@@ -24,7 +25,8 @@ const Menu = require('gitbook-styleguide/lib/Menu');
 const SearchBar = require('gitbook-styleguide/lib/SearchBar');
 const PageHead = require('gitbook-styleguide/lib/PageHead');
 const Pagination = require('gitbook-styleguide/lib/Pagination');
-const ListGroup = require('gitbook-styleguide/lib/ListGroup');`;
+const ListGroup = require('gitbook-styleguide/lib/ListGroup');
+const Overview = require('gitbook-styleguide/lib/Overview');`;
 
 const EXAMPLE_MENU =
 `<Panel>
@@ -58,6 +60,33 @@ const EXAMPLE_PAGEHEAD_MENU =
                 </Menu>
             </Row.Col>
         </Row>
+    </Container>
+</PageHead>`;
+
+const EXAMPLE_PAGEHEAD_OVERVIEW =
+`<PageHead>
+    <Container>
+        <Overview>
+            <Overview.Title>
+                <Overview.StepTitle href="/">
+                    myorg
+                </Overview.StepTitle>
+                <Overview.StepDivider />
+                <Overview.StepTitle primary>
+                    My Book
+                </Overview.StepTitle>
+            </Overview.Title>
+            <Overview.Note>
+                Updated 2 days ago
+            </Overview.Note>
+        </Overview>
+    </Container>
+    <Container>
+        <Menu left>
+            <Menu.Item>Overview</Menu.Item>
+            <Menu.Item active>Metrics</Menu.Item>
+            <Menu.Item>Settings</Menu.Item>
+        </Menu>
     </Container>
 </PageHead>`;
 
@@ -98,13 +127,11 @@ export default () => {
                 </Panel.Body>
             </Panel>
 
-            <Example title="Page head with menu" source={EXAMPLE_PAGEHEAD_MENU} scope={SCOPE}>
+            <Example title="Page head with menu" source={EXAMPLE_PAGEHEAD_MENU} scope={SCOPE} />
 
-            </Example>
+            <Example title="Page head with search bar" source={EXAMPLE_PAGEHEAD_SEARCH} scope={SCOPE} />
 
-            <Example title="Page head with search bar" source={EXAMPLE_PAGEHEAD_SEARCH} scope={SCOPE}>
-
-            </Example>
+            <Example title="Page head with overview" source={EXAMPLE_PAGEHEAD_OVERVIEW} scope={SCOPE} />
 
             <Example title="Menu" source={EXAMPLE_MENU} scope={SCOPE}>
                 The menu is a vertical list of navigational links. It should be put in a panel.
