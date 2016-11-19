@@ -4,8 +4,8 @@
     .panel-heading {
         color: @color;
         border-color: @borderColor;
+        background: @backgroundColor;
     }
-
 
     > .table {
         border-top: 1px solid @borderColor;
@@ -95,7 +95,7 @@
     }
 
     &.panel-default {
-        .panelStyle(@gb-palette-gray-outline, @gb-palette-gray, @gb-text-color);
+        .panelStyle(@gb-palette-gray-outline, #fff, @gb-text-color);
     }
 
     &.panel-danger {

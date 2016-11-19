@@ -21,6 +21,14 @@ const EXAMPLE_DEFAULT =
     </Panel.Body>
 </Panel>`;
 
+const EXAMPLE_STYLES =
+`<Panel style="danger">
+    <Panel.Heading title="Title" />
+    <Panel.Body>
+        Body of the panel
+    </Panel.Body>
+</Panel>`;
+
 const EXAMPLE_LISTGROUP =
 `<Panel>
     <Panel.Heading title="Title" />
@@ -68,6 +76,10 @@ export default () => {
             </Panel>
 
             <Example title="Example" source={EXAMPLE_DEFAULT} scope={SCOPE}>
+
+            </Example>
+
+            <Example title="Styles" source={EXAMPLE_STYLES} scope={SCOPE}>
 
             </Example>
 
