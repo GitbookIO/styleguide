@@ -4,16 +4,13 @@ const { StickyContainer, Sticky } = require('react-sticky');
 const PageWrapper = require('../../src/PageWrapper');
 const PageInner = require('../../src/PageInner');
 const PageBody = require('../../src/PageBody');
-const PageHeader = require('../../src/PageHeader');
 const Container = require('../../src/Container');
 const Panel = require('../../src/Panel');
 const Row = require('../../src/Row');
-const Button = require('../../src/Button');
-const Icon = require('../../src/Icon');
 const ListGroup = require('../../src/ListGroup');
-const LogoText = require('../../icons/LogoText');
 
 const Footer = require('./Footer');
+const Header = require('./Header');
 
 const Menu = ({active}) => (
     <ListGroup>
@@ -56,14 +53,7 @@ const Page = React.createClass({
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 </Head>
 
-                <PageHeader>
-                    <Container>
-                        <a href="/"><LogoText size="md" /></a>
-                        <Button href="https://github.com/GitbookIO/styleguide" className="pull-right hidden-xs">
-                            <Icon id="octoface" size="sm" /> GitHub
-                        </Button>
-                    </Container>
-                </PageHeader>
+                <Header />
                 <PageBody>
                     <PageInner>
                         <StickyContainer>

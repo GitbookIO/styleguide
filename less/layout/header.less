@@ -13,36 +13,22 @@
 
         .logo {
             color: inherit;
+            margin-right: 32px;
 
             &:hover {
                 text-decoration: none;
             }
 
-            img {
-                width: 34px;
-                height: 34px;
-                float: left;
-                margin-right: 8px;
-                margin-top: 3px;
-            }
-
-             h1 {
-                font-size: 28px;
-                font-weight: @gb-font-weight-bolder;
-                line-height: 38px;
-                display: inline-block;
-                margin: 0px;
-                padding: 0px;
-                text-shadow: none;
-                color: @gb-palette-logo;
+            .Icon {
+                height: 30px;
             }
         }
 
         .btn {
             text-decoration: none;
-            margin: 2px 8px;
+            margin-left: 8px;
+            margin-right: 8px;
             box-shadow: none !important;
-            text-transform: uppercase;
 
             &:hover {
                 text-decoration: none !important;
@@ -50,16 +36,11 @@
 
             &.btn-link {
                 color: inherit;
+                font-weight: @gb-font-weight-base;
 
                 &:hover {
                     color: @gb-header-active-color;
                 }
-            }
-
-            &.btn-icon {
-                margin: 1px 0;
-                font-size: 16px;
-                padding: 5px 10px;
             }
 
             .caret {
