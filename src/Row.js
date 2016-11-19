@@ -18,13 +18,14 @@ const Container = require('./Container');
 
 const Column = React.createClass({
     propTypes: {
-        children: React.PropTypes.node
+        children:  React.PropTypes.node,
+        className: React.PropTypes.string
     },
 
     render() {
-        const { children } = this.props;
+        const { children, className } = this.props;
 
-        const className = classNames(SIZES.reduce((list, size) => {
+        const cl = classNames(className, SIZES.reduce((list, size) => {
             const col = this.props[size];
             const offset = this.props[`${size}Offset`];
 
@@ -39,7 +40,7 @@ const Column = React.createClass({
         }, []));
 
         return (
-            <div className={className}>
+            <div className={cl}>
                 { children }
             </div>
         );
