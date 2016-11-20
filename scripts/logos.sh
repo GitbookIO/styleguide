@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# Build the icons as pngs from the svgs
+#
+
 OUTPUT=static/images/logo
 
 # Cleanup folder
