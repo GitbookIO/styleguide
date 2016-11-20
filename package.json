@@ -31,6 +31,7 @@
     "less": "^2.7.1",
     "next": "1.1.1",
     "parallelshell": "^2.0.0",
+    "svg2png": "^4.1.0",
     "watch": "^1.0.1"
   },
   "scripts": {
@@ -43,7 +44,8 @@
     "assets:octicons": "rm -rf ./static/fonts/octicons; cp -R ./node_modules/octicons/octicons ./static/fonts/octicons",
     "assets:roboto": "rm -rf ./static/fonts/roboto; cp -R ./node_modules/roboto-fontface/fonts/ ./static/fonts/roboto",
     "assets:build": "mkdir -p ./static/fonts; npm run assets:roboto; npm run assets:octicons",
-    "build": "npm run css:build; npm run js:build; npm run js:icons:build; npm run assets:build; npm run docs:build",
+    "assets:logos": "./scripts/logos.sh",
+    "build": "npm run css:build; npm run js:build; npm run js:icons:build; npm run assets:logos; npm run assets:build",
     "docs:serve": "npm run css:build; parallelshell 'npm run css:watch' 'next'",
     "docs:build": "next build",
     "prepublish": "npm run build",
