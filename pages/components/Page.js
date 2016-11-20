@@ -27,6 +27,7 @@ const Menu = ({active}) => (
         <ListGroup.Item active={active == 'dropdowns'} href="/dropdowns">Dropdowns</ListGroup.Item>
         <ListGroup.Item active={active == 'popovers'} href="/popovers">Popovers</ListGroup.Item>
         <ListGroup.Item active={active == 'autocomplete'} href="/autocomplete">Autocomplete</ListGroup.Item>
+        <ListGroup.Item active={active == 'cards'} href="/cards">Cards</ListGroup.Item>
     </ListGroup>
 );
 Menu.propTypes = {

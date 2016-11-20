@@ -1,0 +1,46 @@
+.Card {
+    box-shadow: @gb-card-shadow;
+    border-radius: @gb-card-radius;
+    border: 1px solid @gb-card-border;
+    padding: @gb-card-padding;
+    cursor: pointer;
+
+    &:hover {
+        border-color: darken(@gb-card-border, 5%);
+    }
+
+    .CardActions {
+        /* Change style of default button */
+        .btn.btn-default {
+            background: transparent;
+            border-color: transparent;
+
+            &:hover, &:focus {
+                color: @gb-brand-primary;
+            }
+        }
+
+        .btn + .btn {
+            margin-left: 5px;
+        }
+    }
+
+    .CardFlag {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        text-align: center;
+        line-height: 18px;
+        border-radius: 16px;
+        font-size: 12px;
+        vertical-align: middle;
+
+        background: @gb-palette-gray-outline;
+        color: @gb-text-color;
+
+        &.flag-dark {
+            background: @gb-palette-darkgray;
+            color: #fff;
+        }
+    }
+}
