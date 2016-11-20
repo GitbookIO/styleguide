@@ -28,8 +28,9 @@ node_modules
 .publish
 .release
 
+# Stored on NPM but not on Git
 static/fonts/
 static/images/logo
+static/css
 lib
-css
 icons/*.js
