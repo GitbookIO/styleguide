@@ -100,7 +100,7 @@ const CardActions = React.createClass({
     },
 
     onClick(event) {
-        event.stopPropgation();
+        event.stopPropagation();
     },
 
     render() {
