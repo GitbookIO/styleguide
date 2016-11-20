@@ -136,7 +136,7 @@ const Card = React.createClass({
         const { onClick, href } = this.props;
 
         if (href) {
-            event.stopPropgation();
+            event.stopPropagation();
             event.preventDefault();
 
             window.location.href = href;
@@ -146,10 +146,10 @@ const Card = React.createClass({
     },
 
     render() {
-        const { children } = this.props;
+        const { children, onClick, href, ...props } = this.props; // eslint-disable-line no-unused-vars
 
         return (
-            <div className="Card" onClick={this.onClick}>
+            <div {...props} className="Card" onClick={this.onClick}>
                 {children}
             </div>
         );

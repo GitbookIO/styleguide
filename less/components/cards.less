@@ -4,12 +4,26 @@
     border: 1px solid @gb-card-border;
     padding: @gb-card-padding;
     cursor: pointer;
+    background: #fff;
+    margin-bottom: @gb-margin-base;
+    .flex-display();
+    .flex-direction(column);
 
     &:hover {
         border-color: darken(@gb-card-border, 5%);
     }
 
+    .CardHeading {
+        .flex(1);
+    }
+
+    .CardBody {
+        .flex(4);
+    }
+
     .CardActions {
+        .flex(1);
+
         /* Change style of default button */
         .btn.btn-default {
             background: transparent;
