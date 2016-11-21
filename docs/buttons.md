@@ -12,11 +12,15 @@ Buttons are used for **actions**, like in forms, while textual hyperlinks are us
 
 Use the standard—yet classy—`.btn` for form actions and primary page actions. These are used extensively around the site.
 
-When using a `<button>` element, **always specify a `type`**. When using a `<a>` element, **always add `role="button"` for accessibility**.
+When using a `<button>` element, **always specify a `type`**.
 
 {% example html %}
 <button class="btn" type="button">Button button</button>
-<a class="btn" href="#" role="button">Link button</a>
+{% endexample %}
+
+A link can be made to look like a button by adding `.btn` to a `<a>` element.
+{% example html %}
+<a class="btn" href="">Link styled as a button</a>
 {% endexample %}
 
 ### Sizes
