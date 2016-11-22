@@ -102,6 +102,15 @@
             color: @gb-link-hover-color;
         }
     }
+    &.btn-marketing-primary {
+        color: @gb-brand-primary;
+        border-color: @gb-brand-primary;
+        background: transparent;
+
+        &:hover {
+          background: fadeout(@gb-brand-primary, 90%);
+        }
+    }
 
     /* Block Buttons */
     &.btn-block {

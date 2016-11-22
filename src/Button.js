@@ -7,10 +7,8 @@ const SIZES = require('./SIZES');
 
 const BUTTONS_STYLES = STYLES.concat([
     'link',
-    'text-link',
-    'text-danger',
-    'text-success',
-    'text-warning',
+    'marketing-primary',
+    'secondary',
     'count'
 ]);
 

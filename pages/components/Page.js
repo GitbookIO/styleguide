@@ -49,6 +49,7 @@ const Page = React.createClass({
                 <Head>
                     <title>{title}</title>
                     <link rel="stylesheet" href="/static/css/gitbook.css" />
+                    <link rel="stylesheet" href="/static/images/logo/favicon.ico" />
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css" />
                     <meta charSet="UTF-8" />
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />

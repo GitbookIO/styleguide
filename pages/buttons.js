@@ -31,6 +31,7 @@ const EXAMPLE_STYLES =
     <Button style="danger">Danger button</Button>
     <Button style="secondary">Secondary button</Button>
     <Button style="link">Link button</Button>
+    <Button style="marketing-primary">Marketing button</Button>
 </Button.Toolbar>`;
 
 const EXAMPLE_STYLE_COUNT =
