@@ -115,7 +115,7 @@ const Button = React.createClass({
         );
         props['aria-label'] = title;
         props.role          = 'button';
-        props.onClick       = disabled ? null : this.onClick;
+        props.disabled      = disabled;
 
         let input;
 
