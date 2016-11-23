@@ -47,7 +47,7 @@
     "assets:logos": "./scripts/logos.sh",
     "prepublish": "npm run css:build; npm run js:build; npm run js:icons:build; npm run assets:logos; npm run assets:build",
     "docs:serve": "npm run css:build; parallelshell 'npm run css:watch' 'next'",
-    "docs:build": "./scripts/deploy.sh",
+    "docs:deploy": "./scripts/deploy.sh",
     "test": "npm run lint",
     "start": "next start"
   },
