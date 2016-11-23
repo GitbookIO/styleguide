@@ -26,12 +26,12 @@ const EXAMPLE_SIZES =
 
 const EXAMPLE_STYLES =
 `<Button.Toolbar>
-    <Button style="primary">Primary button</Button>
-    <Button style="success">Success button</Button>
-    <Button style="danger">Danger button</Button>
-    <Button style="secondary">Secondary button</Button>
-    <Button style="link">Link button</Button>
-    <Button style="marketing-primary">Marketing button</Button>
+    <Button style="primary">Primary</Button>
+    <Button style="success">Success</Button>
+    <Button style="danger">Danger</Button>
+    <Button style="secondary">Secondary</Button>
+    <Button style="link">Link</Button>
+    <Button style="marketing-primary">Marketing</Button>
 </Button.Toolbar>`;
 
 const EXAMPLE_STYLE_COUNT =
