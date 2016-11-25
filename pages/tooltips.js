@@ -41,12 +41,6 @@ const EXAMPLE_POSITIONS =
     <code>Top</code>
 </Tooltip>`;
 
-const EXAMPLE_BUTTONS =
-`<Button.Toolbar>
-    <Button title="Hello 1">Do something</Button>
-    <Button title="Hello 2">Else</Button>
-</Button.Toolbar>`;
-
 export default () => {
     return (
         <Page title="Tooltips" active="tooltips">
@@ -59,7 +53,6 @@ export default () => {
 
             <Example title="Example" source={EXAMPLE_DEFAULT} scope={SCOPE}></Example>
             <Example title="Positions" source={EXAMPLE_POSITIONS} scope={SCOPE}></Example>
-            <Example title="Buttons" source={EXAMPLE_BUTTONS} scope={SCOPE}></Example>
         </Page>
     );
 };
