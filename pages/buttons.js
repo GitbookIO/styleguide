@@ -53,6 +53,13 @@ const EXAMPLE_STATES =
     <Button style="primary" disabled>Disabled</Button>
 </Button.Toolbar>`;
 
+const EXAMPLE_LABELS =
+`<Button.Toolbar>
+    <Button title="Label">Default</Button>
+    <Button title="Label" active>Active</Button>
+    <Button title="Label" disabled>Disabled</Button>
+</Button.Toolbar>`;
+
 const EXAMPLE_BLOCK =
 `<Button block style="primary">Primary block button</Button>
 <Button block>Secondary button</Button>`;
@@ -102,6 +109,10 @@ export default () => {
 
             <Example title="States" source={EXAMPLE_STATES} scope={SCOPE}>
                 Buttons can have different states:
+            </Example>
+
+            <Example title="Labels" source={EXAMPLE_LABELS} scope={SCOPE}>
+                Buttons can have a label on hover:
             </Example>
 
             <Example title="Block buttons" source={EXAMPLE_BLOCK} scope={SCOPE}>
