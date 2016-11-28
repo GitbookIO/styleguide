@@ -8,8 +8,8 @@ How to test and build the documentation:
 # Install node dependencies
 $ npm i
 
-# Build and test the documentation
-$ npm run docs
+# Build and serve the documentation
+$ npm run docs:serve
 ```
 
 ### Structure
