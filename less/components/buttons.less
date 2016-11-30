@@ -79,6 +79,10 @@
         background: #fff;
         border: 1px solid @gb-palette-gray;
         color: rgb(110, 115, 125); // @gb-palette-gray;
+
+        &:hover {
+          background: @gb-button-hover-background;
+        }
     }
     &.btn-link {
         text-shadow: none;
@@ -133,8 +137,8 @@
     color: #fff;
 
     &:hover, &:focus, &.active {
-        background: darken(@color, @gb-button-gradient);
-        border-color: darken(@color, @gb-button-gradient);
+        background: shade(@color, @gb-button-lightness-gradient);
+        border-color: shade(@color, @gb-button-lightness-gradient);
     }
 
     .caret {
