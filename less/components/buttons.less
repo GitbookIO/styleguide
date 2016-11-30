@@ -79,6 +79,10 @@
         background: #fff;
         border: 1px solid @gb-palette-gray;
         color: rgb(110, 115, 125); // @gb-palette-gray;
+
+        &:hover {
+          background: fadeout(@gb-palette-gray, 90%);
+        }
     }
     &.btn-link {
         text-shadow: none;
