@@ -114,7 +114,7 @@ const EXAMPLE_FILTERLIST =
 </FilterList>`;
 
 const EXAMPLE_PAGINATION =
-'<Pagination page={4} pages={20} />';
+'<Pagination page={4} pages={20} pagesToList={3} />';
 
 export default () => {
     return (
