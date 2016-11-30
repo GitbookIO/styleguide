@@ -51,13 +51,15 @@ const Pagination = React.createClass({
         });
         const uri = this.props.getURL(i);
 
-        return <li key={i} className={className}>
-            <a href={uri} onClick={this.onSelectPage.bind(this, i)}>{text || i}</a>
-        </li>;
+        return (
+            <li key={i} className={className}>
+                <a href={uri} onClick={this.onSelectPage.bind(this, i)}>{text || (i + 1)}</a>
+            </li>
+        );
     },
 
     render() {
-        let page        = this.props.page;
+        let page          = this.props.page;
         const pages       = this.props.pages;
         const pagesToList = this.props.pagesToList;
 
@@ -65,13 +67,16 @@ const Pagination = React.createClass({
             return <div />;
         }
 
+        const maxPage = pages - 1;
         if (page < 0) page = 0;
-        if (page >= pages) page = (pages - 1);
+        if (page > maxPage) page = maxPage;
 
+        // startRange, inclusive
         const startRange = Math.max(0, page - pagesToList);
-        const maxRange   = pages;
-        const endRange   = Math.min(maxRange, page + pagesToList);
-        const pagesRange = Array.from(Array(pages)).map(Number.call, Number).slice(startRange, endRange);
+        // endRange, inclusive
+        const endRange   = Math.min(maxPage, page + pagesToList);
+        // All the displayed page numbers
+        const pagesRange = Array.from(Array(pages)).map(Number.call, Number).slice(startRange, endRange + 1);
 
         return (
             <div className="pagination">
@@ -83,12 +88,12 @@ const Pagination = React.createClass({
                         return this.renderPageItem(i);
                     }, this)}
 
-                    {endRange === maxRange ? '' : <li><span className="separator">...</span></li>}
-                    {endRange === maxRange ? '' : this.renderPageItem(maxRange)}
+                    {endRange === maxPage ? '' : <li><span className="separator">...</span></li>}
+                    {endRange === maxPage ? '' : this.renderPageItem(maxPage)}
                 </ul>
                 <ul className="pagination-nav">
                     {page < 1 ? '' : this.renderPageItem(page - 1, '« previous page')}
-                    {page >= (maxRange - 1) ? '' : this.renderPageItem(page + 1, 'next page »')}
+                    {page >= (maxPage - 1) ? '' : this.renderPageItem(page + 1, 'next page »')}
                 </ul>
             </div>
         );

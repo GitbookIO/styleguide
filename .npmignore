@@ -1,4 +1,5 @@
 !lib
-!css
-docs
-src
+!static/fonts/
+!static/images/logo
+!static/css
+!icons/*.js

@@ -11,7 +11,7 @@ function moduleContainer(mod) {
 
 
 module.exports = {
-    assets: path.resolve(__dirname, 'assets'),
+    assets: path.resolve(__dirname, 'static'),
     less: {
         // Required less path
         paths: [

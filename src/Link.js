@@ -27,7 +27,9 @@ const Link = React.createClass({
     },
 
     render() {
-        let { href, className, children, muted, underlined, ...props } = this.props;
+        let { href, className, children, muted, underlined,
+              onClick, // eslint-disable-line no-unused-vars
+              ...props } = this.props;
 
         className = classNames(className, {
             'muted-link':      muted,

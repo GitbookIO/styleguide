@@ -4,6 +4,7 @@ const classNames = require('classnames');
 const Button   = require('./Button');
 const Icon     = require('./Icon');
 const Backdrop = require('./Backdrop');
+const warning  = require('./utils/warning');
 
 /**
  * Dropdown (or up). Automatically bound to child Button.
@@ -103,7 +104,7 @@ const ButtonDropdown = React.createClass({
         });
 
         items = React.Children.map(children, function(child) {
-            if (child && child.type && child.type.displayName == 'DropdownItem') {
+            if (child && child.type && (child.type.displayName == 'DropdownItem' || child.type.displayName == 'DropdownDivider')) {
                 return React.cloneElement(child, {
                     onClick() {
                         if (child.props.onClick) {
@@ -163,7 +164,8 @@ const DropdownItem = React.createClass({
         const { divider, header, checked } = this.props;
 
         if (divider) {
-            return <li className="divider"></li>;
+            warning('Prop "divider" on Dropdown.Item is deprecated, use Dropdown.Divider instead');
+            return <DropdownDivider />;
         }
         if (header) {
             return <li className="dropdown-header">{this.props.children}</li>;
@@ -188,6 +190,18 @@ const DropdownItem = React.createClass({
             </a>
             {outer}
         </li>;
+    }
+});
+
+const DropdownDivider = React.createClass({
+    propTypes: {
+        children: React.PropTypes.node
+    },
+
+    render() {
+        return (
+            <li className="divider"></li>
+        );
     }
 });
 
@@ -245,6 +259,7 @@ const ItemDesc = React.createClass({
 });
 
 module.exports             = ButtonDropdown;
+module.exports.Divider     = DropdownDivider;
 module.exports.Item        = DropdownItem;
 module.exports.Item.Header = ItemHeader;
 module.exports.Item.Desc   = ItemDesc;

@@ -3,7 +3,22 @@
     bottom: 0;
     width: 100%;
     height: @gb-footer-height;
+    padding: ((@gb-footer-height - @gb-footer-inner-height)/2) 0px;
     margin: 0;
+
+    .footer-logo {
+        color: @gb-palette-gray;
+        float: left;
+        margin-right: 30px;
+
+        .Icon {
+            height: @gb-footer-inner-height;
+
+            svg path {
+                fill: @gb-palette-gray;
+            }
+        }
+    }
 
     .container {
         .menu {
@@ -11,21 +26,29 @@
             margin: 0px;
             padding: 0px;
             .clearfix();
-            border-top: 1px solid @gb-footer-border;
 
             >li {
                 float: left;
 
+                /* Copyright */
+                &.footer-copyright {
+                    float: right;
+
+                    > a, > span {
+                        font-weight: @gb-font-weight-bold;
+                        color: @gb-footer-copyright-color;
+                        padding-right: 0px;
+                    }
+                }
+
                 >a, >span {
-                    padding: ((@gb-footer-height - 1) - 20)/2 10px;
+                    padding: (@gb-footer-inner-height - 20)/2 15px;
                     display: inline-block;
                     color: @gb-footer-color;
-                    text-transform: uppercase;
-                    letter-spacing: .2px;
                     font-size: @gb-footer-fontsize;
                     line-height: 20px;
                     font-weight: @gb-font-weight-base;
-                    height: (@gb-footer-height - 1);
+                    height: @gb-footer-inner-height;
 
                     &.service-info {
                         color: #818181;

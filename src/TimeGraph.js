@@ -487,7 +487,7 @@ const TimeGraph = React.createClass({
              // Styling
             pointRadius:  4,
             lineWidth:    1,
-            defaultColor: '#1db34f',
+            defaultColor: '#26cb7c',
 
             axeColor:        '#eee',
             axeMarkerWidth:  10,

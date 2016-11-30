@@ -23,8 +23,8 @@
         font-size: 24px;
         padding: 0px;
         margin: 0px;
-        line-height: 65px;
-        font-weight: @gb-font-weight-base;
+        line-height: 53px;
+        font-weight: @gb-font-weight-bold;
 
         a {
             color: inherit;
@@ -41,10 +41,11 @@
         }
     }
 
-    .head-button, .head-toolbar {
-        margin-top: 16px;
+    .search-bar, .head-button, .head-toolbar {
+        margin-top: 8px;
     }
 
+    /* Menu */
     .menu {
         list-style: none;
         .clearfix();
@@ -57,11 +58,9 @@
             display: inline-block;
 
             > a {
-                color: @gb-pagehead-color;
-
-                padding: 25px 15px;
+                color: @gb-pagehead-menu-color;
+                padding: @gb-pagehead-menu-padding-v @gb-pagehead-menu-padding-h;
                 margin-bottom: -1px;
-
                 border-bottom: 1px solid @gb-pagehead-border;
                 letter-spacing: -0.02em;
                 font-weight: @gb-font-weight-bold;
@@ -83,8 +82,9 @@
 
             &.active {
                 > a {
-                    padding-bottom: 23px;
+                    padding-bottom: (@gb-pagehead-menu-padding-v - 2);
                     border-width: 3px;
+                    color: @gb-pagehead-menu-active-color;
                     border-color: @gb-pagehead-active-border;
                     font-weight: @gb-font-weight-bolder;
                 }

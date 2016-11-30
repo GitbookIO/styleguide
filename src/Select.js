@@ -48,10 +48,7 @@ function defaultRenderToString(item, i) {
  *
  * It renders as a normal select on server and has a custom UI on browser (with search, images support).
  *
- * <Select name="test">
- *     <Select.Option key="en">English</Select.Option>
- *     <Select.Option key="fr">French</Select.Option>
- * </Select>
+ * <Select name="test" options=[] />
  */
 const Select = React.createClass({
     propTypes: {

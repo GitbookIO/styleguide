@@ -10,16 +10,16 @@ const KEYCODE_DOWN  = 40;
 
 const Autocomplete = React.createClass({
     propTypes: {
-        onFetch:      React.PropTypes.func,
-        renderResult: React.PropTypes.func,
+        onFetch:      React.PropTypes.func.isRequired,
+        renderResult: React.PropTypes.func.isRequired,
+        onChange:     React.PropTypes.func.isRequired,
         // Called when onEnter on the input (no result selected)
         // query -> ()
-        onEnter:      React.PropTypes.func,
+        onEnter:      React.PropTypes.func.isRequired,
         onPaste:      React.PropTypes.func,
         value:        React.PropTypes.string,
         placeholder:  React.PropTypes.string,
-        size:         React.PropTypes.string,
-        onChange:     React.PropTypes.func
+        size:         React.PropTypes.string
     },
 
     getInitialState() {
@@ -85,6 +85,7 @@ const Autocomplete = React.createClass({
      * Submit a value
      */
     onSelect(index) {
+        const { onChange } = this.props;
         const { value, results } = this.state;
         const selected = results[index];
 
@@ -94,7 +95,7 @@ const Autocomplete = React.createClass({
             value: ''
         });
 
-        this.props.onChange(value, selected);
+        onChange(value, selected);
     },
 
     /**
@@ -151,15 +152,15 @@ const Autocomplete = React.createClass({
     },
 
     render() {
-        const { onPaste } = this.props;
+        const { onPaste, size, placeholder } = this.props;
         const { value, focused, loading, results } = this.state;
 
         return (
             <div className="Autocomplete">
                 <Input
                     value={value}
-                    placeholder={this.props.placeholder}
-                    size={this.props.size}
+                    placeholder={placeholder}
+                    size={size}
                     onChange={this.onInputChanged}
                     onFocus={e => this.onFocusChanged(true)}
                     onBlur={e => this.onFocusChanged(false)}

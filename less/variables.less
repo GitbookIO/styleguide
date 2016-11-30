@@ -1,7 +1,7 @@
 ///
 /// Fonts
 ///
-@gb-font-family-sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@gb-font-family-sans-serif:        "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @gb-font-family-serif:             Georgia, "Times New Roman", Times, serif;
 @gb-font-family-monospace:         Menlo, Monaco, Consolas, "Courier New", monospace;
 @gb-font-family-bold:              @gb-font-family-sans-serif;
@@ -23,9 +23,9 @@
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 @gb-line-height-computed:          floor((@gb-font-size-base * @gb-line-height-base)); // ~20px
 
-@gb-assets-path:                   "/assets";
+@gb-assets-path:                   "/static";
 @gb-font-path:                     "@{gb-assets-path}/fonts";
-@gb-font-path-raleway:             "@{gb-font-path}/raleway";
+@roboto-font-path:                 "@{gb-font-path}/roboto";
 @octicons-font-path:               "@{gb-font-path}/octicons";
 
 
@@ -67,18 +67,20 @@
 ///
 /// Colors
 ///
-@gb-palette-black:                 #2d2d2d;
-@gb-palette-gray-light:            #fcfcfc;
-@gb-palette-gray:                  #f5f5f5;
-@gb-palette-gray-outline:          #d4d4d4;
-@gb-palette-gray-dark:             #e5e5e5;
+@gb-palette-blue:       #3884ff;
+@gb-palette-green:      #26cb7c;
+@gb-palette-black:      #000000;
+@gb-palette-darkgray:   #5f6673;
+@gb-palette-red:        #ff5454;
+@gb-palette-gray-light: #f2f5fd;
+@gb-palette-orange:     #ff8e6e;
+@gb-palette-clearblue:  #58baff;
+
+@gb-palette-gray:                  #cccfd6;
+@gb-palette-gray-outline:          #e8eaed;
+@gb-palette-gray-dark:             #8c919b;
 @gb-palette-gray-darker:           #b3b3b1;
-@gb-palette-darkgray:              #4f4f52;
-@gb-palette-blue:                  #428bca;
-@gb-palette-clearblue:             #44b6f1;
-@gb-palette-green:                 #5cb85c;
-@gb-palette-orange:                #f0ad4e;
-@gb-palette-red:                   #dd4b39;
+@gb-palette-darkgray:              #4a4e57;
 @gb-palette-logo:                  #4d4d4f;
 @gb-palette-fade:                  30%;
 
@@ -93,26 +95,27 @@
 @gb-brand-danger:                  @gb-palette-red;
 @gb-brand-info:                    @gb-palette-clearblue;
 
-@gb-state-danger-background:      #FFD3D3;
-@gb-state-danger-border:          #ff8686;
-@gb-state-danger-color:           #d30000;
+@gb-state-danger-background:      rgba(255, 84, 84, 0.1);
+@gb-state-danger-border:          @gb-brand-danger;
+@gb-state-danger-color:           @gb-brand-danger;
 
-@gb-state-warning-border:         #ffdc84;
-@gb-state-warning-color:          #4c4a42;
-@gb-state-warning-background:     #ffefc6;
+@gb-state-warning-background:     rgba(252, 216, 113, 0.1);
+@gb-state-warning-border:         #fcd872;
+@gb-state-warning-color:          @gb-text-color;
 
-@gb-state-info-background:        #f4f7f9;
-@gb-state-info-border:            #d3dfe7;
-@gb-state-info-color:             #547e9a;
+@gb-state-info-background:        rgba(88, 186, 255, 0.1);
+@gb-state-info-border:            @gb-brand-info;
+@gb-state-info-color:             @gb-brand-info;
 
-@gb-state-success-background:     #D8F1CA;
-@gb-state-success-border:         #7fd151;
-@gb-state-success-color:          #4f9527;
+@gb-state-success-background:     rgba(38, 203, 124, 0.1);
+@gb-state-success-border:         @gb-brand-success;
+@gb-state-success-color:          @gb-brand-success;
 
 ///
 /// Links
 ///
 @gb-link-color:                    @gb-brand-primary;
+@gb-link-hover-color:              @gb-link-color;
 
 
 ///
@@ -134,9 +137,9 @@
 @gb-table-cell-padding:            8px;
 @gb-table-condensed-cell-padding:  5px;
 @gb-table-bg:                      transparent;
-@gb-table-header-background:       @gb-palette-gray;
+@gb-table-header-background:       rgba(232, 234, 237, 0.5);
 @gb-table-bg-accent:               @gb-palette-gray-light;
-@gb-table-bg-hover:                @gb-palette-gray;
+@gb-table-bg-hover:                @gb-palette-gray-light;
 @gb-table-bg-active:               @gb-table-bg-hover;
 @gb-table-border-color:            @gb-palette-gray-outline;
 
@@ -148,10 +151,12 @@
 ///
 /// Buttons
 ///
-@gb-button-background:             @gb-palette-gray-light;
+@gb-button-background:             linear-gradient(#ffffff, #f6f7f8);
 @gb-button-plain-background:       #eee;
-@gb-button-border:                 darken(@gb-button-background, 20%);
+@gb-button-border:                 @gb-palette-gray-outline;
 @gb-button-gradient:               10%;
+@gb-button-disabled-fadeout:       25%;
+@gb-button-hover-background:       #f6f7f8;
 
 ///
 /// Text expander button
@@ -171,16 +176,16 @@
 
 ///// Active
 @gb-form-control-active-background:     @gb-form-control-background;
-@gb-form-control-active-border:         @gb-brand-primary;
+@gb-form-control-active-border:         @gb-brand-info;
 
 ///// Disabled
-@gb-form-control-disabled-background:   @gb-palette-gray;
+@gb-form-control-disabled-background:   rgba(232, 234, 237, 0.4);
 @gb-form-control-disabled-border:       @gb-form-control-border;
 
 ///
 /// Input Groups
 ///
-@gb-input-group-addon-bg:          @gb-palette-gray;
+@gb-input-group-addon-bg:          @gb-palette-gray-outline;
 @gb-input-group-addon-border-color:@gb-palette-gray-outline;
 
 ///
@@ -194,7 +199,7 @@
 @gb-dropdown-color-active:         #fff;
 @gb-dropdown-color-hover:          #fff;
 @gb-dropdown-radius:               @gb-border-radius-base;
-@gb-dropdown-divider:              @gb-palette-gray-dark;
+@gb-dropdown-divider:              @gb-palette-gray-outline;
 @gb-dropdown-padding:              5px;
 
 ///
@@ -204,7 +209,7 @@
 @gb-listgroup-color:               #555;
 @gb-listgroup-background:          transparent;
 @gb-listgroup-hover-background:    #f8f8f8;
-@gb-listgroup-active-color:        @gb-palette-red;
+@gb-listgroup-active-color:        @gb-brand-primary;
 
 ///
 /// Header
@@ -218,21 +223,31 @@
 ///
 /// Footer
 ///
-@gb-footer-height:                 60px;
-@gb-footer-color:                  @gb-text-light;
-@gb-footer-border:                 @gb-palette-gray; //#2F2F2F;
-@gb-footer-fontsize:               @gb-font-size-small;
+@gb-footer-height:                 90px;
+@gb-footer-inner-height:           30px;
+@gb-footer-color:                  @gb-palette-gray-dark;
+@gb-footer-fontsize:               @gb-font-size-base;
+@gb-footer-copyright-color:        @gb-body-color;
 
 ///
 /// Pagehead
 ///
 @gb-pagehead-background:           @gb-header-background;
-@gb-pagehead-color:                darken(@gb-palette-gray-darker, 15%);
+@gb-pagehead-color:                @gb-palette-gray-dark;
+
 @gb-pagehead-border:               @gb-header-border-color;
 @gb-pagehead-active-border:        @gb-listgroup-active-color;
 @gb-pagehead-shadow:               @gb-header-shadow;
-@gb-pagehead-search-background:    @gb-body-background;
+
+@gb-pagehead-menu-padding-v:       19px;
+@gb-pagehead-menu-padding-h:       15px;
+@gb-pagehead-menu-color:           @gb-palette-gray-dark;
+@gb-pagehead-menu-active-color:    @gb-palette-darkgray;
+
+@gb-pagehead-search-color:         @gb-palette-gray;
+@gb-pagehead-search-background:    #fff;
 @gb-pagehead-search-border:        darken(@gb-pagehead-search-background, 8%);
+@gb-pagehead-search-border-radius: @gb-border-radius-small;
 
 ///
 /// Blankslate
@@ -256,10 +271,9 @@
 ///
 /// Modal
 ///
-@gb-modal-border:                 rgba(0, 0, 0, 0.3);
-@gb-modal-innerborder:            #ddd;
-@gb-modal-radius:                 1px;
-@gb-modal-shadow:                 ~"0 5px 15px rgba(0,0,0,.3)";
+@gb-modal-border:                 #fff;
+@gb-modal-radius:                 @gb-border-radius-base;
+@gb-modal-shadow:                 ~"0 2px 15px 0 rgba(140, 144, 155, 0.5)";
 @gb-modal-background:             #fff;
 @gb-modal-padding:                15px;
 @gb-modal-size-small:             400px;
@@ -267,12 +281,13 @@
 @gb-modal-size-large:             800px;
 @gb-modal-margin-vertical:        30px;
 @gb-modal-backdrop-background:    rgba(255, 255, 255, 0.7);
-@gb-modal-footer-background:      @gb-palette-gray;
+@gb-modal-footer-background:      @gb-modal-background;
+@gb-modal-footer-border:          @gb-palette-gray-outline;
 
 ///
 /// Tooltips
 ///
-@gb-tooltip-background:           rgba(0,0,0,.8);
+@gb-tooltip-background:           @gb-palette-darkgray;
 @gb-tooltip-radius:               @gb-border-radius-small;
 @gb-tooltip-color:                #fff;
 
@@ -282,6 +297,7 @@
 @gb-panel-color:                  @gb-body-color;
 @gb-panel-padding:                15px;
 @gb-panel-radius:                 @gb-border-radius-small;
+@gb-panel-box-shadow:             ~"0 2px 5px 0 rgba(140, 144, 155, 0.15)";
 
 ///
 /// Alerts
@@ -323,23 +339,30 @@
 @gb-pagination-border:            @gb-palette-gray-outline;
 @gb-pagination-hover-color:       @gb-palette-darkgray;
 @gb-pagination-hover-border:      @gb-pagination-border;
-@gb-pagination-hover-background:  @gb-palette-gray;
-@gb-pagination-active-color:      @gb-palette-green;
-@gb-pagination-active-border:     @gb-palette-green;
-@gb-pagination-active-background: @gb-pagination-background;
+@gb-pagination-hover-background:  @gb-palette-gray-light;
+@gb-pagination-active-color:      #fff;
+@gb-pagination-active-border:     @gb-brand-primary;
+@gb-pagination-active-background: @gb-brand-primary;
 
 ///
 /// Popovers
 ///
-@gb-popover-border-radius:        @gb-border-radius-large;
+@gb-popover-box-shadow:           ~"0 2px 15px 0 rgba(140, 144, 155, 0.5)";
+@gb-popover-border-radius:        @gb-border-radius-small;
 @gb-popover-border:               @gb-palette-gray-outline;
-@gb-popover-heading-background:   @gb-palette-gray;
-@gb-popover-heading-border:       @gb-palette-gray-dark;
+@gb-popover-background:           #fff;
+@gb-popover-heading-background:   @gb-popover-background;
+@gb-popover-heading-border:       @gb-popover-heading-background;
 @gb-popover-heading-font-size:    @gb-font-size-base;
+@gb-popover-padding-v:            20px;
+@gb-popover-padding-h:            20px;
 @gb-popover-padding:              8px 14px;
 @gb-popover-width:                270px;
 @gb-popover-arrow-width:          11px;
 @gb-popover-spacing:              3px;
+
+@gb-popover-control-color:        @gb-palette-gray-dark;
+@gb-popover-control-active-color: @gb-palette-darkgray;
 
 ///
 /// Code
@@ -352,12 +375,20 @@
 
 @gb-pre-bg:                      #f5f5f5;
 @gb-pre-color:                   #333;
-@gb-pre-border-color:            #ccc;
+@gb-pre-border-color:            @gb-pre-bg;
 
 ///
 /// Tree
 ///
 @gb-tree-selected-background:    #dcdfe1;
+
+///
+/// Cards
+///
+@gb-card-border:                  @gb-palette-gray-outline;
+@gb-card-radius:                  @gb-border-radius-large;
+@gb-card-shadow:                  ~"1px 2px 3px 0 rgba(0, 0, 0, 0.1)";
+@gb-card-padding:                 20px;
 
 ///
 /// Grid

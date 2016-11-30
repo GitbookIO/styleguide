@@ -6,10 +6,38 @@
     .overview-title {
         margin: 0 0 (@gb-margin-base / 2);
         font-weight: @gb-font-weight-bold;
+        font-size: 20px;
 
         .avatar {
             .avatar-size(36px);
             top: 4px;
+        }
+
+        .overview-steptitle {
+            display: inline-block;
+            padding: 6px;
+            border-radius: 5px;
+            font-weight: @gb-font-weight-base;
+
+            &.primary {
+                font-weight: @gb-font-weight-bold;
+            }
+        }
+
+        a.overview-steptitle {
+            color: inherit;
+
+            &:hover {
+                text-decoration: none;
+                background: @gb-palette-gray-light;
+            }
+        }
+
+        .overview-stepdivider {
+            display: inline-block;
+            padding: 6px;
+            font-weight: @gb-font-weight-base;
+            color: @gb-palette-gray-darker;
         }
     }
 

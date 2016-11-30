@@ -1,4 +1,5 @@
 const React = require('react');
+const LogoText = require('../icons/LogoText');
 
 const PageHeader = React.createClass({
     propTypes: {
@@ -22,12 +23,11 @@ const Logo = React.createClass({
     },
 
     render() {
-        const { href, src }  = this.props;
+        const { href }  = this.props;
 
         return (
             <a href={href} className="logo pull-left">
-                <img src={src} />
-                <h1>{this.props.children}</h1>
+                <LogoText />
             </a>
         );
     }

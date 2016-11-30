@@ -18,21 +18,21 @@ const Container = require('./Container');
 
 const Column = React.createClass({
     propTypes: {
-        children: React.PropTypes.node,
-        // oneOf(SIZES): React.PropTypes.number,
-        offset:   React.PropTypes.number
+        children:  React.PropTypes.node,
+        className: React.PropTypes.string
     },
 
     render() {
-        const { offset, children } = this.props;
+        const { children, className } = this.props;
 
-        const className = classNames(SIZES.reduce((list, size) => {
+        const cl = classNames(className, SIZES.reduce((list, size) => {
             const col = this.props[size];
+            const offset = this.props[`${size}Offset`];
 
             if (col) {
                 list.push(['col', size, col].join('-'));
             }
-            if (col && offset) {
+            if (offset) {
                 list.push(['col', size, 'offset', offset].join('-'));
             }
 
@@ -40,7 +40,7 @@ const Column = React.createClass({
         }, []));
 
         return (
-            <div className={className}>
+            <div className={cl}>
                 { children }
             </div>
         );

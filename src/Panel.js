@@ -91,23 +91,8 @@ const PanelBody = React.createClass({
     }
 });
 
-const PanelFooter = React.createClass({
-    propTypes: {
-        children: React.PropTypes.node
-    },
-
-    render() {
-        return (
-            <div className="panel-footer">
-                {this.props.children}
-            </div>
-        );
-    }
-});
-
 module.exports         = Panel;
 module.exports.Heading = PanelHeading;
 module.exports.Title   = PanelTitle;
 module.exports.Body    = PanelBody;
-module.exports.Footer  = PanelFooter;
 module.exports.Toolbar = PanelToolbar;

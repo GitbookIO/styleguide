@@ -60,7 +60,7 @@ const SearchBar = React.createClass({
             <Form className={classNames('search-bar', this.props.className)}
                   method={method}
                   action={action}>
-                <Icon id="search" />
+                <Icon id="search" size="sm" />
                 <Input name={name}
                        value={value}
                        onChange={this.onChange}
