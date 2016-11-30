@@ -133,8 +133,8 @@
     color: #fff;
 
     &:hover, &:focus, &.active {
-        background: desaturate(darken(@color, @gb-button-lightness-gradient, relative), @gb-button-saturation-gradient);
-        border-color: desaturate(darken(@color, @gb-button-lightness-gradient, relative), @gb-button-saturation-gradient);
+        background: shade(@color, @gb-button-lightness-gradient);
+        border-color: shade(@color, @gb-button-lightness-gradient);
     }
 
     .caret {
