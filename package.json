@@ -39,7 +39,7 @@
     "watch": "npm run css:watch",
     "css:watch": "watch 'npm run css:build' ./less",
     "css:build": "lessc ./less/main.less ./static/css/gitbook.css --include-path='node_modules'",
-    "js:build": "babel src --source-maps inline --out-dir lib",
+    "js:build": "babel ./src --source-maps inline --out-dir ./lib",
     "js:icons:build": "node ./scripts/generate-icons.js",
     "assets:octicons": "rm -rf ./static/fonts/octicons; cp -R ./node_modules/octicons/octicons ./static/fonts/octicons",
     "assets:roboto": "rm -rf ./static/fonts/roboto; cp -R ./node_modules/roboto-fontface/fonts/ ./static/fonts/roboto",
