@@ -59,18 +59,26 @@ const Input = React.createClass({
             focus
         });
 
-        return <input ref="input"
-            type={type} autoFocus={autoFocus}
-            className={className} disabled={disabled} readOnly={readOnly}
-            name={name} value={value} defaultValue={defaultValue}
-            placeholder={placeholder}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onKeyDown={onKeyDown}
-            onClick={onClick}
-            onPaste={onPaste}
-            onChange={this.onChange}
-        />;
+        return (
+            <input
+                ref="input"
+                type={type}
+                autoFocus={autoFocus}
+                className={className}
+                disabled={disabled}
+                readOnly={readOnly}
+                name={name}
+                value={value}
+                defaultValue={defaultValue}
+                placeholder={placeholder}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onKeyDown={onKeyDown}
+                onClick={onClick}
+                onPaste={onPaste}
+                onChange={this.onChange}
+            />
+        );
     }
 });
 
