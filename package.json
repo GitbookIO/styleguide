@@ -45,8 +45,8 @@
     "assets:roboto": "rm -rf ./static/fonts/roboto; cp -R ./node_modules/roboto-fontface/fonts/ ./static/fonts/roboto",
     "assets:build": "mkdir -p ./static/fonts; npm run assets:roboto; npm run assets:octicons",
     "assets:logos": "./scripts/logos.sh",
-    "prepublish": "npm run css:build; npm run js:build; npm run js:icons:build; npm run assets:logos; npm run assets:build",
-    "docs:serve": "npm run css:build; parallelshell 'npm run css:watch' 'next'",
+    "prepublish": "npm run css:build && npm run js:build && npm run js:icons:build && npm run assets:logos && npm run assets:build",
+    "docs:serve": "npm run css:build && parallelshell 'npm run css:watch' 'next'",
     "docs:deploy": "./scripts/deploy.sh",
     "test": "npm run lint",
     "start": "next start"
