@@ -145,7 +145,7 @@ const Select = React.createClass({
      * @return {Array<groupShape>}
      */
     propsToGroups(props) {
-        const { options, groups } = this.props;
+        const { options, groups } = props;
 
         if (groups) {
             return groups;
