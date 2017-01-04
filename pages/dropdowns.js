@@ -14,7 +14,9 @@ const SCOPE = { React, Dropdown, Button, Icon };
 const EXAMPLE_IMPORT = 'const Dropdown = require(\'gitbook-styleguide/lib/Dropdown\')';
 const EXAMPLE_DEFAULT =
 `<Dropdown>
-    <Button>Toggle dropdown</Button>
+    <Button>
+        Toggle dropdown <Button.Caret />
+    </Button>
     <Dropdown.Item header>Account</Dropdown.Item>
     <Dropdown.Item href="/profile">Profile</Dropdown.Item>
     <Dropdown.Item href="/settings">Settings</Dropdown.Item>
