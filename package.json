@@ -27,7 +27,7 @@
     "eslint": "^2.11.1",
     "eslint-config-gitbook": "1.2.0",
     "less": "^2.7.1",
-    "next": "1.1.1",
+    "next": "2.0.0-beta.13",
     "parallelshell": "^2.0.0",
     "svg2png": "^4.1.0",
     "watch": "^1.0.1",
