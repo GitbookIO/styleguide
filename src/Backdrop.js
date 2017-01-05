@@ -35,6 +35,12 @@ const Backdrop = React.createClass({
         onClose();
     },
 
+    onClick(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.onClose();
+    },
+
     onKeyDown(event) {
         const { escape } = this.props;
 
@@ -52,7 +58,7 @@ const Backdrop = React.createClass({
     },
 
     render() {
-        const { zIndex, wrapper } = this.props;
+        const { zIndex, wrapper, children } = this.props;
         const style = {
             zIndex,
             position: 'fixed',
@@ -63,9 +69,9 @@ const Backdrop = React.createClass({
         };
 
         return React.cloneElement(wrapper, {},
-            <div style={style} onClick={this.onClose}></div>,
+            <div style={style} onClick={this.onClick}></div>,
             wrapper.props.children,
-            this.props.children
+            children
         );
     }
 });
