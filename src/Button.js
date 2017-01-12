@@ -142,7 +142,7 @@ const ButtonGroup = React.createClass({
     },
 
     render() {
-        let { className, pull, children, block } = this.props;
+        let { className, pull, children, block, ...props } = this.props;
 
         className = classNames(
             'btn-group',
@@ -153,7 +153,7 @@ const ButtonGroup = React.createClass({
             }
         );
 
-        return <div className={className}>{children}</div>;
+        return <div className={className} {...props}>{children}</div>;
     }
 });
 
@@ -164,7 +164,9 @@ const ButtonToolbar = React.createClass({
     },
 
     render() {
-        return <div className={'btn-toolbar ' + (this.props.className || '')}>{this.props.children}</div>;
+        const { className, children, ...props } = this.props;
+
+        return <div className={'btn-toolbar ' + (className || '')} {...props}>{children}</div>;
     }
 });
 
