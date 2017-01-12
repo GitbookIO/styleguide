@@ -9,7 +9,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "classnames": "^2.2.5",
-    "gitbook-markdown-css": "1.0.1",
+    "gitbook-markdown-css": "1.1.0",
     "moment": "^2.14.1",
     "moment-duration-format": "^1.3.0",
     "octicons": "3.4.1",
