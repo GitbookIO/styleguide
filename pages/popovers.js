@@ -56,6 +56,33 @@ const EXAMPLE_BUTTON =
     </Popover>) : null}
 </Popover.Container>`;
 
+const EXAMPLE_POSITION =
+`<div>{
+    [
+        'top',
+        'top-right',
+        'right',
+        'bottom-right',
+        'bottom',
+        'bottom-left',
+        'left',
+        'top-left'
+    ].map(pos =>
+        <Popover.Container key={pos}
+                           onMouseEnter={() => this.setState({ [pos]: true })}
+                           onMouseLeave={() => this.setState({ [pos]: false })}>
+            <Button >
+                {pos}
+            </Button>
+            { this.state[pos] ?
+            <Popover position={pos}>
+                <Popover.Body>{pos}</Popover.Body>
+            </Popover>
+            : null }
+        </Popover.Container>
+    )
+}</div>`;
+
 export default () => {
     return (
         <Page title="Popovers" active="popovers">
@@ -74,6 +101,8 @@ export default () => {
             <Example title="With an input" source={EXAMPLE_WITH_INPUT} scope={SCOPE} />
 
             <Example title="With button and state" source={EXAMPLE_BUTTON} scope={SCOPE} />
+
+            <Example title="With custom positioning" source={EXAMPLE_POSITION} scope={SCOPE} />
         </Page>
     );
 };

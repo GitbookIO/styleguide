@@ -88,37 +88,51 @@
     }
 }
 
-.popover-top .popover-arrow {
-    bottom: -@gb-popover-arrow-width;
-    left: 50%;
-    margin-left: -@gb-popover-arrow-width;
-    border-top-color: @gb-popover-border;
-    border-bottom-width: 0;
-
-    &:after {
-        bottom: 1px;
-        margin-left: -(@gb-popover-arrow-width - 1);
-        content: "";
-        border-top-color: #fff;
-        border-bottom-width: 0;
-    }
-}
-
-.popover-bottom .popover-arrow {
+// Arrow direction specific
+.popover-bottom .popover-arrow,
+.popover-bottom-left .popover-arrow,
+.popover-bottom-right .popover-arrow {
     top: -@gb-popover-arrow-width;
-    left: 50%;
     margin-left: -@gb-popover-arrow-width;
     border-top-width: 0;
     border-bottom-color: @gb-popover-border;
 
     &:after {
         top: 1px;
-        margin-left: -(@gb-popover-arrow-width - 1);
-        content: "";
         border-top-width: 0;
         border-bottom-color: @gb-popover-heading-background;
+        margin-left: -(@gb-popover-arrow-width - 1);
     }
 }
+.popover-top .popover-arrow,
+.popover-top-left .popover-arrow,
+.popover-top-right .popover-arrow {
+    bottom: -@gb-popover-arrow-width;
+    margin-left: -@gb-popover-arrow-width;
+    border-top-color: @gb-popover-border;
+    border-bottom-width: 0;
+
+    &:after {
+        bottom: 1px;
+        border-top-color: #fff;
+        border-bottom-width: 0;
+        margin-left: -(@gb-popover-arrow-width - 1);
+    }
+}
+
+.popover-bottom .popover-arrow,
+.popover-top .popover-arrow {
+    left: 50%;
+}
+.popover-bottom-left .popover-arrow,
+.popover-top-left .popover-arrow {
+    left: 90%;
+}
+.popover-bottom-right .popover-arrow,
+.popover-top-right .popover-arrow {
+    left: 10%;
+}
+// end - Arrow direction specific
 
 .popover-wrapper {
     .animation(scale-in, 0.15s, 1);
@@ -132,18 +146,55 @@
     .popover {
         position: absolute;
         z-index: @gb-zindex-popover;
-        transform: translateX(-50%);
-        left: 50%;
 
+        // Use padding so that there is no gap, when hovering from the element to the popover
         &.popover-top {
+            transform: translateX(-50%);
+            left: 50%;
             bottom: 100%;
-            // Use padding so that there is no gap, when hovering from the element to the popover
             padding-bottom: (@gb-popover-spacing + @gb-popover-arrow-width);
         }
-        &.popover-bottom {
+        &.popover-top-right {
+            transform: translateX(-10%);
+            left: 50%;
+            bottom: 100%;
+            padding-bottom: (@gb-popover-spacing + @gb-popover-arrow-width);
+        }
+        &.popover-right {
+            transform: translateY(50%);
+            bottom: 50%;
+            left: 100%;
+            padding-left: (@gb-popover-spacing + @gb-popover-arrow-width);
+        }
+        &.popover-bottom-right {
+            transform: translateX(-10%);
+            left: 50%;
             top: 100%;
-            // Use padding so that there is no gap, when hovering from the element to the popover
             padding-top: (@gb-popover-spacing + @gb-popover-arrow-width);
+        }
+        &.popover-bottom {
+            transform: translateX(-50%);
+            left: 50%;
+            top: 100%;
+            padding-top: (@gb-popover-spacing + @gb-popover-arrow-width);
+        }
+        &.popover-bottom-left {
+            transform: translateX(-90%);
+            left: 50%;
+            top: 100%;
+            padding-top: (@gb-popover-spacing + @gb-popover-arrow-width);
+        }
+        &.popover-left {
+            transform: translateY(50%);
+            bottom: 50%;
+            right: 100%;
+            padding-right: (@gb-popover-spacing + @gb-popover-arrow-width);
+        }
+        &.popover-top-left {
+            transform: translateX(-90%);
+            left: 50%;
+            bottom: 100%;
+            padding-bottom: (@gb-popover-spacing + @gb-popover-arrow-width);
         }
     }
 }
