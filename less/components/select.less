@@ -83,6 +83,16 @@
                     background-color: @gb-palette-blue;
                     color: #fff;
                 }
+
+                &.disabled {
+                    cursor: default;
+                    opacity: 0.5;
+
+                    &:hover {
+                        background-color: @gb-dropdown-background;
+                        color: @gb-text-color;
+                    }
+                }
             }
         }
     }
