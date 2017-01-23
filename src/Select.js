@@ -103,7 +103,10 @@ const Select = React.createClass({
         size: React.PropTypes.oneOf(SIZES),
 
         // Take the whole width
-        block: React.PropTypes.bool
+        block: React.PropTypes.bool,
+
+        // Should an option be marked as disabled
+        isOptionDisabled: React.PropTypes.func
     },
 
     getDefaultProps() {
@@ -118,7 +121,8 @@ const Select = React.createClass({
             component: defaultComponent,
             renderToString: defaultRenderToString,
             searchPlaceholder: DEFAULT_SEARCH_PLACEHOLDER,
-            placeholder: 'Select'
+            placeholder: 'Select',
+            isOptionDisabled: () => false
         };
     },
 
@@ -359,7 +363,7 @@ const Select = React.createClass({
      */
     renderGroup(group, index) {
         const { query } = this.state;
-        const { filter } = this.props;
+        const { filter, isOptionDisabled } = this.props;
         let Component = this.props.component;
         let count = 0;
 
@@ -370,11 +374,8 @@ const Select = React.createClass({
 
             count++;
 
-            // Component can pass a static isDisabled(item) method if option
-            // should be displayed but is inactive
-            const isDisabled = Boolean(Component.isDisabled) ?
-                Component.isDisabled(item) :
-                false;
+            // Check if item should be displayed but marked as disabled
+            const isDisabled = isOptionDisabled(item);
 
             const className = classNames('SelectOption', {
                 active: this.hasValue(item),
