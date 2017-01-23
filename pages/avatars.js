@@ -15,20 +15,38 @@ const EXAMPLE_IMPORT =
 const AvatarsStack = require('gitbook-styleguide/lib/AvatarsStack');`;
 
 const EXAMPLE_DEFAULT =
-`<Avatar src="https://picturepan2.github.io/spectre/demo/img/avatar-1.png" size="lg" />
-<Avatar src="https://picturepan2.github.io/spectre/demo/img/avatar-3.png" size="md" />
-<Avatar src="https://picturepan2.github.io/spectre/demo/img/avatar-4.png" size="sm" />`;
+`<Avatar
+    src="https://picturepan2.github.io/spectre/demo/img/avatar-1.png"
+    size="lg"
+    />
+<Avatar
+    src="https://picturepan2.github.io/spectre/demo/img/avatar-3.png"
+    size="md"
+    />
+<Avatar
+    src="https://picturepan2.github.io/spectre/demo/img/avatar-4.png"
+    size="sm"
+    />`;
 
 const EXAMPLE_STACK =
 `<AvatarsStack>
     <AvatarsStack.Item>
-        <Avatar src="https://picturepan2.github.io/spectre/demo/img/avatar-1.png" size="sm" />
+        <Avatar
+            src="https://picturepan2.github.io/spectre/demo/img/avatar-1.png"
+            size="sm"
+            />
     </AvatarsStack.Item>
     <AvatarsStack.Item>
-        <Avatar src="https://picturepan2.github.io/spectre/demo/img/avatar-3.png" size="sm" />
+        <Avatar
+            src="https://picturepan2.github.io/spectre/demo/img/avatar-3.png"
+            size="sm"
+            />
     </AvatarsStack.Item>
     <AvatarsStack.Item>
-        <Avatar src="https://picturepan2.github.io/spectre/demo/img/avatar-4.png" size="sm" />
+        <Avatar
+            src="https://picturepan2.github.io/spectre/demo/img/avatar-4.png"
+            size="sm"
+            />
     </AvatarsStack.Item>
 </AvatarsStack>`;
 
