@@ -3,7 +3,16 @@ const classNames = require('classnames');
 
 const Link = require('./Link');
 
-const POSITIONS = ['bottom', 'top'];
+const POSITIONS = [
+    'top',
+    'top-right',
+    'right',
+    'bottom-right',
+    'bottom',
+    'bottom-left',
+    'left',
+    'top-left'
+];
 
 /**
  * Pop content with controls over content:
@@ -31,7 +40,7 @@ const Popover =  React.createClass({
 
     getDefaultProps() {
         return {
-            position: POSITIONS[0]
+            position: 'bottom'
         };
     },
 
