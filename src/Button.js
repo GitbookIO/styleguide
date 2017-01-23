@@ -59,8 +59,14 @@ const Button = React.createClass({
     },
 
     onClick(e) {
-        const { clicked } = this.state;
+        // Prevent any action if button is disabled
+        const { disabled } = this.props;
+        if (disabled) {
+            e.preventDefault();
+            return;
+        }
 
+        const { clicked } = this.state;
         if (this.props.onClick && !clicked) {
             this.props.onClick(e);
         }
@@ -114,9 +120,11 @@ const Button = React.createClass({
             }
         );
         props['aria-label'] = title;
-        props.role          = 'button';
-        props.disabled      = disabled;
-        props.onClick       = this.onClick;
+        props.role = 'button';
+        props.disabled = disabled;
+        props.onClick = this.onClick;
+        // Update href if button is disabled
+        props.href = disabled ? '#' : props.href;
 
         let input;
 
