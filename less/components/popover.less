@@ -132,6 +132,34 @@
 .popover-top-right .popover-arrow {
     left: 10%;
 }
+.popover-right .popover-arrow {
+    left: -@gb-popover-arrow-width;
+    margin-top: -@gb-popover-arrow-width;
+    border-left-width: 0;
+    border-right-color: @gb-popover-border;
+    top: 50%;
+
+    &:after {
+        left: 1px;
+        border-left-width: 0;
+        border-right-color: @gb-popover-heading-background;
+        margin-top: -(@gb-popover-arrow-width - 1);
+    }
+}
+.popover-left .popover-arrow {
+    right: -@gb-popover-arrow-width;
+    margin-top: -@gb-popover-arrow-width;
+    border-right-width: 0;
+    border-left-color: @gb-popover-border;
+    top: 50%;
+
+    &:after {
+        right: 1px;
+        border-right-width: 0;
+        border-left-color: @gb-popover-heading-background;
+        margin-top: -(@gb-popover-arrow-width - 1);
+    }
+}
 // end - Arrow direction specific
 
 .popover-wrapper {
