@@ -1,9 +1,9 @@
-const React      = require('react');
+const React = require('react');
 const classNames = require('classnames');
 
-const SIZES    = require('./SIZES');
-const Button   = require('./Button');
-const Input    = require('./Input');
+const SIZES = require('./SIZES');
+const Button = require('./Button');
+const Input = require('./Input');
 const Backdrop = require('./Backdrop');
 
 const DEFAULT_SEARCH_PLACEHOLDER = 'Search';
@@ -28,7 +28,7 @@ function defaultFilter(query, item, i) {
 /**
  * Default render for options
  */
-function defaultComponent({option}) {
+function defaultComponent({ option }) {
     return <span>{option}</span>;
 }
 defaultComponent.propTypes = {
@@ -53,17 +53,17 @@ function defaultRenderToString(item, i) {
 const Select = React.createClass({
     propTypes: {
         // Current value of the select
-        value:          React.PropTypes.oneOfType([
+        value: React.PropTypes.oneOfType([
             itemShape,
             React.PropTypes.arrayOf(itemShape)
         ]),
 
         // List of items to display
-        groups:         React.PropTypes.arrayOf(groupShape),
-        options:        React.PropTypes.arrayOf(itemShape),
+        groups: React.PropTypes.arrayOf(groupShape),
+        options: React.PropTypes.arrayOf(itemShape),
 
         // Function to render the option to a string or element
-        component:     React.PropTypes.func,
+        component: React.PropTypes.func,
 
         // Function to render the selected option in the button
         // Defaults to "renderOption"
@@ -72,68 +72,72 @@ const Select = React.createClass({
         // Function to output an option as a string
         // Defaults to a string representation, you have to provide your own value
         // when using a custom option renderer
-        renderToString:  React.PropTypes.func,
+        renderToString: React.PropTypes.func,
 
         // Function to filter an element
-        filter:         React.PropTypes.func,
+        filter: React.PropTypes.func,
 
         // Optional callback when value changed
-        onChange:       React.PropTypes.func,
+        onChange: React.PropTypes.func,
 
         // Name when using server posting
-        name:           React.PropTypes.string,
+        name: React.PropTypes.string,
 
         // Text to display when no value is set
-        placeholder:    React.PropTypes.string,
+        placeholder: React.PropTypes.string,
         searchPlaceholder: React.PropTypes.string,
 
         // Delimiter for multiple values
-        delimiter:      React.PropTypes.string,
+        delimiter: React.PropTypes.string,
 
         // Prevent selection
-        disabled:       React.PropTypes.bool,
+        disabled: React.PropTypes.bool,
 
         // Display the search filter?
-        search:         React.PropTypes.bool,
+        search: React.PropTypes.bool,
 
         // Accept multiple values
-        multiple:       React.PropTypes.bool,
+        multiple: React.PropTypes.bool,
 
         // Size of the select to display
-        size:           React.PropTypes.oneOf(SIZES),
+        size: React.PropTypes.oneOf(SIZES),
 
         // Take the whole width
-        block:          React.PropTypes.bool
+        block: React.PropTypes.bool,
+
+        // Should an option be marked as disabled
+        isOptionDisabled: React.PropTypes.func
     },
 
     getDefaultProps() {
         return {
-            disabled:          false,
-            search:            true,
-            delimiter:         ',',
-            size:              SIZES[0],
-            multiple:          false,
-            block:             false,
-            filter:            defaultFilter,
-            component:         defaultComponent,
-            renderToString:    defaultRenderToString,
+            disabled: false,
+            search: true,
+            delimiter: ',',
+            size: SIZES[0],
+            multiple: false,
+            block: false,
+            filter: defaultFilter,
+            component: defaultComponent,
+            renderToString: defaultRenderToString,
             searchPlaceholder: DEFAULT_SEARCH_PLACEHOLDER,
-            placeholder:       'Select'
+            placeholder: 'Select',
+            isOptionDisabled: () => false
         };
     },
 
     getInitialState() {
         return {
-            value:    this.props.value,
-            query:    '',
-            opened:   false,
-            groups:   this.propsToGroups(this.props)
+            value: this.props.value,
+            query: '',
+            opened: false,
+            groups: this.propsToGroups(this.props)
         };
     },
 
     componentWillReceiveProps(newProps) {
         this.setState({
-            value:  newProps.value,
+            value: newProps.value,
             groups: this.propsToGroups(newProps),
             opened: newProps.disabled ? false : this.state.opened
         });
@@ -231,7 +235,8 @@ const Select = React.createClass({
                 // Unselect if many options are selected
                 newValue.splice(
                     newValue.indexOf(addValue),
-                    1);
+                    1
+                );
             }
 
             newState = {
@@ -246,11 +251,14 @@ const Select = React.createClass({
             };
         }
 
-        this.setState(newState, function() {
-            if (onChange) {
-                onChange(newValue);
+        this.setState(
+            newState,
+            () => {
+                if (onChange) {
+                    onChange(newValue);
+                }
             }
-        });
+        );
     },
 
     /**
@@ -269,8 +277,8 @@ const Select = React.createClass({
             return renderToString(value);
         } else {
             return value
-                .map(renderToString)
-                .join(this.props.delimiter);
+            .map(renderToString)
+            .join(this.props.delimiter);
         }
     },
 
@@ -313,15 +321,13 @@ const Select = React.createClass({
 
         if (value) {
             const values = multiple ? value : [value];
-            inner      = (
+            inner = (
                 <span className="SelectSelections">
-                {values.map(function(val, i) {
-                    return (
-                        <span key={i} className="SelectSelection">
-                            <ComponentSelection option={val} index={i} />
-                        </span>
-                    );
-                })}
+                {values.map((val, i) => (
+                    <span key={i} className="SelectSelection">
+                        <ComponentSelection option={val} index={i} />
+                    </span>
+                ))}
                 </span>
             );
         } else {
@@ -357,27 +363,39 @@ const Select = React.createClass({
      */
     renderGroup(group, index) {
         const { query } = this.state;
-        const { filter } = this.props;
+        const { filter, isOptionDisabled } = this.props;
         let Component = this.props.component;
-        let count     = 0;
+        let count = 0;
 
-        const options = group.options.map(function(item, i) {
+        const options = group.options.map((item, i) => {
             if (!filter(query, item, i)) {
                 return '';
             }
 
             count++;
 
+            // Check if item should be displayed but marked as disabled
+            const isDisabled = isOptionDisabled(item);
+
+            const className = classNames('SelectOption', {
+                active: this.hasValue(item),
+                disabled: isDisabled
+            });
+
             return (
                 <div
                     key={i}
-                    className={classNames('SelectOption', { active: this.hasValue(item) })}
-                    onClick={e => this.onToggleOption(item)}
+                    className={className}
+                    onClick={(e) => {
+                        if (!isDisabled) {
+                            this.onToggleOption(item);
+                        }
+                    }}
                 >
                     <Component option={item} index={i} />
                 </div>
             );
-        }, this);
+        });
 
         // Don't display empty groups (when filtered)
         if (count === 0) {
@@ -424,7 +442,7 @@ const Select = React.createClass({
         });
 
         return (
-            <div className={className} onClick={e => e.stopPropagation()}>
+            <div className={className} onClick={(e) => e.stopPropagation()}>
                 <input type="hidden" name={name} value={this.getStringValue()} />
                 {this.renderButton()}
                 {opened ? <Backdrop onClose={this.close}>{this.renderGroups()}</Backdrop> : ''}
