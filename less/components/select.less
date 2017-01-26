@@ -45,6 +45,16 @@
             padding: 4px 8px;
         }
 
+        .SearchEmpty {
+            position: relative;
+            padding: @gb-padding-small-vertical @gb-padding-small-horizontal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            /** Compensate .SelectSearch margin-bottom */
+            margin-top: -@gb-padding-large-vertical;
+        }
+
         .SelectOptGroup {
             .GroupLabel {
                 padding: 4px 10px;
