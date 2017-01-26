@@ -14,7 +14,7 @@ const itemShape = React.PropTypes.oneOfType([
 ]);
 
 const groupShape = React.PropTypes.shape({
-    label:   React.PropTypes.string,
+    label: React.PropTypes.string,
     options: React.PropTypes.arrayOf(itemShape)
 });
 
@@ -26,22 +26,114 @@ function defaultFilter(query, item, i) {
 }
 
 /**
- * Default render for options
- */
-function defaultComponent({ option }) {
-    return <span>{option}</span>;
-}
-defaultComponent.propTypes = {
-    option: itemShape
-};
-
-/**
  * Default render to string for input
  */
 function defaultRenderToString(item, i) {
     return String(item);
 }
 
+/**
+ * Default render for options
+ * @type {ReactClass}
+ */
+const DefaultComponent = React.createClass({
+    propTypes: {
+        option: itemShape
+    },
+
+    render() {
+        const { option } = this.props;
+        return (
+            <span>{option}</span>
+        );
+    }
+});
+
+/**
+ * Component to render a Selection option
+ * @type {ReactClass}
+ */
+const SelectOption = React.createClass({
+    propTypes: {
+        item: itemShape.isRequired,
+        index: React.PropTypes.number.isRequired,
+        // Function to render the option to a string or element
+        component: React.PropTypes.func.isRequired,
+        // Function to check if option is in selected values
+        hasValue: React.PropTypes.func.isRequired,
+        // Toggle an option in main Select state
+        onToggleOption: React.PropTypes.func.isRequired,
+        // Should an option be marked as disabled
+        isOptionDisabled: React.PropTypes.func
+    },
+
+    getDefaultProps() {
+        return {
+            isOptionDisabled: () => false
+        };
+    },
+
+    render() {
+        const {
+            item,
+            index,
+            isOptionDisabled,
+            hasValue,
+            onToggleOption,
+            component: Component
+        } = this.props;
+
+        // Check if item should be displayed but marked as disabled
+        const isDisabled = isOptionDisabled(item);
+
+        const className = classNames('SelectOption', {
+            active: hasValue(item),
+            disabled: isDisabled
+        });
+
+        return (
+            <div className={className}
+                onClick={(e) => {
+                    if (!isDisabled) {
+                        onToggleOption(item);
+                    }
+                }}>
+                <Component option={item} index={index} />
+            </div>
+        );
+    }
+});
+
+/**
+ * Component to render a Select option group
+ * @type {ReactClass}
+ */
+const SelectOptGroup = React.createClass({
+    propTypes: {
+        group: groupShape
+    },
+
+    render() {
+        const {
+            group,
+            ...props
+        } = this.props;
+
+        return (
+            <div className="SelectOptGroup">
+            {group.label ?
+                <div className="GroupLabel">{group.label}</div>
+                : null
+            }
+                <div className="GroupOptions">
+                {group.options.map((item, i) => (
+                    <SelectOption {...props} key={i} item={item} index={i} />
+                ))}
+                </div>
+            </div>
+        );
+    }
+});
 
 /**
  * Interractive select for forms
@@ -64,6 +156,9 @@ const Select = React.createClass({
 
         // Function to render the option to a string or element
         component: React.PropTypes.func,
+
+        // Function to render a message when search did not return any results
+        searchEmptyComponent: React.PropTypes.func,
 
         // Function to render the selected option in the button
         // Defaults to "renderOption"
@@ -118,11 +213,11 @@ const Select = React.createClass({
             multiple: false,
             block: false,
             filter: defaultFilter,
-            component: defaultComponent,
+            component: DefaultComponent,
             renderToString: defaultRenderToString,
             searchPlaceholder: DEFAULT_SEARCH_PLACEHOLDER,
             placeholder: 'Select',
-            isOptionDisabled: () => false
+            searchEmptyComponent: null
         };
     },
 
@@ -342,93 +437,56 @@ const Select = React.createClass({
     },
 
     /**
-     * Render button to open select
-     */
-    renderSearch() {
-        let { query } = this.state;
-
-        return (
-            <div className="SelectSearch">
-                <Input ref="searchInput"
-                    value={query}
-                    onChange={this.onSearchChanged}
-                    placeholder={this.props.placeholder}
-                />
-            </div>
-        );
-    },
-
-    /**
-     * Render the options selector
-     */
-    renderGroup(group, index) {
-        const { query } = this.state;
-        const { filter, isOptionDisabled } = this.props;
-        let Component = this.props.component;
-        let count = 0;
-
-        const options = group.options.map((item, i) => {
-            if (!filter(query, item, i)) {
-                return '';
-            }
-
-            count++;
-
-            // Check if item should be displayed but marked as disabled
-            const isDisabled = isOptionDisabled(item);
-
-            const className = classNames('SelectOption', {
-                active: this.hasValue(item),
-                disabled: isDisabled
-            });
-
-            return (
-                <div
-                    key={i}
-                    className={className}
-                    onClick={(e) => {
-                        if (!isDisabled) {
-                            this.onToggleOption(item);
-                        }
-                    }}
-                >
-                    <Component option={item} index={i} />
-                </div>
-            );
-        });
-
-        // Don't display empty groups (when filtered)
-        if (count === 0) {
-            return '';
-        }
-
-        return (
-            <div key={index} className="SelectOptGroup">
-                {group.label ? <div className="GroupLabel">{group.label}</div> : ''}
-                <div className="GroupOptions">
-                    {options}
-                </div>
-            </div>
-        );
-    },
-
-    /**
      * Render the groups
      */
     renderGroups() {
-        const { opened, groups } = this.state;
-        const { search } = this.props;
+        const { opened, groups, query } = this.state;
+        const {
+            search,
+            filter,
+            searchEmptyComponent: SearchEmptyComponent,
+            ...props
+         } = this.props;
 
         const className = classNames('SelectContainer', {
             'open': opened
         });
 
+        // Filter empty groups based on search query
+        const filteredGroups = groups.map((group) => ({
+            ...group,
+            options: group.options.filter((item, i) => filter(query, item, i))
+        }))
+        .filter((group) => group.options.length > 0);
+
         return (
             <div className={className}>
-                {search ? this.renderSearch() : ''}
-                <div className="SelectGroups">
-                    {groups.map(this.renderGroup)}
+            {search ?
+                <div className="SelectSearch">
+                    <Input ref="searchInput"
+                        value={query}
+                        onChange={this.onSearchChanged}
+                        placeholder={this.props.placeholder}
+                    />
                 </div>
+                : null
+            }
+
+            {Boolean(filteredGroups.length) ?
+                <div className="SelectGroups">
+                {filteredGroups.map((group, i) => (
+                    <SelectOptGroup {...props} key={i} group={group} hasValue={this.hasValue} onToggleOption={this.onToggleOption} />
+                ))}
+                </div>
+                : null
+            }
+
+            {search && !filteredGroups.length ?
+                <div className="SearchEmpty">
+                    <SearchEmptyComponent query={query} />
+                </div>
+                : null
+            }
             </div>
         );
     },
@@ -445,7 +503,12 @@ const Select = React.createClass({
             <div className={className} onClick={(e) => e.stopPropagation()}>
                 <input type="hidden" name={name} value={this.getStringValue()} />
                 {this.renderButton()}
-                {opened ? <Backdrop onClose={this.close}>{this.renderGroups()}</Backdrop> : ''}
+            {opened ?
+                <Backdrop onClose={this.close}>
+                    {this.renderGroups()}
+                </Backdrop>
+                : null
+            }
             </div>
         );
     }
