@@ -69,7 +69,7 @@ const Backdrop = React.createClass({
         };
 
         return React.cloneElement(wrapper, {},
-            <div style={style} onClick={this.onClick}></div>,
+            <div className="Backdrop" style={style} onClick={this.onClick}></div>,
             wrapper.props.children,
             children
         );

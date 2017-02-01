@@ -271,7 +271,7 @@
 ///
 /// Modal
 ///
-@gb-modal-border:                 #fff;
+@gb-modal-border:                 @gb-palette-gray;
 @gb-modal-radius:                 @gb-border-radius-base;
 @gb-modal-shadow:                 ~"0 2px 15px 0 rgba(140, 144, 155, 0.5)";
 @gb-modal-background:             #fff;
@@ -280,8 +280,7 @@
 @gb-modal-size-medium:            600px;
 @gb-modal-size-large:             800px;
 @gb-modal-margin-vertical:        30px;
-@gb-modal-backdrop-background:    rgba(255, 255, 255, 0.7);
-@gb-modal-footer-background:      @gb-modal-background;
+@gb-modal-backdrop-background:    fadeout(@gb-palette-gray, 55%);
 @gb-modal-footer-border:          @gb-palette-gray-outline;
 
 ///
