@@ -34,3 +34,6 @@ static/images/logo
 static/css
 lib
 icons/*.js
+
+# Bob's prebuild
+.prebuild/
