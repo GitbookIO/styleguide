@@ -1,19 +1,15 @@
 #!/bin/bash
 
 #
-# Deploy the documentation using "now"
-# We can't deploy the whole repository because the build script is being killed by now.
+# Deploy the styleguide to Heroku through docker
 #
 
-echo Building the documentation
-next build
+echo "Building container"
+bob build
 
-rm -rf .next/to-deploy
-mkdir -p .next/to-deploy
-cp -R .next/dist/* .next/to-deploy
+img=$(bob detect | head -n 1)
+heroku_img="registry.heroku.com/gitbook-styleguide/web"
 
-cp package.json .next/to-deploy/
-cp index.js .next/to-deploy/
-
-echo Deploying the documentation
-cd .next/to-deploy && now
+# Tag & push to heroku
+docker tag $img $heroku_img
+docker push $heroku_img
