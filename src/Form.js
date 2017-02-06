@@ -41,7 +41,7 @@ const FormGroup = React.createClass({
     },
 
     render() {
-        let className = classNames('form-group', {
+        const className = classNames('form-group', {
             'has-error': this.props.error
         }, this.props.className);
 

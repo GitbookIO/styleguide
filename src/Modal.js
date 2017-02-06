@@ -19,7 +19,7 @@ const Modal = React.createClass({
     },
 
     render() {
-        let className = classNames('modal',
+        const className = classNames('modal',
             'modal-' + this.props.size,
             this.props.className, {
                 'without-backdrop': !this.props.backdrop

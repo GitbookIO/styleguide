@@ -408,9 +408,9 @@ const Select = React.createClass({
      * Render button to open select
      */
     renderButton() {
-        let { disabled, block, multiple, placeholder } = this.props;
-        let { value, opened } = this.state;
-        let ComponentSelection = this.props.componentSelection || this.props.component;
+        const { disabled, block, multiple, placeholder } = this.props;
+        const { value, opened } = this.state;
+        const ComponentSelection = this.props.componentSelection || this.props.component;
 
         let inner;
 
@@ -453,11 +453,11 @@ const Select = React.createClass({
         });
 
         // Filter empty groups based on search query
-        const filteredGroups = groups.map((group) => ({
+        const filteredGroups = groups.map(group => ({
             ...group,
             options: group.options.filter((item, i) => filter(query, item, i))
         }))
-        .filter((group) => group.options.length > 0);
+        .filter(group => group.options.length > 0);
 
         return (
             <div className={className}>
@@ -492,15 +492,15 @@ const Select = React.createClass({
     },
 
     render() {
-        let { name, block } = this.props;
+        const { name, block } = this.props;
         const { opened } = this.state;
 
-        let className = classNames('SelectFormControl', {
+        const className = classNames('SelectFormControl', {
             block
         });
 
         return (
-            <div className={className} onClick={(e) => e.stopPropagation()}>
+            <div className={className} onClick={e => e.stopPropagation()}>
                 <input type="hidden" name={name} value={this.getStringValue()} />
                 {this.renderButton()}
             {opened ?

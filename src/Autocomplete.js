@@ -45,7 +45,7 @@ const Autocomplete = React.createClass({
             loading: true
         });
 
-        onFetch(value, function(results) {
+        onFetch(value, (results) => {
             that.setState({
                 loading: false,
                 results
@@ -139,13 +139,13 @@ const Autocomplete = React.createClass({
 
         return (
             <div className="AutocompleteResults">
-                {results.map(function(result, i) {
+                {results.map((result, i) => {
                     const isActive = (i === cursor);
 
-                    return <AutocompleteResult key={value + '-' + i} active={isActive}
+                    return (<AutocompleteResult key={value + '-' + i} active={isActive}
                                                 onClick={e => that.onSelect(i)}>
                         <ResultComponent result={result} index={i} active={isActive} />
-                    </AutocompleteResult>;
+                    </AutocompleteResult>);
                 })}
             </div>
         );

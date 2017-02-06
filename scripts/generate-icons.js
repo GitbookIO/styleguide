@@ -8,7 +8,7 @@ const iconsFolder = path.resolve(__dirname, '../icons');
 const icons = fs.readdirSync(iconsFolder);
 
 // Convert icons
-icons.forEach(icon => {
+icons.forEach((icon) => {
     const ext = path.extname(icon);
     if (ext != '.svg') {
         return;

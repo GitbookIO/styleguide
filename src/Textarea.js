@@ -53,11 +53,11 @@ const Textarea = React.createClass({
 
         const className = classNames('form-control', 'input-' + size, this.props.className);
 
-        return <textarea ref="textarea"
+        return (<textarea ref="textarea"
             className={className} rows={rows} maxLength={maxLength}
             autoFocus={autoFocus} disabled={disabled}
             name={name} value={value} defaultValue={defaultValue}
-            placeholder={placeholder} onChange={this.onChange}></textarea>;
+            placeholder={placeholder} onChange={this.onChange}></textarea>);
     }
 });
 

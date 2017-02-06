@@ -82,7 +82,7 @@ const ButtonDropdown = React.createClass({
             'dropup': up
         });
 
-        inner = React.Children.map(children, function(child) {
+        inner = React.Children.map(children, (child) => {
             // If the Button is connected through Redux.connect, it is
             // renamed to "Connect(Button...)"
             if (
@@ -103,7 +103,7 @@ const ButtonDropdown = React.createClass({
             return null;
         });
 
-        items = React.Children.map(children, function(child) {
+        items = React.Children.map(children, (child) => {
             if (child && child.type && (child.type.displayName == 'DropdownItem' || child.type.displayName == 'DropdownDivider')) {
                 return React.cloneElement(child, {
                     onClick() {
@@ -183,13 +183,13 @@ const DropdownItem = React.createClass({
             return null;
         }, this);
 
-        return <li className={this.props.disabled ? 'disabled' : ''}>
+        return (<li className={this.props.disabled ? 'disabled' : ''}>
             <a {...this.props} href={this.props.href || '#'} onClick={this.props.disabled ? null : this.onClick}>
                 {checked ? <div className="dropdown-icon pull-left"><Icon id="check" /></div> : ''}
                 {inner}
             </a>
             {outer}
-        </li>;
+        </li>);
     }
 });
 
@@ -228,9 +228,9 @@ const DropdownMenu = React.createClass({
             }
         );
 
-        return <ul className={className}>
+        return (<ul className={className}>
             {this.props.children}
-        </ul>;
+        </ul>);
     }
 });
 
@@ -240,9 +240,9 @@ const ItemHeader = React.createClass({
     },
 
     render() {
-        return <div className="dropdown-itemheader">
+        return (<div className="dropdown-itemheader">
             {this.props.children}
-        </div>;
+        </div>);
     }
 });
 
@@ -252,9 +252,9 @@ const ItemDesc = React.createClass({
     },
 
     render() {
-        return <div className="dropdown-itemdesc">
+        return (<div className="dropdown-itemdesc">
             {this.props.children}
-        </div>;
+        </div>);
     }
 });
 

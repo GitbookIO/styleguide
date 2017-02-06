@@ -65,7 +65,7 @@ const TabsItem = React.createClass({
     },
 
     render() {
-        let { children, href, active } = this.props;
+        const { children, href, active } = this.props;
 
         return (
             <li className={classNames({ active })}>
