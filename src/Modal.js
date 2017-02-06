@@ -7,6 +7,7 @@ const Modal = React.createClass({
     propTypes: {
         size:     React.PropTypes.oneOf(SIZES),
         backdrop: React.PropTypes.bool,
+        animated: React.PropTypes.bool,
         children: React.PropTypes.node,
         className: React.PropTypes.string
     },
@@ -14,20 +15,29 @@ const Modal = React.createClass({
     getDefaultProps() {
         return {
             size: 'md',
-            backdrop: true
+            backdrop: true,
+            animated: true
         };
     },
 
     render() {
-        let className = classNames('modal',
-            'modal-' + this.props.size,
-            this.props.className, {
-                'without-backdrop': !this.props.backdrop
+        const {
+            size, backdrop,
+            animated, children
+        } = this.props;
+
+        const className = classNames(
+            'modal',
+            'modal-' + size,
+            this.props.className,
+            {
+                'modal-animated': animated,
+                'without-backdrop': !backdrop
             });
 
         return (
             <div className={className}>
-                {this.props.children}
+                {children}
             </div>
         );
     }
