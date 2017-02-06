@@ -31,7 +31,7 @@ const Modal = React.createClass({
             'modal-' + size,
             this.props.className,
             {
-                'modal-animated': animated,
+                animated,
                 'without-backdrop': !backdrop
             });
 
