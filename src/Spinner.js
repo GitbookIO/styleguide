@@ -18,7 +18,7 @@ const Spinner = React.createClass({
     },
 
     render() {
-        let className = classNames('gb-spinner', 'spinner-' + this.props.size, {
+        const className = classNames('gb-spinner', 'spinner-' + this.props.size, {
             'spinner-inverse':  this.props.inverse,
             'spinner-centered': this.props.centered
         });
@@ -32,9 +32,9 @@ const Spinner = React.createClass({
  */
 const SpinnerSlate = React.createClass({
     render() {
-        return <div className="gb-spinner-slate">
+        return (<div className="gb-spinner-slate">
             <Spinner {...this.props} />
-        </div>;
+        </div>);
     }
 });
 

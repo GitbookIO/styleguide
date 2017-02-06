@@ -49,8 +49,8 @@ const TimeLine = React.createClass({
         const currentPoint = this.props.points[index];
         const lastPoint    = this.props.lastPoints[index];
 
-        return <line x1={lastX} y1={lastPoint.y} x2={currentX} y2={currentPoint.y}
-            stroke={currentPoint.color} strokeWidth={this.context.lineWidth} />;
+        return (<line x1={lastX} y1={lastPoint.y} x2={currentX} y2={currentPoint.y}
+            stroke={currentPoint.color} strokeWidth={this.context.lineWidth} />);
     },
 
     render() {
@@ -319,9 +319,9 @@ const XAxis = React.createClass({
                     return null;
                 }
 
-                return <text key={i} x={x} y={yTop}
+                return (<text key={i} x={x} y={yTop}
                     fontFamily={this.context.textFontFamily} fontSize={this.context.textFontSize}
-                    fill={this.context.textColor} textAnchor="middle">{moment(date).format(valuePerInterval.format)}</text>;
+                    fill={this.context.textColor} textAnchor="middle">{moment(date).format(valuePerInterval.format)}</text>);
             })}
             </g>
         );

@@ -3,7 +3,7 @@
 const path = require('path');
 
 function moduleContainer(mod) {
-    const pkgPath = require.resolve(mod+'/package.json');
+    const pkgPath = require.resolve(mod + '/package.json');
     return path.resolve(
         path.dirname(pkgPath)
         , '..');

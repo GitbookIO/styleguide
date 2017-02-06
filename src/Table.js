@@ -22,9 +22,9 @@ const Table = React.createClass({
             this.props.className
         );
 
-        return <table className={className}>
+        return (<table className={className}>
             {this.props.children}
-        </table>;
+        </table>);
     }
 });
 
@@ -88,7 +88,7 @@ const ExpendableBody = React.createClass({
         if (this.isArray(item)) {
             return (
                 <tr key={i}>
-                    {item.map(function(value, j) {
+                    {item.map((value, j) => {
                         return <td className={className} key={j}>{value}</td>;
                     })}
                 </tr>

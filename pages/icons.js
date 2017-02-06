@@ -21,7 +21,7 @@ const LOGOS = [
 ];
 
 const OCTICONS = Icon.OCTICONS
-    .map(id => {
+    .map((id) => {
         return {
             source: `<Icon id="${id}" />`,
             component: () => <span style={{ fontSize: 32 }}><Icon id={id} size="md" /></span>
@@ -42,12 +42,12 @@ const IconsSet = React.createClass({
 
     render() {
         const { icons, perLine } = this.props;
-        let lines = [];
+        const lines = [];
 
         while (icons.length > 0) {
             const cells = icons.splice(0, perLine);
             lines.push(<Row>
-                {cells.map(cell => {
+                {cells.map((cell) => {
                     return (
                         <Row.Col md={12 / perLine}>
                             <Panel>

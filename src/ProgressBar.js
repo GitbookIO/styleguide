@@ -100,13 +100,13 @@ const ProgressBar = React.createClass({
     },
 
     render() {
-        return <div className="progress-bar">
+        return (<div className="progress-bar">
             <div className="bar" style={this.getBarStyle()}>
                 <div className="progress-bar-shadow"
                      style={this.getShadowStyle()}>
                 </div>
             </div>
-        </div>;
+        </div>);
     }
 });
 

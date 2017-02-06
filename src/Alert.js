@@ -34,7 +34,7 @@ const Alert = React.createClass({
 
         this.setState({
             opened: false
-        }, function() {
+        }, () => {
             if (onClose) onClose();
         });
     },
