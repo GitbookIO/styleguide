@@ -127,7 +127,7 @@ const ButtonDropdown = React.createClass({
         if (open) {
             return (
                 <Backdrop wrapper={content} onClose={this.close}>
-                    {open ? <DropdownMenu width={width} >{items}</DropdownMenu> : null}
+                    <DropdownMenu width={width} >{items}</DropdownMenu>
                 </Backdrop>
             );
         } else {
