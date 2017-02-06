@@ -1,3 +1,5 @@
+@gb-dropdown-margin-top: 12px;
+
 .caret {
     display: inline-block;
     width: 0;
@@ -35,7 +37,7 @@
 
     // Arrows
     &:not(.contextmenu) > .dropdown-menu {
-        margin-top: 12px;
+        margin-top: @gb-dropdown-margin-top;
         overflow: visible !important;
 
         &:after, &:before {
@@ -342,3 +344,40 @@
         }
     }
 }
+
+// Animations
+.dropdown-menu.open {
+    will-change: transform, opacity;
+    .animation(0.2s cubic-bezier(0.465, 0.183, 0.153, 0.946) dropdown-popdown);
+}
+.dropdown, .btn-group.dropdown {
+    &.dropup {
+        > .dropdown-menu.open {
+            .animation(0.2s cubic-bezier(0.465, 0.183, 0.153, 0.946) dropdown-popup);
+        }
+    }
+}
+
+.keyframes(dropdown-popdown, {
+    0% {
+        opacity: 0;
+        .transform(translateY(-@gb-dropdown-margin-top));
+    }
+
+    100% {
+        opacity: 1;
+        .transform(translateY(0));
+    }
+});
+
+.keyframes(dropdown-popup, {
+    0% {
+        opacity: 0;
+        .transform(translateY(@gb-dropdown-margin-top));
+    }
+
+    100% {
+        opacity: 1;
+        .transform(translateY(0));
+    }
+});
