@@ -1,0 +1,56 @@
+.CountWidget {
+    display: inline-block;
+    vertical-align: middle;
+
+    .CountHalf {
+        position: relative;
+        float: left;
+        padding-bottom: @gb-padding-base-vertical;
+        text-align: right;
+
+        &:last-child {
+            text-align: left;
+            border-left: 1px solid @gb-palette-gray-darker;
+        }
+
+        .CountValue {
+            position: relative;
+            top: -1px;
+            display: block;
+            padding: 0 @gb-border-radius-base;
+            font-size: @gb-font-size-small;
+        }
+
+        .CountBar {
+            position: absolute;
+            min-width: @gb-border-radius-base;
+            height: 4px;
+        }
+
+        .CountBar-Left {
+            right: 0;
+            border-radius: @gb-border-radius-base 0 0 @gb-border-radius-base;
+
+            .CountMeter {
+                right: 0;
+                border-radius: @gb-border-radius-base 0 0 @gb-border-radius-base;
+            }
+        }
+
+        .CountBar-Right {
+            left: 0;
+            border-radius: 0 @gb-border-radius-base @gb-border-radius-base 0;
+
+            .CountMeter {
+                border-radius: 0 @gb-border-radius-base @gb-border-radius-base 0;
+            }
+        }
+
+        .CountMeter {
+            position: absolute;
+            height: 4px;
+            background-color: @gb-palette-gray;
+            width: 100%;
+        }
+    }
+}
