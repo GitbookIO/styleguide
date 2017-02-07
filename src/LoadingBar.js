@@ -1,5 +1,4 @@
 const React = require('react');
-const { bool } = React.PropTypes;
 
 /**
  * Displays a loading bar (YouTube-like) at the top of container
@@ -9,7 +8,7 @@ const { bool } = React.PropTypes;
  */
 const LoadingBar = React.createClass({
     propTypes: {
-        show:  bool
+        show: React.PropTypes.bool
     },
 
     getDefaultProps() {
@@ -63,9 +62,9 @@ const LoadingBar = React.createClass({
     },
 
     hide() {
-        let { size } = this.state;
+        const { size } = this.state;
 
-        if (--size < 0) {
+        if (size < 1) {
             this.setState({ size: 0 });
             return;
         }
