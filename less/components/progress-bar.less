@@ -31,6 +31,18 @@
 
     .progress-bar-size(150px, 5px, 2px);
 
+    /* Sizes */
+
+    &.size-sm {
+        .progress-bar-size(80px, 5px, 2px);
+    }
+
+    &.size-lg {
+        .progress-bar-size(200px, 8px, 3px);
+    }
+
+    /* Styles */
+
     &.style-success {
         .progress-bar-style(@gb-brand-success);
     }
@@ -51,6 +63,7 @@
 .ProgressBarButton {
     background: transparent;
     border-color: transparent;
+    cursor: default;
 
     &:hover, &:active, &:focus {
         background: transparent;
