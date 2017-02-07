@@ -81,6 +81,8 @@ const ScrollArea = React.createClass({
     render() {
         const { children, ...props } = this.props;
         delete props.top;
+        delete props.debouncing;
+        delete props.onScroll;
 
         return (
             <div
