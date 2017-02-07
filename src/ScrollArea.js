@@ -31,7 +31,7 @@ const ScrollArea = React.createClass({
             return;
         }
 
-        let scrollPercentage = container.scrollTop / (container.scrollHeight - (container.offsetHeight));
+        let scrollPercentage = container.scrollTop / (container.scrollHeight - container.offsetHeight);
         if (scrollPercentage > 1) {
             scrollPercentage = 1;
         } else if (scrollPercentage < 0) {
@@ -55,10 +55,10 @@ const ScrollArea = React.createClass({
 
     setScroll() {
         const { top } = this.props;
-        const el = this.refs.scroller;
+        const container = this.refs.scroller;
 
-        if (el) {
-            el.scrollTop = top * (el.scrollHeight - el.offsetHeight);
+        if (container) {
+            container.scrollTop = top * (container.scrollHeight - container.offsetHeight);
         }
     },
 
