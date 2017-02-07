@@ -1,122 +1,83 @@
 const React = require('react');
-const { bool } = React.PropTypes;
+const classNames = require('classnames');
+
+const Button = require('./Button');
+const SIZES = require('./SIZES');
+const STYLES = require('./STYLES');
 
 /**
- * Displays a progress bar (YouTube-like) at the top of container
- * Based on https://github.com/lonelyclick/react-loading-bar/blob/master/src/Loading.jsx
+ * Displays an inline progress bar.
+ *
+ * @type {ReactClass}
  */
 const ProgressBar = React.createClass({
     propTypes: {
-        show:  bool
+        className: React.PropTypes.string,
+        // Progress between 0 and max
+        value:     React.PropTypes.number,
+        max:       React.PropTypes.number,
+        // Size of the bar
+        size:      React.PropTypes.oneOf(SIZES),
+        style:     React.PropTypes.oneOf(STYLES)
     },
 
     getDefaultProps() {
         return {
-            show: false
-        };
-    },
-
-    getInitialState() {
-        return {
-            size: 0,
-            disappearDelayHide: false, // when dispappear, first transition then display none
-            percent: 0,
-            appearDelayWidth: 0 // when appear, first display block then transition width
-        };
-    },
-
-    componentWillReceiveProps(nextProps) {
-        const { show } = nextProps;
-
-        if (show) {
-            this.show();
-        } else {
-            this.hide();
-        }
-    },
-
-    shouldComponentUpdate(nextProps, nextState) {
-        return true; // !shallowEqual(nextState, this.state)
-    },
-
-    show() {
-        let { size, percent } = this.state;
-
-        const appearDelayWidth = size === 0;
-        percent = calculatePercent(percent);
-
-        this.setState({
-            size: ++size,
-            appearDelayWidth,
-            percent
-        });
-
-        if (appearDelayWidth) {
-            setTimeout(() => {
-                this.setState({
-                    appearDelayWidth: false
-                });
-            });
-        }
-    },
-
-    hide() {
-        let { size } = this.state;
-
-        if (--size < 0) {
-            this.setState({ size: 0 });
-            return;
-        }
-
-        this.setState({
-            size: 0,
-            disappearDelayHide: true,
-            percent: 1
-        });
-
-        setTimeout(() => {
-            this.setState({
-                disappearDelayHide: false,
-                percent: 0
-            });
-        }, 500);
-    },
-
-    getBarStyle() {
-        const { disappearDelayHide, appearDelayWidth, percent } = this.state;
-
-        return {
-            width: appearDelayWidth ? 0 : percent * 100 + '%',
-            display: disappearDelayHide || percent > 0 ? 'block' : 'none'
-        };
-    },
-
-    getShadowStyle() {
-        const { percent, disappearDelayHide } = this.state;
-
-        return {
-            display: disappearDelayHide || percent > 0 ? 'block' : 'none'
+            value: 0,
+            max:   100,
+            size:  'md',
+            style: 'success'
         };
     },
 
     render() {
-        return <div className="progress-bar">
-            <div className="bar" style={this.getBarStyle()}>
-                <div className="progress-bar-shadow"
-                     style={this.getShadowStyle()}>
-                </div>
+        const { size, style, value, max } = this.props;
+
+        const className = classNames(
+            'ProgressBar',
+            `size-${size}`,
+            `style-${style}`,
+            this.props.className
+        );
+
+        const percent = (value * 100) / max;
+
+        return (
+            <div className={className}>
+                <div className="bar" style={{ width: `${percent}%` }}></div>
             </div>
-        </div>;
+        );
     }
 });
 
-function calculatePercent(percent) {
-    percent = percent || 0;
+/**
+ * Display a progress bar in a button like container.
+ * Perfect for insertion in a toolbar.
+ *
+ * @type {ReactClass}
+ */
+const ProgressBarButton = React.createClass({
+    propTypes: {
+        size:      React.PropTypes.oneOf(SIZES),
+        className: React.PropTypes.string,
+        children:  React.PropTypes.node
+    },
 
-    // How much of remaining bar we advance
-    const progress = 0.1 + Math.random() * 0.3;
+    render() {
+        let { children, className, ...props } = this.props;
 
-    return percent + progress * (1 - percent);
-}
+        className = classNames(
+            'ProgressBarButton',
+            className
+        );
+
+        return (
+            <Button className={className} {...props}>
+                {children}
+            </Button>
+        );
+    }
+});
 
 module.exports = ProgressBar;
+module.exports.Button = ProgressBarButton;

@@ -1,31 +1,59 @@
-.progress-bar {
-    pointer-events: none;
-    transition: 400ms linear all;
 
+.progress-bar-style(@color) {
     .bar {
-        background: @gb-brand-primary;
-        height: 2px;
-
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 10000;
-        display: none;
-        width: 100%;
-        border-radius: 0 1px 1px 0;
-        transition: width 350ms;
-    }
-
-    .progress-bar-shadow {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 70px;
-        height: 2px;
-        border-radius: 50%;
-        opacity: .45;
-        box-shadow: @gb-brand-primary 1px 0 6px 1px;
+        background: @color;
     }
 }
 
+.progress-bar-size(@width, @height, @radius) {
+    width: @width;
+    height: @height;
+    border-radius: @radius;
+
+    .bar {
+        border-radius: @radius;
+    }
+}
+
+.ProgressBar {
+    display: inline-block;
+    position: relative;
+    background: @gb-loading-bar-background;
+    overflow: hidden;
+
+    .bar {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        .transition(~"width 0.2s ease");
+    }
+
+    .progress-bar-size(150px, 5px, 2px);
+
+    &.style-success {
+        .progress-bar-style(@gb-brand-success);
+    }
+    &.style-warning {
+        .progress-bar-style(@gb-brand-warning);
+    }
+    &.style-primary {
+        .progress-bar-style(@gb-brand-primary);
+    }
+    &.style-danger {
+        .progress-bar-style(@gb-brand-danger);
+    }
+    &.style-info {
+        .progress-bar-style(@gb-brand-info);
+    }
+}
+
+.ProgressBarButton {
+    background: transparent;
+    border-color: transparent;
+
+    &:hover, &:active, &:focus {
+        background: transparent;
+        border-color: transparent;
+    }
+}
