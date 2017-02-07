@@ -36,6 +36,10 @@
     @media(min-width: @container-width) {
         max-width: @container-width;
 
+        &.container-max-width {
+            max-width: 100%;
+        }
+
         .generate-columns(@grid-prefix, @container-width, @gb-grid-columns);
     }
 }
@@ -61,11 +65,6 @@
 
     &.container-max-width {
         max-width: 100%;
-
-        .make-grid(xs, 100%, @gb-container-xs);
-        .make-grid(sm, 100%, @gb-container-sm);
-        .make-grid(md, 100%, @gb-container-md);
-        .make-grid(lg, 100%, @gb-container-lg);
     }
 
     [class*='col-'] {
