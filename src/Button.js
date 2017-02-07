@@ -124,7 +124,9 @@ const Button = React.createClass({
         props.disabled = disabled;
         props.onClick = this.onClick;
         // Update href if button is disabled
-        props.href = disabled ? '#' : props.href;
+        if (props.href) {
+            props.href = disabled ? '#' : props.href;
+        }
 
         let input;
 
