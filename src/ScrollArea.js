@@ -6,7 +6,7 @@ const React = require('react');
  *
  * @type {ReactType}
  */
-const Scroller = React.createClass({
+const ScrollArea = React.createClass({
     propTypes: {
         children:   React.PropTypes.node,
         // Position of scrolling
@@ -84,7 +84,7 @@ const Scroller = React.createClass({
         return (
             <div
                 ref="scroller"
-                className="desktop-scroller"
+                className="ScrollArea"
                 onScroll={this.onScroll}
                 {...props}>
                 {children}
@@ -93,4 +93,4 @@ const Scroller = React.createClass({
     }
 });
 
-module.exports = Scroller;
+module.exports = ScrollArea;
