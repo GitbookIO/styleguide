@@ -80,6 +80,7 @@ const ScrollArea = React.createClass({
 
     render() {
         const { children, ...props } = this.props;
+        delete props.top;
 
         return (
             <div
