@@ -59,6 +59,15 @@
         padding: 0px;
     }
 
+    &.container-max-width {
+        max-width: 100%;
+
+        .make-grid(xs, 100%, @gb-container-xs);
+        .make-grid(sm, 100%, @gb-container-sm);
+        .make-grid(md, 100%, @gb-container-md);
+        .make-grid(lg, 100%, @gb-container-lg);
+    }
+
     [class*='col-'] {
         float: left;
         width: 100%;
@@ -90,4 +99,3 @@
         display: none !important;
     }
 }
-
