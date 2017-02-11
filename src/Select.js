@@ -443,6 +443,7 @@ const Select = React.createClass({
         const { opened, groups, query } = this.state;
         const {
             search,
+            searchPlaceholder,
             filter,
             searchEmptyComponent: SearchEmptyComponent,
             ...props
@@ -466,7 +467,7 @@ const Select = React.createClass({
                     <Input ref="searchInput"
                         value={query}
                         onChange={this.onSearchChanged}
-                        placeholder={this.props.placeholder}
+                        placeholder={searchPlaceholder}
                     />
                 </div>
                 : null
