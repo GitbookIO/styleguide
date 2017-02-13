@@ -104,7 +104,8 @@ const ContextMenu = React.createClass({
             <Backdrop wrapper={inner} onClose={this.onClose}>
                 <div
                     className={classNames('ContextMenu', `direction-${directionH}`, `direction-${directionV}`)}
-                    style={{ top: y, left: x }}>
+                    style={{ top: y, left: x }}
+                    onClick={this.onClose}>
                     {menu}
                 </div>
             </Backdrop>
