@@ -159,6 +159,7 @@ const DropdownItem = React.createClass({
         }
 
         event.preventDefault();
+        event.stopPropagation();
 
         if (onClick) {
             onClick();

@@ -62,14 +62,24 @@ const ContextMenu = React.createClass({
         });
     },
 
+    /**
+     * Close the menu after any click on the window.
+     * We wait next event loop to avoid hiding the menu before the click got propaged to it.
+     */
+    onWindowClick() {
+        setTimeout(() => this.onClose(), 1);
+    },
+
     bindEvents() {
         const el = ReactDOM.findDOMNode(this);
         el.addEventListener('contextmenu', this.onOpen, false);
+        el.addEventListener('click', this.onWindowClick, false);
     },
 
     unbindEvents() {
         const el = ReactDOM.findDOMNode(this);
         el.removeEventListener('contextmenu', this.onOpen, false);
+        el.removeEventListener('click', this.onWindowClick, false);
     },
 
     componentDidMount() {
@@ -105,7 +115,7 @@ const ContextMenu = React.createClass({
                 <div
                     className={classNames('ContextMenu', `direction-${directionH}`, `direction-${directionV}`)}
                     style={{ top: y, left: x }}
-                    onClick={this.onClose}>
+                    onClick={this.onClick}>
                     {menu}
                 </div>
             </Backdrop>
