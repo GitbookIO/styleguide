@@ -5,6 +5,7 @@ const classNames = require('classnames');
 const Backdrop = require('./Backdrop');
 
 const MENU_RIGHT_SPACING = 300;
+const MENU_BOTTOM_SPACING = 160;
 
 /**
  * Helper to display a context menu.
@@ -26,7 +27,7 @@ const ContextMenu = React.createClass({
             open: false,
             x: 0,
             y: 0,
-            direction: 'e'
+            directionH: 'e'
         };
     },
 
@@ -37,13 +38,18 @@ const ContextMenu = React.createClass({
         event.preventDefault();
         event.stopPropagation();
 
+        const x = event.clientX;
+        const y = event.clientY;
+
         const width = window.innerWidth;
+        const height = window.innerHeight;
 
         this.setState({
             open: true,
-            x: event.clientX,
-            y: event.clientY,
-            direction: event.clientX > (width - MENU_RIGHT_SPACING) ? 'w' : 'e'
+            x,
+            y,
+            directionH: x > (width - MENU_RIGHT_SPACING) ? 'w' : 'e',
+            directionV: y > (height - MENU_BOTTOM_SPACING) ? 'n' : 's'
         });
     },
 
@@ -84,7 +90,7 @@ const ContextMenu = React.createClass({
 
     render() {
         const { children, component, ...otherProps } = this.props;
-        const { open, x, y, direction } = this.state;
+        const { open, x, y, directionH, directionV } = this.state;
 
         const inner = React.Children.only(children);
 
@@ -96,7 +102,7 @@ const ContextMenu = React.createClass({
 
         return (
             <Backdrop wrapper={inner} onClose={this.onClose}>
-                <div className={classNames('ContextMenu', `direction-${direction}`)} style={{ top: y, left: x }}>
+                <div className={classNames('ContextMenu', `direction-${directionH}`, `direction-${directionV}`)} style={{ top: y, left: x }}>
                     {menu}
                 </div>
             </Backdrop>

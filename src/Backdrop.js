@@ -36,9 +36,9 @@ const Backdrop = React.createClass({
 
     getDefaultProps() {
         return {
-            scroll: false,
-            escape: true,
-            zIndex: 200,
+            scroll:  false,
+            escape:  true,
+            zIndex:  200,
             wrapper: <div />
         };
     },
@@ -82,8 +82,13 @@ const Backdrop = React.createClass({
             return;
         }
 
-        event.preventDefault();
-        event.stopPropagation();
+        const container = ReactDOM.findDOMNode(this.refs.wrapper);
+        const backdrop = ReactDOM.findDOMNode(this.refs.backdrop);
+
+        if (event.target == container || event.target == backdrop) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
     },
 
     bindEvents() {
