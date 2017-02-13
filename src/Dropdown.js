@@ -151,12 +151,17 @@ const DropdownItem = React.createClass({
         checked:   React.PropTypes.bool
     },
 
-    onClick(e) {
-        if (!this.props.href) {
-            e.preventDefault();
-            e.stopPropagation();
+    onClick(event) {
+        const { href, onClick } = this.props;
 
-            if (this.props.onClick) this.props.onClick();
+        if (href) {
+            return;
+        }
+
+        event.preventDefault();
+
+        if (onClick) {
+            onClick();
         }
     },
 
