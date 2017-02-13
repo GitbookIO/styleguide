@@ -18,7 +18,7 @@ const EXAMPLE_DEFAULT =
     <Button>
         Toggle dropdown <Button.Caret />
     </Button>
-    <Dropdown.Item header>Account</Dropdown.Item>
+    <Dropdown.Header>Account</Dropdown.Header>
     <Dropdown.Item href="/profile">Profile</Dropdown.Item>
     <Dropdown.Item href="/settings">Settings</Dropdown.Item>
     <Dropdown.Divider />
@@ -28,6 +28,10 @@ const EXAMPLE_DEFAULT =
 const EXAMPLE_CONTEXTMENU =
 `<ContextMenu component={() => (
     <Dropdown.Menu>
+        <Dropdown.Header>Account</Dropdown.Header>
+        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+        <Dropdown.Item href="/settings">Settings</Dropdown.Item>
+        <Dropdown.Divider />
         <Dropdown.Item onClick={e => alert('Logout')}>Logout</Dropdown.Item>
     </Dropdown.Menu>
 )}>

@@ -23,13 +23,6 @@ const warning  = require('./utils/warning');
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *
- *     <Dropdown.Item>
- *         A submenu
- *         <Dropdown.Menu> // CSS takes care of display on hover
- *             <Dropdown.Item href={...}> Subitem </Dropdown.Item>
- *         </Dropdown.Menu>
- *     </Dropdown.Item>
- *
  * </Dropdown>
  */
 
@@ -133,8 +126,8 @@ const ButtonDropdown = React.createClass({
         // Wrap in a backdrop when open
         if (open) {
             return (
-                <Backdrop wrapper={content} onClose={this.close} scroll={true} scroll={scroll}>
-                    <DropdownMenu size={size}>{items}</DropdownMenu>
+                <Backdrop wrapper={content} onClose={this.close} scroll={true}>
+                    <DropdownMenu size={size} scroll={scroll}>{items}</DropdownMenu>
                 </Backdrop>
             );
         } else {
@@ -172,31 +165,32 @@ const DropdownItem = React.createClass({
     },
 
     render() {
-        const { divider, header, checked } = this.props;
+        const { children, divider, disabled, header, checked, href } = this.props;
 
         if (divider) {
             warning('Prop "divider" on Dropdown.Item is deprecated, use Dropdown.Divider instead');
             return <DropdownDivider />;
         }
         if (header) {
-            return <li className="dropdown-header">{this.props.children}</li>;
+            warning('Prop "header" on Dropdown.Item is deprecated, use Dropdown.Header instead');
+            return <DropdownHeader>{children}</DropdownHeader>;
         }
 
         let inner = [], outer = [];
 
-        inner = React.Children.map(this.props.children, function(child) {
+        inner = React.Children.map(children, function(child) {
             if (this.isInner(child)) return child;
             return null;
         }, this);
 
-        outer = React.Children.map(this.props.children, function(child) {
+        outer = React.Children.map(children, function(child) {
             if (!this.isInner(child)) return child;
             return null;
         }, this);
 
         return (
-            <li className={this.props.disabled ? 'disabled' : ''}>
-                <a {...this.props} href={this.props.href || '#'} onClick={this.props.disabled ? null : this.onClick}>
+            <li className={disabled ? 'disabled' : ''}>
+                <a {...this.props} href={href || '#'} onClick={disabled ? null : this.onClick}>
                     {checked ? <div className="dropdown-icon pull-left"><Icon id="check" /></div> : ''}
                     {inner}
                 </a>
@@ -206,14 +200,32 @@ const DropdownItem = React.createClass({
     }
 });
 
+/**
+ * A divider in the dropdown items.
+ * @type {ReactClass}
+ */
 const DropdownDivider = React.createClass({
+    render() {
+        return (
+            <li className="divider"></li>
+        );
+    }
+});
+
+
+/**
+ * An header in the dropdown items
+ * @type {ReactClass}
+ */
+const DropdownHeader = React.createClass({
     propTypes: {
         children: React.PropTypes.node
     },
 
     render() {
+        const { children } = this.props;
         return (
-            <li className="divider"></li>
+            <li className="dropdown-header">{children}</li>
         );
     }
 });
@@ -227,6 +239,7 @@ const DropdownMenu = React.createClass({
         className: React.PropTypes.string,
         children:  React.PropTypes.node,
         size:      React.PropTypes.string,
+        // Auto-scroll in the dropdown ?
         scroll:    React.PropTypes.bool
     },
 
@@ -243,10 +256,18 @@ const DropdownMenu = React.createClass({
         };
     },
 
+    /**
+     * Detect the max height for this dropdown according to position on screen.
+     */
     detectMaxSize() {
+        const { scroll } = this.props;
         const { container } = this.refs;
-        const rect = container.getBoundingClientRect();
 
+        if (!scroll) {
+            return;
+        }
+
+        const rect = container.getBoundingClientRect();
         const maxHeight = window.innerHeight - rect.top - 30;
 
         this.setState({
@@ -307,6 +328,7 @@ const ItemDesc = React.createClass({
 
 module.exports             = ButtonDropdown;
 module.exports.Divider     = DropdownDivider;
+module.exports.Header      = DropdownHeader;
 module.exports.Item        = DropdownItem;
 module.exports.Item.Header = ItemHeader;
 module.exports.Item.Desc   = ItemDesc;

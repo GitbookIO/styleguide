@@ -36,7 +36,7 @@
     }
 
     // Arrows
-    &:not(.contextmenu) > .dropdown-menu {
+    > .dropdown-menu {
         margin-top: @gb-dropdown-margin-top;
         overflow: visible !important;
 
@@ -64,7 +64,7 @@
         }
     }
 
-    &.pull-left:not(.contextmenu) {
+    &.pull-left {
         > .dropdown-menu {
             left: 0px;
             right: auto;
@@ -86,35 +86,6 @@
         }
     }
 
-    // Context menu
-    &.contextmenu {
-        position: fixed;
-        z-index: @gb-zindex-contextmenu;
-
-        .dropdown-menu {
-            display: block;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-        }
-
-        // to the left
-        &.contextmenu-w {
-            .dropdown-menu {
-                left: auto;
-                right: 0px;
-            }
-        }
-
-        // to the top
-        &.contextmenu-n {
-            .dropdown-menu {
-                top: auto;
-                bottom: 0px;
-            }
-        }
-    }
-
 
     // Dropdown to the top
     &.dropup {
@@ -130,7 +101,7 @@
             }
         }
 
-        &:not(.contextmenu) > .dropdown-menu {
+        > .dropdown-menu {
             margin-top: 0px;
             margin-bottom: 12px;
 
@@ -225,10 +196,6 @@
                     color: @gb-palette-gray-darker;
                     pointer-events: none;
                 }
-
-                >.dropdown-menu {
-                    display: none;
-                }
             }
 
             > a {
@@ -322,25 +289,6 @@
                 .help-label, .text-muted {
                     color: inherit;
                     opacity: 0.5;
-                }
-            }
-
-
-            // Submenu
-            >.dropdown-menu {
-                position: absolute;
-                right: auto;
-                left: 100%;
-                margin-top: 0px;
-                top: 0px;
-                margin-top: -1px;
-
-                &:after, &:before {}
-            }
-
-            &:hover {
-                >.dropdown-menu {
-                    display: block;
                 }
             }
         }
