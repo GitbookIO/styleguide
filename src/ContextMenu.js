@@ -3,18 +3,6 @@ const ReactDOM = require('react-dom');
 
 const Backdrop = require('./Backdrop');
 
-// Spacing with border of window
-const WINDOW_MARGING = 20;
-
-// left: 37, up: 38, right: 39, down: 40,
-// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-const SCROLLING_KEYS = {
-    37: 1,
-    38: 1,
-    39: 1,
-    40: 1
-};
-
 /**
  * Helper to display a context menu.
  *
@@ -42,10 +30,13 @@ const ContextMenu = React.createClass({
      * When user is opening context menu.
      */
     onOpen(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         this.setState({
             open: true,
-            x: event.pageX,
-            y: event.pageY
+            x: event.clientX,
+            y: event.clientY
         });
     },
 
@@ -58,14 +49,30 @@ const ContextMenu = React.createClass({
         });
     },
 
-    componentDidMount() {
+    bindEvents() {
         const el = ReactDOM.findDOMNode(this);
         el.addEventListener('contextmenu', this.onOpen, false);
     },
 
-    componentWillUnmount() {
+    unbindEvents() {
         const el = ReactDOM.findDOMNode(this);
         el.removeEventListener('contextmenu', this.onOpen, false);
+    },
+
+    componentDidMount() {
+        this.bindEvents();
+    },
+
+    componentWillUnmount() {
+        this.unbindEvents();
+    },
+
+    componentWillUpdate() {
+        this.unbindEvents();
+    },
+
+    componentDidUpdate() {
+        this.bindEvents();
     },
 
     render() {
@@ -82,7 +89,6 @@ const ContextMenu = React.createClass({
 
         return (
             <Backdrop wrapper={inner} onClose={this.onClose}>
-                {children}
                 <div className="ContextMenu" style={{ top: y, left: x }}>
                     {menu}
                 </div>

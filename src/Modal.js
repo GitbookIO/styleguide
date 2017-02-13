@@ -50,7 +50,7 @@ const ModalBackdrop = React.createClass({
 
     render() {
         return (
-            <div className="modal-backdrop ">
+            <div className="modal-backdrop">
                 {this.props.children}
             </div>
         );
