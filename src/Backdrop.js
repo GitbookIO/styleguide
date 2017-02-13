@@ -22,6 +22,8 @@ const SCROLLING_KEYS = {
  */
 const Backdrop = React.createClass({
     propTypes: {
+        // Scroll is enabled ?
+        scroll:   React.PropTypes.bool,
         // Close on escape
         escape:   React.PropTypes.bool,
         // Z-index for the backdrop
@@ -34,6 +36,7 @@ const Backdrop = React.createClass({
 
     getDefaultProps() {
         return {
+            scroll: false,
             escape: true,
             zIndex: 200,
             wrapper: <div />
@@ -74,6 +77,11 @@ const Backdrop = React.createClass({
      * Prevent scroll on wrapper itself.
      */
     onScroll(event) {
+        const { scroll } = this.props;
+        if (scroll) {
+            return;
+        }
+
         event.preventDefault();
         event.stopPropagation();
     },
