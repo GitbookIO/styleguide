@@ -1,4 +1,14 @@
 const React = require('react');
+const ReactDOM = require('react-dom');
+
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+const SCROLLING_KEYS = {
+    37: 1,
+    38: 1,
+    39: 1,
+    40: 1
+};
 
 /**
  * Backdrop for modals, dropdown, popover.
@@ -35,26 +45,69 @@ const Backdrop = React.createClass({
         onClose();
     },
 
+    /**
+     * Clicking should close the backdrop.
+     */
     onClick(event) {
         event.stopPropagation();
         event.preventDefault();
         this.onClose();
     },
 
+    /**
+     * Escape should close the backdrop
+     */
     onKeyDown(event) {
         const { escape } = this.props;
 
         if (event.keyCode === 27 && escape) {
             this.onClose();
         }
+
+        if (SCROLLING_KEYS[event.keyCode]) {
+            event.preventDefault();
+            return false;
+        }
+    },
+
+    /**
+     * Prevent scroll on wrapper itself.
+     */
+    onScroll(event) {
+        event.preventDefault();
+        event.stopPropagation();
+    },
+
+    bindEvents() {
+        const container = ReactDOM.findDOMNode(this.refs.wrapper);
+
+        window.addEventListener('keydown', this.onKeyDown);
+        container.addEventListener('scroll', this.onScroll);
+        container.addEventListener('wheel', this.onScroll);
+    },
+
+    unbindEvents() {
+        const container = ReactDOM.findDOMNode(this.refs.wrapper);
+
+        window.removeEventListener('keydown', this.onKeyDown);
+        container.removeEventListener('scroll', this.onScroll);
+        container.removeEventListener('wheel', this.onScroll);
     },
 
     componentDidMount() {
-        window.addEventListener('keydown', this.onKeyDown);
+        this.bindEvents();
+    },
+
+    componentWillUpdate() {
+        this.unbindEvents();
+    },
+
+    componentDidUpdate() {
+        this.bindEvents();
     },
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.onKeyDown);
+        this.unbindEvents();
     },
 
     render() {
@@ -68,8 +121,13 @@ const Backdrop = React.createClass({
             height: '100%'
         };
 
-        return React.cloneElement(wrapper, {},
-            <div className="Backdrop" style={style} onClick={this.onClick}></div>,
+        return React.cloneElement(wrapper, { ref: 'wrapper' },
+            <div
+                className="Backdrop"
+                ref="backdrop"
+                style={style}
+                onClick={this.onClick}
+                />,
             wrapper.props.children,
             children
         );
