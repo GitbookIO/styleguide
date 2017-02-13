@@ -1,4 +1,27 @@
 .ContextMenu {
     position: fixed;
     z-index: @gb-zindex-contextmenu;
+
+    .dropdown-menu {
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    // to the left
+    &.direction-w {
+        .dropdown-menu {
+            left: auto;
+            right: 0px;
+        }
+    }
+
+    // to the top
+    &.direction-n {
+        .dropdown-menu {
+            top: auto;
+            bottom: 0px;
+        }
+    }
 }
