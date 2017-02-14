@@ -151,6 +151,18 @@ const Autocomplete = React.createClass({
         );
     },
 
+    /**
+     * Focus or blur the autocomplete
+     */
+    focus() {
+        const { input } = this.refs;
+        input.focus();
+    },
+    blur() {
+        const { input } = this.refs;
+        input.blur();
+    },
+
     render() {
         const { onPaste, size, placeholder } = this.props;
         const { value, focused, loading, results } = this.state;
@@ -158,6 +170,7 @@ const Autocomplete = React.createClass({
         return (
             <div className="Autocomplete">
                 <Input
+                    ref="input"
                     value={value}
                     placeholder={placeholder}
                     size={size}

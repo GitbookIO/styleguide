@@ -3,6 +3,7 @@ const ReactDOM = require('react-dom');
 const classNames = require('classnames');
 
 const Backdrop = require('./Backdrop');
+const Dropdown = require('./Dropdown');
 
 const MENU_RIGHT_SPACING = 300;
 const MENU_BOTTOM_SPACING = 160;
