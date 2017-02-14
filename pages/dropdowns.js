@@ -7,9 +7,10 @@ const CodeEditor = require('./components/CodeEditor');
 const Panel = require('../src/Panel');
 const Dropdown = require('../src/Dropdown');
 const Button = require('../src/Button');
+const ContextMenu = require('../src/ContextMenu');
 const Icon = require('../src/Icon');
 
-const SCOPE = { React, Dropdown, Button, Icon };
+const SCOPE = { React, Dropdown, Button, Icon, ContextMenu };
 
 const EXAMPLE_IMPORT = 'const Dropdown = require(\'gitbook-styleguide/lib/Dropdown\')';
 const EXAMPLE_DEFAULT =
@@ -17,12 +18,25 @@ const EXAMPLE_DEFAULT =
     <Button>
         Toggle dropdown <Button.Caret />
     </Button>
-    <Dropdown.Item header>Account</Dropdown.Item>
+    <Dropdown.Header>Account</Dropdown.Header>
     <Dropdown.Item href="/profile">Profile</Dropdown.Item>
     <Dropdown.Item href="/settings">Settings</Dropdown.Item>
     <Dropdown.Divider />
     <Dropdown.Item onClick={e => alert('Logout')}>Logout</Dropdown.Item>
 </Dropdown>`;
+
+const EXAMPLE_CONTEXTMENU =
+`<ContextMenu component={() => (
+    <ContextMenu.Menu>
+        <ContextMenu.Header>Account</ContextMenu.Header>
+        <ContextMenu.Item href="/profile">Profile</ContextMenu.Item>
+        <ContextMenu.Item href="/settings">Settings</ContextMenu.Item>
+        <ContextMenu.Divider />
+        <ContextMenu.Item onClick={e => alert('Logout')}>Logout</ContextMenu.Item>
+    </ContextMenu.Menu>
+)}>
+    <div>Left click</div>
+</ContextMenu>`;
 
 export default () => {
     return (
@@ -35,6 +49,7 @@ export default () => {
             </Panel>
 
             <Example title="Default" source={EXAMPLE_DEFAULT} scope={SCOPE}></Example>
+            <Example title="Context Menu" source={EXAMPLE_CONTEXTMENU} scope={SCOPE}></Example>
         </Page>
     );
 };
