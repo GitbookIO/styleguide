@@ -27,7 +27,8 @@ const ContextMenu = React.createClass({
             open: false,
             x: 0,
             y: 0,
-            directionH: 'e'
+            directionH: 'e',
+            directionV: 's'
         };
     },
 
