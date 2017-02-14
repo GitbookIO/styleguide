@@ -27,13 +27,13 @@ const EXAMPLE_DEFAULT =
 
 const EXAMPLE_CONTEXTMENU =
 `<ContextMenu component={() => (
-    <Dropdown.Menu>
-        <Dropdown.Header>Account</Dropdown.Header>
-        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-        <Dropdown.Item href="/settings">Settings</Dropdown.Item>
-        <Dropdown.Divider />
-        <Dropdown.Item onClick={e => alert('Logout')}>Logout</Dropdown.Item>
-    </Dropdown.Menu>
+    <ContextMenu.Menu>
+        <ContextMenu.Header>Account</ContextMenu.Header>
+        <ContextMenu.Item href="/profile">Profile</ContextMenu.Item>
+        <ContextMenu.Item href="/settings">Settings</ContextMenu.Item>
+        <ContextMenu.Divider />
+        <ContextMenu.Item onClick={e => alert('Logout')}>Logout</ContextMenu.Item>
+    </ContextMenu.Menu>
 )}>
     <div>Left click</div>
 </ContextMenu>`;

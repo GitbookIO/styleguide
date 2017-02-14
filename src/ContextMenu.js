@@ -10,7 +10,7 @@ const MENU_BOTTOM_SPACING = 160;
 /**
  * Helper to display a context menu.
  *
- *  <ContextMenu component={() => <Dropdown></Dropdown>}>
+ *  <ContextMenu component={() => <ContextMenu.Menu></ContextMenu.Menu>}>
  *    Right click here !
  *  </ContextMenu>
  *
@@ -125,3 +125,7 @@ const ContextMenu = React.createClass({
 });
 
 module.exports = ContextMenu;
+module.exports.Divider     = Dropdown.Divider;
+module.exports.Header      = Dropdown.Header;
+module.exports.Item        = Dropdown.Item;
+module.exports.Menu        = Dropdown.Menu;
