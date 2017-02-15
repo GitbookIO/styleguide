@@ -19,8 +19,24 @@ const MENU_BOTTOM_SPACING = 160;
  */
 const ContextMenu = React.createClass({
     propTypes: {
-        component:   React.PropTypes.func.isRequired,
-        children: React.PropTypes.node.isRequired
+        // Delay before opening the menu
+        // It should be use when integrating the context menu with a textarea and a selection event
+        delay:           React.PropTypes.number,
+        // Should it prevent the default menu ?
+        preventDefault:  React.PropTypes.bool,
+        // Should it be propaged to parent ?
+        stopPropagation: React.PropTypes.bool,
+        // Component to render for the menu
+        component:       React.PropTypes.func.isRequired,
+        children:        React.PropTypes.node.isRequired
+    },
+
+    getDefaultProps() {
+        return {
+            delay: 0,
+            preventDefault: true,
+            stopPropagation: true
+        };
     },
 
     getInitialState() {
@@ -37,12 +53,29 @@ const ContextMenu = React.createClass({
      * When user is opening context menu.
      */
     onOpen(event) {
-        event.preventDefault();
-        event.stopPropagation();
+        const { delay, preventDefault, stopPropagation } = this.props;
+
+        if (preventDefault) {
+            event.preventDefault();
+        }
+        if (stopPropagation) {
+            event.stopPropagation();
+        }
 
         const x = event.clientX;
         const y = event.clientY;
 
+        if (delay) {
+            setTimeout(() => this.open(x, y), delay);
+        } else {
+            this.open(x, y);
+        }
+    },
+
+    /**
+     * Open the menu at position x,y
+     */
+    open(x, y) {
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -110,7 +143,12 @@ const ContextMenu = React.createClass({
             return inner;
         }
 
-        const menu = React.createElement(component, otherProps);
+        const menu = React.createElement(component, {
+            // Pass the current position if we use a specific menu component.
+            mouseX: x,
+            mouseY: y,
+            ...otherProps
+        });
 
         return (
             <Backdrop wrapper={inner} onClose={this.onClose}>
