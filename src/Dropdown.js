@@ -31,13 +31,16 @@ const ButtonDropdown = React.createClass({
         className: React.PropTypes.string,
         children:  React.PropTypes.node,
         up:        React.PropTypes.bool,
+        center:    React.PropTypes.bool,
         size:      React.PropTypes.string,
         scroll:    React.PropTypes.bool
     },
 
     getDefaultProps() {
         return {
-            scroll: false
+            scroll: false,
+            up:     false,
+            center: false
         };
     },
 
@@ -75,11 +78,12 @@ const ButtonDropdown = React.createClass({
         let inner = [];
         let items = [];
 
-        let { className, children, up, size, scroll, ...otherProps } = this.props;
+        let { className, children, up, center, size, scroll, ...otherProps } = this.props;
         const { open } = this.state;
 
         className = classNames('dropdown', className, {
-            'dropup': up
+            'dropup': up,
+            'dropcenter': center
         });
 
         inner = React.Children.map(children, function(child) {
