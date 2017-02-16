@@ -86,6 +86,19 @@
         }
     }
 
+    // Dropdown centered
+    &.dropcenter {
+        > .dropdown-menu {
+            position: absolute;
+            right: auto;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:after, &:before {
+                right: 50%;
+            }
+        }
+    }
 
     // Dropdown to the top
     &.dropup {
