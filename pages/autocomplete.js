@@ -21,7 +21,7 @@ const EXAMPLE_DEFAULT =
             { id: 'fr', label: 'French' }
         ])
     }}
-    onChange={(query, result) => alert('Selected is ' + result.label)}
+    onSelect={(query, result) => alert('Selected is ' + result.label)}
     renderResult={({result}) => <span><b>{result.id}</b> {result.label}</span>}
 />`;
 
