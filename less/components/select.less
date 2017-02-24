@@ -26,7 +26,7 @@
     }
 
     .SelectPlaceholder {
-        opacity: 0.6;
+
     }
 
     .SelectSearch {
@@ -43,6 +43,16 @@
 
         .SelectSearch {
             padding: 4px 8px;
+        }
+
+        .SearchEmpty {
+            position: relative;
+            padding: @gb-padding-small-vertical @gb-padding-small-horizontal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            /** Compensate .SelectSearch margin-bottom */
+            margin-top: -@gb-padding-large-vertical;
         }
 
         .SelectOptGroup {
@@ -82,6 +92,16 @@
                 &:hover, &.active {
                     background-color: @gb-palette-blue;
                     color: #fff;
+                }
+
+                &.disabled {
+                    cursor: default;
+                    opacity: 0.5;
+
+                    &:hover {
+                        background-color: @gb-dropdown-background;
+                        color: @gb-text-color;
+                    }
                 }
             }
         }

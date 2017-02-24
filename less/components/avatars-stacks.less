@@ -1,0 +1,38 @@
+.AvatarsStack {
+    display: inline-block;
+    white-space: nowrap;
+
+    .AvatarsStack-Item {
+        display: inline-block;
+        margin-right: -15px;
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        .transition(~"margin 0.1s ease-in-out");
+        background-color: #fff;
+        border-right: 1px solid #fff;
+        border-radius: 2px;
+
+        &:first-child {
+            z-index: 3;
+        }
+
+        &:last-child {
+            z-index: 1;
+            margin-right: 0;
+            border-right: 0;
+        }
+    }
+
+    &:hover {
+        .AvatarsStack-Item {
+            margin-right: 3px;
+            border-right: 0px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+}

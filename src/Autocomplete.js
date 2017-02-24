@@ -12,19 +12,32 @@ const Autocomplete = React.createClass({
     propTypes: {
         onFetch:      React.PropTypes.func.isRequired,
         renderResult: React.PropTypes.func.isRequired,
-        onChange:     React.PropTypes.func.isRequired,
         // Called when onEnter on the input (no result selected)
-        // query -> ()
         onEnter:      React.PropTypes.func.isRequired,
         onPaste:      React.PropTypes.func,
+        // Focus events
+        onFocus:      React.PropTypes.func,
+        onBlur:       React.PropTypes.func,
+        // Control the event
         value:        React.PropTypes.string,
+        // Called when typing
+        onChange:     React.PropTypes.func.isRequired,
+        // Called when selecting an entry
+        onSelect:     React.PropTypes.func.isRequired,
+        // Render options
         placeholder:  React.PropTypes.string,
         size:         React.PropTypes.string
     },
 
     getInitialState() {
+        const { value, onChange } = this.props;
+
+        if ((typeof value == 'string') && !onChange) {
+            throw new Error('onChange should be passed to Autocomplete when value is passed');
+        }
+
         return {
-            value:   this.props.value || '',
+            value:   value || '',
             cursor:  null,
             loading: false,
             focused: false,
@@ -32,21 +45,29 @@ const Autocomplete = React.createClass({
         };
     },
 
+    componentWillReceiveProps(nextProps) {
+        const { value } = nextProps;
+        this.updateValue(value);
+    },
+
     /**
-     * Typed value changed, we fetch the new autocomplete result
+     * Update the value.
      */
-    onInputChanged(e) {
-        const that = this;
-        const onFetch = this.props.onFetch;
-        const value  = e.target.value;
+    updateValue(value) {
+        const { value: prevValue } = this.state;
+        const { onFetch } = this.props;
+
+        if (prevValue == value) {
+            return;
+        }
 
         this.setState({
             value,
             loading: true
         });
 
-        onFetch(value, function(results) {
-            that.setState({
+        onFetch(value, (results) => {
+            this.setState({
                 loading: false,
                 results
             });
@@ -54,9 +75,31 @@ const Autocomplete = React.createClass({
     },
 
     /**
+     * Typed value changed, we fetch the new autocomplete result
+     */
+    onInputChanged(e) {
+        const { onChange } = this.props;
+        const { value } = e.target;
+
+        this.updateValue(value);
+
+        if (onChange) {
+            onChange(value);
+        }
+    },
+
+    /**
      * User is focusing/blur the input
      */
     onFocusChanged(isFocused) {
+        const { onFocus, onBlur } = this.props;
+
+        if (isFocused && onFocus) {
+            onFocus();
+        } else if (onBlur) {
+            onBlur();
+        }
+
         this.setState({
             focused: isFocused
         });
@@ -68,6 +111,7 @@ const Autocomplete = React.createClass({
     onEnter() {
         const { cursor, value } = this.state;
         const { onEnter } = this.props;
+
         if (cursor >= 0) {
             this.onSelect(cursor);
         } else if (onEnter) {
@@ -85,7 +129,7 @@ const Autocomplete = React.createClass({
      * Submit a value
      */
     onSelect(index) {
-        const { onChange } = this.props;
+        const { onSelect } = this.props;
         const { value, results } = this.state;
         const selected = results[index];
 
@@ -95,7 +139,7 @@ const Autocomplete = React.createClass({
             value: ''
         });
 
-        onChange(value, selected);
+        onSelect(value, selected);
     },
 
     /**
@@ -133,22 +177,33 @@ const Autocomplete = React.createClass({
      * Render the suggestions
      */
     renderResults() {
-        const that = this;
         const { results, value, cursor } = this.state;
         const ResultComponent = this.props.renderResult;
 
         return (
             <div className="AutocompleteResults">
-                {results.map(function(result, i) {
+                {results.map((result, i) => {
                     const isActive = (i === cursor);
 
                     return <AutocompleteResult key={value + '-' + i} active={isActive}
-                                                onClick={e => that.onSelect(i)}>
+                                                onClick={e => this.onSelect(i)}>
                         <ResultComponent result={result} index={i} active={isActive} />
                     </AutocompleteResult>;
                 })}
             </div>
         );
+    },
+
+    /**
+     * Focus or blur the autocomplete
+     */
+    focus() {
+        const { input } = this.refs;
+        input.focus();
+    },
+    blur() {
+        const { input } = this.refs;
+        input.blur();
     },
 
     render() {
@@ -158,6 +213,7 @@ const Autocomplete = React.createClass({
         return (
             <div className="Autocomplete">
                 <Input
+                    ref="input"
                     value={value}
                     placeholder={placeholder}
                     size={size}
@@ -174,6 +230,10 @@ const Autocomplete = React.createClass({
     }
 });
 
+/**
+ * Container for the results.
+ * @type {ReactClass}
+ */
 const AutocompleteResult = React.createClass({
     propTypes: {
         active: React.PropTypes.bool,

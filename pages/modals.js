@@ -15,7 +15,7 @@ const EXAMPLE_IMPORT =
 'const Modal = require(\'gitbook-styleguide/lib/Modal\');';
 
 const EXAMPLE_DEFAULT =
-`<Modal>
+`<Modal backdrop={false} animated={false}>
     <Modal.Heading title="Title" />
     <Modal.Body>
         Body of the modal

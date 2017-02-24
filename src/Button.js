@@ -4,6 +4,7 @@ const classNames = require('classnames');
 const Icon = require('./Icon');
 const STYLES = require('./STYLES');
 const SIZES = require('./SIZES');
+const warning  = require('./utils/warning');
 
 const BUTTONS_STYLES = STYLES.concat([
     'link',
@@ -59,8 +60,14 @@ const Button = React.createClass({
     },
 
     onClick(e) {
-        const { clicked } = this.state;
+        // Prevent any action if button is disabled
+        const { disabled } = this.props;
+        if (disabled) {
+            e.preventDefault();
+            return;
+        }
 
+        const { clicked } = this.state;
         if (this.props.onClick && !clicked) {
             this.props.onClick(e);
         }
@@ -101,6 +108,9 @@ const Button = React.createClass({
 
 
         const inner = icon ? <Icon className={icon} /> : '';
+        if (icon) {
+            warning('Prop "icon" on Button is deprecated, use <Icon /> as children instead');
+        }
 
         props.className = classNames(
             'btn', 'btn-' + style, 'btn-' + size,
@@ -114,9 +124,13 @@ const Button = React.createClass({
             }
         );
         props['aria-label'] = title;
-        props.role          = 'button';
-        props.disabled      = disabled;
-        props.onClick       = this.onClick;
+        props.role = 'button';
+        props.disabled = disabled;
+        props.onClick = this.onClick;
+        // Update href if button is disabled
+        if (props.href) {
+            props.href = disabled ? '#' : props.href;
+        }
 
         let input;
 
@@ -142,7 +156,7 @@ const ButtonGroup = React.createClass({
     },
 
     render() {
-        let { className, pull, children, block } = this.props;
+        let { className, pull, children, block, ...props } = this.props;
 
         className = classNames(
             'btn-group',
@@ -153,7 +167,7 @@ const ButtonGroup = React.createClass({
             }
         );
 
-        return <div className={className}>{children}</div>;
+        return <div className={className} {...props}>{children}</div>;
     }
 });
 
@@ -164,7 +178,9 @@ const ButtonToolbar = React.createClass({
     },
 
     render() {
-        return <div className={'btn-toolbar ' + (this.props.className || '')}>{this.props.children}</div>;
+        const { className, children, ...props } = this.props;
+
+        return <div className={'btn-toolbar ' + (className || '')} {...props}>{children}</div>;
     }
 });
 

@@ -1,4 +1,14 @@
 const React = require('react');
+const ReactDOM = require('react-dom');
+
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+const SCROLLING_KEYS = {
+    37: 1,
+    38: 1,
+    39: 1,
+    40: 1
+};
 
 /**
  * Backdrop for modals, dropdown, popover.
@@ -12,6 +22,8 @@ const React = require('react');
  */
 const Backdrop = React.createClass({
     propTypes: {
+        // Scroll is enabled ?
+        scroll:   React.PropTypes.bool,
         // Close on escape
         escape:   React.PropTypes.bool,
         // Z-index for the backdrop
@@ -24,8 +36,9 @@ const Backdrop = React.createClass({
 
     getDefaultProps() {
         return {
-            escape: true,
-            zIndex: 200,
+            scroll:  false,
+            escape:  true,
+            zIndex:  200,
             wrapper: <div />
         };
     },
@@ -35,24 +48,83 @@ const Backdrop = React.createClass({
         onClose();
     },
 
+    /**
+     * Clicking should close the backdrop.
+     */
+    onClick(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.onClose();
+    },
+
+    /**
+     * Escape should close the backdrop
+     */
     onKeyDown(event) {
         const { escape } = this.props;
 
         if (event.keyCode === 27 && escape) {
             this.onClose();
         }
+
+        if (SCROLLING_KEYS[event.keyCode]) {
+            event.preventDefault();
+            return false;
+        }
+    },
+
+    /**
+     * Prevent scroll on wrapper itself.
+     */
+    onScroll(event) {
+        const { scroll } = this.props;
+        if (scroll) {
+            return;
+        }
+
+        const container = ReactDOM.findDOMNode(this.refs.wrapper);
+        const backdrop = ReactDOM.findDOMNode(this.refs.backdrop);
+
+        if (event.target == container || event.target == backdrop) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    },
+
+    bindEvents() {
+        const container = ReactDOM.findDOMNode(this.refs.wrapper);
+
+        window.addEventListener('keydown', this.onKeyDown);
+        container.addEventListener('scroll', this.onScroll);
+        container.addEventListener('wheel', this.onScroll);
+    },
+
+    unbindEvents() {
+        const container = ReactDOM.findDOMNode(this.refs.wrapper);
+
+        window.removeEventListener('keydown', this.onKeyDown);
+        container.removeEventListener('scroll', this.onScroll);
+        container.removeEventListener('wheel', this.onScroll);
     },
 
     componentDidMount() {
-        window.addEventListener('keydown', this.onKeyDown);
+        this.bindEvents();
+    },
+
+    componentWillUpdate() {
+        this.unbindEvents();
+    },
+
+    componentDidUpdate() {
+        this.bindEvents();
     },
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.onKeyDown);
+        this.unbindEvents();
     },
 
     render() {
-        const { zIndex, wrapper } = this.props;
+        const { zIndex, wrapper, children } = this.props;
         const style = {
             zIndex,
             position: 'fixed',
@@ -62,10 +134,15 @@ const Backdrop = React.createClass({
             height: '100%'
         };
 
-        return React.cloneElement(wrapper, {},
-            <div style={style} onClick={this.onClose}></div>,
+        return React.cloneElement(wrapper, { ref: 'wrapper' },
+            <div
+                className="Backdrop"
+                ref="backdrop"
+                style={style}
+                onClick={this.onClick}
+                />,
             wrapper.props.children,
-            this.props.children
+            children
         );
     }
 });

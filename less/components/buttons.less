@@ -80,8 +80,18 @@
         border: 1px solid @gb-palette-gray;
         color: rgb(110, 115, 125); // @gb-palette-gray;
 
+        &.active, &.active:hover {
+            color: @gb-brand-primary;
+            background: fadeout(@gb-brand-primary, 90%);
+        }
+
+        &.disabled, &.disabled:hover {
+            background: #fff;
+            color: rgba(110, 115, 125, 0.24);
+        }
+
         &:hover {
-          background: @gb-button-hover-background;
+            background: @gb-button-hover-background;
         }
     }
     &.btn-link {
