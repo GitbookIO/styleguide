@@ -6,13 +6,16 @@ const EditCode = require('slate-edit-code');
 require('prismjs/components/prism-jsx');
 
 const prism = Prism({
-    onlyIn: node => true,
+    onlyIn: node => node.type == 'code_block',
     getSyntax: node => 'jsx'
 });
 
 const editCode = EditCode({
-    allowMarks: true,
-    exitBlockType: null
+    allowMarks: false,
+    containerType: 'code_block',
+    exitBlockType: null,
+    lineType: 'code_line',
+    selectAll: false
 });
 
 const plugins = [
@@ -35,8 +38,11 @@ const CodeEditor = React.createClass({
     // Setup initial state for editor
     getInitialState() {
         const { source } = this.props;
-        const codeBlock = editCode.utils.deserializeCode(source);
 
+        // Reset the key generate to fix potential server side issue
+        Slate.resetKeyGenerator();
+
+        const codeBlock = editCode.utils.deserializeCode(source);
         const document = Slate.Document.create({ nodes: List([codeBlock]) });
 
         return {
@@ -56,6 +62,7 @@ const CodeEditor = React.createClass({
 
     render() {
         const { state } = this.state;
+
         return (
             <pre>
                 <Slate.Editor
