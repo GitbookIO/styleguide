@@ -3651,7 +3651,7 @@ slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
 
-slate-edit-code@^0.10.0:
+slate-edit-code@^0.10.1:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/slate-edit-code/-/slate-edit-code-0.10.1.tgz#0c99e336f111076ec421135589af0a586ea70075"
   dependencies:
@@ -3666,7 +3666,7 @@ slate-prism@^0.2.2:
   dependencies:
     prismjs "^1.6.0"
 
-slate@^0.16.8:
+slate@^0.16.25:
   version "0.16.25"
   resolved "https://registry.yarnpkg.com/slate/-/slate-0.16.25.tgz#4b8e98da5228a5f4f257883419ff9dff36532b8d"
   dependencies:
@@ -3695,15 +3695,9 @@ source-list-map@~0.1.7:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-0.1.8.tgz#c550b2ab5427f6b3f21f5afead88c4f5587b2106"
 
-source-map-support@0.4.8:
+source-map-support@0.4.8, source-map-support@^0.4.2:
   version "0.4.8"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.8.tgz#4871918d8a3af07289182e974e32844327b2e98b"
-  dependencies:
-    source-map "^0.5.3"
-
-source-map-support@^0.4.2:
-  version "0.4.11"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.11.tgz#647f939978b38535909530885303daf23279f322"
   dependencies:
     source-map "^0.5.3"
 
