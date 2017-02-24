@@ -1,13 +1,23 @@
+const { List } = require('immutable');
 const React = require('react');
 const Slate = require('slate');
 const Prism = require('slate-prism');
+const EditCode = require('slate-edit-code');
 require('prismjs/components/prism-jsx');
 
+const prism = Prism({
+    onlyIn: node => true,
+    getSyntax: node => 'jsx'
+});
+
+const editCode = EditCode({
+    allowMarks: true,
+    exitBlockType: null
+});
+
 const plugins = [
-    Prism({
-        onlyIn: node => true,
-        getSyntax: node => 'jsx'
-    })
+    prism,
+    editCode
 ];
 
 const CodeEditor = React.createClass({
@@ -25,14 +35,21 @@ const CodeEditor = React.createClass({
     // Setup initial state for editor
     getInitialState() {
         const { source } = this.props;
+        const codeBlock = editCode.utils.deserializeCode(source);
+
+        const document = Slate.Document.create({ nodes: List([codeBlock]) });
+
         return {
-            state: Slate.Plain.deserialize(source)
+            state: Slate.State.create({ document })
         };
     },
 
     // Editor has been modified
     onChange(state) {
-        const source = Slate.Plain.serialize(state);
+        const source = state.document.getTexts()
+            .map(t => t.text)
+            .join('\n');
+
         this.setState({ state });
         this.props.onChange(source);
     },
