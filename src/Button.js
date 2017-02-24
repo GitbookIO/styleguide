@@ -4,6 +4,7 @@ const classNames = require('classnames');
 const Icon = require('./Icon');
 const STYLES = require('./STYLES');
 const SIZES = require('./SIZES');
+const warning  = require('./utils/warning');
 
 const BUTTONS_STYLES = STYLES.concat([
     'link',
@@ -107,6 +108,9 @@ const Button = React.createClass({
 
 
         const inner = icon ? <Icon className={icon} /> : '';
+        if (icon) {
+            warning('Prop "icon" on Button is deprecated, use <Icon /> as children instead');
+        }
 
         props.className = classNames(
             'btn', 'btn-' + style, 'btn-' + size,
