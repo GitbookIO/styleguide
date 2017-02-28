@@ -46,7 +46,7 @@ const Autocomplete = React.createClass({
     },
 
     componentWillReceiveProps(nextProps) {
-        const { value } = nextProps;
+        const value = nextProps.value || '';
         this.updateValue(value);
     },
 
