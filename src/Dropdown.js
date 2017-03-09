@@ -14,12 +14,12 @@ const warning  = require('./utils/warning');
  *
  *     <Button ... />
  *
- *     <Dropdown.Item header>Category 1</Dropdown.Item>
+ *     <Dropdown.Header>Category 1</Dropdown.Header>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *
- *     <Dropdown.Item divider />
- *     <Dropdown.Item header>Category 2</Dropdown.Item>
+ *     <Dropdown.Divider />
+ *     <Dropdown.Header>Category 2</Dropdown.Header>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *
