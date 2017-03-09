@@ -14,12 +14,12 @@ const warning  = require('./utils/warning');
  *
  *     <Button ... />
  *
- *     <Dropdown.Item header>Category 1</Dropdown.Item>
+ *     <Dropdown.Header>Category 1</Dropdown.Header>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *
- *     <Dropdown.Item divider />
- *     <Dropdown.Item header>Category 2</Dropdown.Item>
+ *     <Dropdown.Divider />
+ *     <Dropdown.Header>Category 2</Dropdown.Header>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *     <Dropdown.Item href={...}> ... </Dropdown.Item>
  *
@@ -108,7 +108,17 @@ const ButtonDropdown = React.createClass({
         });
 
         items = React.Children.map(children, function(child) {
-            if (child && child.type && (child.type.displayName == 'DropdownItem' || child.type.displayName == 'DropdownDivider')) {
+            const acceptedChildren = [
+                'DropdownItem',
+                'DropdownDivider',
+                'DropdownHeader'
+            ];
+
+            if (
+                child &&
+                child.type &&
+                (acceptedChildren.includes(child.type.displayName))
+            ) {
                 return React.cloneElement(child, {
                     onClick() {
                         if (child.props.onClick) {
