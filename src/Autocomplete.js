@@ -20,8 +20,8 @@ const Autocomplete = React.createClass({
         onBlur:       React.PropTypes.func,
         // Control the event
         value:        React.PropTypes.string,
-        // Called when typing
-        onChange:     React.PropTypes.func.isRequired,
+        // Called when typing - Required when value is passed
+        onChange:     React.PropTypes.func,
         // Called when selecting an entry
         onSelect:     React.PropTypes.func.isRequired,
         // Render options
