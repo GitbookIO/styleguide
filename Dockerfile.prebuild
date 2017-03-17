@@ -1,0 +1,28 @@
+FROM node:7.5.0
+
+# Add prebuild dir
+WORKDIR /prebuild/
+RUN mkdir -p /prebuild
+
+# Install yarn
+RUN npm i -g yarn
+
+# Yarn
+COPY ./yarn.lock ./package.json /prebuild/
+# Strip prepublish script to avoid errors
+RUN echo $(cat ./package.json | grep -v "prepublish") > ./package.json
+# Yarn install
+RUN yarn install
+
+# Rest of source
+COPY . /prebuild/
+
+# Build styleguide
+RUN npm run prepublish
+
+# Build next
+RUN ./node_modules/.bin/next build
+
+# Clean node_modules
+# TODO: add 'next' in prod
+# RUN rm -rf node_modules && yarn install --prod

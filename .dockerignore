@@ -1,0 +1,5 @@
+.git/
+node_modules/
+.next/
+Dockerfile
+Dockerfile.prebuild
